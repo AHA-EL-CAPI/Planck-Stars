@@ -1,9 +1,10 @@
 \beamer@endinputifotherversion {3.24pt}
 \beamer@sectionintoc {1}{Introduction}{3}{0}{1}
-\beamer@subsectionintoc {1}{1}{Black hole solutions}{3}{0}{1}
-\beamer@sectionintoc {2}{Regularized Schwarzschild metric}{3}{0}{2}
-\beamer@subsectionintoc {2}{1}{Hayward metric}{3}{0}{2}
-\beamer@sectionintoc {3}{Quantum Field Theory}{3}{0}{3}
-\beamer@subsectionintoc {3}{1}{Newtonian Potential}{3}{0}{3}
-\beamer@subsectionintoc {3}{2}{Quantum cosmology remarks}{3}{0}{3}
-\beamer@subsectionintoc {3}{3}{Plank stars}{3}{0}{3}
+\beamer@subsectionintoc {1}{1}{Black hole solutions}{4}{0}{1}
+\beamer@sectionintoc {2}{Regularized Schwarzschild metric}{5}{0}{2}
+\beamer@subsectionintoc {2}{1}{Hayward metric}{9}{0}{2}
+\beamer@sectionintoc {3}{Quantum Field Theory}{13}{0}{3}
+\beamer@subsectionintoc {3}{1}{Newton Potential}{16}{0}{3}
+\beamer@subsectionintoc {3}{2}{Modified Hayward metric}{17}{0}{3}
+\beamer@sectionintoc {4}{Conclusions}{18}{0}{4}
+\beamer@sectionintoc {5}{References}{19}{0}{5}

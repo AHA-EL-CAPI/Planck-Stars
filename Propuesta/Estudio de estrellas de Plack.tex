@@ -1,12 +1,18 @@
-\documentclass[12pt]{article}
+\documentclass[prb,aps,preprintnumbers,amsmath,amssymb]{article}
 
 \usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-tabla]{babel}
+
 \usepackage{epstopdf}
-\usepackage[spanish]{babel}
+%\usepackage[spanish]{babel}
 %\usepackage[english]{babel}
 %\usepackage[latin5]{inputenc}
-\usepackage{hyperref}
-\usepackage[left=1.9cm,top=3cm,right=3cm,nohead,nofoot]{geometry}
+%\usepackage{hyperref}
+\usepackage[left=2cm,top=2.5cm,right=2cm,nohead,nofoot]{geometry}
 \usepackage{braket}
 \usepackage{datenumber}
 %\newdate{date}{10}{05}{2013}
@@ -50,7 +56,7 @@ R_{\mu \nu} - \frac{1}{2} R g_{\mu \nu} + \Lambda g_{\mu \nu} = 8 \pi T_{\mu \nu
 
 donde $R_{\mu \nu}$ es el tensor de Ricci, $R$ es la curvatura escalar, $T_{\mu \nu}$ es el tensor energ\'ia-momento y $\Lambda$ es la constante cosmol\'ogica.\\
 
-Muchas de las soluciones de \ref{campo} no est\'an bien definidas en todo el espacio-tiempo, tal y como ocurre, por ejemplo, con la m\'etrica de Schwarzschild \ref{sch}  en $r = 0$.
+Muchas de las soluciones de \eqref{campo} no est\'an bien definidas en todo el espacio-tiempo, tal y como ocurre, por ejemplo, con la m\'etrica de Schwarzschild \eqref{sch}  en $r = 0$.
 
 \begin{equation}
 \label{sch}
@@ -59,7 +65,7 @@ ds^2 = -\left( 1 - \frac{2M}{r} \right) dt^2 + \left( 1 - \frac{2M}{r} \right)^{
 
 Una posible forma de solucionar estos problemas podr\'ia ser considerar correcciones cu\'anticas a la teor\'ia gravitacional. Adem\'as, el hecho de que todos los campos no gravitacionales est\'en bien descritos por la teor\'ia cu\'antica de campos, hace pensar que existe una teor\'ia cu\'antica subyacente para la gravedad.\\ 
 
-Una forma de implementar de forma efectiva correcciones cu\'anticas en la m\'etrica de Schwarzschild es mediante la denominada m\'etrica de Hayward modificada \cite{hayward,effective}, que viene dada por \ref{reg-sch} 
+Una forma de implementar de forma efectiva correcciones cu\'anticas en la m\'etrica de Schwarzschild es mediante la denominada m\'etrica de Hayward modificada \cite{hayward,effective}, que viene dada por \eqref{reg-sch} 
 
 \begin{equation}
 \label{reg-sch}
@@ -98,12 +104,12 @@ donde $l_{p}$ en la longitud de Planck.
 \end{itemize}
 
 
-Las motivaciones f\'isicas para proponer la m\'etrica \ref{reg-sch}, adem\'as de las consecuencias y propiedades de la misma son de gran inter\'es te\'orico y ejemplifican una forma particular de incluir efectos cu\'anticos de manera efectiva para regularizar la soluci\'on de Schwarzschild.  
+Las motivaciones f\'isicas para proponer la m\'etrica \eqref{reg-sch}, adem\'as de las consecuencias y propiedades de la misma son de gran inter\'es te\'orico y ejemplifican una forma particular de incluir efectos cu\'anticos de manera efectiva para regularizar la soluci\'on de Schwarzschild.  
 \section{Objetivo General}
 
 %Objetivo general del trabajo. Empieza con un verbo en infinitivo.
 
-Estudiar en detalle la estructura de las estrellas de Planck y comprender las correcciones cu\'anticas implementadas en la m\'etrica \ref{reg-sch}.
+Estudiar en detalle la estructura de las estrellas de Planck y comprender las correcciones cu\'anticas implementadas en la m\'etrica \eqref{reg-sch}.
 
 
 \section{Objetivos Espec\'ificos}
@@ -111,7 +117,7 @@ Estudiar en detalle la estructura de las estrellas de Planck y comprender las co
 %Objetivos específicos del trabajo. Empiezan con un verbo en infinitivo.
 
 \begin{itemize}
-	\item Entender (y calcular, en la medida de lo posible) las correcciones cu\'anticas del potencial Newtoniano $\Phi (r)$ mostradas en \ref{new}.
+	\item Entender (y calcular, en la medida de lo posible) las correcciones cu\'anticas del potencial Newtoniano $\Phi (r)$ mostradas en \eqref{new}.
 	\item Estudiar las m\'etricas de Bardeen y de Vaidya como punto de partida para la regularizaci\'on de agujeros negros \cite{vaidya}.
 	\item Comprender la importancia de la regularizaci\'on de la m\'etrica de Schwarzschild.
 	\item Entender las consecuencias de la regularizaci\'on mencionada previamente y el mecanismo que impide la formaci\'on de la singularidad.
@@ -134,6 +140,7 @@ El trabajo mencionado en el p\'arrafo anterior consiste en revisiar la bibliogra
 \section{\label{crono}Cronograma}
 
 \begin{table}[htb]
+\centering
 	\begin{tabular}{|c|cccccccccccccccc| }
 	\hline
 	Tareas $\backslash$ Semanas & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16  \\
@@ -142,10 +149,10 @@ El trabajo mencionado en el p\'arrafo anterior consiste en revisiar la bibliogra
 	2 &   & X & X &   &  &  &  &   &   &  &  &  &   &  &  &   \\
 	3 &   &   & X & X &  X & X  & X &  &   &   &   &  &   &   &  &   \\
 	4 &   &   &   &   & X & X & X & X & X & X &   &   &   &   &   &   \\
-	5 &   &   &   &   &  &   & X  & X  & X & X  & X  & X &   &   &  &   \\
-	6 &   &   &   &   &  &   &   & X  & X &   &   &  &   &   &  &   \\
+	5 &   &   &   &   &  &  X & X  & X  &  &   &   &  &   &   &  &   \\
+	6 &   &   &   &   &  &   & X  & X  & X & X  & X  & X &   &   &  &   \\
 	7 &   &   &   &   &  &   &   &   & X & X  & X  & X &   &   &  &   \\
-	8 &   &   & X  & X  & X & X  & X  &  X & X &  X & X  & X & X  & X  & X & X  \\
+	8 &   &   &   &   &  &   &   &   & X &  X & X  & X & X  & X  & X & X  \\
 	\hline
 	\end{tabular}
 \end{table}
@@ -156,9 +163,9 @@ El trabajo mencionado en el p\'arrafo anterior consiste en revisiar la bibliogra
 	\item Tarea 2: Recordar la definici\'on de horizontes de eventos y horizontes de Killing \cite{hawking}.
 	\item Tarea 3: Estudiar las m\'etricas de de Sitter, Bardeen y Vaidya.
 	\item Tarea 4: Estudiar y comprender las correcciones cu\'anticas al potencial gravitacional Newtoniano.
-	\item Tarea 5: Estudiar la m\'etrica de Hayward modificada y calcular el tensor energ\'ia momento asociada a ella .
-	\item Tarea 6: Redactar y presentar el documento de avance de la monograf\'ia. 
-	\item Tarea 7: Calcular y entender la dilataci\'on temporal entre $r = 0$ y $r = \infty$, adem\'as del invariante de Kretschmann para \ref{reg-sch} y verificar que se evita la singularidad en $r = 0$.
+	\item Tarea 5: Redactar y presentar el documento de avance de la monograf\'ia.
+	\item Tarea 6: Estudiar la m\'etrica de Hayward modificada y calcular el tensor energ\'ia momento asociada a ella .
+	\item Tarea 7: Calcular y entender la dilataci\'on temporal entre $r = 0$ y $r = \infty$, adem\'as del invariante de Kretschmann para \eqref{reg-sch} y verificar que se evita la singularidad en $r = 0$.
 	\item Tarea 8: Redactar el documento final de la monograf\'ia.
 \end{itemize}
 
