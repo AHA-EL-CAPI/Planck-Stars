@@ -2,6 +2,7 @@
 
 \usepackage{graphicx}
 \usepackage{amsmath}
+\numberwithin{equation}{section}
 \usepackage{dcolumn}% Align table columns on decimal point
 \usepackage{bm}% bold math
 \usepackage[utf8]{inputenc}
@@ -12,7 +13,7 @@
 %\usepackage[english]{babel}
 %\usepackage[latin5]{inputenc}
 %\usepackage{hyperref}
-\usepackage[left=2cm,top=2.5cm,right=2cm,nohead,nofoot]{geometry}
+\usepackage[left=2cm,top=2.5cm,right=2cm,bottom =3.5cm,nohead,nofoot]{geometry}
 \usepackage{braket}
 \usepackage{datenumber}
 %\newdate{date}{10}{05}{2013}
@@ -45,12 +46,14 @@ Director: Pedro Bargueño de Retes
 \normalsize
 \section{Introducción}
 
-%Introducci�n a la propuesta de Monograf�a. Debe incluir un breve resumen del estado del arte del problema a tratar. Tambi�n deben aparecer citadas todas las referencias de la bibliograf�a (a menos de que se citen m�s adelante, en los objetivos o metodolog�a, por ejemplo)
+\textbf{¡OJO! Hay que modificar esto apropiadamente, en principio, ahondar más en historia y en motivaciones para estudiar este tema}\\
+
+\textbf{¡OJO! Hay que mencionar las métricas de Bardeen y de Vaidya}\\
 
 El conocimiento actual del funcionamiento de la gravedad se basa en la Teoría General de la Relatividad de Einstein, cuya formulación matemática más general son las ecuaciones de campo, a saber:
 
 \begin{equation}
-\label{campo}
+\label{field equations}
 R_{\mu \nu} - \frac{1}{2} R g_{\mu \nu} + \Lambda g_{\mu \nu} = 8 \pi T_{\mu \nu}
 \end{equation}
 
@@ -104,83 +107,195 @@ donde $l_{p}$ en la longitud de Planck.
 \end{itemize}
 
 
-Las motivaciones físicas para proponer la métrica \eqref{reg-sch}, además de las consecuencias y propiedades de la misma son de gran interés teórico y ejemplifican una forma particular de incluir efectos cuánticos de manera efectiva para regularizar la solución de Schwarzschild.  
-\section{Objetivo General}
+Las motivaciones físicas para proponer la métrica \eqref{reg-sch}, además de las consecuencias y propiedades de la misma son de gran interés teórico y ejemplifican una forma particular de incluir efectos cuánticos de manera efectiva para regularizar la solución de Schwarzschild. \\
 
-%Objetivo general del trabajo. Empieza con un verbo en infinitivo.
+\textbf{¡OJO! Hacer conexión lógica con esta definición}\\
 
-Estudiar en detalle la estructura de las estrellas de Planck y comprender las correcciones cuánticas implementadas en la métrica \eqref{reg-sch}.
+Se dice que un agujero es regular cuando los invariantes $R$, $R^{\mu,\nu}R_{\mu,\nu}$, $R^{\mu,\nu,\rho,\sigma}R_{\mu,\nu,\rho,\sigma}$ son finitos en todos los puntos del espacio-tiempo en cuestion.
+ 
+\section{Preliminares}
 
+\subsection{Horizontes de eventos y horizontes de Killing}
 
-\section{Objetivos Específicos}
+Existen diversos tipos de horizontes en relatividad general y las definiciones dadas en esta sección solo se remiten a aquellos horizontes que serán utilizados en el estudio posterior de las diversas métricas que se presentarán posteriormente.\\
 
-%Objetivos espec�ficos del trabajo. Empiezan con un verbo en infinitivo.
+Un horizonte de eventos es una frontera en el espacio-tiempo más allá de la cual los eventos que ocurran en su interior no pueden afectar a un observador externo. Para el caso particular de los agujeros negros, un horizonte de eventos puede ser entendido como la forntera a partir de la cual la velocidad necesaria para escapar del campo gravitacional del agujaro supera la velocidad de la luz.\\
 
-\begin{itemize}
-	\item Entender (y calcular, en la medida de lo posible) las correcciones cuánticas del potencial Newtoniano $\Phi (r)$ mostradas en \eqref{new}.
-	\item Estudiar las métricas de Bardeen y de Vaidya como punto de partida para la regularización de agujeros negros \cite{vaidya}.
-	\item Comprender la importancia de la regularización de la métrica de Schwarzschild.
-	\item Entender las consecuencias de la regularización mencionada previamente y el mecanismo que impide la formación de la singularidad.
-	\item Entender la introducción de una dilatación temporal finita entre $r = 0$ y $r = \infty$.
-	\item Tratar de generalizar el procedimiento de regularización a la métrica de Reissner-Nordström.
-\end{itemize}
+Dada una métrica en coordenadas esféricas $(t,r,\theta,\phi)$, los horizontes de eventos de dicha métrica se localizan en los puntos donde $g^{rr}$ diverge.\\
 
-\section{Metodología}
+Por otra parte, antes de definir un horizonte de Killing es preciso definir vectores de killing. Un campo vectorial de killing $X$ es, valga la redundancia, un campo vectorial que satisface
 
-%Exponer DETALLADAMENTE la metodolog�a que se usar� en la Monograf�a. 
+\begin{equation}
+\nabla_\mu X_\nu + \nabla_\nu X_\mu = 0,
+\end{equation}
 
-%Monograf�a te�rica o computacional: �C�mo se har�n los c�lculos te�ricos? �C�mo se har�n las simulaciones? �Qu� requerimientos computacionales se necesitan? �Qu� espacios f�sicos o virtuales se van a utilizar?
+es decir, que la derivada covvariante de este campo vectorial es antisimétrica (¡OJO!). Teniendo en cuenta lo anterior, un horizonte de killing se define como una hipersuperficie nula donde la norma de un vector de killing se hace cero.
 
-%Monograf�a experimental: Recordar que para ser aprobada, los aparatos e insumos experimentales que se usar�n en la Monograf�a deben estar previamente disponibles en la Universidad, o garantizar su disponibilidad para el tiempo en el que se realizar� la misma. �Qu� montajes experimentales se van a usar y que material se requiere? �En qu� espacio f�sico se llevar�n a cabo los experimentos? Si se usan aparatos externos, �qu� permisos se necesitan? Si hay que realizar pagos a terceros, �c�mo se financiar� esto?
+\subsection{Condiciones de energía}
 
-La metodología usada sería un trabajo autónomo del estudiante, con seguimiento continuo por parte del director mediante reuniones semanales en las que se revise el cumplimiento de las tareas establecidas en el cronograma mostrado posteriormente, se resuelvan dudas del estudiante, se proponga nueva bibliografía en caso de ser necesario, y se establezcan objetivos particulares para la siguiente reunión.\\
+De vital importancia para el estudio de las métricas a lo largo de todo este documento son las denominadas condiciones de energía \cite{carroll book}. Si bien en la mayoría de los casos resulta útil estudiar las ecuaciones de campo sin especificar la fuente de materia $T_{\mu \nu}$ en el espacio-tiempo descrito, en algunas ocasiones resulta interesante estudiar las propiedades de dichas ecuaciones que son válidas para diversas fuentes de materia. En esta última situación es fundamental imponer condiciones de energía que limiten la arbitrariedad de $T_{\mu \nu}$ con el fin de que sean fuentes razonables de energía y momento (¡OJO!).\\
 
-El trabajo mencionado en el párrafo anterior consiste en revisiar la bibliografía propuesta, realizar los cálculos teóricos necesarios (especificados en la sección \textbf{Cronograma}) y redactar el documento final de la monografía. Cuando sea necesario, se usaría el software \emph{Mathematica}, dependiendo de la extensión de los cálculos.
-
-\section{\label{crono}Cronograma}
-
-\begin{table}[htb]
-\centering
-	\begin{tabular}{|c|cccccccccccccccc| }
-	\hline
-	Tareas $\backslash$ Semanas & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16  \\
-	\hline
-	1 & X & X &   &   &   &   &   &  &  &   &   &   &   &   &   &   \\
-	2 &   & X & X &   &  &  &  &   &   &  &  &  &   &  &  &   \\
-	3 &   &   & X & X &  X & X  & X &  &   &   &   &  &   &   &  &   \\
-	4 &   &   &   &   & X & X & X & X & X & X &   &   &   &   &   &   \\
-	5 &   &   &   &   &  &  X & X  & X  &  &   &   &  &   &   &  &   \\
-	6 &   &   &   &   &  &   & X  & X  & X & X  & X  & X &   &   &  &   \\
-	7 &   &   &   &   &  &   &   &   & X & X  & X  & X &   &   &  &   \\
-	8 &   &   &   &   &  &   &   &   & X &  X & X  & X & X  & X  & X & X  \\
-	\hline
-	\end{tabular}
-\end{table}
-\vspace{1mm}
+Las formulaciones matemáticas de las múltiples  condiciones de energía se establecen a continuación:
 
 \begin{itemize}
-	\item Tarea 1: Recordar la formulación tensorial de la Relatividad General y algunos teoremas de singularidad \cite{inverno}.
-	\item Tarea 2: Recordar la definición de horizontes de eventos y horizontes de Killing \cite{hawking}.
-	\item Tarea 3: Estudiar las métricas de de Sitter, Bardeen y Vaidya.
-	\item Tarea 4: Estudiar y comprender las correcciones cuánticas al potencial gravitacional Newtoniano.
-	\item Tarea 5: Redactar y presentar el documento de avance de la monografía.
-	\item Tarea 6: Estudiar la métrica de Hayward modificada y calcular el tensor energía momento asociada a ella .
-	\item Tarea 7: Calcular y entender la dilatación temporal entre $r = 0$ y $r = \infty$, además del invariante de Kretschmann para \eqref{reg-sch} y verificar que se evita la singularidad en $r = 0$.
-	\item Tarea 8: Redactar el documento final de la monografía.
+\item \textbf{Condición de energía débil (WEC):} Para todo vector timelike $t^\mu$ se satisface $T_{\mu \nu}t^{\mu}t^{\nu} \geq 0$. Para el caso particular de un fluido perfecto esta condición se traduce en $\rho \geq 0$ y $\rho + p \geq 0$.
+
+\item \textbf{Condición de energía débil (NEC):} Como caso expecial de WEC, se exige que para cualquier vector nulo $l^\mu$ se tenga $T_{\mu \nu}l^{\mu}l^{\nu} \geq 0$. En el caso de un fluido perfecto, esta condición exige $\rho + p \geq 0$.
+
+\item \textbf{Condición de energía dominante (DEC):} Esta condición incluye a WEC y se puede dividir en dos partes: la primera es exactamente igual a lo requerido por WEC; y la segunda exige que $T_{\mu \nu}T^{\nu}_{\lambda}t^{\mu}t^{\lambda} \geq 0$ para todo $t^{\mu}$ timelike. Para fluidos perfectos esta condición se traduce en $\rho \geq |p|$.
+
+\item \textbf{Condición de energía nula dominante (NDEC):} Este requerimiento es igual a DEC salvo que se exige para vectores nulos en vez de para vectores timelike. Para fluidos perfectos, densidades negativas son permitidas siempre y cuando se satisfaga $p = -\rho$.
+
+\item \textbf{Condición de energía fuerte (SEC):} Esta última condición exige que $T_{\mu \nu}t^{\mu}t^{\nu} \geq \frac{1}{2}T^{\lambda}_{\lambda}t^{\sigma}t_{\sigma}$ para todo vector $t^\mu$ timelike. Equivalentemente, se demanda que $\rho p p \geq 0$ y que $\rho + 3p \geq 0$ en el caso de un fluido perfecto. Cabe mencionar que la SEC no implica a WEC pero sí implica a NEC.
 \end{itemize}
 
-\section{Personas Conocedoras del Tema}
+¡OJO! Hawking y Ellis - Tipos de fluidos
 
-%Nombres de por lo menos 3 profesores que conozcan del tema. Uno de ellos debe ser profesor de planta de la Universidad de los Andes.
+\subsection{Métrica de Bardeen}
 
-\begin{itemize}
-	\item Andrés Fernando Reyes Lega (Universidad de los Andes, Departamento de Física)
-	\item Alonso Botero Mejía (Universidad de los Andes, Departamento de Física)
-	\item Marek Nowakowski (Universidad de los Andes, Departamento de Física)
-\end{itemize}
+La métrica de Bardeen \cite{bardeen,borde-1994,borde-1996} fue una de las primeras en describir un agujero negro regular. En coordenadas esféricas $(t,r,\theta,\phi)$, la métrica de Bardeen se expresa como
+
+\begin{equation}
+\label{bardeen metric}
+ds^2 = -\left( 1 - \frac{2mr^2}{(r^2 + q^2)^{3/2}} \right)dt^2 + \left( 1 - \frac{2mr^2}{(r^2 + q^2)^{3/2}} \right)^{-1}dr^2 + r^2d\Omega^2.
+\end{equation}\\
+
+Dicha métrica está inspirada en la de Reissner-Nordtröm por el hecho de que la componente temporal satisface
+
+\begin{equation}
+g_{tt} \sim_{r \to \infty} 1 - \frac{2m}{r} + \frac{3me^2}{r^3} + \mathcal{O}\left( \frac{1}{r^5} \right).
+\end{equation}
+
+Los dos primeros términos de la expansión corresponden, como es de esperarse, al comportamiento asintóticmente plano de la métrica de Bardeen, mientras que el último término mostrado permite identificar a $q$ como una especie de carga eléctrica, justo como en el caso de Reissner-Nordström (¡OJO! Def. de gtt en términos del potnecial - Límite newtoniano).\\
+
+Más allá de lo mencionado anteriormente, y debido a que el elemento de línea \eqref{bardeen metric} es diagonal, es posbile obtener los horizontes de eventos de esta métrica al solucionar
+
+\begin{equation}
+g_{tt} = 1 - \frac{2mr^2}{(r^2 + q^2)^{3/2}} = 0.
+\end{equation}
+
+Y analizar las condiciones para la existencia de soluciones reales se concluye que la métrica \eqref{bardeen metric} posee horizontes de eventos cuando $q^2 < (16/27)m^2$ (¡OJO!). Este aspecto de la métrica de Bardeen también hace eco de una de las características fundamentales de la métrica de Reissner-Nordström en tanto que las propiedades globales del espacio-tiempo descrito tanto por la métrica de Reissner-Nordström como por la métrica de Bardeen dependen fuertemente de las magnitudes relativas entre $q$ y $m$.\\
+
+Otro aspecto importante a tener en cuenta con respecto a la métrica de Bardeen son las condiciones de energía. Con la ayuda de \textit{Mathematica}, los componentes no nulos del tensor energía-momento (EMT) para la métrica \eqref{bardeen metric} son
+
+\begin{equation}
+\begin{split}
+T_{tt} &= -\frac{3 q^2 \left(r^6 \left(-24 m^2-4 m \left(\sqrt{q^2+r^2}-28\right)-74 \sqrt{q^2+r^2}+11 r^2+24\right)+q^2 r^4 \left(16 m^2-16 m \left(3 \sqrt{q^2+r^2}-7\right)-118 \sqrt{q^2+r^2}+49 r^2-16\right)+q^4 r^2 \left(81 r^2-44 (m+1) \sqrt{q^2+r^2}\right)+16 q^8+59 q^6 r^2\right)}{16 \pi  \left(q^2+r^2\right)^5 \left(q^2 \sqrt{q^2+r^2}+r^2 \left(\sqrt{q^2+r^2}-4\right)\right)}\\
+T_{rr} &= -\frac{3 q^2 \left(r^6 \left(24 m^2+m \left(112-52 \sqrt{q^2+r^2}\right)-38 \sqrt{q^2+r^2}+17 r^2-24\right)+q^2 r^4 \left(-16 m^2-16 m \left(4 \sqrt{q^2+r^2}-7\right)-106 \sqrt{q^2+r^2}+63 r^2+16\right)+q^4 r^2 \left(87 r^2-4 (3 m+17) \sqrt{q^2+r^2}\right)+12 q^8+53 q^6 r^2\right)}{16 \pi  \left(q^2+r^2\right)^2 \left(q^2 \sqrt{q^2+r^2}+r^2 \left(\sqrt{q^2+r^2}-4\right)\right) \left(\left(q^2+r^2\right)^{3/2}-2 m r^2\right)^2}\\
+T_{\theta \theta} &= \frac{r^2 \left(-\frac{3 q^2 \left(2 q^2-3 r^2\right) \left(q^2 \sqrt{q^2+r^2}+r^2 \left(\sqrt{q^2+r^2}-2\right)\right)}{\left(q^2+r^2\right)^5 \left(1-\frac{2 m r^2}{\left(q^2+r^2\right)^{3/2}}\right)}-\frac{6 \left(2 q^4-3 q^2 r^2\right) \left(1-\frac{2 m r^2}{\left(q^2+r^2\right)^{3/2}}\right)}{\left(q^2+r^2\right)^2 \left(q^2 \sqrt{q^2+r^2}+r^2 \left(\sqrt{q^2+r^2}-4\right)\right)}-\frac{6 q^2}{\left(q^2+r^2\right)^{5/2}}\right)}{16 \pi }\\
+T_{\phi \phi} &= \frac{r^2 \sin ^2(\theta ) \left(-\frac{3 q^2 \left(2 q^2-3 r^2\right) \left(q^2 \sqrt{q^2+r^2}+r^2 \left(\sqrt{q^2+r^2}-2\right)\right)}{\left(q^2+r^2\right)^5 \left(1-\frac{2 m r^2}{\left(q^2+r^2\right)^{3/2}}\right)}-\frac{6 \left(2 q^4-3 q^2 r^2\right) \left(1-\frac{2 m r^2}{\left(q^2+r^2\right)^{3/2}}\right)}{\left(q^2+r^2\right)^2 \left(q^2 \sqrt{q^2+r^2}+r^2 \left(\sqrt{q^2+r^2}-4\right)\right)}+\frac{6 q^2}{\left(q^2+r^2\right)^{5/2}}\right)}{16 \pi }
+\end{split}
+\end{equation}
+
+¡OJO! Explicar brevemente lo del cambio de topología para evitar la singularidad.
+
+\textbf{¡OJO! La forma en la que se evita la singularidad en este y otros modelos que son considerados como Bardeen-like involucra una explicación que no he logrado entnder. Discutir con Pedro.}\\
+
+¡OJO! Borde 1994 habla de global Cauchy surface condition. Tengo que leer un poco más para entenderlo.
+
+
+\subsection{Métrica de Vaidya}
+
+La métrica de Vaidya \cite{vaidya} es una generalización de la métrica de Schwarzschild que puede ser interpretada como un espacio-tiempo con una radiación saliente y esféricamente simétrica de partículas sin masa (¡OJO! Necesito más tiempo para entnder esto).\\
+
+Para hallar esta métrica a partir de la de Schwarzschild es necesario pasar a coordenadas de Eddington-Finkelstein (¡OJO! Sería bueno ponerlo en un apéndice, junto con los ćalculos mencionados en otros OJO, poner lo de tortoise en el Gravitation), en las que la coordenada temporal $t$ es reemplazada por una nueva coordenada $u$ que satisface
+
+\begin{equation}
+dt = du + \frac{dr}{(1 - 2M/r)}
+\end{equation}
+
+\textbf{¡OJO! Hablar de la opción con el menos}\\
+
+\textbf{¡OJO! Significado físico de u}\\
+
+Con dicha transformación, el elemento de línea se convierte en 
+
+\begin{equation}
+\label{schw-tortoise}
+ds^2 = - \left(1- \frac{2M}{r}\right)du^2 - 2dudr + r^2d\Omega^2
+\end{equation}
+
+Dado que nos interesa llegar a una métrica debida a fotones dirigidos radialmente hacia afuera (¡OJO! Entender esto), el elemento de línea anterior puede ser generalizado al considerar $M = M(u)$. Teniendo en cuenta lo anterior, y después de algunos cálculos (¡OJO! Cálculos en anexo, Padmanabhan), tenemos que el tensor energía-momento que genera la métrica \eqref{schw-tortoise} tiene como única componente distinta de cero $T_{uu} = -(M'/4 \pi r^2)$. Esto es exactamente igual al tensor que se obtendría para un rayo de fotones moviéndose radialmente hacia afuera con cuadrimomento $k_{a} = \nabla_{a}u$. El tensor energía-momento en este caso es $T^{ab} = -(M'/4 \pi r^2)k^{a}k^{b}$. Dado lo anterior, podemos interpretar la métrica de Vaidya como debida a una fuente esférica que pierde masa al emitir fotones de una forma simétrica.\\
+
+¡OJO! Hasta aquí Padmanabhan\\
+
+¡OJO! Hablar más al tener en cuenta a Joshi.\\
+
+\textbf{¡OJO! ¿Qué más incluir dentro de los prelimirares? ¿Dejar esta sección o ponerla en anexos?}\\
+
+\section{Métrica de Hayward}
+
+Teniendo todas las herramientas estudiadas en la sección anterior, es posible comenzar a estudiar el tema de interés para este trabajo.\\
+
+¡OJO! Elaborar un poco más.\\
+
+La métrica de Hayward está dada por 
+
+\begin{equation}
+ds^2 = \left( 1 - \frac{Mr^2}{r^3 + 2ML^2} \right) dt^2 + \left( 1 - \frac{Mr^2}{r^3 + 2ML^2} \right)^{-1} dr^2 + r^2d\Omega ^2
+\end{equation}
+
+¡OJO! Hacer conexión lógica con lo que sigue\\
+
+La corrección efectiva de teoría cuántica de campos al potencial Newtoniano es
+
+\begin{equation}
+\label{new}
+\Phi (r) = -\frac{M}{r} \left( 1 + \beta \frac{l_{p}^2}{r^2} \right) + \mathcal{O}(r^{-4}),
+\end{equation}
+
+donde $l_{p}$ en la longitud de Planck.\\
+
+¡OJO! Elaborar un poco más\\
+
+Para remover la singularidad en el origen, la métrica de Hayward satisface 
+
+\begin{equation}
+g_{tt}(r) \sim_{r \to 0} 1 - \frac{r^2}{l^2}
+\end{equation}
+
+Y teniendo en cuenta lo anterior, es posible definir una constante cosmológica para la métrica de Hayward, a saber
+
+\begin{equation}
+\Lambda = \frac{3}{l^2}
+\end{equation}
+
+\section{Métrica de Hayward modificada}
+
+La métrica de Hayward modificada está dada por 
+\begin{equation}
+\label{reg-sch}
+ds^2 = -G(r)F(r) dt^2 + \frac{1}{F(r)} dr^2 + r^2d\Omega ^2
+\end{equation}
+
+donde
+
+\begin{equation}
+\label{mod-hay-f}
+F(r) = 1 - \frac{Mr^2}{r^3 + 2ML^2}
+\end{equation}
+
+\begin{equation}
+\label{mod-hay-g}
+G(r) = 1 - \frac{\beta M \alpha}{\alpha r^3 + \beta M}
+\end{equation}
+
+\section{Anexos}
+
+¡OJO! Sería bueno hacer algo sobre las correcciones cuánticas\\
+
+¡OJO! Cálculos Padmanabhan - Mathematica\\
+
+¡OJO! Coordenadas Eddington-Finkelstein\\
 
 
 \begin{thebibliography}{10}
+
+\bibitem{1} \textbf{¡OJO! ¿Debería usar Bibtex para la bibliografía o dejarla así?}\\
+
+\bibitem{2} \textbf{¡OJO! Usarlas todas en el texto}
+
+\bibitem{3} ¡OJO! Orden en el que aparecen en el texto.
 
 \bibitem{hayward} Hayward, S.A.: Formation and Evaporation of regular black holes. Phys. Rev. Lett. \textbf{96}, 31103 (2006).
 
@@ -191,20 +306,21 @@ El trabajo mencionado en el párrafo anterior consiste en revisiar la bibliograf
 \bibitem{planck stars} Rovelli, C., Vidotto, F.: Planck Stars. Int. J. Mod. Phys. D. \textbf{23}, 1142026, (2014).
 
 
-\bibitem{vaidya} Padmanabhan, T.: \textit{Gravitation: Foundations and Frontiers}. Cambridge University Press, Cambridge (2010).
+\bibitem{padmanabhan} Padmanabhan, T.: \textit{Gravitation: Foundations and Frontiers}. Cambridge University Press, Cambridge (2010).
 
 \bibitem{inverno} d'Inverno, R. A.: \textit{Introducing Einstein's Relativity}. Oxford University Press, New York (1992).
 
-\bibitem{hawking} Hawking, S.W., Ellis, G.F.R.: The Large Scale Structure of Space-time, vol. 1, 20th edn. Cambridge University Press, Cambridge (1973).
+\bibitem{hawking} Hawking, S.W., Ellis, G.F.R.: \textit{The Large Scale Structure of Space-time}, vol. 1, 20th edn. Cambridge University Press, Cambridge (1973).
 
+\bibitem{gravitation} Misner, Charles W., Thorne, Kip S., Wheeler, John Archibald: \textit{Gravitation}, 1st ed. W. H. Freeman, San Francisco (1973).
+
+\bibitem{borde-1994} Borde, A.: Open and closed universes, initial singularities, and inflation. Phy. Rev. D. \textbf{50}, 3692 (1994).
+
+\bibitem{borde-1996} Borde, A.: Regular black holes and topology change. Phy. Rev. D. \textbf{55}, 7615 (1996).
+
+\bibitem{carroll book} Carroll, Sean M.: \textit{Spacetime and Geometry: An introduction to General Relativity}, 1st ed. Addison Wesley, , San Francisco (2004). 
 
 \end{thebibliography}
-
-\section*{Firma del Director}
-\vspace{2.5cm}
-
-\section*{Firma del Estudiante}
-
 
 
 \end{document} 
