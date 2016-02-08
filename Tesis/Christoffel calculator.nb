@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     23011,        714]
-NotebookOptionsPosition[     22132,        679]
-NotebookOutlinePosition[     22464,        694]
-CellTagsIndexPosition[     22421,        691]
+NotebookDataLength[     23060,        715]
+NotebookOptionsPosition[     22181,        680]
+NotebookOutlinePosition[     22513,        695]
+CellTagsIndexPosition[     22470,        692]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -515,7 +515,8 @@ Cell[BoxData[
     RowBox[{"fbardeen", "[", 
      RowBox[{"r", ",", "m", ",", "q"}], "]"}], "\[Equal]", "0"}], ",", "r", 
    ",", "Reals"}], "]"}]], "Input",
- CellChangeTimes->{{3.663939299604528*^9, 3.6639393332225924`*^9}}],
+ CellChangeTimes->{{3.663939299604528*^9, 3.6639393332225924`*^9}, {
+  3.663946717449512*^9, 3.663946717769807*^9}}],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -713,8 +714,8 @@ Cell[15713, 475, 290, 7, 32, "Input"],
 Cell[16006, 484, 696, 21, 54, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[16739, 510, 271, 7, 32, "Input"],
-Cell[17013, 519, 5103, 157, 245, "Output"]
+Cell[16739, 510, 320, 8, 32, "Input"],
+Cell[17062, 520, 5103, 157, 245, "Output"]
 }, Open  ]]
 }
 ]
