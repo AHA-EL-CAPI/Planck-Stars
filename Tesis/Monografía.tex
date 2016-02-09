@@ -133,7 +133,7 @@ es decir, que la derivada covvariante de este campo vectorial es antisimétrica 
 
 \subsection{Condiciones de energía}
 
-De vital importancia para el estudio de las métricas a lo largo de todo este documento son las denominadas condiciones de energía \cite{carroll book}. Si bien en la mayoría de los casos resulta útil estudiar las ecuaciones de campo sin especificar la fuente de materia $T_{\mu \nu}$ en el espacio-tiempo descrito, en algunas ocasiones resulta interesante estudiar las propiedades de dichas ecuaciones que son válidas para diversas fuentes de materia. En esta última situación es fundamental imponer condiciones de energía que limiten la arbitrariedad de $T_{\mu \nu}$ con el fin de que sean fuentes razonables de energía y momento (¡OJO!).\\
+De vital importancia para el estudio de las métricas a lo largo de todo este documento son las denominadas condiciones de energía. Si bien en la mayoría de los casos resulta útil estudiar las ecuaciones de campo sin especificar la fuente de materia $T_{\mu \nu}$ en el espacio-tiempo descrito, en algunas ocasiones resulta interesante estudiar las propiedades de dichas ecuaciones que son válidas para diversas fuentes de materia. En esta última situación es fundamental imponer condiciones de energía que limiten la arbitrariedad de $T_{\mu \nu}$ con el fin de que sean fuentes razonables de energía y momento \cite{carroll book}.\\
 
 Las formulaciones matemáticas de las múltiples  condiciones de energía se establecen a continuación:
 
@@ -146,8 +146,10 @@ Las formulaciones matemáticas de las múltiples  condiciones de energía se est
 
 \item \textbf{Condición de energía nula dominante (NDEC):} Este requerimiento es igual a DEC salvo que se exige para vectores nulos en vez de para vectores timelike. Para fluidos perfectos, densidades negativas son permitidas siempre y cuando se satisfaga $p = -\rho$.
 
-\item \textbf{Condición de energía fuerte (SEC):} Esta última condición exige que $T_{\mu \nu}t^{\mu}t^{\nu} \geq \frac{1}{2}T^{\lambda}_{\lambda}t^{\sigma}t_{\sigma}$ para todo vector $t^\mu$ timelike. Equivalentemente, se demanda que $\rho p p \geq 0$ y que $\rho + 3p \geq 0$ en el caso de un fluido perfecto. Cabe mencionar que la SEC no implica a WEC pero sí implica a NEC.
+\item \textbf{Condición de energía fuerte (SEC):} Esta última condición exige que $T_{\mu \nu}t^{\mu}t^{\nu} \geq \frac{1}{2}T^{\lambda}_{\lambda}t^{\sigma}t_{\sigma}$ para todo vector $t^\mu$ timelike. Equivalentemente, se demanda que $\rho + p \geq 0$ y que $\rho + 3p \geq 0$ en el caso de un fluido perfecto. Cabe mencionar que la SEC no implica a WEC pero sí implica a NEC.
 \end{itemize}
+
+A lo largo de este documento, las condiciones estudiadas en las diversas métricas presentadas serán WEC, NEC, DEC y SEC.\\
 
 ¡OJO! Hawking y Ellis - Tipos de fluidos
 
@@ -174,20 +176,31 @@ Más allá de lo mencionado anteriormente, y debido a que el elemento de línea 
 g_{tt} = 1 - \frac{2mr^2}{(r^2 + q^2)^{3/2}} = 0.
 \end{equation}
 
-Y analizar las condiciones para la existencia de soluciones reales se concluye que la métrica \eqref{bardeen metric} posee horizontes de eventos cuando $q^2 < (16/27)m^2$ (¡OJO!). Este aspecto de la métrica de Bardeen también hace eco de una de las características fundamentales de la métrica de Reissner-Nordström en tanto que las propiedades globales del espacio-tiempo descrito tanto por la métrica de Reissner-Nordström como por la métrica de Bardeen dependen fuertemente de las magnitudes relativas entre $q$ y $m$.\\
+Y analizar las condiciones para la existencia de soluciones reales se concluye que la métrica \eqref{bardeen metric} posee horizontes de eventos cuando $q^2 < (16/27)m^2$. Este aspecto de la métrica de Bardeen también hace eco de una de las características fundamentales de la métrica de Reissner-Nordström en tanto que las propiedades globales del espacio-tiempo descrito tanto por la métrica de Reissner-Nordström como por la métrica de Bardeen dependen fuertemente de las magnitudes relativas entre $q$ y $m$.\\
 
 Otro aspecto importante a tener en cuenta con respecto a la métrica de Bardeen son las condiciones de energía. Con la ayuda de \textit{Mathematica}, los componentes no nulos del tensor energía-momento (EMT) para la métrica \eqref{bardeen metric} son
 
 \begin{equation}
 \begin{split}
-T_{tt} &= -\frac{3 q^2 \left(r^6 \left(-24 m^2-4 m \left(\sqrt{q^2+r^2}-28\right)-74 \sqrt{q^2+r^2}+11 r^2+24\right)+q^2 r^4 \left(16 m^2-16 m \left(3 \sqrt{q^2+r^2}-7\right)-118 \sqrt{q^2+r^2}+49 r^2-16\right)+q^4 r^2 \left(81 r^2-44 (m+1) \sqrt{q^2+r^2}\right)+16 q^8+59 q^6 r^2\right)}{16 \pi  \left(q^2+r^2\right)^5 \left(q^2 \sqrt{q^2+r^2}+r^2 \left(\sqrt{q^2+r^2}-4\right)\right)}\\
-T_{rr} &= -\frac{3 q^2 \left(r^6 \left(24 m^2+m \left(112-52 \sqrt{q^2+r^2}\right)-38 \sqrt{q^2+r^2}+17 r^2-24\right)+q^2 r^4 \left(-16 m^2-16 m \left(4 \sqrt{q^2+r^2}-7\right)-106 \sqrt{q^2+r^2}+63 r^2+16\right)+q^4 r^2 \left(87 r^2-4 (3 m+17) \sqrt{q^2+r^2}\right)+12 q^8+53 q^6 r^2\right)}{16 \pi  \left(q^2+r^2\right)^2 \left(q^2 \sqrt{q^2+r^2}+r^2 \left(\sqrt{q^2+r^2}-4\right)\right) \left(\left(q^2+r^2\right)^{3/2}-2 m r^2\right)^2}\\
-T_{\theta \theta} &= \frac{r^2 \left(-\frac{3 q^2 \left(2 q^2-3 r^2\right) \left(q^2 \sqrt{q^2+r^2}+r^2 \left(\sqrt{q^2+r^2}-2\right)\right)}{\left(q^2+r^2\right)^5 \left(1-\frac{2 m r^2}{\left(q^2+r^2\right)^{3/2}}\right)}-\frac{6 \left(2 q^4-3 q^2 r^2\right) \left(1-\frac{2 m r^2}{\left(q^2+r^2\right)^{3/2}}\right)}{\left(q^2+r^2\right)^2 \left(q^2 \sqrt{q^2+r^2}+r^2 \left(\sqrt{q^2+r^2}-4\right)\right)}-\frac{6 q^2}{\left(q^2+r^2\right)^{5/2}}\right)}{16 \pi }\\
-T_{\phi \phi} &= \frac{r^2 \sin ^2(\theta ) \left(-\frac{3 q^2 \left(2 q^2-3 r^2\right) \left(q^2 \sqrt{q^2+r^2}+r^2 \left(\sqrt{q^2+r^2}-2\right)\right)}{\left(q^2+r^2\right)^5 \left(1-\frac{2 m r^2}{\left(q^2+r^2\right)^{3/2}}\right)}-\frac{6 \left(2 q^4-3 q^2 r^2\right) \left(1-\frac{2 m r^2}{\left(q^2+r^2\right)^{3/2}}\right)}{\left(q^2+r^2\right)^2 \left(q^2 \sqrt{q^2+r^2}+r^2 \left(\sqrt{q^2+r^2}-4\right)\right)}+\frac{6 q^2}{\left(q^2+r^2\right)^{5/2}}\right)}{16 \pi }
+T_{tt} &= -\frac{6 m q^2 \left(2 m r^2-\left(q^2+r^2\right)^{3/2}\right)}{8 \pi \left(q^2+r^2\right)^4}\\
+T_{rr} &= -\frac{6 m q^2}{8 \pi \left(q^2+r^2\right) \left(\left(q^2+r^2\right)^{3/2}-2 m r^2\right)}\\
+T_{\theta \theta} &= \frac{m \left(9 q^2 r^4-6 q^4 r^2\right)}{8 \pi \left(q^2+r^2\right)^{7/2}}\\
+T_{\phi \phi} &= \frac{3 m q^2 r^2 \sin ^2(\theta ) \left(3 r^2-2 q^2\right)}{8 \pi \left(q^2+r^2\right)^{7/2}}
 \end{split}
 \end{equation}
 
-¡OJO! Explicar brevemente lo del cambio de topología para evitar la singularidad.
+En particular, el EMT correspondiente a la métrica de Bardeen es diagonal y de a cuerdo a \cite{hawking}, el tensor anteriormente descrito corresponde a un fluido tipo I, la densidad de este fluido corresponde a $\rho = T_{tt}$ y las correspondientes presiones son $p_{1} = T_{rr}$, $p_{2} = T_{\theta \theta}$ y $p_{3} = T_{\phi \phi}$. Por ende, las condiciones de energía para la métrica de bardeen imponen las siguientes condiciones:
+
+\begin{itemize}
+\item La WEC requiere que $T_{tt} \geq 0$ y que $T_{tt} + T_{ii} \geq 0$ para $i = r,\theta,\phi$.
+\item La NEC requiere que $T_{tt} + T_{ii} \geq 0$ para $i = r,\theta,\phi$.
+\item La DEC requiere que $T_{tt} \geq |T_{ii}|$ para $i = r,\theta,\phi$.
+\item La SEC requiere que $T_{tt} + T_{ii} \geq 0$ y $T_{tt} + 3T_{ii} \geq 0$ para $i = r,\theta,\phi$.
+\end{itemize}
+
+¡OJO! Poner en términos de r tarda bastante. ¿Cómo abordarlo?
+
+¡OJO! Explicar brevemente lo del cambio de topología para evitar la singularidad.\\
 
 \textbf{¡OJO! La forma en la que se evita la singularidad en este y otros modelos que son considerados como Bardeen-like involucra una explicación que no he logrado entnder. Discutir con Pedro.}\\
 
@@ -215,7 +228,10 @@ Con dicha transformación, el elemento de línea se convierte en
 ds^2 = - \left(1- \frac{2M}{r}\right)du^2 - 2dudr + r^2d\Omega^2
 \end{equation}
 
-Dado que nos interesa llegar a una métrica debida a fotones dirigidos radialmente hacia afuera (¡OJO! Entender esto), el elemento de línea anterior puede ser generalizado al considerar $M = M(u)$. Teniendo en cuenta lo anterior, y después de algunos cálculos (¡OJO! Cálculos en anexo, Padmanabhan), tenemos que el tensor energía-momento que genera la métrica \eqref{schw-tortoise} tiene como única componente distinta de cero $T_{uu} = -(M'/4 \pi r^2)$. Esto es exactamente igual al tensor que se obtendría para un rayo de fotones moviéndose radialmente hacia afuera con cuadrimomento $k_{a} = \nabla_{a}u$. El tensor energía-momento en este caso es $T^{ab} = -(M'/4 \pi r^2)k^{a}k^{b}$. Dado lo anterior, podemos interpretar la métrica de Vaidya como debida a una fuente esférica que pierde masa al emitir fotones de una forma simétrica.\\
+Dado que nos interesa llegar a una métrica debida a fotones dirigidos radialmente hacia afuera (¡OJO! Entender esto), el elemento de línea anterior puede ser generalizado al considerar $M = M(u)$. Teniendo en cuenta lo anterior, y después de algunos cálculos (¡OJO! Cálculos en anexo, Padmanabhan), tenemos que el tensor energía-momento que genera la métrica \eqref{schw-tortoise} tiene como única componente distinta de cero $T_{uu} = -(M'/4 \pi r^2)$. Esto es exactamente igual al tensor que se obtendría para un rayo de fotones moviéndose radialmente hacia afuera con cuadrimomento $k_{a} = \nabla_{a}u$. El tensor energía-momento en este caso es $T^{ab} = -(M'/4 \pi r^2)k^{a}k^{b}$ (¡OJO!). Dado lo anterior, podemos interpretar la métrica de Vaidya como debida a una fuente esférica que pierde masa al emitir fotones de una forma simétrica.\\
+
+Con respecto a las condiciones de energía, es claro que por la forma del EMT para la métrica de Vaidya, la única condición que vale la pena estudiar es WEC, la cual requiere $T_{uu} \geq 0$ y en términos de r requiere que $r > 0\ ,\ m'(u)\geq 0 $.\\
+
 
 ¡OJO! Hasta aquí Padmanabhan\\
 
@@ -234,6 +250,21 @@ La métrica de Hayward está dada por
 \begin{equation}
 ds^2 = \left( 1 - \frac{Mr^2}{r^3 + 2ML^2} \right) dt^2 + \left( 1 - \frac{Mr^2}{r^3 + 2ML^2} \right)^{-1} dr^2 + r^2d\Omega ^2
 \end{equation}
+
+El EMT asociado a esta métrica es
+
+\begin{equation}
+\begin{split}
+T_{tt} &= \frac{3 m^2}{8 \pi} \left(\frac{4 \left(m^2 \left(r^2-2\right)+m \left(r^3-r^5\right)+r^6\right)}{\left(2 m+r^3\right)^4}-\left(\frac{m r^2}{2 m+r^3}-1\right) \left(\frac{2 \left(m-r^3\right)}{\left(2 m+r^3\right)^3}+\frac{9}{\left(18 m+r^3\right)^2}+\frac{16}{\left(32 m+r^3\right)^2}-\frac{8 \left(4 m-r^3\right) \left(r^3-m \left(r^2-2\right)\right)}{\left(2 m+r^3\right) \left(8 m+r^3\right)^2 \left(m \left(r^2-8\right)-r^3\right)}\right)\right)\\
+T_{rr} &= \frac{3 m^2}{8 \pi} \left(\frac{16 \left(r^3-4 m\right)}{\left(8 m+r^3\right)^2 \left(m \left(r^2-8\right)-r^3\right)}-\frac{\frac{2 \left(m-r^3\right)}{\left(2 m+r^3\right)^3}+\frac{9}{\left(18 m+r^3\right)^2}+\frac{16}{\left(32 m+r^3\right)^2}-\frac{8 \left(4 m-r^3\right) \left(r^3-m \left(r^2-2\right)\right)}{\left(2 m+r^3\right) \left(8 m+r^3\right)^2 \left(m \left(r^2-8\right)-r^3\right)}}{1-\frac{m r^2}{2 m+r^3}}\right)\\
+T_{\theta \theta} &= \frac{3 m^2 r^2}{8 \pi} \left(-\frac{2 \left(m-r^3\right)}{\left(2 m+r^3\right)^3}+\frac{9}{\left(18 m+r^3\right)^2}-\frac{16}{\left(32 m+r^3\right)^2}+\frac{8 \left(4 m-r^3\right) \left(r^3-m \left(r^2-2\right)\right)}{\left(2 m+r^3\right) \left(8 m+r^3\right)^2 \left(m \left(r^2-8\right)-r^3\right)}\right)\\
+T_{\phi \phi} &= \frac{3 m^2 r^2 \sin ^2(\theta )}{8 \pi} \left(-\frac{2 \left(m-r^3\right)}{\left(2 m+r^3\right)^3}-\frac{9}{\left(18 m+r^3\right)^2}+\frac{16}{\left(32 m+r^3\right)^2}+\frac{8 \left(4 m-r^3\right) \left(r^3-m \left(r^2-2\right)\right)}{\left(2 m+r^3\right) \left(8 m+r^3\right)^2 \left(m \left(r^2-8\right)-r^3\right)}\right)
+\end{split}
+\end{equation}
+
+Es claro que este EMT corresponde, de manera semejante que en la métrica de Bardeen, a un fluido tipo I y por tanto las condiciones de energía pueden ser inicialmente formuladas en los mismos términos.
+
+¡OJO! Formular en términos de R.
 
 ¡OJO! Hacer conexión lógica con lo que sigue\\
 
