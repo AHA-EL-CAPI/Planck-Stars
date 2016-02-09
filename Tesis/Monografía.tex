@@ -192,13 +192,15 @@ T_{\phi \phi} &= \frac{3 m q^2 r^2 \sin ^2(\theta ) \left(3 r^2-2 q^2\right)}{8 
 En particular, el EMT correspondiente a la métrica de Bardeen es diagonal y de a cuerdo a \cite{hawking}, el tensor anteriormente descrito corresponde a un fluido tipo I, la densidad de este fluido corresponde a $\rho = T_{tt}$ y las correspondientes presiones son $p_{1} = T_{rr}$, $p_{2} = T_{\theta \theta}$ y $p_{3} = T_{\phi \phi}$. Por ende, las condiciones de energía para la métrica de bardeen imponen las siguientes condiciones:
 
 \begin{itemize}
-\item La WEC requiere que $T_{tt} \geq 0$ y que $T_{tt} + T_{ii} \geq 0$ para $i = r,\theta,\phi$.
+\item La WEC requiere que $T_{tt} \geq 0$ y que $T_{tt} + T_{ii} \geq 0$ para $i = r,\theta,\phi$. Esto se satisface si
+\begin{equation}
+r>0\land \left((q<0\land m=0)\lor \left(q=0\land \left(m<\frac{\sqrt{r^2}}{2}\lor m>\frac{\sqrt{r^2}}{2}\right)\right)\lor (q>0\land m=0)\right).
+\end{equation}
 \item La NEC requiere que $T_{tt} + T_{ii} \geq 0$ para $i = r,\theta,\phi$.
 \item La DEC requiere que $T_{tt} \geq |T_{ii}|$ para $i = r,\theta,\phi$.
 \item La SEC requiere que $T_{tt} + T_{ii} \geq 0$ y $T_{tt} + 3T_{ii} \geq 0$ para $i = r,\theta,\phi$.
 \end{itemize}
 
-¡OJO! Poner en términos de r tarda bastante. ¿Cómo abordarlo?
 
 ¡OJO! Explicar brevemente lo del cambio de topología para evitar la singularidad.\\
 
@@ -209,7 +211,7 @@ En particular, el EMT correspondiente a la métrica de Bardeen es diagonal y de 
 
 \subsection{Métrica de Vaidya}
 
-La métrica de Vaidya \cite{vaidya} es una generalización de la métrica de Schwarzschild que puede ser interpretada como un espacio-tiempo con una radiación saliente y esféricamente simétrica de partículas sin masa (¡OJO! Necesito más tiempo para entnder esto).\\
+La métrica de Vaidya \cite{padmanabhan} es una generalización de la métrica de Schwarzschild que puede ser interpretada como un espacio-tiempo con una radiación saliente y esféricamente simétrica de partículas sin masa.\\
 
 Para hallar esta métrica a partir de la de Schwarzschild es necesario pasar a coordenadas de Eddington-Finkelstein (¡OJO! Sería bueno ponerlo en un apéndice, junto con los ćalculos mencionados en otros OJO, poner lo de tortoise en el Gravitation), en las que la coordenada temporal $t$ es reemplazada por una nueva coordenada $u$ que satisface
 
@@ -230,8 +232,7 @@ ds^2 = - \left(1- \frac{2M}{r}\right)du^2 - 2dudr + r^2d\Omega^2
 
 Dado que nos interesa llegar a una métrica debida a fotones dirigidos radialmente hacia afuera (¡OJO! Entender esto), el elemento de línea anterior puede ser generalizado al considerar $M = M(u)$. Teniendo en cuenta lo anterior, y después de algunos cálculos (¡OJO! Cálculos en anexo, Padmanabhan), tenemos que el tensor energía-momento que genera la métrica \eqref{schw-tortoise} tiene como única componente distinta de cero $T_{uu} = -(M'/4 \pi r^2)$. Esto es exactamente igual al tensor que se obtendría para un rayo de fotones moviéndose radialmente hacia afuera con cuadrimomento $k_{a} = \nabla_{a}u$. El tensor energía-momento en este caso es $T^{ab} = -(M'/4 \pi r^2)k^{a}k^{b}$ (¡OJO!). Dado lo anterior, podemos interpretar la métrica de Vaidya como debida a una fuente esférica que pierde masa al emitir fotones de una forma simétrica.\\
 
-Con respecto a las condiciones de energía, es claro que por la forma del EMT para la métrica de Vaidya, la única condición que vale la pena estudiar es WEC, la cual requiere $T_{uu} \geq 0$ y en términos de r requiere que $r > 0\ ,\ m'(u)\geq 0 $.\\
-
+Con respecto a las condiciones de energía, es claro que por la forma del EMT para la métrica de Vaidya, la única condición que vale la pena estudiar es WEC, la cual requiere $T_{uu} \geq 0$ y en términos de r requiere que $r > 0\ ,\ m'(u)\leq 0 $. Esta última condición coincide precisamente con la interpretación previamente mencionada sobre que la métrica deVaidya describe una estrella pierde masa conforme pasa el tiempo mediante la emisión de radiación en forma de fotones.\\
 
 ¡OJO! Hasta aquí Padmanabhan\\
 
@@ -262,9 +263,9 @@ T_{\phi \phi} &= \frac{3 m^2 r^2 \sin ^2(\theta )}{8 \pi} \left(-\frac{2 \left(m
 \end{split}
 \end{equation}
 
-Es claro que este EMT corresponde, de manera semejante que en la métrica de Bardeen, a un fluido tipo I y por tanto las condiciones de energía pueden ser inicialmente formuladas en los mismos términos.
+Es claro que este EMT corresponde, de manera semejante que en la métrica de Bardeen, a un fluido tipo I y por tanto las condiciones de energía pueden ser inicialmente formuladas en los mismos términos.\\
 
-¡OJO! Formular en términos de R.
+¡OJO! Formular en términos de r.\\
 
 ¡OJO! Hacer conexión lógica con lo que sigue\\
 
@@ -322,11 +323,9 @@ G(r) = 1 - \frac{\beta M \alpha}{\alpha r^3 + \beta M}
 
 \begin{thebibliography}{10}
 
-\bibitem{1} \textbf{¡OJO! ¿Debería usar Bibtex para la bibliografía o dejarla así?}\\
+\bibitem{1} ¡OJO! Usarlas todas en el texto
 
-\bibitem{2} \textbf{¡OJO! Usarlas todas en el texto}
-
-\bibitem{3} ¡OJO! Orden en el que aparecen en el texto.
+\bibitem{2} ¡OJO! Orden en el que aparecen en el texto.
 
 \bibitem{hayward} Hayward, S.A.: Formation and Evaporation of regular black holes. Phys. Rev. Lett. \textbf{96}, 31103 (2006).
 
