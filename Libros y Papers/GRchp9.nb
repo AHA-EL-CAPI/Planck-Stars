@@ -1,0 +1,5018 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 4.2'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[    121696,       4230]*)
+(*NotebookOutlinePosition[    124560,       4294]*)
+(*  CellTagsIndexPosition[    124516,       4290]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[TextData[{
+  StyleBox["     Using ",
+    FontFamily->"Brush Script MT",
+    FontSize->16,
+    FontColor->GrayLevel[0]],
+  StyleBox["Mathematica  ",
+    FontFamily->"Brush Script MT",
+    FontSize->16,
+    FontSlant->"Italic",
+    FontColor->GrayLevel[0]],
+  StyleBox[" \n ",
+    FontFamily->"Brush Script MT",
+    FontSize->16,
+    FontColor->GrayLevel[0]],
+  StyleBox["Robert L. Zimmerman\n ",
+    FontFamily->"Monotype Corsiva",
+    FontColor->GrayLevel[0]],
+  StyleBox[" University of Oregon",
+    FontFamily->"Brush Script MT",
+    FontSize->16,
+    FontColor->GrayLevel[0]]
+}], "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  TextJustification->0,
+  AspectRatioFixed->True,
+  FontColor->RGBColor[1, 0, 1]],
+
+Cell[TextData[StyleBox["Robert Zimmerman\nUniversity of Oregon\nInstitute of \
+Theoretical Science\nEugene, OR 97405\nbob@zim.uoregon.edu\n\
+http://darkwing.uoregon.edu/~phys600",
+  FontSize->9,
+  FontWeight->"Bold"]], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  StyleBox["Reference  ",
+    FontFamily->"Times New Roman",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[" ",
+    FontFamily->"Times New Roman"]
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial"],
+
+Cell["\<\
+ Robert L Zimmerman, 2002:   Permission to copy and use the  \
+notebook on General Relativity for internal use is  granted, provided that \
+the work is properly referenced.  After these  notebooks have been  polished \
+and additional topics included and deletected they will be submitted for \
+publication. Please send remarks and observations on how to improve the notes \
+to the author Robert L. Zimmreman,  bob@zim.uoregon.edu.\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->10]
+}, Open  ]],
+
+Cell[BoxData[
+    \({Date[], {\ year, month, day\ , \ hour, minutes, seconds\ }} // 
+      Transpose\)], "Input"],
+
+Cell["REMARKS:", "Subsubsection"],
+
+Cell["\<\
+Before you start you must activate the section User-Defined \
+Procedures. This cell contains the user-defined commands that are used in the \
+rest of the note books. After that you activate any of the subsequent \
+sections and the calculations will be done.\
+\>", "Text"],
+
+Cell["\<\
+                  Part III
+         Other Solutions\
+\>", "Title"],
+
+Cell[TextData[{
+  "Chapter Nine \n",
+  StyleBox["Charged Black Hole ",
+    FontWeight->"Bold"]
+}], "Subtitle",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell["User-Defined  Procedures", "Subsection"],
+
+Cell[TextData[{
+  "   The user-defined procedures defined in the following cells are needed \
+for the calculations in this chapter. Activate the following cell before you \
+start reading this chapter. The programs are: Christoffel symbol, curvature \
+tensor ",
+  Cell[BoxData[
+      \(TraditionalForm\`R\_\(\(\ \ \)\(\[Beta]\[Gamma]\[Delta]\)\)\%\[Alpha]\
+\)]],
+  ", ",
+  "non-zero curvature ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(\ \)\(R\_\[Alpha]\[Beta]\[Gamma]\[Delta]\%\ \)\)\
+\)]],
+  ", ",
+  "curvature scalar, Einstein tensor ",
+  Cell[BoxData[
+      \(TraditionalForm\`G\_\[Alpha]\[Beta]\)]],
+  ", covariant derivative, Killing equation, and Reissner-Nordstrom Metric."
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell["Activate the following procedures:", "Text"],
+
+Cell["\<\
+Off[General::spell ]; Off[General::spell1];
+ \
+\>", "Input",
+  InitializationCell->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  StyleBox[" ",
+    FontColor->RGBColor[0, 0, 1]],
+  " Christoffel Symbol ",
+  StyleBox["\[CapitalGamma]",
+    FontFamily->"Symbol",
+    FontWeight->"Plain"],
+  StyleBox["\[Alpha]",
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  StyleBox["\[Beta]\[Gamma]",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " "
+}], "Subsubsection"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(christ[met_, var_: {t, r, \[Theta], \[Phi]}]\  := \n\ 
+        Module[{\ \ temp1, imet}, \ \ \ \ \n\ \ \ temp1 = \ 
+            Outer[D, met, var]\ ; \n\ \ \ imet = \ 
+            Inverse[met] // Simplify; \n\ \ 1/2 \((\ 
+              Transpose[
+                  imet . temp1, {1, 3, 
+                    2}]\  + \n\ \ \ \ \ \ \ \ \ \ \ \ \ Transpose[
+                  imet . temp1, {1, 2, 
+                    3}]\ \  - \ \n\t\t\ \ \ \ \ \ \ \ \ imet . 
+                  Transpose[temp1, {3, 2, 1}]\ )\)\t\t\n\ \t];\)\)\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "Curvature tensor  ",
+  Cell[BoxData[
+      \(TraditionalForm\`R\_\[Beta]\[Gamma]\[Delta]\%\[Alpha]\)]],
+  "   "
+}], "Subsubsection"],
+
+Cell["\<\
+curvR[ch_,var_:{t,r,\[Theta],\[Phi]}] :=
+   Module[{temp1},
+   temp1= Outer[D,ch,var];   
+  (   Transpose[Outer[D,ch,var],{ 1,2,4 ,3}]-
+      Transpose[Outer[D,ch,var ],{1,2,3,4}]+
+      Transpose[Inner[Times,ch,ch,Plus,2 ],
+\t\t                         {1,3,4,2}]-
+      Transpose[Inner[Times,ch,ch,Plus,2 ],
+\t\t                         {1,4,3,2}] )
+                                       ]   \
+\>", "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "NonZcurv",
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(\ \ \)\(R\_\[Alpha]\[Beta]\[Gamma]\[Delta]\%\ \)\
+\)\)]],
+  " "
+}], "Subsubsection"],
+
+Cell["\<\
+ NonZcurv[name_,curvR_,met_,var_:{t,r,\[Theta],\[Phi]}] :=
+  Module[
+   {temp1,temp2,temp3,temp4,temp5,R,i,j,k,s,l, A$,B$,C1$},    
+temp1 =met.curvR; 
+temp2[i_,j_,k_,l_]:= temp1[[i,j,k,l]];  
+temp3= {R[1,2,1,2],R[1,2,1,3],R[1,2,1,4], 
+        R[1,2,2,3],R[1,2,2,4],R[1,2,3,4],
+        R[1,3,1,3],R[1,3,1,4],R[1,3,2,3],
+        R[1,3,2,4],R[1,3,3,4],R[1,4,1,4],
+        R[1,4,2,3],R[1,4,2,4],R[1,4,3,4],
+        R[2,3,2,3],R[2,3,2,4],R[2,3,3,4],
+        R[2,4,2,4],R[2,4,3,4],R[3,4,3,4]}  ;       
+temp4= temp3/.R->name/.(#->var[[#]]&/@Range[4]);  
+temp5= (temp4)->(temp3/.R->temp2)//Thread;
+(temp5//Simplify)//.{A$___,B$_->0,C1$___}->
+                                {A$,C1$}]  \
+\>", "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "Curvature Scalar  ",
+  Cell[BoxData[
+      \(TraditionalForm\`R\_\[Alpha]\[Beta]\[Gamma]\[Delta]\)]],
+  Cell[BoxData[
+      \(TraditionalForm\`R\^\[Alpha]\[Beta]\[Gamma]\[Delta]\)]],
+  " "
+}], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+curvScalar1[curvR_,met_]:= Module[ {c4u,c4d,imet,i,j,k,l},
+   imet=Inverse[met];        
+    c4u= Transpose[imet.Transpose[ Transpose[
+\t\t Transpose[  curvR .imet ,{1,2,4,3}].imet 
+\t\t         ,{1,2,4,3}] ,{2,1,3,4}],{2,1,3,4}];
+    c4d=met.curvR;      
+    Sum[c4u[[i,j,k,l]]c4d[[i,j,k,l]], 
+                        {i,4},{j,4},{k,4},{l,4}]] \
+\>", "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "Einstein Tensor  ",
+  Cell[BoxData[
+      \(TraditionalForm\`G\_\[Alpha]\[Beta]\)]],
+  " = ",
+  Cell[BoxData[
+      \(TraditionalForm\`R\_\[Alpha]\[Beta]\)]],
+  " -",
+  Cell[BoxData[
+      \(1\/2\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`g\_\[Alpha]\[Beta]\)]],
+  "R"
+}], "Subsubsection"],
+
+Cell["\<\
+einstein[curv_,met_]:=
+  Module[{dem,temp1,temp2,i,j,s}, 
+  dem=   Length[met] ;
+  temp1= Simplify[ExpandAll[Table[
+         Sum[curv[[s,i,s,j]],
+             {s,dem}],{i,dem},{j,dem}]]];
+  temp2=  Simplify[ExpandAll[Sum[
+          Inverse[met][[j,i]]curv[[s,i,s,j]],
+          {s,dem},{i,dem},{j,dem}]]];
+ Simplify[ExpandAll[Table[
+           temp1[[i,j]]-(1/2)met[[i,j]]temp2,
+                            {i,dem},{j,dem}]]]]\
+\>", "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Covariant Derivative", "Subsubsection"],
+
+Cell[BoxData[
+    \(coder[{1, U}, conV_, christ_, 
+        var_] := \ \n\t\ \ \ \ \ \ \ \ Outer[D, conV, 
+          var]\ \  + \ \ \(\(christ\  . conV\)\(\ \ \ \)\)\)], "Input"],
+
+Cell[BoxData[
+    \(coder[{1, L}, covV_, christ_, 
+        var_] := \ \n\t\n\ \ \ Outer[D, covV, 
+          var]\  - \(\(covV . \ \ christ\)\(\ \ \)\)\)], "Input"],
+
+Cell[BoxData[
+    \(coder[{2, U, U}, conT_, christ_, var_]\  := \n\t
+      Outer[D, conT, var] + \ \t\n\t
+        Transpose[
+          Inner[Times, christ, conT, Plus, 2], {1, 3, 
+            2}]\t + \n\t\t\n\t\ \ Transpose[
+          Inner[Times, christ, Transpose[conT, {2, 1}], Plus, 2], {2, 3, 
+            1}]\)], "Input"],
+
+Cell[BoxData[
+    \(coder[{2, L, L}, covT_, christ_, var_]\  := \n\t
+      Outer[D, covT, var] - \ \n\t\tTranspose[
+          Inner[Times, christ, covT, Plus, 1], {1, 3, 
+            2}] - \t\t\n\ \(\(covT . 
+          christ\)\(\ \ \)\(\n\)\(\ \)\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(coder[{2, U, L}, mixT_, christ_, var_]\  := \n\t
+      Outer[D, mixT, var] + \ \n\t\t\n\t\tTranspose[
+          Inner[Times, christ, mixT, Plus, 2], {1, 3, 
+            2}]\n\t\t\n\t\t\t - \t\ \(\(mixT\  . 
+          christ\)\(\ \ \)\)\)\)\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Killing Equation", "Subsubsection"],
+
+Cell["\<\
+killingEq[ContraV_,metric_,christ_,var_:{t,r,\[Theta],\[Phi] }]:= 
+Module[{dem,temp1,temp2,i,j,s},
+     dem=Length[ContraV];
+     temp1=metric.ContraV;
+     temp2=coder[{1,L},temp1,christ,var];
+     temp3=temp2+Transpose[temp2]   ;
+   Select[Simplify[ 
+   Table[If[ i>j ,True,temp3[[i,j]]]==0  ,
+        {i,1,dem},{j,1,dem}]//Flatten ],FreeQ[#,True]&] ]              
+    \
+\>", "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Reissner-Nordstrom Metric", "Subsubsection",
+  Evaluatable->False],
+
+Cell["The form of the Reissner-Nordstrom metric is ", "Text"],
+
+Cell[BoxData[
+    \(\(RNvar = {t, r, \[Theta], \[Phi]};\)\)], "Input"],
+
+Cell["\<\
+ RNmet=DiagonalMatrix[
+            {g00[r],g11[r],-r^2,-r^2 Sin[\[Theta]]^2}] \
+\>", "Input"],
+
+Cell["where the two components are given by the rule ", "Text"],
+
+Cell["\<\
+RNcomp={ g00->((1- 2 m/# +Q^2/#^2)&),
+ g11->((-1/(1- 2 m/# +Q^2/#^2) )&)};\
+\>", "Input"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "9.1 ",
+  StyleBox["Einstein-Maxwell Equations for a Point Charge",
+    FontVariations->{"Underline"->True}],
+  " "
+}], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "    Consider the solution of Einstein's non-vacuum equations that \
+correspond to a point charge with mass m and charge q. The non-vacuum field \
+equations are \n\n                   G",
+  StyleBox["\[Alpha]\[Beta] ",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "= R",
+  StyleBox["\[Alpha]\[Beta]",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " -1/2 g",
+  StyleBox["\[Alpha]\[Beta]",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " R = 8 \[Pi] G T",
+  StyleBox["\[Alpha]\[Beta]  \n          \n                    ",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  Cell[BoxData[
+      \(F\_\(\(\ \ \ \)\(\(;\)\(\[Beta]\)\)\(\ \)\)\%\[Alpha]\[Beta]\)],
+    FontFamily->"Times"],
+  "=0     and     ",
+  Cell[BoxData[
+      \(F\_\(\[Nu]\[Kappa], \[Mu]\)\)],
+    FontFamily->"Times"],
+  " + ",
+  Cell[BoxData[
+      \(F\_\(\[Kappa]\[Mu], \[Nu]\)\)],
+    FontFamily->"Times"],
+  " + ",
+  Cell[BoxData[
+      \(F\_\(\[Mu]\[Nu], \[Kappa]\)\)],
+    FontFamily->"Times"],
+  " =0\n          \nwhere c=1. The source for these equations is the \
+electromagnetic energy-momentum tensor. The equations are coupled since the \
+electromagnetic field tensor enters Einstein's equations through the \
+energy-momentum tensor, while the metric explicitly enters into Maxwell's \
+equations. This is the simplest generalization of the Schwarzschild solution. \
+It is unphysical in the sense that the total charge on a star or a particle \
+is extremely small compared with its mass. Nevertheless, the charged \
+spherically symmetric solution provides useful insight into the structure of \
+spacetime. This solution was first solved by H. Reissner in 1916 and G. \
+Nordstrom 1918. \n      We must know the Maxwell's stress energy tensor \
+before we can write the field equations. However, we do not know the stress \
+energy tensor until we know the metric of space. The best we can do is to \
+write the form of the energy tensor for a spherically symmetric, static, \
+point charge. We then simultaneously solve Einstein's and Maxwell's \
+equations. The full spherical symmetry of the problem is still maintained so \
+we start with the general form for a spherically symmetric line element "
+}], "Text"],
+
+Cell["\<\
+  RNvar={t,r,\[Theta],\[Phi]};
+ ( met=DiagonalMatrix[{ 
+   Exp[\[Lambda][r]] ,-Exp[ \[Nu][r]],-r^2,-r^2 Sin[\[Theta]]^2}]) \
+//MatrixForm  \
+\>", "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "     The next step is to write the general form of the Maxwell tensor ",
+  Cell[BoxData[
+      \(F\_\[Alpha]\[Beta]\)],
+    FontFamily->"Times"],
+  " for a spherically symmetric static charge. Place the charge at the origin \
+of a spherical coordinate system and note that there is only a radial \
+component for the electric field and the magnetic field is zero. The \
+antisymmetric Maxwell tensor ",
+  Cell[BoxData[
+      \(F\_\[Alpha]\[Beta]\)],
+    FontFamily->"Times"],
+  " is  "
+}], "Text"],
+
+Cell[BoxData[
+    \(\((F = {{0, \(-Er[r]\), 0, 0}, {\ \ Er[r], 0, 0, 0}, {0, 0, 0, 0}, {0, 
+              0, 0, 0}})\) // MatrixForm\)], "Input"],
+
+Cell[TextData[{
+  "where Er is the radial component of the electric field. Raising the \
+indices of ",
+  Cell[BoxData[
+      \(TraditionalForm\`F\_\[Alpha]\[Beta]\)]],
+  " with the inverse metric ",
+  Cell[BoxData[
+      \(g\^\[Alpha]\[Beta]\)],
+    FontFamily->"Times"],
+  ", we get the contravariant Maxwell tensor F",
+  StyleBox["\[Alpha]\[Beta]",
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  " = ",
+  Cell[BoxData[
+      \(g\^\[Alpha]\[Delta]\)],
+    FontFamily->"Times"],
+  "F",
+  StyleBox["\[Delta]\[Gamma]",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " ",
+  Cell[BoxData[
+      \(g\^\[Gamma]\[Beta]\)],
+    FontFamily->"Times"],
+  ","
+}], "Text"],
+
+Cell["(cF=Inverse[met].F.Inverse[met]) //MatrixForm", "Input"],
+
+Cell[TextData[{
+  " The four Maxwell equations ",
+  Cell[BoxData[
+      \(F\_\(\ \ \ \ \(; \[Beta]\)\)\%\[Alpha]\[Beta]\)],
+    FontFamily->"Times"],
+  "= 0 follow from"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[{
+    \(\(ch = christ[met, RNvar];\)\), "\n", 
+    \(\((maxeq = 
+          Table[\ Sum[\n\(coder[{2, U, U}, cF, ch\ , 
+                      RNvar\ ]\)[\([\[Alpha], \[Beta], \[Beta]]\)], {\[Beta], 
+                    4}]\  == 
+                0, \n\t\t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \ \ \ \ \ \ \ \ {\[Alpha], 4}]\  // Simplify)\) // ColumnForm\)}], "Input"],
+
+Cell["\<\
+ There is only one nontrivial equation to solve. Solving this \
+equation for Er[r], we find \
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+(maxsol=DSolve[maxeq[[1]],Er[r],r][[1,1]] \
+//Simplify)//Flatten//TraditionalForm\
+\>", "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"The results are expressed in terms of the unknown metric functions \[Nu][r] \
+and \[Lambda][r], and the constant of integration C[1]. In flat space \
+\[Nu][r]->0 and  \[Lambda][r] ->0  so C[1] is identified with the charge q of \
+a point particle, "], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(Crule = C[1] -> \ \ q;\)\)], "Input"],
+
+Cell["The expression for the electric field becomes", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(maxsol = \((maxsol /. Crule)\)\)], "Input"],
+
+Cell[TextData[{
+  "The metric functions follow from solving Einstein's equations.\n           \
+ We must calculate the stress-energy tensor for the electric field before we \
+can write down the general relativistic equations. The energy tensor is \n    \
+         \n            ",
+  Cell[BoxData[
+      \(\(\ \ \ T\_\[Alpha]\[Beta]\)\)],
+    FontFamily->"Times"],
+  " = ",
+  Cell[BoxData[
+      \(1\/\(4\ \[Pi]\)\)],
+    FontFamily->"Times"],
+  "(",
+  Cell[BoxData[
+      RowBox[{
+        StyleBox[" ",
+          FontSize->12], 
+        \(\(F\_\[Alpha]\[Gamma]\) F\_\(\ \ \[Beta]\)\%\[Gamma]\)}]],
+    FontFamily->"Times"],
+  "+ ",
+  Cell[BoxData[
+      \(1\/4\)],
+    FontFamily->"Times"],
+  " ",
+  Cell[BoxData[
+      \(\(g\ \)\_\[Alpha]\[Beta]\)],
+    FontFamily->"Times"],
+  Cell[BoxData[
+      \(\(F\^\[Gamma]\[Delta]\ F\_\[Gamma]\[Delta])\)\)],
+    FontFamily->"Times"],
+  "\n            \nThe first term in this expression, ",
+  Cell[BoxData[
+      \(\(F\_\[Alpha]\[Gamma]\) F\_\(\ \ \[Beta]\)\%\[Gamma]\)],
+    FontFamily->"Times"],
+  ", is "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["  eq1= F.(Inverse[met].F)/.maxsol;", "Input"],
+
+Cell[TextData[{
+  "The second term ",
+  Cell[BoxData[
+      \(1\/4\)],
+    FontFamily->"Times"],
+  Cell[BoxData[
+      \(\(g\ \)\_\[Alpha]\[Beta]\)],
+    FontFamily->"Times"],
+  "F",
+  StyleBox["\[Gamma]\[Delta]",
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  " F\[Gamma]\[Delta] follows from"
+}], "Text"],
+
+Cell["\<\
+ eq2= 1/4 met (
+         Sum[ cF[[\[Gamma],\[Delta]]]F[[\[Gamma],\[Delta]]],
+            {\[Gamma],4},{\[Delta],4}])/.maxsol; \
+\>", "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Adding eq1 and eq2 we get the stress-energy tensor ",
+  Cell[BoxData[
+      \(T\_\[Alpha]\[Beta]\)],
+    FontFamily->"Times"],
+  ", "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["(T= 1/(4 Pi)(eq1+eq2))//MatrixForm", "Input"],
+
+Cell[TextData[{
+  " Raising the first index with the inverse metric ",
+  Cell[BoxData[
+      \(g\^\[Alpha]\[Beta]\)],
+    FontFamily->"Times"],
+  ", we get the mixed tensor ",
+  Cell[BoxData[
+      \(T\_\(\ \ \ \[Beta]\)\%\[Alpha]\)],
+    FontFamily->"Times"],
+  ","
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["(mixedT= Inverse[met].T)//MatrixForm", "Input",
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "9.2 ",
+  StyleBox["Reissner-Nordstrom Solution",
+    FontVariations->{"Underline"->True}]
+}], "Section"],
+
+Cell[TextData[{
+  "      To complete Einstein's equations we need to find the mixed Einstein \
+tensor ",
+  Cell[BoxData[
+      \(G\_\(\ \ \ \[Beta]\)\%\[Alpha]\)],
+    FontFamily->"Times"],
+  ". We first evaluate the curvature tensor ",
+  Cell[BoxData[
+      \(R\_\(\ \ \ \[Beta]\[Gamma]\[Delta]\)\%\[Alpha]\)],
+    FontFamily->"Times"],
+  ","
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[" cur=curvR[ch,RNvar]//Simplify;", "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "where ch is the Christoffel symbol evaluated in the previous section. The \
+mixed Einstein tensor follows from using the user-defined function einstein[] \
+and then raising the indices to get  ",
+  Cell[BoxData[
+      \(G\_\(\ \ \ \[Beta]\)\%\[Alpha]\)],
+    FontFamily->"Times"],
+  "=",
+  Cell[BoxData[
+      \(\(\ \ \(g\ \)\^\[Alpha]\[Gamma]\)\)],
+    FontFamily->"Times"],
+  Cell[BoxData[
+      \(G\_\[Gamma]\[Beta]\)],
+    FontFamily->"Times"],
+  ":"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["mixedG=(Inverse[met].einstein[cur,met])//Simplify;  ", "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "    The field equations follow from equating the components of the \
+Einstein tensor to the components of the stress energy tensor, ",
+  Cell[BoxData[
+      \(G\_\(\ \ \ \[Beta]\)\%\[Alpha] = 
+        8\ \[Pi]\ G\ T\_\(\ \ \ \[Beta]\)\%\[Alpha]\)],
+    FontFamily->"Times"],
+  ". Inspection of the tensors shows that they are both diagonal so there are \
+only four nontrivial equations, "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+(fieldeq=(mixedG[[#,#]]== 8 Pi G mixedT[[#,#]])&/@Range[4]//
+            Simplify)//TraditionalForm
+    \
+\>", "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Only the first and second equations are needed to solve for \[Lambda][r] and \
+\[Nu][r]. It follows from fieldeq[[1]] and fieldeq[[2]] that  "], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+ (eq3= DSolve[fieldeq[[{1,2}]],
+              {\[Lambda][r] ,\[Nu][r] },r]//Flatten \
+//Simplify)//TraditionalForm \
+\>", "Input"],
+
+Cell[TextData[{
+  "     The constants of integration are chosen so that the metric reduces to \
+the Schwarzschild solution as q->0. To reduce to the Schwarzschild limit the \
+values of the constants must be  C[2]->2 m and C[1]->",
+  Cell[BoxData[
+      \(1\)],
+    FontFamily->"Times"],
+  ":"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[{
+    \(\(c2rule = {C[2] -> 2\ m, C[1] -> 0\ \ };\)\), "\n", 
+    \({\[Lambda][r], \[Nu][r]} /. eq3\)}], "Input"],
+
+Cell["Further simplification occurs if we define the notation ", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(notation = {\ G\ q^2 -> Q^2\ \ };\)\)], "Input"],
+
+Cell["The metric components g00 and g11 become", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(\(\(\({Exp[\ \[Lambda][r]], Exp[\ \ \[Nu][r]]} /. eq3\) /. c2rule\) /. 
+        notation\)\(//\)\(Simplify\)\(\ \)\)\)], "Input"],
+
+Cell["\<\
+This solution is known as the Reissner-Nordstrom solution. 
+    In summary, we define the variables, metric, and metric components: \
+\>",
+   "Text"],
+
+Cell[BoxData[
+    \(\(RNvar = {t, r, \[Theta], \[Phi]};\)\)], "Input"],
+
+Cell["\<\
+ RNmet=DiagonalMatrix[
+            {g00[r],g11[r],-r^2,-r^2 Sin[\[Theta]]^2}] ;\
+\>", "Input"],
+
+Cell["\<\
+RNcomp={ g00->((1- 2 m/# +Q^2/#^2)&),
+ g11->((-1/(1- 2 m/# +Q^2/#^2) )&)};\
+\>", "Input"],
+
+Cell["The metric is", "Text"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(\(RNmet /. 
+        RNcomp\)\(//\)\(TraditionalForm\)\(\n\)\)\)\)], "Input"],
+
+Cell["\<\
+If Q=0 then the solution reduces to the Schwarzschild metric. For Q \
+not zero we have the geometry outside a spherical body with electric charge Q \
+and mass m.  The Reissner-Nordstrom metric is very general, as was also the \
+case for the Schwarzschild solution. We did not have to assume that the \
+source was time-independent, the only constraint is that the source remains \
+spherically symmetric.  \
+\>", "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "9.3 ",
+  StyleBox["Event Horizons",
+    FontVariations->{"Underline"->True}]
+}], "Section"],
+
+Cell[TextData[{
+  "    The geometry of the Reissner-Nordstrom solution is remarkably \
+different from that of the Schwarschild spacetime. The spacetime may have \
+singularities at the points where g00 goes to zero or infinity. Consider the \
+coefficient g00,\n\n              g00= 1- ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(2\ m\)\/r\)]],
+  "+",
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(\ \)\(Q\^2\)\)\/r\^2\)]],
+  "= ",
+  Cell[BoxData[
+      \(\[CapitalDelta]\/r\^2\)],
+    FontFamily->"Times"],
+  "\n              \nwhere \n\n                 \[CapitalDelta] =  ",
+  Cell[BoxData[
+      \(r\^2 - 2\ m\ r + Q\^2\)],
+    FontFamily->"Times"],
+  "\n                 \nThis metric coefficient blows up at r=0 and goes to \
+zero at  \[CapitalDelta] =0 or"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(\(\ \)\(Solve[Q^2 + r^2 - \ 2\ m\ r == 0, r] // 
+      Flatten\)\)\)], "Input"],
+
+Cell[TextData[{
+  "The point at r=0 is a true singularity as follows from calculating the \
+curvature scalar ",
+  Cell[BoxData[
+      \(\(R\_\[Alpha]\[Beta]\[Gamma]\[Delta]\) 
+        R\^\[Alpha]\[Beta]\[Gamma]\[Delta]\)],
+    FontFamily->"Times"],
+  ".  To evaluate the scalar we first calculate the Christoffel symbol and \
+curvature tensor:  "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[" RNchrist=christ[RNmet,RNvar]; RNcurv=curvR[RNchrist,RNvar];", "Input"],
+
+Cell[TextData[{
+  "It follows that the scalar ",
+  Cell[BoxData[
+      \(\(R\_\[Alpha]\[Beta]\[Gamma]\[Delta]\) 
+        R\^\[Alpha]\[Beta]\[Gamma]\[Delta]\)],
+    FontFamily->"Times"],
+  StyleBox[" ",
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  "is "
+}], "Text"],
+
+Cell["eq3=curvScalar1[RNcurv,RNmet]/.RNcomp //Simplify//ExpandAll ", "Input"],
+
+Cell[TextData[
+"The scalar diverges at r=0 which is the point of the true singularity. The \
+points where \[CapitalDelta] =0 are  coordinate singularities and correspond \
+to event horizons which are analogues to the Schwarzschild horizon. \n        \
+ To illustrate the behavior of g00 we plot this function for different values \
+of Q. The curves for values of Q equal to 0,.9 m, m, and 1.1 m  are"], "Text",\
+
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(Plot[
+      Evaluate[\n\t\t\(\((1 - \ 2/r\  + \ #^2/r^2)\) &\) /@ {0,  .9, 1, 
+            1.1}], {r,  .1, 4}, 
+      PlotStyle -> \ {Hue[ .4], Hue[ .6], Hue[ .8], Hue[ .9]}\ , \n\ 
+      AxesLabel -> \ {r, g00}, \n\ \ PlotRange -> {{ .1, 3}, {\(-2\), 2}}, \ 
+      AxesOrigin -> { .1, 0}]\)], "Input"],
+
+Cell[TextData[{
+  "The bottom curve is for Q=0 (Schwarschild) followed by curves for ",
+  Cell[BoxData[
+      \(m\^2 < Q\^2\)],
+    FontFamily->"Times"],
+  ", ",
+  Cell[BoxData[
+      \(\(\(\ \)\(m\^2 = Q\^2\)\)\)],
+    FontFamily->"Times"],
+  ", and ",
+  Cell[BoxData[
+      \(m\^2 > Q\^2\)],
+    FontFamily->"Times"],
+  ".  If  ",
+  Cell[BoxData[
+      \(m\^2 < Q\^2\)],
+    FontFamily->"Times"],
+  " then g00 is always positive and it never vanishes. The metric is \
+completely regular all the way down to the singularity at r=0. There is no \
+event horizon so the singularity at r=0 is a naked singularity. There is no \
+obstruction to an observer traveling to the singularity and returning to \
+report on what was observed. At the other extreme, Q=0, the metric is \
+positive outside the Schwarzschild surface at r=2 m and is negative inside \
+the surface--the singularity at r=0 is shielded by the Schwarzschild surface. \
+\n      For  ",
+  Cell[BoxData[
+      \(0 < \ m\^2 < Q\^2\)],
+    FontFamily->"Times"],
+  " the metric g00 is: \n       \n i.  positive for ",
+  Cell[BoxData[
+      \(m + \@\(m\^2 - Q\^2\)\)],
+    FontFamily->"Times"],
+  " <r <  \[Infinity], \n ii. negative for ",
+  Cell[BoxData[
+      \(m - \@\(\(m\^2 - Q\^2\)\(\ \)\)\)],
+    FontFamily->"Times"],
+  "  <r <  ",
+  Cell[BoxData[
+      \(m + \@\(m\^2 - Q\^2\)\)],
+    FontFamily->"Times"],
+  ", and  \n iii. positive for  0<r < ",
+  Cell[BoxData[
+      \(m - \@\(\(m\^2 - Q\^2\)\(\ \)\)\)],
+    FontFamily->"Times"],
+  ".\n \nThe locations of the event horizons are determined by the solution \
+of the equation \[CapitalDelta] =0.  The structure of the event horizons is \
+more complicated than in the Schwarzschild spacetime because there are two \
+values of r where \[CapitalDelta] vanishes:  ",
+  Cell[BoxData[
+      \(m + \@\(m\^2 - Q\^2\)\)],
+    FontFamily->"Times"],
+  " and ",
+  Cell[BoxData[
+      \(\(\(\ \)\(m - \@\(m\^2 - Q\^2\)\)\)\)],
+    FontFamily->"Times"],
+  ". Both of these singularities can be removed by a change of coordinates as \
+was done with Schwarzschild. \n    To see how the horizons change with Q we \
+plot an array of horizon for different values of Q. Consider the command to \
+plot the inner and outer horizons for different input values of Q and m:"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(\(RNHplot[Q_, m_]\)\(\ \)\(:=\)\(\ \)\(ParametricPlot[\n
+        Evaluate[\n{\ \ \((\ \ m - Sqrt[m^2 - Q^2])\)\ {\ \ \ Sin[x], \ \ Cos[
+                  x]}\ , \n\t\ \((\ \ m + Sqrt[m^2 - Q^2])\)\ {\ \ \ Sin[
+                  x], \ \ Cos[x]}\ \ \ \ \ \ \ }\ ], {x, 0, 
+          2\ Pi}, \n\ \ \ \ AspectRatio -> 1\ , 
+        PlotRange -> {{\(-2\), 2}, {\(-2\), 
+              2}}, \n\ \ \ \ \ \ \ \ PlotStyle -> {{Thickness[ .02], 
+              Hue[ .4]}, \n\t\t\t\t\ \ \ \ \ \ \ {Thickness[ .02], 
+              Hue[ .9]}}, \n\ \ \ \ \ \ \ \ \ \ \ DisplayFunction -> 
+          Identity]\)\(\ \ \ \)\)\)], "Input"],
+
+Cell["\<\
+ An array of graphs for m=1 and values of Q that range from Q=.7 m \
+to Q=.9999 m is \
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[{
+    \(\(table = \(RNHplot[#, 
+              1] &\) /@ { .7, \  .9,  .95,  .97,  .98,  .9999};\)\), "\n", 
+    \(\t\(Show[GraphicsArray[\ Partition[table, 3]\ \ \ ]];\)\n\)}], "Input"],
+
+Cell[TextData[{
+  "As Q increases the inner horizon moves out and the outer horizon moves in. \
+In the limit where ",
+  Cell[BoxData[
+      \(Q\^2 = m\^2\)],
+    FontFamily->"Times"],
+  " the horizons merge and disappear---a naked singularity develops. For  ",
+  Cell[BoxData[
+      \(Q\^2 > m\^2\)],
+    FontFamily->"Times"],
+  " there is no event horizon and the singularity at r=0 becomes a naked \
+singularity. \n     The outer horizon at  ",
+  Cell[BoxData[
+      \(m + \@\(\(m\^2 - Q\^2\)\(\ \)\)\)],
+    FontFamily->"Times"],
+  " is like the r= 2 m  horizon in the Schwarzschild metric. Observers \
+outside the event horizon see the same phenomena that they would outside the \
+Schwarzschild horizon --- the infalling observer is seen to move more and \
+more slowly, and the outgoing light signals become increasingly redshifted. \
+At the horizon r switches from being a spacelike coordinate to a timelike \
+coordinate. \n      The inevitable fall from ",
+  Cell[BoxData[
+      \(m + \@\(\(m\^2 - Q\^2\)\(\ \)\)\)],
+    FontFamily->"Times"],
+  "to ever-decreasing radii only lasts until the observer reaches the inner \
+horizon at   ",
+  Cell[BoxData[
+      \(m - \@\(m\^2 - Q\^2\)\)],
+    FontFamily->"Times"],
+  ", where r switches back to being a spacelike coordinate and the falling \
+observer is not forced to hit the singularity at r=0.  In fact, you can \
+choose either to continue on to  r=0  or begin to move in the direction of \
+increasing r back through the null surface at ",
+  Cell[BoxData[
+      \(m - \@\(\(m\^2 - Q\^2\)\(\ \)\)\)],
+    FontFamily->"Times"],
+  ". \n      The value of r is again a timelike coordinate, but with reversed \
+orientation and you are forced to move in the direction of increasing r. The \
+observer eventually merges through the horizon at  ",
+  Cell[BoxData[
+      \(m + \@\(\(m\^2 - Q\^2\)\(\ \)\)\)],
+    FontFamily->"Times"],
+  " once more, which is like emerging from a white hole.  From here you can \
+choose to go back into the black hole --- this time, a different hole than \
+the one you entered--- and repeat the voyage as many times as you like.      \
+\n       Can one add sufficient charge to the Reissner-Nordstrom solution \
+with Q<M until Q>M and consequently create a Naked singularity?  If one could \
+increase the black hole charge Q faster than its mass M then one could exceed \
+the Q=M limit and turn the charged black hole into a naked singularity. \
+Penrose's cosmic censorship conjecture says that you can not do this. The \
+conjecture states that naked singularities cannot be created by realistic \
+physical processes. To test this hypothesis consider adding charged particles \
+with  q>m to a black hole with  Q<M. In order for a q>m test particle to \
+reach the horizon, it must be sent in with sufficient kinetic energy so that \
+the net increase in mass exceeds the increase in the charge. One can \
+interpret this result as providing evidence that one cannot destroy the event \
+horizon by increasing the charge so that Q>M. Cosmic censorship can not be \
+violated this way. Note that from a practical point of view, an electron has \
+the largest charge per unit mass of any particle, and for it, q<<m."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "9.4 ",
+  StyleBox["Potential Analysis for Timelike Geodesics",
+    FontVariations->{"Underline"->True}],
+  "   "
+}], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "     To learn more about the charged solution let us consider the geodesic \
+paths of an uncharged test particle. Let us perform a potential analysis to \
+learn about the types of trajectories. This analysis is simplified due to the \
+static and spherically symmetric nature of the geometry. The spherically \
+symmetric nature of the geometry allows us to restrict the motion to the \
+\[Theta]=",
+  Cell[BoxData[
+      \(\[Pi]\/2\)],
+    FontFamily->"Times"],
+  " plane so without loss of generality we assume "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(planerule = {\[Theta] -> \((\((Pi/2)\) &)\)};\)\)], "Input"],
+
+Cell["\<\
+Two constants of motion follow from the time-like and rotational \
+Killing vectors:\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[" kt={1,0,0,0};  kz={0,0,0,-1}; ", "Input"],
+
+Cell["If the four-velocity is ", "Text"],
+
+Cell[" vel ={t'[s],r'[s],0,\[Phi]'[s]};", "Input"],
+
+Cell["then the two Killing constants of motion are", "Text"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(krule\  = \ \ \(({\ 
+                en == \ RNmet . vel . 
+                    kt, \n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jz == \ 
+                  RNmet . vel . 
+                    kz}\  // \ \n\t\t\t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \ \ \ Solve[#, {\(t'\)[s], \(\[Phi]'\)[s]}] &)\) /. \n\t\t\t\[Theta] -> 
+            Pi/2 // Flatten\)\)\)], "Input"],
+
+Cell[TextData[{
+  "The effective potential follows from the two Killing constants and the \
+timelike condition  1=v",
+  StyleBox["\[Mu]",
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  " v ",
+  StyleBox["\[Mu] ",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  ": "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(\(\ \ \ \ \ \ \ \ \)\(sqfourv = \ 
+      1 == RNmet . vel . vel /. krule\)\)\)], "Input"],
+
+Cell["We define an effective potential for the problem as", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["eq4= r'[s]^2== -(1-en^2) -V ", "Input",
+  AspectRatioFixed->True],
+
+Cell["\<\
+Eliminating r'[s] in sqfourv and in eq2 we get the potential \
+\>", 
+  "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+Vrule= \
+Solve[{sqfourv,eq4},V,r'[s]][[1,1]]/.RNcomp/.\[Theta]->Pi/2//Simplify//\
+ExpandAll\
+\>", "Input",
+  AspectRatioFixed->True],
+
+Cell["The user-defined function for the effective potential is ", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(Veff[r_, Q_, m_, jz_] := \(-2\)\ m/r\  + \((jz^2 + Q^2)\)/r^2\  - 
+        2\ jz^2\ m/r^3\  + jz^2\ \ Q^2/r^4\)], "Input"],
+
+Cell[BoxData[
+    \(Veff[r, Q, m, jz]\)], "Input"],
+
+Cell["\<\
+ The last three terms are like the Schwarzschild potential but the \
+centrifugal barrier is increased by the charge. The first term is the \
+relativistic modification of the Reissner-Nordstrom space time due to the \
+charge Q. This term has the effect of producing a repulsive force that \
+dominates the potential near r=0.  
+     To understand its shape we plot the potential. Define the plot command\
+\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(Vplot[Q_, m_, jz_, rmin_, rmax_, Opts___]\  := 
+      Plot[\ Veff[r, Q, m, jz]\ , {r, rmin, 
+          rmax}, \n\t\tAxesLabel -> {r, 
+            Veff\ }\ , \ \n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+DisplayFunction -> Identity]\)], "Input"],
+
+Cell[" A typical potential curve is", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+Show[Graphics[
+{Rectangle[{0,  0},{ 1,  1},
+Vplot[.7,1,1.3 Sqrt[12],2 ,32]] ,
+ Rectangle[{.5,.5},{1,1},
+   Vplot[.7,1,1.3 Sqrt[12],.28 ,2]]}] ] \
+\>", "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "The insert at the top-right is the behavior of the potential for small r. \
+Let us consider the behavior of the potential for r outside the horizon.  For \
+r large the potential is very similar to the Schwarzschild potential. The \
+charge has the effect of increasing the potential barrier. There are two \
+outer circular orbits, one at the maximum of the potential and the other at \
+the minimum. The inner circular orbit  is unstable and the other is stable. \
+Bound orbits exist for orbits near the bottom of the well. The particle moves \
+along a horizontal line of constant energy to the point where it intersects \
+the potential curve. This is the turning point. It then moves in the opposite \
+direction until it again intersects the potential and reverses its direction, \
+thus completing a finite motion in the potential well. One  major difference \
+from the Schwarzschild case is that if the energy is greater than the top of \
+the potential the particle does not continue all the way to the origin. The \
+path eventually hits an inner repulsive barrier which is caused by the term \
+",
+  Cell[BoxData[
+      \(\(jz\^2\ Q\^2\)\/r\^4\)],
+    FontFamily->"Times"],
+  " in the Reissner-Nordstrom potential.  \n   To see how the centrifugal \
+barrier increases with Q consider the series of plots of the barrier for \
+different Q: "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+Show[Vplot[#,1, Sqrt[12], 2.1,22]&/@Range[.1,1 ,.1],
+PlotRange->{{0,10},{-.2,.06 }}, DisplayFunction->$DisplayFunction]\
+\>", \
+"Input"],
+
+Cell["\<\
+The bottom curve is for Q=0 (Schwarzschild) and the subsequent \
+curves are for increasing Q. 
+    As was the case for the Schwarzschild solution, the extremum points \
+approach each other as the angular momentum decreases. This is seen by the \
+potential graphs as jz gets smaller and for a typical value of Q,\
+\>", "Text",\
+
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+Show[Vplot[.7,1, # Sqrt[12], 2.1,22]&/@Range[.8,1  ,.05 ] , \
+DisplayFunction->$DisplayFunction]\
+\>", "Input"],
+
+Cell["\<\
+There is a value of Q, m and jz where the extremum points merge and \
+the stable and unstable circular orbits vanish. \
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "9.5 ",
+  StyleBox["Radial Geodesic Equation",
+    FontVariations->{"Underline"->True}]
+}], "Section"],
+
+Cell["\<\
+    Consider the motion for a radially free falling particle when \
+jz=0. \
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(eq5 = \(r'\)[
+            s]^2 == \((\n\t\t\t\ \(\(\(-\((1 - en^2)\)\)\  - V /. Vrule\) /. 
+              jz -> 0\) /. r -> r[s])\)\)], "Input"],
+
+Cell["\<\
+  An equation for r''[s] follows from taking the derivative of eq5 \
+\
+\>", "Text"],
+
+Cell["\<\
+eq6=(D[eq5,s]//Solve[#,r''[s]][[1,1]]&)/.RNcomp/.Rule->Equal//\
+ExpandAll \
+\>", "Input"],
+
+Cell[TextData[{
+  "For large r the ordinary attractive Newtonian term  ",
+  Cell[BoxData[
+      \(\(-\(m\/r[s]\^2\)\)\)],
+    FontFamily->"Times"],
+  " dominates the force. As r->0 the charged term produces a repulsive ",
+  Cell[BoxData[
+      \(Q\^2\/r\^3\)],
+    FontFamily->"Times"],
+  " force. This is a remarkable relativistic effect which arises from the way \
+the electric charge contributes to the background curvature. \n      The \
+numerical solution follows from NDSolve:"
+}], "Text"],
+
+Cell["\<\
+sol[vo_,ro_,sf_,Q0_] :=NDSolve[
+     {(eq6/.Q->Q0),r[0]==ro, r'[0]==vo}/.m->1,r ,
+                     {s,0,sf}][[1,1]]\
+\>", "Input"],
+
+Cell["\<\
+The graphics for the Schwarzschild solution with Q=0, v0=0 and \
+r0=10 follow from  \
+\>", "Text"],
+
+Cell["\<\
+pt1=ParametricPlot[
+Evaluate[{ r[s]/.sol[0,10,35.12,0],s }],
+        {s,.001,35.12},
+  PlotStyle-> 
+  {Thickness[.01],Hue[.9]},AxesLabel->{r,Proper Time},
+  DisplayFunction->Identity];\
+\>", "Input"],
+
+Cell["\<\
+The graphics for the same trajectory in the Reissner-Nordstrom \
+metric with  Q=.95  follow from  \
+\>", "Text"],
+
+Cell["\<\
+pt2=ParametricPlot[
+Evaluate[{ r[s]/.sol[0,10,37.5,.95],s }],
+        {s,.001,37.5},
+  PlotStyle-> 
+  {Thickness[.005],Hue[.4]},
+  DisplayFunction->Identity ];\
+\>", "Input"],
+
+Cell["Combining the graphs, we get", "Text"],
+
+Cell["Show[{pt1, pt2},DisplayFunction->$DisplayFunction] ;", "Input"],
+
+Cell["\<\
+   The top path corresponds to the charged case and the bottom to \
+the Schwarzschild solution (Q=0). The charge slows the time of free-fall. The \
+major difference between the two trajectories is that the Schwarzschild path \
+goes all the way to the origin but the charged case is repelled near r=0. To \
+see the effects of the repulsion consider trajectories with small initial ro. \
+Let r0=1.25, well inside the horizon, then the Schwarzschild path is\
+\>", \
+"Text"],
+
+Cell["\<\
+pt3= ParametricPlot[
+Evaluate[{ r[s]/.sol[0,1.28,1.608 ,0],s }],  {s,.00 ,1.608 } , \
+AxesLabel->{r,Proper Time},
+  PlotRange->  {{0,1.7},{0,5}} ,
+  DisplayFunction->Identity ];\
+\>", "Input"],
+
+Cell["and the Reissner-Nordstrom trajectories follow from ", "Text"],
+
+Cell["\<\
+pt4= ParametricPlot[
+Evaluate[{ r[s]/.sol[0,1.28,5 ,.95],s }],  {s,.00 ,5 } ,
+  PlotRange->  {{0,2},{0,10}} ,
+  DisplayFunction->Identity  ];\
+\>", "Input"],
+
+Cell["Displaying the two graphs together, we find", "Text"],
+
+Cell[BoxData[
+    \(Show[{pt3, pt4}\ , DisplayFunction -> \ $DisplayFunction\ ]\)], "Input"],
+
+Cell["\<\
+The Reissner-Nordstrom particle(top curve) is repelled from the \
+origin but the Schwarzschild particle plunges to r=0 in a finite proper time. \
+The repulsion occurs well inside the horizon.\
+\>", "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "9.6 ",
+  StyleBox["Problems",
+    FontVariations->{"Underline"->True}]
+}], "Section"],
+
+Cell[CellGroupData[{
+
+Cell["9.6.1  Reissner-Nordstrom Geometry (Solution included)", "Subsubsection"],
+
+Cell[TextData[{
+  "    Consider the Reissner-Nordstrom metric and calculate the non-zero and \
+independent curvature components ",
+  Cell[BoxData[
+      \(R\_\[Alpha]\[Beta]\[Gamma]\[Delta]\)],
+    FontFamily->"Times"],
+  ". "
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Subsubsection",
+  Evaluatable->False],
+
+Cell["   The coordinates and Reissner-Nordstrom metric are ", "Text"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(var = {t, r, \[Theta], \[Phi]};\)\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(met = 
+        DiagonalMatrix[{g00[r], 
+            g11[r], \(-r^2\), \(-r^2\)\ Sin[\[Theta]]^2}];\)\)], "Input"],
+
+Cell["where the two metric components are given by the rule ", "Text"],
+
+Cell[BoxData[
+    \(\(comp = {g00 \[Rule] \((\((1 - 2\ m/# + Q^2/#^2)\) &)\), 
+          g11 \[Rule] \((\((\(-1\)/\((1 - 2\ m/# + 
+                        Q^2/#^2)\))\) &)\)};\)\)], "Input"],
+
+Cell[TextData[{
+  "The Christoffel symbol and curvature components ",
+  Cell[BoxData[
+      \(TraditionalForm\`R\_\(\(\ \ \)\(\[Beta]\[Gamma]\[Delta]\)\)\%\[Alpha]\
+\)]],
+  " are"
+}], "Text"],
+
+Cell[BoxData[
+    \(chr = christ[\ met, var]; \ cur = curvR[chr, var];\)], "Input"],
+
+Cell[TextData[{
+  "The nonzero and independent curvature components ",
+  Cell[BoxData[
+      \(R\_\[Alpha]\[Beta]\[Gamma]\[Delta]\)],
+    FontFamily->"Times"],
+  " follow from"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\(\ \ \)\(notation = {R[t, r, t, r] \[Rule] 
+            R\_\(\(trtr\)\(\ \)\)\ , \ 
+          R[t, \[Theta], t, \[Theta]] \[Rule] 
+            R\_\(\(t\[Theta]t\[Theta]\)\(\ \)\)\ , 
+          R[t, \[Phi], t, \[Phi]] \[Rule] 
+            R\_\(\(t\[Phi]t\[Phi]\)\(\ \)\)\ \ , 
+          R[r, \[Theta], r, \[Theta]] \[Rule] 
+            R\_\(\(r\[Theta]r\[Theta]\)\(\ \)\)\ , \[IndentingNewLine]R[
+              r, \[Phi], r, \[Phi]] \[Rule] 
+            R\_\(\(r\[Phi]r\[Phi]\)\(\ \)\)\ \ \ , 
+          R[r, \[Phi], r, \[Theta]] \[Rule] 
+            R\_\(\(r\[Phi]r\[Theta]\)\(\ \)\)\ \ , \[IndentingNewLine]R[t, r, 
+              t, r] \[Rule] R\_\(\(trtr\)\(\ \)\)\ \ , 
+          R[\[Theta], \[Phi], \[Theta], \[Phi]] \[Rule] 
+            R\_\(\(\[Theta]\[Phi]\[Theta]\[Phi]\)\(\ \)\)\ };\)\(\ \)\)\)], \
+"Input"],
+
+Cell[BoxData[
+    \(\(\((\ NonZcurv[R, cur, \ met\ ] /. comp // FullSimplify)\) /. 
+          notation\  // Partition[#, 2] &\) // TableForm\)], "Input"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["9.6.2 Timelike Geodesics   ", "Subsubsection"],
+
+Cell["\<\
+    Consider the Reissner-Nordstrom metric and  
+i. construct an effective potential for the timelike paths and describe the \
+motion.
+ii. solve for the circular geodesics.
+ii.  find the perihelion shift for the bound timelike geodesics. ( Keep only \
+the lowest order terms. ) \
+\>", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["9.6.3 Numerical Geodesics    ", "Subsubsection"],
+
+Cell["\<\
+     Consider the timelike geodesics for the Reissner-Nordstrom \
+metric and
+ i. make a numerical-function that plots the various kinds of orbits. 
+ii. plot an array of trajectories for each type of solution and compare the \
+trajectories with the Schwarzschild case. \
+\>", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["9.6.4 Null Geodesics    ", "Subsubsection"],
+
+Cell["\<\
+    Consider the Reissner-Nordstrom metric and 
+i. construct an effective potential for the null paths and describe the \
+motion. 
+ii. compare the major differences between the Reissner-Nordstrom and \
+Schwarzschild null geodesics. \
+\>", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["9.6.5 Null Coordinates  (Solution included)", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "    Consider the null (retarded) variables {u,r,\[Theta],\[Phi]} and \
+metric \n\n                 ",
+  Cell[BoxData[
+      \(TraditionalForm\`g\_\[Alpha]\[Beta]\)]],
+  " = ",
+  Cell[BoxData[
+      FormBox[
+        TagBox[
+          RowBox[{"(", "\[NoBreak]", GridBox[{
+                {\(Q\^2\/r\^2 - \(2\ m\)\/r + 1\), "1", "0", "0"},
+                {"1", "0", "0", "0"},
+                {"0", "0", \(-r\^2\), "0"},
+                {"0", "0", "0", \(\(-r\^2\)\ \(\(sin\^2\)(\[Theta])\)\)}
+                }], "\[NoBreak]", ")"}],
+          (MatrixForm[ #]&)], TraditionalForm]]],
+  "\n                 \nwhere  f[r]=  ",
+  Cell[BoxData[
+      \(1\/2\ \((1 + Q\^2\/r\^2 - \(2\ m\)\/r)\)\)],
+    FontFamily->"Times"],
+  "       \n\n"
+}], "Text"],
+
+Cell[TextData[{
+  "i. Calculate the Kretschmann scalar using both the Riemann and Weyl \
+curvature tensors. \nii. Transform the metric to the \"standard\" \
+Reissner-Nordstrom coordinates  {t,r,\[Theta],\[Phi]} where the coordinates \
+are related by {u=t- 1/2",
+  Cell[BoxData[
+      \(\[Integral]\(1\/f[r]\) \[DifferentialD]r\)],
+    FontFamily->"Times"],
+  ", r=r, \[Theta]=\[Theta], \[Phi]=\[Phi]}   "
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Subsubsection"],
+
+Cell[CellGroupData[{
+
+Cell["Remarks", "Subsubsection"],
+
+Cell["\<\
+   To calculate the curvature scalar and metric transformation you \
+need the following two user-defined procedures defined in pervious \
+chapters:\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "Ricci Tensor  ",
+  Cell[BoxData[
+      \(TraditionalForm\`R\_\[Alpha]\[Beta]\)]],
+  "   "
+}], "Text"],
+
+Cell["\<\
+ ricciR[curv_,dem_:4]:= 
+  Simplify[ExpandAll[Table[
+  Sum[curv[[s,i,s,j]],{s,dem}],{i,dem},{j,dem}]]]\
+\>", "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "Weyl Curvature ",
+  Cell[BoxData[
+      \(TraditionalForm\`C\_\[Alpha]\[Beta]\[Gamma]\[Delta]\)]]
+}], "Text"],
+
+Cell["\<\
+ curvW[met_,cur_]:=
+ Module[{temp1,temp2,temp3,temp4,temp5,temp6,i},    
+  temp1= ricciR[cur];
+  temp2= Sum[(Inverse[met].temp1 )[[i,i]],{i,4}];
+  temp3= Outer[Times,met,temp1] ;
+  temp4=  Transpose[temp3,{1,4,3,2}]+ 
+               Transpose[temp3,{2,3,4,1}]- 
+                    Transpose[temp3,{1,3,4,2}]-
+                         Transpose[temp3,{2,4,3,1}];
+  temp5= Outer[Times,met,met] ; 
+  temp6= Transpose[temp5,{1,3,4,2}]- 
+                           Transpose[temp5,{1,4,3,2}]; 
+   met.cur +1/2 temp4 +1/6 temp6 temp2]
+                     
+            
+         \
+\>", "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "Curvature Scalar  ",
+  Cell[BoxData[
+      \(TraditionalForm\`R\_\[Alpha]\[Beta]\[Gamma]\[Delta]\)]],
+  Cell[BoxData[
+      \(TraditionalForm\`R\^\[Alpha]\[Beta]\[Gamma]\[Delta]\)]],
+  " "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+curvScalar1[curvR_,met_]:= Module[ {c4u,c4d,imet,i,j,k,l},
+   imet=Inverse[met];        
+    c4u= Transpose[imet.Transpose[ Transpose[
+\t\t Transpose[  curvR .imet ,{1,2,4,3}].imet 
+\t\t         ,{1,2,4,3}] ,{2,1,3,4}],{2,1,3,4}];
+    c4d=met.curvR;      
+    Sum[c4u[[i,j,k,l]]c4d[[i,j,k,l]], 
+                        {i,4},{j,4},{k,4},{l,4}]] \
+\>", "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  " Transformation of  ",
+  Cell[BoxData[
+      \(TraditionalForm\`V\_\[Mu]\[Nu]\)]],
+  " "
+}], "Text"],
+
+Cell["\<\
+ trans[{2,L,L},covtenx_,ctranx_,xvar_,yvar_] :=
+        Module[ {t1},
+          t1= Outer[D,ctranx, yvar];
+          Transpose[t1].covtenx.t1/.
+                 (xvar->ctranx //Thread)]
+   \
+\>", "Input"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Part i ", "Subsubsection",
+  Evaluatable->False],
+
+Cell["The variables and metric are", "Text"],
+
+Cell[BoxData[{
+    \(\(varu = {u, r, \[Theta], \[Phi]}\ ;\)\), "\[IndentingNewLine]", 
+    \(\(rulef\  = \ 
+        f -> \((\((1 - 2\ m/#1 + Q^2/#1^2\ )\)/
+                2\  &)\);\)\), "\[IndentingNewLine]", 
+    \(\ \(met\  = {{2\ f[r], \(+1\), 0, 0}, {\(+1\), 0, 0, 0}, {0, 
+            0, \(-r^2\), 0}, {0, 0, 
+            0, \(-r^2\)\ Sin[\[Theta]]^2}}\ ;\)\ \[IndentingNewLine]\ \)}], \
+"Input"],
+
+Cell[TextData[{
+  "The Christoffel symbol, Riemann curvature  ",
+  Cell[BoxData[
+      \(TraditionalForm\`R\_\(\(\ \ \ \)\(\[Beta]\[Gamma]\[Delta]\)\)\%\
+\[Alpha]\)]],
+  " , and Weyl curvature  ",
+  Cell[BoxData[
+      \(TraditionalForm\`W\_\(\(\ \ \)\(\[Beta]\[Gamma]\[Delta]\)\)\%\[Alpha]\
+\)]],
+  "  are"
+}], "Text"],
+
+Cell[BoxData[
+    \(ch\  = christ[met\ , varu]; Rcur\  = curvR[ch, varu]; 
+    Wcur = \ \ Inverse[met] . \ curvW[met\ , Rcur\ ];\)], "Input"],
+
+Cell["The scalar curvature using the Riemann curvature tensor is", "Text"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(scalarR = \(\(curvScalar1[\ Rcur, met\ ] /. 
+          rulef\)\(//\)\(Simplify\)\(\ \ \)\)\)\)\)], "Input"]
+}, Open  ]],
+
+Cell["and using the Weyl tensor, it follows  ", "Text"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(scalarW = \(\(curvScalar1[\ Wcur, met\ ] /. 
+          rulef\)\(//\)\(Simplify\)\(\ \ \)\)\)\)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell["Part ii ", "Subsubsection",
+  Evaluatable->False],
+
+Cell["\<\
+ To transform to the coordinates {t,r,\[Theta],\[Phi]},\
+\>", "Text"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(varr = {t, r, \[Theta], \[Phi]};\)\)\)], "Input"],
+
+Cell["\<\
+ we define the transformation {u[t,r],r,\[Theta],\[Phi]} to \
+be\
+\>", "Text"],
+
+Cell[BoxData[
+    \(\(ctranu\  = {t - \ 1/2\ Integrate[1/f[\ r]\ , r]\ , 
+          r, \[Theta], \[Phi]};\)\)], "Input"],
+
+Cell["\<\
+The transformed metric follows from the user-defined procedure \
+trans[{2,L,L},...]\
+\>", "Text"],
+
+Cell[BoxData[
+    \(metr = \(\(trans[{2, L, L}, \ met\ , 
+                ctranu\ , {u, r, \[Theta], \[Phi]}\ , {t, 
+                  r, \[Theta], \[Phi]}] /. \ rulef\  // Simplify\) // 
+          ExpandAll\) // MatrixForm\)], "Input"],
+
+Cell["\<\
+which is the Reissner-Nordstrom solution expressed in the \
+\"standard\" coordinates. \
+\>", "Text"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["9.6.6 Rotation Scalars  (Solution included)", "Subsubsection"],
+
+Cell[TextData[{
+  "      Consider a null tetrad { ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(\ \)\(l\^\[Mu]\)\)\)]],
+  ", ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Mu]\)]],
+  ",  ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Mu]\)]],
+  ",  ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Mu]"], TraditionalForm]]],
+  "} with two real {",
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(\ \)\(l\^\[Mu]\)\)\)]],
+  ",  ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Mu]\)]],
+  "} and two complex {",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Mu]\)]],
+  " ,  ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Mu]"], TraditionalForm]]],
+  "} null vectors:"
+}], "Text"],
+
+Cell[BoxData[{
+    \(\(lv = {0, 1, 0, 0\ }\ \ ;\)\), "\n", 
+    \(nv\  = {1, \(-\ \ f[r]\)\ , 0, 0}\ \ ; \ 
+    mv = 1/Sqrt[2]\ 1/r\ \ \ {0, 0, 1, I/Sin[\[Theta]]}\ \ ; \t
+    mbv = 1/Sqrt[2]\ 1/r\ \ \ {0, 0, 1, \(-I\)/Sin[\[Theta]]}\ ;\)}], "Input"],
+
+Cell["where ", "Text"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(rulef\  = \ 
+        f -> \((\((1 - 2\ m/#1 + Q^2/#1^2\ )\)/2\  &)\);\)\(\ \)\)\)], "Input"],
+
+Cell[TextData[{
+  "i.  Show the Reissner-Nordstrom metric can be written as  ",
+  Cell[BoxData[
+      \(TraditionalForm\`g\^\[Mu]\[Nu]\)]],
+  "= ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Mu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Nu]\)]],
+  " + ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Nu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Mu]\)]],
+  " -  ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Mu]\)]],
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          RowBox[{"(", 
+            FormBox[\(m\&_\),
+              "TraditionalForm"], ")"}], "\[Nu]"], TraditionalForm]]],
+  " - ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Nu]\)]],
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          RowBox[{"(", 
+            FormBox[\(m\&_\),
+              "TraditionalForm"], ")"}], "\[Mu]"], TraditionalForm]]],
+  ".\nii. Show the tetrad is normalized such that  l.n=-m. ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\&_\)]],
+  " =1 and the other scalar products are zero.  \niii. From the tetrad one \
+can define the Ricci rotation coefficients;\n  \[Kappa]=  ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\_\(\[Mu]; \[Nu]\)\)]],
+  "  ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Mu]\)]],
+  "  ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Nu]\)]],
+  ",    \[Rho]  =  ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\_\(\[Mu]; \[Nu]\)\)]],
+  "   ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Mu]\)]],
+  "  ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Nu]"], TraditionalForm]]],
+  ",     \[Sigma]=  ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\_\(\[Mu]; \[Nu]\)\)]],
+  "  ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Mu]\)]],
+  "  ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Nu]\)]],
+  "  ,  \[Tau]=  ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\_\(\[Mu]; \[Nu]\)\)]],
+  "  ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Mu]\)]],
+  "  ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Nu]\)]],
+  " \n \[Nu]=-  ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(n\_\(\[Mu]; \[Nu]\)\)\(\ \)\)\)]],
+  "  ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Mu]"], TraditionalForm]]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Nu]\)]],
+  ",   \[Mu] =-   ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(n\_\(\[Mu]; \[Nu]\)\)\(\ \)\)\)]],
+  " ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Mu]"], TraditionalForm]]],
+  "  ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Nu]\)]],
+  " ,   \[Lambda]=-  ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(n\_\(\[Mu]; \[Nu]\)\)\(\ \)\)\)]],
+  "  ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Mu]"], TraditionalForm]]],
+  "   ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Nu]"], TraditionalForm]]],
+  " ,  \[Pi]  =-   ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(n\_\(\[Mu]; \[Nu]\)\)\(\ \)\)\)]],
+  " ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Mu]"], TraditionalForm]]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Nu]\)]],
+  "\n\[Alpha]=",
+  Cell[BoxData[
+      \(1\/2\)]],
+  "(  ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\_\(\[Mu]; \[Nu]\)\)]],
+  "  ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Mu]\)]],
+  "  ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Nu]"], TraditionalForm]]],
+  "  -  ",
+  Cell[BoxData[
+      FormBox[
+        RowBox[{"  ", 
+          FormBox[\(m\_\(\[Mu]; \[Nu]\)\),
+            "TraditionalForm"], " "}], TraditionalForm]]],
+  " ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Mu]"], TraditionalForm]]],
+  " ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Nu]"], TraditionalForm]]],
+  "  ),       \[Beta]=",
+  Cell[BoxData[
+      \(1\/2\)]],
+  "(  ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\_\(\[Mu]; \[Nu]\)\)]],
+  "  ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Mu]\)]],
+  "   ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Nu]\)]],
+  "  -  ",
+  Cell[BoxData[
+      FormBox[
+        RowBox[{" ", 
+          FormBox[\(m\_\(\[Mu]; \[Nu]\)\),
+            "TraditionalForm"], " "}], TraditionalForm]]],
+  "  ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Mu]"], TraditionalForm]]],
+  "  ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Nu]\)]],
+  "  )\n \[Gamma] = ",
+  Cell[BoxData[
+      \(1\/2\)]],
+  "( ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\_\(\[Mu]; \[Nu]\)\)]],
+  "  ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Mu]\)]],
+  "  ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Nu]\)]],
+  "  -  ",
+  Cell[BoxData[
+      FormBox[
+        RowBox[{" ", 
+          FormBox[\(m\_\(\[Mu]; \[Nu]\)\),
+            "TraditionalForm"], " "}], TraditionalForm]]],
+  "  ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Mu]"], TraditionalForm]]],
+  "  ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Nu]\)]],
+  " ),   \[Epsilon] = ",
+  Cell[BoxData[
+      \(1\/2\)]],
+  "(  ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\_\(\[Mu]; \[Nu]\)\)]],
+  "  ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Mu]\)]],
+  "  ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Nu]\)]],
+  " -  ",
+  Cell[BoxData[
+      FormBox[
+        RowBox[{"  ", 
+          FormBox[\(m\_\(\[Mu]; \[Nu]\)\),
+            "TraditionalForm"], " "}], TraditionalForm]]],
+  "  ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Mu]"], TraditionalForm]]],
+  "  ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Nu]\)]],
+  " )\n\nEvaluate the scalars.\niv. The tetrad components for the Weyl tensor \
+are defined by"
+}], "Text"],
+
+Cell[TextData[{
+  "\[Psi]0 =  - ",
+  Cell[BoxData[
+      \(TraditionalForm\`C\_\[Mu]\[Nu]\[Alpha]\[Beta]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Mu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Nu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Alpha]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Beta]\)]],
+  ",              \[Psi]1 =  - ",
+  Cell[BoxData[
+      \(TraditionalForm\`C\_\[Mu]\[Nu]\[Alpha]\[Beta]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Mu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Nu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Alpha]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Beta]\)]],
+  "   \n\[Psi]2 =  - ",
+  Cell[BoxData[
+      \(1\/2\)]],
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(\ \)\(C\_\[Mu]\[Nu]\[Alpha]\[Beta]\)\)\)]],
+  " (",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Mu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Nu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Alpha]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Beta]\)]],
+  " -  ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Mu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Nu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(m\)\(\ \)\)\^\[Alpha]\)]],
+  "  ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          RowBox[{
+            FormBox[\(m\&_\),
+              "TraditionalForm"], " "}], "\[Beta]"], TraditionalForm]]],
+  " )\n\[Psi]3 =  - ",
+  Cell[BoxData[
+      \(TraditionalForm\`C\_\[Mu]\[Nu]\[Alpha]\[Beta]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Mu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Nu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Alpha]\)]],
+  " ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Beta]"], TraditionalForm]]],
+  ",         \[Psi]4 =  - ",
+  Cell[BoxData[
+      \(TraditionalForm\`C\_\[Mu]\[Nu]\[Alpha]\[Beta]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Mu]\)]],
+  " ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          RowBox[{
+            FormBox[\(m\&_\),
+              "TraditionalForm"], " "}], "\[Nu]"], TraditionalForm]]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Alpha]\)]],
+  " ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          RowBox[{
+            FormBox[\(m\&_\),
+              "TraditionalForm"], " "}], "\[Beta]"], TraditionalForm]]],
+  " \n\nEvaluate the scalars. "
+}], "Text"],
+
+Cell["Solution", "Subsubsection"],
+
+Cell[CellGroupData[{
+
+Cell["Remark", "Subsubsection"],
+
+Cell["\<\
+This problems needs the following user-defined procedures defined \
+in   previous chapters:\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "Covariant Derivative ",
+  Cell[BoxData[
+      \(TraditionalForm\`A\_\(\[Mu]; \[Nu]\)\)]]
+}], "Text"],
+
+Cell[BoxData[
+    \(coder[{1, L}, covV_, christ_, 
+        var_] := \ \n\t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \ \ \ \ \ \ \ \ \ Outer[D, covV, 
+          var]\  - \(\(covV . \ \ christ\)\(\ \ \)\)\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "Ricci Tensor  ",
+  Cell[BoxData[
+      \(TraditionalForm\`R\_\[Alpha]\[Beta]\)]],
+  "   "
+}], "Text"],
+
+Cell["\<\
+ ricciR[curv_,dem_:4]:= 
+  Simplify[ExpandAll[Table[
+  Sum[curv[[s,i,s,j]],{s,dem}],{i,dem},{j,dem}]]]\
+\>", "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "Weyl Curvature ",
+  Cell[BoxData[
+      \(TraditionalForm\`C\_\[Alpha]\[Beta]\[Gamma]\[Delta]\)]]
+}], "Text"],
+
+Cell["\<\
+ curvW[met_,cur_]:=
+ Module[{temp1,temp2,temp3,temp4,temp5,temp6,i},    
+  temp1= ricciR[cur];
+  temp2= Sum[(Inverse[met].temp1 )[[i,i]],{i,4}];
+  temp3= Outer[Times,met,temp1] ;
+  temp4=  Transpose[temp3,{1,4,3,2}]+ 
+               Transpose[temp3,{2,3,4,1}]- 
+                    Transpose[temp3,{1,3,4,2}]-
+                         Transpose[temp3,{2,4,3,1}];
+  temp5= Outer[Times,met,met] ; 
+  temp6= Transpose[temp5,{1,3,4,2}]- 
+                           Transpose[temp5,{1,4,3,2}]; 
+   met.cur +1/2 temp4 +1/6 temp6 temp2]
+                     
+            
+         \
+\>", "Input"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Part i ", "Subsubsection"],
+
+Cell[TextData[{
+  "     The contravariant metric ",
+  Cell[BoxData[
+      \(TraditionalForm\`g\^\[Mu]\[Nu]\)]],
+  "= ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Mu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Nu]\)]],
+  " + ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Nu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Mu]\)]],
+  " -  ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Mu]\)]],
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          RowBox[{"(", 
+            FormBox[\(m\&_\),
+              "TraditionalForm"], ")"}], "\[Nu]"], TraditionalForm]]],
+  " - ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Nu]\)]],
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          RowBox[{"(", 
+            FormBox[\(m\&_\),
+              "TraditionalForm"], ")"}], "\[Mu]"], TraditionalForm]]],
+  "  is"
+}], "Text"],
+
+Cell[BoxData[
+    \(\((imet = 
+          Outer[Times, nv, lv] + \ \ \ \ \ \ Outer[Times, lv, nv]\ \n\t\  - \ 
+              Outer[Times, mv, mbv] - \ \ \ \ \ Outer[Times, mbv, 
+                mv] // \[IndentingNewLine]\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Simplify)\) // MatrixForm\)], "Input"],
+
+Cell[TextData[{
+  "and the covariant metric  ",
+  Cell[BoxData[
+      \(TraditionalForm\`g\_\[Mu]\[Nu]\)]],
+  " follows from the inverse"
+}], "Text"],
+
+Cell[BoxData[
+    \(\(\(\((met = Inverse[imet] /. rulef)\) // 
+        MatrixForm\)\(//\)\(Simplify\)\(\ \)\)\)], "Input"],
+
+Cell["\<\
+This is just the Reissner-Nordstrom solution in null (retarded) \
+coordinates.\
+\>", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Part ii", "Subsubsection"],
+
+Cell[TextData[{
+  "  To show the tetrad is normalized such that l.n=-m.",
+  Cell[BoxData[
+      \(TraditionalForm\`m\&_\)]],
+  " =1 we evaluate the following"
+}], "Text"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(met . lv . nv \[Equal] \(-met . mv . mbv\)\  \[Equal] 
+      1\)\)\)], "Input"],
+
+Cell["The remaining scalar products are zero: ", "Text"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(met . lv . lv == met . nv . nv == met . mv . mv == 
+          met . mbv . mbv \[Equal] \[IndentingNewLine]met . lv . mv == 
+          met . lv . mbv == met . nv . mv == met . nv . mbv \[Equal] \ 0\  /. 
+        rulef // Simplify\)\)\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Part iii", "Subsubsection"],
+
+Cell["\<\
+   To evaluate the  rotation coefficients we calculate the \
+Christoffel symbol \
+\>", "Text"],
+
+Cell[BoxData[
+    \(var = {u, r, \[Theta], \[Phi]}; \ \ ch = christ[met, var];\)], "Input"],
+
+Cell["and define the operator", "Text"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(op[l_, n_, 
+        m_]\  := \ \ \(\(\(n . \ coder[{1, L}, met . l\ , ch\ , var\ ]\)\  . 
+        m\)\(\ \ \ \ \ \ \ \ \)\)\)\)\)], "Input"],
+
+Cell[TextData[{
+  "The scalars  \[Kappa]=  ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\_\(\[Mu]; \[Nu]\)\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Mu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Nu]\)]],
+  ",  \[Rho]  =  ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\_\(\[Mu]; \[Nu]\)\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Mu]\)]],
+  " ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Nu]"], TraditionalForm]]],
+  ",  \[Sigma]=  ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\_\(\[Mu]; \[Nu]\)\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Mu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Nu]\)]],
+  " , \[Tau]=  ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\_\(\[Mu]; \[Nu]\)\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Mu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Nu]\)]],
+  "  follow from   "
+}], "Text"],
+
+Cell[BoxData[
+    \(eq1 = \ \ \ \({\[Kappa], \[Rho], \[Sigma], \[Tau]}\ \ \  -> \ \ {\ \ op[
+                lv, mv, lv]\ , op[lv, mv, mbv], op[lv, mv, mv], 
+              op[lv, mv, nv]} // Simplify\) // Thread\)], "Input"],
+
+Cell[TextData[{
+  "The scalars  \[Nu]=-  ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(n\_\(\[Mu]; \[Nu]\)\)\(\ \)\)\)]],
+  " ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Mu]"], TraditionalForm]]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Nu]\)]],
+  ",   \[Mu] =-   ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(n\_\(\[Mu]; \[Nu]\)\)\(\ \)\)\)]],
+  " ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Mu]"], TraditionalForm]]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Nu]\)]],
+  " ,   \[Lambda]=-  ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(n\_\(\[Mu]; \[Nu]\)\)\(\ \)\)\)]],
+  " ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Mu]"], TraditionalForm]]],
+  "  ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Nu]"], TraditionalForm]]],
+  " ,  \[Pi]  =-   ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(n\_\(\[Mu]; \[Nu]\)\)\(\ \)\)\)]],
+  " ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Mu]"], TraditionalForm]]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Nu]\)]],
+  "  are   "
+}], "Text"],
+
+Cell[BoxData[
+    \(eq2 = \ \ \ \({\[Nu], \[Mu], \[Lambda], \[Pi]}\ \ \  -> \ \ {\ \(-\ 
+                  op[nv, mbv, nv]\)\ , \(-op[nv, mbv, mv]\), \(-op[nv, mbv, 
+                    mbv]\), \(-op[nv, mbv, lv]\)} /. rulef // Simplify\) // 
+        Thread\)], "Input"],
+
+Cell[TextData[{
+  "The final four scalars are  \n\n \[Alpha]=",
+  Cell[BoxData[
+      \(1\/2\)]],
+  "( ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\_\(\[Mu]; \[Nu]\)\)]],
+  "  ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Mu]\)]],
+  " ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Nu]"], TraditionalForm]]],
+  "  -  ",
+  Cell[BoxData[
+      FormBox[
+        RowBox[{" ", 
+          FormBox[\(m\_\(\[Mu]; \[Nu]\)\),
+            "TraditionalForm"], " "}], TraditionalForm]]],
+  " ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Mu]"], TraditionalForm]]],
+  " ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Nu]"], TraditionalForm]]],
+  "),       \[Beta]=",
+  Cell[BoxData[
+      \(1\/2\)]],
+  "( ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\_\(\[Mu]; \[Nu]\)\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Mu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Nu]\)]],
+  "  -  ",
+  Cell[BoxData[
+      FormBox[
+        RowBox[{" ", 
+          FormBox[\(m\_\(\[Mu]; \[Nu]\)\),
+            "TraditionalForm"], " "}], TraditionalForm]]],
+  " ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Mu]"], TraditionalForm]]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Nu]\)]],
+  " )\n \[Gamma] = ",
+  Cell[BoxData[
+      \(1\/2\)]],
+  "( ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\_\(\[Mu]; \[Nu]\)\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Mu]\)]],
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Nu]\)]],
+  " - ",
+  Cell[BoxData[
+      FormBox[
+        RowBox[{" ", 
+          FormBox[\(m\_\(\[Mu]; \[Nu]\)\),
+            "TraditionalForm"], " "}], TraditionalForm]]],
+  " ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Mu]"], TraditionalForm]]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Nu]\)]],
+  "),   \[Epsilon] = ",
+  Cell[BoxData[
+      \(1\/2\)]],
+  "( ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\_\(\[Mu]; \[Nu]\)\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Mu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Nu]\)]],
+  " - ",
+  Cell[BoxData[
+      FormBox[
+        RowBox[{" ", 
+          FormBox[\(m\_\(\[Mu]; \[Nu]\)\),
+            "TraditionalForm"], " "}], TraditionalForm]]],
+  " ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Mu]"], TraditionalForm]]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Nu]\)]],
+  ")\n\nfollow from"
+}], "Text"],
+
+Cell[BoxData[
+    \(eq3 = \ \ \ \(\({\[Alpha], \[Beta], \[Gamma], \[Epsilon]}\ \ \  -> \ \ \
+{\[IndentingNewLine]1/2 \((\ 
+                      op[lv, nv, mbv\ ] - 
+                        op[mv, mbv, mbv])\)\ , \[IndentingNewLine]1/
+                      2 \((op[lv, nv, mv] - 
+                        op[mv, mbv, mv])\), \[IndentingNewLine]1/
+                      2 \((op[lv, nv, nv] - 
+                        op[mv, mbv, nv])\), \[IndentingNewLine]1/
+                      2 \((op[lv, nv, lv] - op[mv, mbv, lv])\)} /. rulef // 
+            ExpandAll\)\  // Simplify\) // Thread\)], "Input"],
+
+Cell["Collecting the scalars, we find", "Text"],
+
+Cell[BoxData[
+    \(\(\(\(({eq1, eq2, eq3}\ )\) // Flatten\) // Partition[#, 4] &\)\  // 
+      TableForm\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Part iv", "Subsubsection"],
+
+Cell[TextData[{
+  "To find the curvature scalars--- \[Psi]0 = - ",
+  Cell[BoxData[
+      \(TraditionalForm\`C\_\[Mu]\[Nu]\[Alpha]\[Beta]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Mu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Nu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Alpha]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Beta]\)]],
+  ",  \[Psi]1 =  - ",
+  Cell[BoxData[
+      \(TraditionalForm\`C\_\[Mu]\[Nu]\[Alpha]\[Beta]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Mu]\)]],
+  "  ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Nu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Alpha]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`m\^\[Beta]\)]],
+  "   \n \[Psi]2 =  - ",
+  Cell[BoxData[
+      \(1\/2\)]],
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(\ \ \)\(C\_\[Mu]\[Nu]\[Alpha]\[Beta]\)\)\)]],
+  " ( ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Mu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Nu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Alpha]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Beta]\)]],
+  " - ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Mu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Nu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(m\)\(\ \)\)\^\[Alpha]\)]],
+  " ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          RowBox[{
+            FormBox[\(m\&_\),
+              "TraditionalForm"], " "}], "\[Beta]"], TraditionalForm]]],
+  "),  \[Psi]3 =  - ",
+  Cell[BoxData[
+      \(TraditionalForm\`C\_\[Mu]\[Nu]\[Alpha]\[Beta]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Mu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`l\^\[Nu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Alpha]\)]],
+  " ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          FormBox[\(m\&_\),
+            "TraditionalForm"], "\[Beta]"], TraditionalForm]]],
+  ", \[Psi]4 =  - ",
+  Cell[BoxData[
+      \(TraditionalForm\`C\_\[Mu]\[Nu]\[Alpha]\[Beta]\)]],
+  "  ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Mu]\)]],
+  "  ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          RowBox[{
+            FormBox[\(m\&_\),
+              "TraditionalForm"], " "}], "\[Nu]"], TraditionalForm]]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`n\^\[Alpha]\)]],
+  "  ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          RowBox[{
+            FormBox[\(m\&_\),
+              "TraditionalForm"], " "}], "\[Beta]"], TraditionalForm]]],
+  "---we first calculate the curvature Riemann curvature ",
+  Cell[BoxData[
+      \(TraditionalForm\`R\_\(\(\ \ \ \)\(\[Beta]\[Gamma]\[Delta]\)\)\%\
+\[Alpha]\)]],
+  " "
+}], "Text"],
+
+Cell[BoxData[
+    \(\(curR = \ \ curvR[ch, var];\)\)], "Input"],
+
+Cell[TextData[{
+  "followed by the Weyl curvature ",
+  Cell[BoxData[
+      \(TraditionalForm\`C\_\[Alpha]\[Beta]\[Gamma]\[Delta]\)]]
+}], "Text"],
+
+Cell[BoxData[
+    \(\(\(\ \ \ \ \ \)\(curW = \ \ curvW[met, curR\ \ ];\)\)\)], "Input"],
+
+Cell["Define the operator", "Text"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(cop[l1_, l2_, l3_, 
+        l4_] := \(\(l4 . \((l3 . \((l2 . \((l1 . 
+                      curW)\))\))\)\)\(//\)\(Together\)\(\ \)\)\)\)\)], \
+"Input"],
+
+Cell["The curvature scalars follow from", "Text"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(\(\({\ \[Psi]0\ , \[Psi]1\ , \ \ \[Psi]2\ \ , \ \[Psi]3\ \ , \
+\ \[Psi]4\ } -> {\(-cop[lv, mv, lv, mv]\)\ , \ \ \(-cop[lv, nv, lv, 
+                  mv]\)\ , \[IndentingNewLine]\(-1\)/2 \((\ 
+                  cop[lv, nv, lv, nv] - 
+                    cop[lv, nv, mv, mbv])\), \[IndentingNewLine]\(-cop[nv, 
+                  lv, nv, mbv]\)\ , \(-cop[nv, mbv, nv, mbv\ ]\)\ \ } /. 
+          rulef // Thread\) // 
+      Simplify\)\(\[IndentingNewLine]\)\(\ \ \)\)\)\)], "Input"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["9.6.7 Reissner-Nordstrom-de Sitter Solution ", "Subsubsection"],
+
+Cell["\<\
+    Consider the field equations for the generalized \
+Reissner-Nordstrom solution when the cosmological constant is not zero. 
+i. Assume a metric of the form  \
+\>", "Text"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(var = {t, r, \[Theta], \[Phi]};\)\)\)], "Input"],
+
+Cell["\<\
+  met=DiagonalMatrix[
+            {g00[r],g11[r],-r^2,-r^2 Sin[\[Theta]]^2}] ;\
+\>", "Input"],
+
+Cell["and show the solution is ", "Text"],
+
+Cell["\<\
+ comp={ g00->((1- 2 m/# +Q^2/#^2-l/3\[Lambda] #^2)&),
+         g11->((-1/(1- 2 m/# +Q^2/#^2-l/3\[Lambda] #^2) )&)};\
+\>", "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+9.6.8 Reissner-Nordstrom-deSitter Circular Geodesics  (Solution \
+included)\
+\>", "Subsubsection",
+  Evaluatable->False],
+
+Cell[TextData[{
+  "  Consider the spherical metric  \n\n                      ",
+  Cell[BoxData[
+      \(TraditionalForm\`g\_\[Alpha]\[Beta]\)]],
+  "  =  ",
+  Cell[BoxData[
+      TagBox[
+        RowBox[{"(", "\[NoBreak]", GridBox[{
+              {\(g[r]\), "0", "0", "0"},
+              {"0", \(-\(1\/g[r]\)\), "0", "0"},
+              {"0", "0", \(-r\^2\), "0"},
+              {"0", "0", "0", \(\(-r\^2\)\ Sin[\[Theta]]\^2\)}
+              }], "\[NoBreak]", ")"}],
+        (MatrixForm[ #]&)]],
+    FontFamily->"Times"],
+  "\n"
+}], "Text"],
+
+Cell[TextData[{
+  "i. Solve for the circular geodesic orbits. Evaluate the results for the \
+Reissner-Nordstrom-deSitter metric  g[r]= ",
+  Cell[BoxData[
+      \(1 + Q\^2\/r\^2 - \(2\ m\)\/r + \(r\^2\ \[Lambda]\)\/3\)],
+    FontFamily->"Times"],
+  ".\nii. Compute the proper and coordinate periods."
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Subsubsection"],
+
+Cell[CellGroupData[{
+
+Cell["Part i", "Subsubsection"],
+
+Cell["    The form of the spherical metric is ", "Text"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(var = {t, r, \[Theta], \[Phi]}; 
+    met = DiagonalMatrix[{g[r], \(-1\)/
+            g[r], \(-r^2\), \(-r^2\)\ Sin[\[Theta]]^2}];\)\)\)], "Input"],
+
+Cell["\<\
+where the Reissner-Nordstrom-deSitter metric component is given by \
+the rule \
+\>", "Text"],
+
+Cell["\<\
+ comp={ g ->((1- 2 m/# +Q^2/#^2 +\[Lambda]/3 #^2)&)  };\
+\>", \
+"Input"],
+
+Cell[TextData[{
+  " Enter the four-velocity for path with \[Theta]=",
+  Cell[BoxData[
+      \(\[Pi]\/2\)]],
+  ", "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(vel = \ {\(t'\)[s], \(r'\)[s], 0, \(\[Phi]'\)[s]}\ ;\)\)], "Input"],
+
+Cell[TextData[{
+  " Two equations for circular geodesics follow from the timelike and \
+rotational Killing vectors, ",
+  Cell[BoxData[
+      \(TraditionalForm\`\[Xi]\^\[Mu]\)]],
+  Cell[BoxData[
+      \(TraditionalForm\`V\_\[Mu]\)]],
+  " =constant :  "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(\(eq1\)\(=\)\({\(t'\)[s] -> en/g[r[s]]\ \ , \(\[Phi]'\)[s] -> 
+          jz/r[s]^2}\)\(\ \ \)\)\)], "Input"],
+
+Cell["The timelike condition gives a third equation", "Text"],
+
+Cell[BoxData[
+    \(eq2 = \(\(1 \[Equal] \((met\ \ \  /. r \[Rule] r[s])\) . vel . 
+                  vel /. \[Theta] \[Rule] Pi/2\) /. eq1\  // 
+          Solve[#, \(r'\)[s]] &\) // Flatten\)], "Input"],
+
+Cell["\<\
+A fourth equation follows from taking the derivative of eq2. An \
+expression for r''[s] follows from \
+\>", "Text"],
+
+Cell[BoxData[
+    \(\(\((eq3 = \(\((D[\ eq2[\([1]\)] /. Rule \[Rule] Equal, 
+                      s] // \(Solve[#, \(\(r'\)'\)[s]]\)[\([1, 1]\)] &\ )\) /. 
+                eq2[\([1]\)]\) /. Rule -> Equal\  // 
+            Simplify)\)\(//\)\(ExpandAll\)\(\ \)\)\)], "Input"],
+
+Cell[TextData[{
+  "Equations eq1, eq2 and eq3 give us four equations for the four unknowns, \
+jz,en, r[s] and ",
+  Cell[BoxData[
+      RowBox[{
+        SuperscriptBox["\[Phi]", "\[Prime]",
+          MultilineFunction->None], "[", "s", "]"}]],
+    FontFamily->"Times"],
+  ". \n    The circular solutions follow from setting  r=ro in eq1,eq2,and \
+eq3:"
+}], "Text"],
+
+Cell[BoxData[
+    \(\(\((eq4 = \({eq1, eq2[\([1]\)], eq3}\ \  /. r -> \((\((ro)\) &)\)\) /. 
+                Rule -> Equal\  // Flatten)\)\  // Partition[#, {2}] &\)\  // 
+      TableForm\)], "Input"],
+
+Cell[TextData[{
+  "Solving for {t'[s], ",
+  Cell[BoxData[
+      RowBox[{
+        SuperscriptBox["\[Phi]", "\[Prime]",
+          MultilineFunction->None], "[", "s", "]"}]],
+    FontFamily->"Times"],
+  ",en,jz}, we find"
+}], "Text"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{
+        RowBox[{"(", " ", 
+          RowBox[{"circlesol", "=", " ", 
+            RowBox[{"(", 
+              RowBox[{
+                RowBox[{
+                  RowBox[{
+                    RowBox[{"Solve", "[", 
+                      RowBox[{"eq4", " ", ",", 
+                        RowBox[{"{", " ", 
+                          RowBox[{
+                            RowBox[{
+                              SuperscriptBox["\[Phi]", "\[Prime]",
+                                MultilineFunction->None], "[", "s", "]"}], 
+                            ",", \(\(t'\)[s]\), " ", ",", "en", ",", "jz"}], 
+                          "}"}]}], "]"}], "[", \([4]\), "]"}], "//", 
+                  "Simplify"}], "//", "PowerExpand"}], " ", ")"}]}], ")"}], 
+        "//", \(Partition[#, {2}] &\)}], " ", "//", "TableForm", 
+      " "}]], "Input"],
+
+Cell["\<\
+We have kept solutions with only positive \[Phi]'[s] and t'[s]. \
+Evaluating the results for the Reissner-Nordstrom-deSitter metric, it follows\
+\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(\((\ \(circlesol /. comp\  // FullSimplify\) // PowerExpand\ )\) // 
+        Partition[#, {2}] &\)\  // TableForm\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Part ii", "Subsubsection"],
+
+Cell[TextData[{
+  "       What is the orbit period? There are two periods: one corresponding \
+to the coordinate time and the other corresponding to the proper time. Since \
+\[Phi]'[s] is a constant, the proper period follows from  ",
+  Cell[BoxData[
+      FractionBox[\(2\ \[Pi]\), 
+        RowBox[{
+          SuperscriptBox["\[Phi]", "\[Prime]",
+            MultilineFunction->None], "[", "s", "]"}]]],
+    FontFamily->"Times"],
+  ","
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(periodS = \(\((\ 
+          2\ Pi/\(\[Phi]'\)[s] /. 
+            circlesol\ )\)\(//\)\(\ \)\(Simplify\)\(\ \)\)\)], "Input"],
+
+Cell["\<\
+ Evaluating the results for the Reissner-Nordstrom-deSitter metric, \
+we get\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(\(\ \ \ \ \ \ \ \ \ \)\(\(periodS /. comp // FullSimplify\) // 
+      PowerExpand\)\)\)], "Input"],
+
+Cell[TextData[{
+  "The coordinate period follows from ",
+  Cell[BoxData[
+      FractionBox[
+        RowBox[{"2", " ", "\[Pi]", " ", 
+          RowBox[{
+            SuperscriptBox["t", "\[Prime]",
+              MultilineFunction->None], "[", "s", "]"}]}], 
+        RowBox[{
+          SuperscriptBox["\[Phi]", "\[Prime]",
+            MultilineFunction->None], "[", "s", "]"}]]],
+    FontFamily->"Times"],
+  ", "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(periodT = \ \ \ \(\((\ \ 2\ Pi\ \(t'\)[s]/\((\(\[Phi]'\)[s]\ )\) /. 
+            circlesol\ \ \ )\)\(//\)\(\ \)\(Simplify\)\(\ \)\)\)], "Input"],
+
+Cell["and the Reissner-Nordstrom-deSitter limit becomes", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(\(\ \ \ \ \)\(\(periodT /. comp // FullSimplify\) // 
+      PowerExpand\)\)\)], "Input"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "9.6.9 Acceleration  Vectors  along Circular and Radial Paths",
+  StyleBox["  ",
+    FontColor->RGBColor[0, 0, 1]],
+  "(Solution included)",
+  StyleBox[" ",
+    FontColor->RGBColor[0, 0, 1]]
+}], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "  Consider the spherical metric  \n\n                      ",
+  Cell[BoxData[
+      \(TraditionalForm\`g\_\[Alpha]\[Beta]\)]],
+  "  =  ",
+  Cell[BoxData[
+      TagBox[
+        RowBox[{"(", "\[NoBreak]", GridBox[{
+              {\(g[r]\), "0", "0", "0"},
+              {"0", \(-\(1\/g[r]\)\), "0", "0"},
+              {"0", "0", \(-r\^2\), "0"},
+              {"0", "0", "0", \(\(-r\^2\)\ Sin[\[Theta]]\^2\)}
+              }], "\[NoBreak]", ")"}],
+        (MatrixForm[ #]&)]],
+    FontFamily->"Times"],
+  "\n\ni. The four velocity for a timelike circular path in the equatorial \
+plane is of the form ",
+  Cell[BoxData[
+      \(\(\(V\)\(=\)\({\[Gamma], 0, 
+          0, \[Gamma]\ \[CapitalOmega]}\)\(\ \)\)\)], "Text",
+    GeneratedCell->False,
+    CellAutoOverwrite->False,
+    FontFamily->"Times"],
+  " where the timelike condition requires \n\n                          \
+\[Gamma]= ",
+  Cell[BoxData[
+      \(\@\(1\/\(g[r] - \(\(r\^2\)\(\ \)\(\[CapitalOmega]\^2\)\(\ \)\)\)\)\)],
+    
+    FontFamily->"Times"],
+  "   \n \nCalculate the absolute derivative or acceleration vector ",
+  Cell[BoxData[
+      \(TraditionalForm\`A\^\[Mu]\)]],
+  " = ",
+  Cell[BoxData[
+      \(\[Delta]V\^\[Mu]\/\[Delta]S\)],
+    FontFamily->"Times"],
+  " = ",
+  Cell[BoxData[
+      \(TraditionalForm\`V\_\(\(\ \ \ \ \)\(\(;\)\(\[Nu]\)\)\)\%\[Mu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`V\^\[Nu]\)]],
+  ".    Find the value of \[CapitalOmega] so the acceleration vector \
+vanishes. Evaluate the results for the Schwarzschild metric, g[r]=  ",
+  Cell[BoxData[
+      \(1 + \(2\ m\)\/r\)],
+    FontFamily->"Times"],
+  ", and for the Reissner-Nordstrom-deSitter metric, g[r]= ",
+  Cell[BoxData[
+      \(1 + Q\^2\/r\^2 - \(2\ m\)\/r + \(r\^2\ \[Lambda]\)\/3\)],
+    FontFamily->"Times"],
+  ".\nii.  The timelike four velocity for a radial path in the equatorial \
+plane is of the form  ",
+  Cell[BoxData[
+      \(\(\(V\)\(=\)\({\[Gamma][r]\ , v[r], 0, 0}\)\(\ \)\)\)], "Text",
+    GeneratedCell->False,
+    CellAutoOverwrite->False,
+    FontFamily->"Times"],
+  " and the timelike condition requires  \[Gamma]= ",
+  Cell[BoxData[
+      \(\@\(g[r] + v[r]\^2\)\/g[r]\)],
+    FontFamily->"Times"],
+  ". Calculate the  derivative or acceleration vector and find the value of \
+v[r] so the acceleration vector vanishes. Evaluate the results for the \
+Schwarzschild metric  and for the Reissner-Nordstrom-deSitter metric."
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell["Remark", "Subsubsection"],
+
+Cell[TextData[{
+  "   You need to load the user-defined function that takes the absolute \
+derivatives of a contravariant vector  ",
+  Cell[BoxData[
+      \(TraditionalForm\`W\^\[Mu]\)]],
+  ". If  ",
+  Cell[BoxData[
+      \(TraditionalForm\`V\^\[Mu]\)]],
+  " is the contravariant vector tangent to a curve then the absolute \
+derivative of ",
+  Cell[BoxData[
+      \(TraditionalForm\`W\^\[Mu]\)]],
+  " along the curve is ",
+  Cell[BoxData[
+      \(\[Delta]W\^\[Mu]\/\[Delta]S\)],
+    FontFamily->"Times"],
+  " and  follows from the user-defined function AbsD:"
+}], "Text"],
+
+Cell[BoxData[
+    \(coder[{1, U}, conV_, christ_, 
+        var_] := \ \ \ \ \ Outer[D, conV, var]\ \  + \ \ \(\(christ\  . 
+          conV\)\(\ \ \ \)\)\)], "Input"],
+
+Cell[BoxData[
+    \(AbsD[{1, U}, W_, V_, \ ch_\ , var_\ ] := \ 
+      coder[{1, U}, \ W, ch, var] . V\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Part i", "Subsubsection"],
+
+Cell["The form of the metric is ", "Text"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(var = {t, r, \[Theta], \[Phi]};\)\)\)], "Input"],
+
+Cell["\<\
+ met=DiagonalMatrix[
+            {g[r],-1/g[r],-r^2,-r^2 Sin[\[Theta]]^2}] ;\
+\>", "Input"],
+
+Cell["Enter the four-velocity for the circular orbit ", "Text"],
+
+Cell[BoxData[
+    \(\(vel = \ \ \[Gamma]\ \ {1, 0, 0, \[CapitalOmega]\ \ }\ ;\)\)], "Input"],
+
+Cell["where it follows from the timelike condition that  ", "Text"],
+
+Cell[BoxData[
+    \(1 \[Equal] met . vel . vel /. \[Theta] \[Rule] Pi/2 // 
+      Simplify\)], "Input"],
+
+Cell["The expression for \[Gamma] is", "Text"],
+
+Cell[BoxData[
+    \(\(\(rule\[Gamma] = \ \[Gamma]\  \[Rule] 
+          Sqrt[1/\((g[r] - r^2\ \[CapitalOmega]^2)\)]\ ;\)\(\ \)\)\)], "Input"],
+
+Cell["Evaluate the Christoffel symbol", "Text"],
+
+Cell["ch =christ[met]; ", "Input"],
+
+Cell[TextData[{
+  "The acceleration vector ",
+  Cell[BoxData[
+      \(TraditionalForm\`A\^\[Mu]\)]],
+  " = ",
+  Cell[BoxData[
+      \(\[Delta]V\^\[Mu]\/\[Delta]S\)],
+    FontFamily->"Times"],
+  " = ",
+  Cell[BoxData[
+      \(TraditionalForm\`V\_\(\(\ \ \ \ \)\(\(;\)\(\[Nu]\)\)\)\%\[Mu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`V\^\[Nu]\)]],
+  " follows from the user-defined function AbsD[]:"
+}], "Text"],
+
+Cell[BoxData[
+    \(acc = \ \(\(AbsD[{1, U}, vel, vel\ , ch\ \ , 
+            var\ \ ]\  /. \[Theta] \[Rule] 
+            Pi/2\)\(//\)\(Simplify\)\(\ \)\)\)], "Input"],
+
+Cell["\<\
+The acceleration is in the radial direction. The first term is the \
+inward pull of gravity and the second is the outward force caused by the \
+circular rotation. 
+     The acceleration vanishes if the inward gravity cancels the outward \
+force due to the rotation:\
+\>", "Text"],
+
+Cell[BoxData[{
+    \(\(rule\[CapitalOmega]\  = \ \[CapitalOmega]\  \[Rule] 
+          Sqrt[\(g'\)[r]/\((2\ r)\)];\)\), "\[IndentingNewLine]", 
+    \(\ \ \ \ \ \ \ \ \ \ \ \(\(\[CapitalOmega]\  /. rule\[CapitalOmega]\  // 
+        Simplify\)\(//\)\(PowerExpand\)\(\ \)\)\)}], "Input"],
+
+Cell["\<\
+The motion is in free-fall and the expression for the four-velocity \
+becomes\
+\>", "Text"],
+
+Cell[BoxData[
+    \(velgeod = \ \(\(vel\  /. \ rule\[Gamma]\) /. rule\[CapitalOmega]\  // 
+          Simplify\)\  // PowerExpand\)], "Input"],
+
+Cell["\<\
+This is the expression for a circular geodesic.
+    Let us evaluate \[CapitalOmega]  and the four-velocity for the \
+Schwarzschild and Reissner-Nordstrom-deSitter metric. The values for the \
+Schwarzschild are \
+\>", "Text"],
+
+Cell[BoxData[{
+    \(\(compSS = {g \[Rule] \((\((1 - 
+                    2\ m/#)\) &)\)};\)\), "\[IndentingNewLine]", 
+    \(\(\[CapitalOmega] /. rule\[CapitalOmega]\) /. 
+      compSS\), "\[IndentingNewLine]", 
+    \(\(velgeod /. compSS // Simplify\) // 
+      PowerExpand\[IndentingNewLine]\)}], "Input"],
+
+Cell["\<\
+which is the expression for a circular geodesic.For the \
+Reissner-Nordstrom-deSitter metric, we get\
+\>", "Text"],
+
+Cell[BoxData[{
+    \(\(compRNS = {g \[Rule] \((\((1 - 2\ m/# + 
+                    Q^2/#^2 + \[Lambda]/
+                        3\ #^2)\) &)\)};\)\), "\[IndentingNewLine]", 
+    \(\ \ \(\(\[CapitalOmega] /. rule\[CapitalOmega]\) /. compRNS // 
+        FullSimplify\) // PowerExpand\), "\[IndentingNewLine]", 
+    \(\(velgeod /. compRNS // FullSimplify\) // 
+      PowerExpand\[IndentingNewLine]\)}], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Part ii", "Subsubsection"],
+
+Cell["\<\
+     The four-velocity for a radial trajectory is of the form\
+\>", \
+"Text"],
+
+Cell[BoxData[
+    \(\(vel = \ \ {\[Gamma][r], v[r], 0, 0\ }\ ;\)\)], "Input"],
+
+Cell["where the timelike condition ", "Text"],
+
+Cell[BoxData[
+    \(1 \[Equal] met . vel . vel /. \[Theta] \[Rule] Pi/2\ \  // 
+      Simplify\)], "Input"],
+
+Cell["\<\
+gives the following rule for \[Gamma], \
+\>", "Text"],
+
+Cell[BoxData[
+    \(\(\(rule\[Gamma] = \ \[Gamma]\ \  \[Rule] \ \((\((\((1/\ 
+                      g[#])\)\ Sqrt[\((g[#]\  + 
+                        v[#]^2)\)])\) &)\);\)\(\[IndentingNewLine]\)\(\ \ \ \ \
+\ \ \ \ \ \ \ \ \)\)\)], "Input"],
+
+Cell[TextData[{
+  "The acceleration vector ",
+  Cell[BoxData[
+      \(TraditionalForm\`A\^\[Mu]\)]],
+  " = ",
+  Cell[BoxData[
+      \(\[Delta]V\^\[Mu]\/\[Delta]S\)],
+    FontFamily->"Times"],
+  " = ",
+  Cell[BoxData[
+      \(TraditionalForm\`V\_\(\(\ \ \ \ \)\(\(;\)\(\[Nu]\)\)\)\%\[Mu]\)]],
+  " ",
+  Cell[BoxData[
+      \(TraditionalForm\`V\^\[Nu]\)]],
+  " follows from the user-defined function AbsD[]:"
+}], "Text"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(acc = \ \(\(\(AbsD[{1, U}, vel, vel\ , ch\ \ , var\ \ ] /. 
+            rule\[Gamma]\)\  /. \[Theta] \[Rule] 
+            Pi/2\)\(\ \ \)\(//\)\(Simplify\)\(\ \ \)\)\)\)\)], "Input"],
+
+Cell["The acceleration vanishes if", "Text"],
+
+Cell[BoxData[
+    \(rulev\ \  = \ \(\(acc[\([\ 2]\)] \[Equal] 0 // 
+          Thread\)\(//\)\(\(DSolve[#, v[r]\ , 
+              r]\)[\([1]\)] &\)\(\ \ \ \)\)\)], "Input"],
+
+Cell["\<\
+where we have kept only the inward motion. 
+        The initial condition that v[r]=0 at r=ro requires C[1]=g[ro] so the \
+expression for the  velocity becomes\
+\>", "Text"],
+
+Cell[BoxData[
+    \(\(\(\(\(v[r] /. rule\[Gamma]\) /. rulev\) /. 
+            C[1] \[Rule] \ g[ro]\)\ \  /. Q \[Rule] 0\) /. \[Lambda] \[Rule] 
+          0\ \  // Apart\)], "Input"],
+
+Cell[" The four-velocity expression reduces to ", "Text"],
+
+Cell[BoxData[
+    \(velgeodr = \((\(\(vel\ \  /. \ rule\[Gamma]\)\  /. \ rulev\) /. 
+          C[1] \[Rule] \ \ \ g[ro]\ )\)\)], "Input"],
+
+Cell[" The value for the Schwarzschild is ", "Text"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(\(velgeodr\)\(/.\)\(compSS\)\(\ \ \)\(\[IndentingNewLine]\)\)\
+\)\)], "Input"],
+
+Cell["\<\
+and value for the Reissner-Nordstrom-deSitter metric reduces to \
+\
+\>", "Text"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(\(velgeodr\)\(/.\)\(compRNS\)\(\ \ \
+\)\(\[IndentingNewLine]\)\)\)\)], "Input"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["9.6.10 Reissner-Nordstrom-de Sitter Geodesics ", "Subsubsection"],
+
+Cell["\<\
+    Consider the Reissner-Nordstrom-de Sitter metric.  
+i. construct an effective potential for the timelike and Null paths and \
+describe the motion.
+ii. solve for the circular timelike geodesics.
+ii.  find the perihelion shift for the bound timelike geodesics. (Keep only \
+the lowest order terms.) \
+\>", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["9.6.11 Reissner-Nordstrom-de Sitter Horizons ", "Subsubsection"],
+
+Cell["\<\
+    Consider the Reissner-Nordstrom-de Sitter metric. Describe the \
+properties of the horizons. \
+\>", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["9.6.12 Maxwell-Einstein Solution  (Solution included)", "Subsubsection"],
+
+Cell["  The metric  ", "Text"],
+
+Cell[BoxData[{
+    \(\ \(\((met = 
+          DiagonalMatrix[{\ \((1 + \ 
+                  L\ z^2)\), \ \(-\((1 - \ L\ y^2)\)\), \ \(-1\)/\((1 - \ 
+                    L\ y^2)\), \(-\ 
+                  1\)/\((1 + \ L\ z^2)\)\ }])\);\)\), "\[IndentingNewLine]", 
+    \(\ \ \ \(var = {t, x, y, z\ }\ ;\)\)}], "Input"],
+
+Cell[TextData[{
+  "is a solution of the Einstein-Maxwell equations where the Maxwell tensor \
+is of the form ",
+  "\n",
+  "\n                       ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(F\)\(\ \)\)\_\[Alpha]\[Beta]\)]],
+  "    ",
+  Cell[BoxData[
+      \(\ \)],
+    FontFamily->"Times"],
+  "=",
+  Cell[BoxData[
+      TagBox[
+        RowBox[{"(", GridBox[{
+              {"0", "0", "0", \(-E\_z\)},
+              {"0", "0", \(B\_z\), "0"},
+              {"0", \(-B\_z\), "0", "0"},
+              {\(E\_z\), "0", "0", "0"}
+              }], ")"}],
+        (MatrixForm[ #]&)]],
+    FontFamily->"Times"]
+}], "Text"],
+
+Cell[TextData[{
+  " \ni. Calculate ",
+  Cell[BoxData[
+      \(\(\(\ \)\(T\_\[Alpha]\[Beta]\)\)\)],
+    FontFamily->"Times"],
+  " = ",
+  Cell[BoxData[
+      \(1\/\(4\ \[Pi]\)\)],
+    FontFamily->"Times"],
+  "(",
+  Cell[BoxData[
+      RowBox[{
+        StyleBox[" ",
+          FontSize->12], \(\(F\_\[Alpha]\[Gamma]\) 
+          F\_\(\(\ \ \)\(\[Beta]\)\)\%\[Gamma]\)}]],
+    FontFamily->"Times"],
+  "+ ",
+  Cell[BoxData[
+      \(1\/4\)],
+    FontFamily->"Times"],
+  " ",
+  Cell[BoxData[
+      \(\(\(g\)\(\ \)\)\_\[Alpha]\[Beta]\)],
+    FontFamily->"Times"],
+  Cell[BoxData[
+      \(\(\(F\^\[Gamma]\[Delta]\ F\_\[Gamma]\[Delta]\)\()\)\)\)],
+    FontFamily->"Times"],
+  "  and find the mixed tensor ",
+  Cell[BoxData[
+      \(T\_\(\(\ \ \ \)\(\[Beta]\)\)\%\[Alpha]\)],
+    FontFamily->"Times"],
+  ".\nii. Find Ez and Hz from the Einstein-Maxwell equations: \n\n        G",
+  StyleBox["\[Alpha]\[Beta] ",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "= R",
+  StyleBox["\[Alpha]\[Beta]",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " -1/2 g",
+  StyleBox["\[Alpha]\[Beta]",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " R = 8 \[Pi] G T",
+  StyleBox["\[Alpha]\[Beta] ,    ",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  Cell[BoxData[
+      \(F\_\(\(\ \ \ \)\(\(;\)\(\[Beta]\)\)\(\ \)\)\%\[Alpha]\[Beta]\)],
+    FontFamily->"Times"],
+  "=0,   and    ",
+  Cell[BoxData[
+      \(F\_\(\[Nu]\[Kappa], \[Mu]\)\)],
+    FontFamily->"Times"],
+  " + ",
+  Cell[BoxData[
+      \(F\_\(\[Kappa]\[Mu], \[Nu]\)\)],
+    FontFamily->"Times"],
+  " + ",
+  Cell[BoxData[
+      \(F\_\(\[Mu]\[Nu], \[Kappa]\)\)],
+    FontFamily->"Times"],
+  " =0 \n        \niii. Show that the metric is conformally flat by \
+evaluating the Weyl tensor        "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell["Solution  ", "Subsubsection"],
+
+Cell[CellGroupData[{
+
+Cell["Remarks", "Subsubsection"],
+
+Cell["\<\
+To solve this problem you need the following two user-defined \
+procedure that were defined in earlier chapters.\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "Ricci Tensor  ",
+  Cell[BoxData[
+      \(TraditionalForm\`R\_\[Alpha]\[Beta]\)]],
+  "   "
+}], "Text"],
+
+Cell["\<\
+ ricciR[curv_,dem_:4]:= 
+  Simplify[ExpandAll[Table[
+  Sum[curv[[s,i,s,j]],{s,dem}],{i,dem},{j,dem}]]]\
+\>", "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "Weyl Curvature ",
+  Cell[BoxData[
+      \(TraditionalForm\`C\_\[Alpha]\[Beta]\[Gamma]\[Delta]\)]]
+}], "Text"],
+
+Cell["\<\
+ curvW[met_,cur_]:=
+ Module[{temp1,temp2,temp3,temp4,temp5,temp6,i},    
+  temp1= ricciR[cur];
+  temp2= Sum[(Inverse[met].temp1 )[[i,i]],{i,4}];
+  temp3= Outer[Times,met,temp1] ;
+  temp4=  Transpose[temp3,{1,4,3,2}]+ 
+               Transpose[temp3,{2,3,4,1}]- 
+                    Transpose[temp3,{1,3,4,2}]-
+                         Transpose[temp3,{2,4,3,1}];
+  temp5= Outer[Times,met,met] ; 
+  temp6= Transpose[temp5,{1,3,4,2}]- 
+                           Transpose[temp5,{1,4,3,2}]; 
+   met.cur +1/2 temp4 +1/6 temp6 temp2]
+                     
+            
+         \
+\>", "Input"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Part i   ", "Subsubsection"],
+
+Cell[TextData[{
+  "    To calculate",
+  Cell[BoxData[
+      \(\(\(\ \)\(T\_\[Alpha]\[Beta]\)\)\)],
+    FontFamily->"Times"],
+  " = ",
+  Cell[BoxData[
+      \(1\/\(4\ \[Pi]\)\)],
+    FontFamily->"Times"],
+  "(",
+  Cell[BoxData[
+      RowBox[{
+        StyleBox[" ",
+          FontSize->12], \(\(F\_\[Alpha]\[Gamma]\) 
+          F\_\(\(\ \ \)\(\[Beta]\)\)\%\[Gamma]\)}]],
+    FontFamily->"Times"],
+  "+ ",
+  Cell[BoxData[
+      \(1\/4\)],
+    FontFamily->"Times"],
+  " ",
+  Cell[BoxData[
+      \(\(\(g\)\(\ \)\)\_\[Alpha]\[Beta]\)],
+    FontFamily->"Times"],
+  Cell[BoxData[
+      \(\(\(F\^\[Gamma]\[Delta]\ F\_\[Gamma]\[Delta]\)\()\)\)\)],
+    FontFamily->"Times"],
+  " we first enter the Maxwell tensor ",
+  Cell[BoxData[
+      \(F\_\[Alpha]\[Gamma]\)],
+    FontFamily->"Times"],
+  ":"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(\((F = {{0, 0, 0, \(-Ez\)\ }, \ {\ 0, 0, Bz, 0}, \ {0, \(-Bz\), 0, 
+              0}, \ {\ Ez, 0, 0, 0}})\)\ ;\)\)], "Input"],
+
+Cell[TextData[{
+  "The contravariant Maxwell tensor ",
+  Cell[BoxData[
+      \(TraditionalForm\`F\^\[Mu]\[Nu]\)]],
+  " is "
+}], "Text"],
+
+Cell[" (cF=Inverse[met].F.Inverse[met]//Simplify)//MatrixForm  ", "Input"],
+
+Cell[TextData[{
+  "The mixed stress-energy tensor  ",
+  Cell[BoxData[
+      \(T\_\(\(\ \ \ \)\(\[Beta]\)\)\%\[Alpha]\)],
+    FontFamily->"Times"],
+  " is "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(\((mixedT = 
+          1/\((4\ Pi)\) 
+              Inverse[met] . \((F . \((Inverse[met] . F)\) + 
+                    1/4\ met\ Tr[\((\(-cF . F\))\)])\) // 
+            Simplify)\)\(//\)\(MatrixForm\)\(\ \)\)\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Part ii   ", "Subsubsection"],
+
+Cell[TextData[{
+  "    The field equations follow from equating the components of the \
+Einstein tensor to the components of the stress energy tensor, ",
+  Cell[BoxData[
+      \(G\_\(\(\ \ \ \)\(\[Beta]\)\)\%\[Alpha] = 
+        8\ \[Pi]\ G\ T\_\(\(\ \ \ \)\(\[Beta]\)\)\%\[Alpha]\)],
+    FontFamily->"Times"],
+  ". First calculate the Christoffel symbol and curvature tensor "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(ch = christ[met, var]; cur = curvR[ch, var] // Simplify;\)], "Input"],
+
+Cell[TextData[{
+  "The mixed Einstein tensor  ",
+  Cell[BoxData[
+      \(G\_\(\(\ \ \ \)\(\[Beta]\)\)\%\[Alpha]\)],
+    FontFamily->"Times"],
+  " follows from"
+}], "Text"],
+
+Cell["\<\
+(mixedG=(Inverse[met].einstein[cur,met])//Simplify)//MatrixForm   \
+\
+\>", "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "The Einstein field equations    G",
+  StyleBox["\[Alpha]\[Beta] ",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "= 8 \[Pi] G T",
+  StyleBox["\[Alpha]\[Beta]  ",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " follow from "
+}], "Text"],
+
+Cell[BoxData[
+    \(fieldeq = \(\(\((\(\((mixedG - 8\ Pi\ G\ mixedT // Flatten)\) \[Equal] 
+                  0 // Thread\) // Select[#, FreeQ[#, True] &] &)\) // 
+          Partition[#, 2] &\)\(//\)\(TableForm\)\(\ \)\)\)], "Input"],
+
+Cell["The solution is ", "Text"],
+
+Cell[BoxData[
+    \(\(sol = {Ez \[Rule] 
+            Sqrt[L/G\ ]\ \ Sin[\[Beta]]\ , \[IndentingNewLine]Bz -> 
+            Sqrt[L/G\ ]\ \ Cos[\[Beta]]\ };\)\)], "Input"],
+
+Cell[TextData[{
+  " The four Maxwell equations ",
+  Cell[BoxData[
+      \(F\_\(\(\ \ \ \ \)\(\(;\)\(\[Beta]\)\)\)\%\[Alpha]\[Beta]\)],
+    FontFamily->"Times"],
+  "= 0 are also satisfied as easily seen from "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(\(Table[\ 
+      Sum[\n\(coder[{2, U, U}, cF, ch\ , \ 
+                var\ ]\)[\([\[Alpha], \[Beta], \[Beta]]\)], {\[Beta], 
+              4}] \[Equal] \ 0 // Simplify\ \ , \ \ {\[Alpha], 
+        4}]\)\(\ \ \ \)\)\)], "Input"],
+
+Cell[TextData[{
+  "  The remaining four Maxwell equations   ",
+  Cell[BoxData[
+      \(F\_\(\[Nu]\[Kappa], \[Mu]\)\)],
+    FontFamily->"Times"],
+  " + ",
+  Cell[BoxData[
+      \(F\_\(\[Kappa]\[Mu], \[Nu]\)\)],
+    FontFamily->"Times"],
+  " + ",
+  Cell[BoxData[
+      \(F\_\(\[Mu]\[Nu], \[Kappa]\)\)],
+    FontFamily->"Times"],
+  " =0  are also satisfied. Taking the covariant derivative of ",
+  Cell[BoxData[
+      \(F\_\(\[Nu]\[Kappa], \[Mu]\)\)],
+    FontFamily->"Times"]
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(\(derF = Outer[D, F, var];\)\(\ \ \ \)\)\)], "Input"],
+
+Cell[TextData[{
+  "(which is zero!) and adding  ",
+  Cell[BoxData[
+      \(F\_\(\[Nu]\[Kappa], \[Mu]\)\)],
+    FontFamily->"Times"],
+  " + ",
+  Cell[BoxData[
+      \(F\_\(\[Kappa]\[Mu], \[Nu]\)\)],
+    FontFamily->"Times"],
+  " + ",
+  Cell[BoxData[
+      \(\(\(F\_\(\[Mu]\[Nu], \[Kappa]\)\)\(\ \)\)\)],
+    FontFamily->"Times"],
+  ", it follows that the sum is also obviously zero"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(\(\ \)\(derF + \ \ Transpose[derF, {3, 1, 2}] + \ \ Transpose[
+          derF, {2, 3, 1}]\[IndentingNewLine] == 
+      Table[0, {i, 4}, {j, 4}, {k, 4}\ ]\)\)\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Part iii   ", "Subsubsection"],
+
+Cell["Equating the Weyl tensor to zero, it follows", "Text"],
+
+Cell[BoxData[
+    \(curvW[met\ , cur\ ] \[Equal] Table[0, {i, 4}, {j, 4}, {k, 4}, {l, 4}] // 
+      Simplify\)], "Input"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+9.6.13 Melvin Magnetic Universe in Polar Coordinates (Solution \
+included) \
+\>", "Subsubsection"],
+
+Cell["Consider the polar coordinates  ", "Text"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(var = {t, \[Rho], \ \[Phi], z};\)\)\)], "Input"],
+
+Cell["and the metric", "Text"],
+
+Cell[BoxData[
+    \(\(\((met = 
+            DiagonalMatrix[{\ \[CapitalLambda][\[Rho]]^2\ , \(-\ \
+\[CapitalLambda][\[Rho]]^2\)\ \ , \(-\ 
+                        1\)/\[CapitalLambda][\[Rho]]^2\ \ \[Rho]^2, \ \ \(-\
+\[CapitalLambda][\[Rho]]^2\)}] /. \[CapitalLambda][\[Rho]] \[Rule] 
+                1 + 1/4\ B0^2\ \ \[Rho]^2)\) // MatrixForm\)\  // 
+      TraditionalForm\)], "Input"],
+
+Cell[TextData[{
+  "This metric is a solution of the Einstein-Maxwell equations and \
+corresponds to a magnetic field along the z-axis. The Maxwell tensor in polar \
+coordinates is of the form \n\n                       ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(F\)\(\ \)\)\_\[Alpha]\[Beta]\)]],
+  "    ",
+  Cell[BoxData[
+      \(\ \)],
+    FontFamily->"Times"],
+  "=",
+  Cell[BoxData[
+      TagBox[
+        RowBox[{"(", GridBox[{
+              {"0", "0", "0", "0"},
+              {"0", "0", \(\[Rho]\ B\_z\), "0"},
+              {"0", \(\(-\[Rho]\)\ B\_z\), "0", "0"},
+              {"0", "0", "0", "0"}
+              }], ")"}],
+        (MatrixForm[ #]&)]],
+    FontFamily->"Times"]
+}], "Text"],
+
+Cell[TextData[{
+  "i.  Solve for Bz using the Einstein equations  G",
+  StyleBox["\[Alpha]\[Beta] ",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "= R",
+  StyleBox["\[Alpha]\[Beta]",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " -1/2 g",
+  StyleBox["\[Alpha]\[Beta]",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " R = 8 \[Pi] G T",
+  StyleBox["\[Alpha]\[Beta] .",
+    FontVariations->{"CompatibilityType"->"Subscript"}]
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "ii. Verify that the Maxwell equations are satisfied  ",
+  Cell[BoxData[
+      \(TraditionalForm\`F\_\(\(\ \ \ \)\(\(;\)\(\[Beta]\)\)\)\%\[Alpha]\
+\[Beta]\)]],
+  " =0  and ",
+  Cell[BoxData[
+      \(TraditionalForm\`F\_\(\[Nu]\[Kappa]; \[Mu]\)\)]],
+  "+",
+  Cell[BoxData[
+      \(TraditionalForm\`F\_\(\[Kappa]\[Mu]; \[Nu]\)\)]],
+  "+",
+  Cell[BoxData[
+      \(TraditionalForm\`F\_\(\[Mu]\[Nu]; \[Kappa]\)\)]],
+  "=0."
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell["Solution  ", "Subsubsection"],
+
+Cell[CellGroupData[{
+
+Cell["Part i   ", "Subsubsection"],
+
+Cell[TextData[{
+  "     We first calculate ",
+  Cell[BoxData[
+      \(\(\(\ \)\(T\_\[Alpha]\[Beta]\)\)\)],
+    FontFamily->"Times"],
+  " = ",
+  Cell[BoxData[
+      \(1\/\(4\ \[Pi]\)\)],
+    FontFamily->"Times"],
+  "(",
+  Cell[BoxData[
+      RowBox[{
+        StyleBox[" ",
+          FontSize->12], \(\(F\_\[Alpha]\[Gamma]\) 
+          F\_\(\(\ \ \)\(\[Beta]\)\)\%\[Gamma]\)}]],
+    FontFamily->"Times"],
+  "+ ",
+  Cell[BoxData[
+      \(1\/4\)],
+    FontFamily->"Times"],
+  " ",
+  Cell[BoxData[
+      \(\(\(g\)\(\ \)\)\_\[Alpha]\[Beta]\)],
+    FontFamily->"Times"],
+  Cell[BoxData[
+      \(\(\(F\^\[Gamma]\[Delta]\ F\_\[Gamma]\[Delta]\)\()\)\)\)],
+    FontFamily->"Times"],
+  ". Enter the Maxwell tensor ",
+  Cell[BoxData[
+      \(F\_\[Alpha]\[Gamma]\)],
+    FontFamily->"Times"]
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\((F = {{0, 0, 0, 0\ }, \ {\ 0, 0, \[Rho]\ Bz, 
+              0}, \ {0, \(-\[Rho]\)\ Bz, 0, 0}, \ {\ 0, 0, 0, 0}})\)\  // 
+      MatrixForm\)], "Input"],
+
+Cell[TextData[{
+  "and raise the indices to get the contravariant Maxwell tensor ",
+  Cell[BoxData[
+      \(TraditionalForm\`F\^\[Mu]\[Nu]\)]],
+  "  "
+}], "Text"],
+
+Cell[BoxData[
+    \(\((cF = Inverse[met] . F . Inverse[met] // Simplify)\) // 
+      MatrixForm\)], "Input"],
+
+Cell[TextData[{
+  "The mixed stress-energy tensor  ",
+  Cell[BoxData[
+      \(T\_\(\(\ \ \ \)\(\[Beta]\)\)\%\[Alpha]\)],
+    FontFamily->"Times"],
+  " is "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(\((mixedT = 
+          1/\((4\ Pi)\) 
+              Inverse[met] . \((F . \((Inverse[met] . F)\) + 
+                    1/4\ met\ Tr[\((\(-cF . F\))\)])\) // 
+            Simplify)\)\(//\)\(MatrixForm\)\(\ \)\)\)], "Input"],
+
+Cell[TextData[{
+  "    The field equations follow from equating the Einstein tensor to the \
+stress energy tensor, ",
+  Cell[BoxData[
+      \(G\_\(\(\ \ \ \)\(\[Beta]\)\)\%\[Alpha] = 
+        8\ \[Pi]\ G\ T\_\(\(\ \ \ \)\(\[Beta]\)\)\%\[Alpha]\)],
+    FontFamily->"Times"],
+  ". Let us calculate the Einstein Tensor. The Christoffel symbol and \
+curvature tensor are"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(ch = christ[met, var]; cur = curvR[ch, var] // Simplify;\)], "Input"],
+
+Cell[TextData[{
+  "The mixed Einstein tensor ",
+  Cell[BoxData[
+      \(G\_\(\(\ \ \ \)\(\[Beta]\)\)\%\[Alpha]\)],
+    FontFamily->"Times"],
+  " follows from"
+}], "Text"],
+
+Cell["\<\
+(mixedG=(Inverse[met].einstein[cur,met])//Simplify)//MatrixForm   \
+\
+\>", "Input",
+  AspectRatioFixed->True],
+
+Cell["The nontrivial field equations are", "Text"],
+
+Cell[BoxData[
+    \(\(\((fieldeq = \(\(\(\(\((\((mixedG - 8\ Pi\ G\ mixedT // 
+                              Flatten)\) \[Equal] 0)\) // ExpandAll\) // 
+                    Simplify\) // Flatten\) // Thread\) // 
+              Select[#, FreeQ[#, True] &] &)\) // Partition[#, 2] &\) // 
+      TableForm\)], "Input"],
+
+Cell["It follows that the expression for Bz is", "Text"],
+
+Cell[BoxData[
+    \(sol = \ fieldeq // Solve[#, Bz] &\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Part ii", "Subsubsection"],
+
+Cell[TextData[{
+  "      The four Maxwell equations ",
+  Cell[BoxData[
+      \(F\_\(\(\ \ \ \ \)\(\(;\)\(\[Beta]\)\)\)\%\[Alpha]\[Beta]\)],
+    FontFamily->"Times"],
+  "= 0 are also satisfied as follows from taking the covariant derivative of  \
+",
+  Cell[BoxData[
+      \(F\^\[Alpha]\[Beta]\)],
+    FontFamily->"Times"],
+  " and forming the equation ",
+  Cell[BoxData[
+      \(F\_\(\(\ \ \ \ \)\(\(;\)\(\[Beta]\)\)\)\%\[Alpha]\[Beta]\)],
+    FontFamily->"Times"],
+  "= 0,"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(\(Table[\ 
+      Sum[\n\(coder[{2, U, U}, cF /. sol[\([2]\)], ch\ , \ 
+                var\ ]\)[\([\[Alpha], \[Beta], \[Beta]]\)], {\[Beta], 
+              4}] \[Equal] \ 0 // Simplify\ \ , \ \ {\[Alpha], 
+        4}]\)\(\ \)\)\)], "Input"],
+
+Cell[TextData[{
+  "The remaining four Maxwell equations ",
+  Cell[BoxData[
+      \(F\_\(\[Nu]\[Kappa], \[Mu]\)\)],
+    FontFamily->"Times"],
+  " + ",
+  Cell[BoxData[
+      \(F\_\(\[Kappa]\[Mu], \[Nu]\)\)],
+    FontFamily->"Times"],
+  " + ",
+  Cell[BoxData[
+      \(F\_\(\[Mu]\[Nu], \[Kappa]\)\)],
+    FontFamily->"Times"],
+  " =0 are also satisfied. Taking the derivative of ",
+  Cell[BoxData[
+      \(F\_\[Nu]\[Kappa]\)],
+    FontFamily->"Times"],
+  " "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(\(derF = 
+        Outer[D, F /. \((sol[\([2]\)])\), var];\)\(\ \ \ \)\)\)], "Input"],
+
+Cell[TextData[{
+  " and adding  ",
+  Cell[BoxData[
+      \(F\_\(\[Nu]\[Kappa], \[Mu]\)\)],
+    FontFamily->"Times"],
+  " + ",
+  Cell[BoxData[
+      \(F\_\(\[Kappa]\[Mu], \[Nu]\)\)],
+    FontFamily->"Times"],
+  " + ",
+  Cell[BoxData[
+      \(\(\(F\_\(\[Mu]\[Nu], \[Kappa]\)\)\(\ \)\)\)],
+    FontFamily->"Times"],
+  ", it follows that"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(\(\ \)\(derF + \ \ Transpose[derF, {3, 1, 2}] + \ \ Transpose[
+          derF, {2, 3, 1}]\[IndentingNewLine] == 
+      Table[0, {i, 4}, {j, 4}, {k, 4}\ ]\)\)\)], "Input"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+9.6.14  Magnetized Schwarzschild Black Hole  (Solution \
+included)\
+\>", "Subsubsection"],
+
+Cell["Consider spherical coordinates  ", "Text"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(var = {t, r, \[Theta], \[Phi]};\)\)\)], "Input"],
+
+Cell["and the metric   ", "Text"],
+
+Cell[BoxData[
+    \(\(compg = {g00 \[Rule] \((\((1 - 2\ m/#)\) &)\), 
+          g11 \[Rule] \((\((\(-1\)/\((1 - 2\ m/#)\))\) &)\)};\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\((met = 
+            DiagonalMatrix[{\[CapitalLambda][r, \[Theta]]^2\ g00[
+                      r], \[CapitalLambda][r, \[Theta]]^2\ g11[
+                      r], \(-\[CapitalLambda][
+                          r, \[Theta]]^2\)\ r^2, \(-r^2\)\ Sin[\[Theta]]^2/\
+\[CapitalLambda][r, \[Theta]]^2}] /. compg\ )\) // MatrixForm\) // 
+      TraditionalForm\)], "Input"],
+
+Cell["\<\
+The metric function \[CapitalLambda][r,\[Theta]] is given by  \
+\
+\>", "Text"],
+
+Cell[BoxData[
+    \(\(compb = {\[CapitalLambda] \[Rule] \((\((1 + 
+                    1/4\ B^2\ #1^2\ Sin[#2]^2)\) &)\)\ }\ ;\)\)], "Input"],
+
+Cell[TextData[{
+  "     This metric is a solution of Einstein-Maxwell equations and \
+corresponds to a Schwarzschild mass in a magnetic field along the z-axis. The \
+form of the Maxwell tensor in spherical coordinates for a magnetic field \
+directed along the z-axis is \n\n   ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(F\)\(\ \)\)\_\[Alpha]\[Beta]\)]],
+  "=   ",
+  Cell[BoxData[
+      FormBox[
+        TagBox[
+          RowBox[{"(", "\[NoBreak]", GridBox[{
+                {"0", "0", "0", "0"},
+                {"0", "0", "0", \(Bz\ r\ \(\(sin\^2\)(\[Theta])\)\)},
+                {"0", "0", 
+                  "0", \(Bz\ r\^2\ \(cos(\[Theta])\)\ \(sin(\[Theta])\)\)},
+                {
+                  "0", \(\(-Bz\)\ r\ \(\(sin\^2\)(\[Theta])\)\), \(\(-Bz\)\ r\
+\^2\ \(cos(\[Theta])\)\ \(sin(\[Theta])\)\), "0"}
+                }], "\[NoBreak]", ")"}],
+          (MatrixForm[ #]&)], TraditionalForm]]]
+}], "Text"],
+
+Cell[TextData[{
+  "i.  Solve for Bz using the Einstein equations  G",
+  StyleBox["\[Alpha]\[Beta] ",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "= R",
+  StyleBox["\[Alpha]\[Beta]",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " -1/2 g",
+  StyleBox["\[Alpha]\[Beta]",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " R = 8 \[Pi] G T",
+  StyleBox["\[Alpha]\[Beta]  \n ii. Verify that the Maxwell equations are \
+satisfied       \n                      ",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  Cell[BoxData[
+      \(F\_\(\(\ \ \ \)\(\(;\)\(\[Beta]\)\)\(\ \)\)\%\[Alpha]\[Beta]\)],
+    FontFamily->"Times"],
+  "=0,   and    ",
+  Cell[BoxData[
+      \(F\_\(\[Nu]\[Kappa], \[Mu]\)\)],
+    FontFamily->"Times"],
+  " + ",
+  Cell[BoxData[
+      \(F\_\(\[Kappa]\[Mu], \[Nu]\)\)],
+    FontFamily->"Times"],
+  " + ",
+  Cell[BoxData[
+      \(F\_\(\[Mu]\[Nu], \[Kappa]\)\)],
+    FontFamily->"Times"],
+  " =0"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell["Solution  ", "Subsubsection"],
+
+Cell[CellGroupData[{
+
+Cell["Part i   ", "Subsubsection"],
+
+Cell[TextData[{
+  "      We first calculate ",
+  Cell[BoxData[
+      \(\(\(\ \)\(T\_\[Alpha]\[Beta]\)\)\)],
+    FontFamily->"Times"],
+  " = ",
+  Cell[BoxData[
+      \(1\/\(4\ \[Pi]\)\)],
+    FontFamily->"Times"],
+  "(",
+  Cell[BoxData[
+      RowBox[{
+        StyleBox[" ",
+          FontSize->12], \(\(F\_\[Alpha]\[Gamma]\) 
+          F\_\(\(\ \ \)\(\[Beta]\)\)\%\[Gamma]\)}]],
+    FontFamily->"Times"],
+  "+ ",
+  Cell[BoxData[
+      \(1\/4\)],
+    FontFamily->"Times"],
+  " ",
+  Cell[BoxData[
+      \(\(\(g\)\(\ \)\)\_\[Alpha]\[Beta]\)],
+    FontFamily->"Times"],
+  Cell[BoxData[
+      \(\(\(F\^\[Gamma]\[Delta]\ F\_\[Gamma]\[Delta]\)\()\)\)\)],
+    FontFamily->"Times"],
+  ". Enter the Maxwell tensor ",
+  Cell[BoxData[
+      \(F\_\[Alpha]\[Gamma]\)],
+    FontFamily->"Times"]
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(\((F = \(\({{0, 0, 0, 0\ }, \ {\ 0, 0, B1, B2}, \ {0, \(-B1\), 0, 
+                      B3}, \ {\ 0, \(-B2\), \ \(-B3\), 0}} /. 
+                  B2 \[Rule] \ Bz\ r\ Sin[\[Theta]]^2\) /. 
+                B3 \[Rule] \ Bz\ r^2\ Sin[\[Theta]]\ Cos[\[Theta]]\) /. 
+              B1 \[Rule] 0)\)\  // MatrixForm\) // TraditionalForm\)], "Input"],
+
+Cell[TextData[{
+  "The contravariant Maxwell tensor ",
+  Cell[BoxData[
+      \(TraditionalForm\`F\^\[Mu]\[Nu]\)]],
+  " becomes "
+}], "Text"],
+
+Cell["(cF=Inverse[met].F.Inverse[met]//Simplify )//MatrixForm ", "Input"],
+
+Cell[TextData[{
+  "The mixed stress-energy tensor  ",
+  Cell[BoxData[
+      \(T\_\(\(\ \ \ \)\(\[Beta]\)\)\%\[Alpha]\)],
+    FontFamily->"Times"],
+  " is"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(\((\ 
+          mixedT = 
+            1/\((4\ Pi)\) 
+                Inverse[
+                    met] . \((F . \((Inverse[met] . F)\) + 
+                      1/4\ met\ Tr[\((\(-cF . F\))\)])\)\  // Simplify\ )\) // 
+        MatrixForm\) // TraditionalForm\)], "Input"]
+}, Open  ]],
+
+Cell[TextData[{
+  "    The field equations follow from equating the Einstein tensor to the \
+stress energy tensor, ",
+  Cell[BoxData[
+      \(G\_\(\(\ \ \ \)\(\[Beta]\)\)\%\[Alpha] = 
+        8\ \[Pi]\ G\ T\_\(\(\ \ \ \)\(\[Beta]\)\)\%\[Alpha]\)],
+    FontFamily->"Times"],
+  ".  First calculate the Christoffel symbol and curvature tensor "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(ch = \(christ[met\ , var] // Together\)\  // Simplify;\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(cur = \(curvR[ch, var] // Together\)\  // 
+          TrigReduce;\)\(\ \ \)\)\)], "Input"],
+
+Cell[TextData[{
+  "The mixed Einstein tensor ",
+  Cell[BoxData[
+      \(G\_\(\(\ \ \ \)\(\[Beta]\)\)\%\[Alpha]\)],
+    FontFamily->"Times"],
+  " follows from ( this takes a few seconds )"
+}], "Text"],
+
+Cell["\<\
+ mixedG=(Inverse[met].einstein[cur,met]) //Together \
+//TrigReduce//Simplify;   \
+\>", "Input",
+  AspectRatioFixed->True],
+
+Cell[" The Einstein field equations are", "Text"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(\(\((fieldeq = \ \(\(\((\((mixedG - 8\ Pi\ G\ mixedT // 
+                          Flatten)\) \[Equal] 0)\)\  // \ Flatten\) // 
+                Thread\) // Select[#, FreeQ[#, True] &] &\ )\)\  // 
+        ColumnForm\) // TraditionalForm\)\)\)], "Input"],
+
+Cell["\<\
+We only need one of the equations to get a solution for Bz. It \
+follows from the first equation that the expression for Bz is\
+\>", "Text"],
+
+Cell[BoxData[
+    \(sol = \(\(\((\ \(\(fieldeq[\([1]\)] /. compb\ \  // Solve[#, Bz] &\) // 
+                Simplify\)\  // PowerExpand\ \ )\) /. 
+          Cos[2\ x_] -> 
+            1 - 2\ Sin[x\ ]^2\)\(\ \ \)\(//\)\(Simplify\)\(\ \)\)\)], "Input"],
+
+Cell["\<\
+It is obvious that all the field equations are satisfied with this \
+solution (without loss of generality we consider only the second solution):\
+\
+\>", "Text"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(\(\(fieldeq /. compb\)\  /. 
+        sol[\([2]\)]\)\(//\)\(Simplify\)\(\ \)\)\)\)], "Input"],
+
+Cell["Part ii", "Subsubsection"],
+
+Cell[TextData[{
+  "      The four Maxwell equations ",
+  Cell[BoxData[
+      \(F\_\(\(\ \ \ \ \)\(\(;\)\(\[Beta]\)\)\)\%\[Alpha]\[Beta]\)],
+    FontFamily->"Times"],
+  "= 0 are also satisfied as easily follows from taking the covariant \
+derivative of  ",
+  Cell[BoxData[
+      \(F\^\[Alpha]\[Beta]\)],
+    FontFamily->"Times"]
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(\(Table[\ 
+          Sum[\n\(coder[{2, U, U}, cF /. sol[\([2]\)]\ , ch\ , \ 
+                  var\ ]\)[\([\[Alpha], \[Beta], \[Beta]]\)], {\[Beta], 
+                4}] \[Equal] \ 0\ , {\[Alpha], 4}] /. 
+        compb\)\(//\)\(Simplify\)\(\ \)\)\)], "Input"],
+
+Cell[TextData[{
+  "The remaining four Maxwell equations  ",
+  Cell[BoxData[
+      \(F\_\(\[Nu]\[Kappa], \[Mu]\)\)],
+    FontFamily->"Times"],
+  " + ",
+  Cell[BoxData[
+      \(F\_\(\[Kappa]\[Mu], \[Nu]\)\)],
+    FontFamily->"Times"],
+  " + ",
+  Cell[BoxData[
+      \(F\_\(\[Mu]\[Nu], \[Kappa]\)\)],
+    FontFamily->"Times"],
+  " =0  are also satisfied. Taking the derivative of ",
+  Cell[BoxData[
+      \(F\_\[Nu]\[Kappa]\)],
+    FontFamily->"Times"],
+  " "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(\(derF = 
+        Outer[D, F /. \((sol[\([2]\)])\), var];\)\(\ \ \ \ \)\)\)], "Input"],
+
+Cell[TextData[{
+  " and adding  ",
+  Cell[BoxData[
+      \(F\_\(\[Nu]\[Kappa], \[Mu]\)\)],
+    FontFamily->"Times"],
+  " + ",
+  Cell[BoxData[
+      \(F\_\(\[Kappa]\[Mu], \[Nu]\)\)],
+    FontFamily->"Times"],
+  " + ",
+  Cell[BoxData[
+      \(F\_\(\[Mu]\[Nu], \[Kappa]\)\)],
+    FontFamily->"Times"],
+  ", it follows that"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(\(\(\ \)\(derF + \ \ Transpose[derF, {3, 1, 2}] + \ \ Transpose[
+          derF, {2, 3, 1}]\[IndentingNewLine] == 
+      Table[0, {i, 4}, {j, 4}, {k, 4}\ ]\)\)\)], "Input"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+FrontEndVersion->"4.2 for Microsoft Windows",
+ScreenRectangle->{{0, 1024}, {0, 670}},
+AutoGeneratedPackage->None,
+WindowToolbars->{"RulerBar", "EditBar"},
+CellGrouping->Manual,
+WindowSize->{757, 408},
+WindowMargins->{{23, Automatic}, {Automatic, 63}},
+PrintingCopies->1,
+PrintingStartingPageNumber->183,
+PrintingPageRange->{1, Automatic},
+PageHeaders->{{Cell[ 
+        TextData[ {
+          CounterBox[ "Page"]}], "PageNumber"], Inherited, Cell[ 
+        TextData[ {
+          ValueBox[ "FileName"]}], "Header"]}, {Cell[ 
+        TextData[ {
+          ValueBox[ "FileName"]}], "Header"], Inherited, Cell[ 
+        TextData[ {
+          CounterBox[ "Page"]}], "PageNumber"]}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+SpellingDictionaries->{"CorrectWords"->{
+  "descrete", "Poincar\[EAcute]", "Mandelbrot", "xo", "Gfixpt", "Gfixptpt", 
+    "Lvalues", "Spoints", "fdata", "rdata", "returnpt", "diff", "Gder", 
+    "prob", "Scobweb", "Svalues", "fder", "Lagrange's", "Lagrange", "qi", 
+    "Qi", "eq", "eqin", "Ser", "eqs", "vars", "Diff", "zpsol", "zp", 
+    "perturbative", "firstorderpert", "xfirst", "ro", "''", "Rx", "Ry", "Rz", 
+    "Eq", "Kepler", "Keplerian", "Johannes", "Kepler's", "uo", "ee", "cterm", 
+    "plotorbit", "num", "uforce", "ndsol", "ndsol.", "numorbit", "rrule", 
+    "Urule", "Lpt", "tmax", "Mgraph", "fx", "fy", "tfinal", "hrule", "vxo", 
+    "vyo", "eqlist", "Equi", "Lgraph", "jac", "nonrotating", "accreting", 
+    "Lagragian", "rl", "zeropt", "yi", "yrs", "Ll", "freq", "invfreq", "xy", 
+    "tmoon", "Descrete", "Poincare", "eigenfrequencies", "eigenfrequency", 
+    "eigenmatrix", "nondiagonal", "Christoffel", "Reissner", "Nordstrom", 
+    "var", "imet", "curv", "ch", "Zcurv", "A$", "B$", "C1$", "dem", "cov", 
+    "Nvar", "Nmet", "Ncomp", "Schwarzschild", "unphysical", "Er", "maxeq", 
+    "maxsol", "Crule", "fieldeq", "ifun", "Schwarschild", "Nchrist", "Ncurv", 
+    "ii.", "iii.", "Schwarzschild.", "Hplot", "infalling", "spacelike", 
+    "timelike", "Timelike", "planerule", "kz", "vel", "krule", "jz", 
+    "sqfourv", "Vrule", "Veff", "Vplot", "rmin", "rmax", "vo", "ro.", "comp", 
+    "chr", "trtr", "Bz", "Weyl", "compg", "compb", "Bz."}},
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False},
+CharacterEncoding->"MacintoshAutomaticEncoding",
+Magnification->1.5
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1754, 51, 725, 26, 303, "Title",
+  Evaluatable->False],
+Cell[2482, 79, 226, 4, 159, "Text"],
+
+Cell[CellGroupData[{
+Cell[2733, 87, 257, 9, 47, "Text",
+  Evaluatable->False],
+Cell[2993, 98, 518, 10, 113, "Text",
+  Evaluatable->False]
+}, Open  ]],
+Cell[3526, 111, 113, 2, 68, "Input"],
+Cell[3642, 115, 33, 0, 61, "Subsubsection"],
+Cell[3678, 117, 281, 5, 99, "Text"],
+Cell[3962, 124, 76, 3, 252, "Title"],
+Cell[4041, 129, 158, 6, 140, "Subtitle",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[4224, 139, 46, 0, 68, "Subsection"],
+Cell[4273, 141, 697, 18, 145, "Text"],
+
+Cell[CellGroupData[{
+Cell[4995, 163, 50, 0, 45, "Text"],
+Cell[5048, 165, 98, 4, 58, "Input",
+  InitializationCell->True],
+
+Cell[CellGroupData[{
+Cell[5171, 173, 370, 12, 74, "Subsubsection"],
+Cell[5544, 187, 567, 10, 223, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6148, 202, 151, 5, 66, "Subsubsection"],
+Cell[6302, 209, 420, 11, 218, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6759, 225, 159, 6, 66, "Subsubsection"],
+Cell[6921, 233, 703, 17, 378, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7661, 255, 276, 9, 64, "Subsubsection",
+  Evaluatable->False],
+Cell[7940, 266, 370, 9, 198, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[8347, 280, 318, 14, 70, "Subsubsection"],
+Cell[8668, 296, 451, 13, 258, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[9156, 314, 45, 0, 62, "Subsubsection"],
+Cell[9204, 316, 177, 3, 62, "Input"],
+Cell[9384, 321, 163, 3, 85, "Input"],
+Cell[9550, 326, 327, 7, 177, "Input"],
+Cell[9880, 335, 262, 5, 154, "Input"],
+Cell[10145, 342, 282, 5, 177, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[10464, 352, 41, 0, 62, "Subsubsection"],
+Cell[10508, 354, 397, 11, 278, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[10942, 370, 72, 1, 62, "Subsubsection",
+  Evaluatable->False],
+Cell[11017, 373, 61, 0, 45, "Text"],
+Cell[11081, 375, 70, 1, 39, "Input"],
+Cell[11154, 378, 103, 3, 78, "Input"],
+Cell[11260, 383, 63, 0, 45, "Text"],
+Cell[11326, 385, 99, 3, 58, "Input"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[11486, 395, 196, 7, 57, "Section",
+  Evaluatable->False],
+Cell[11685, 404, 2250, 46, 561, "Text"],
+Cell[13938, 452, 190, 6, 98, "Input"],
+Cell[14131, 460, 514, 13, 117, "Text"],
+Cell[14648, 475, 145, 2, 62, "Input"],
+Cell[14796, 479, 685, 24, 81, "Text"],
+Cell[15484, 505, 62, 0, 38, "Input"],
+Cell[15549, 507, 229, 8, 50, "Text",
+  Evaluatable->False],
+Cell[15781, 517, 399, 7, 154, "Input"],
+Cell[16183, 526, 164, 5, 45, "Text",
+  Evaluatable->False],
+Cell[16350, 533, 132, 4, 58, "Input"],
+Cell[16485, 539, 323, 6, 93, "Text",
+  Evaluatable->False],
+Cell[16811, 547, 59, 1, 39, "Input"],
+Cell[16873, 550, 109, 2, 45, "Text",
+  Evaluatable->False],
+Cell[16985, 554, 63, 1, 39, "Input"],
+Cell[17051, 557, 1110, 37, 197, "Text",
+  Evaluatable->False],
+Cell[18164, 596, 51, 0, 38, "Input"],
+Cell[18218, 598, 320, 12, 57, "Text"],
+Cell[18541, 612, 177, 5, 78, "Input"],
+Cell[18721, 619, 212, 8, 45, "Text",
+  Evaluatable->False],
+Cell[18936, 629, 51, 0, 38, "Input"],
+Cell[18990, 631, 326, 12, 47, "Text",
+  Evaluatable->False],
+Cell[19319, 645, 79, 1, 38, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[19435, 651, 123, 4, 57, "Section"],
+Cell[19561, 657, 403, 13, 73, "Text",
+  Evaluatable->False],
+Cell[19967, 672, 74, 1, 38, "Input"],
+Cell[20044, 675, 533, 17, 95, "Text",
+  Evaluatable->False],
+Cell[20580, 694, 95, 1, 38, "Input"],
+Cell[20678, 697, 467, 11, 95, "Text",
+  Evaluatable->False],
+Cell[21148, 710, 155, 5, 98, "Input"],
+Cell[21306, 717, 216, 4, 69, "Text",
+  Evaluatable->False],
+Cell[21525, 723, 140, 4, 78, "Input"],
+Cell[21668, 729, 352, 10, 93, "Text",
+  Evaluatable->False],
+Cell[22023, 741, 126, 2, 62, "Input"],
+Cell[22152, 745, 120, 2, 45, "Text",
+  Evaluatable->False],
+Cell[22275, 749, 70, 1, 39, "Input"],
+Cell[22348, 752, 104, 2, 45, "Text",
+  Evaluatable->False],
+Cell[22455, 756, 151, 2, 62, "Input"],
+Cell[22609, 760, 159, 4, 69, "Text"],
+Cell[22771, 766, 70, 1, 39, "Input"],
+Cell[22844, 769, 104, 3, 58, "Input"],
+Cell[22951, 774, 99, 3, 58, "Input"],
+Cell[23053, 779, 29, 0, 45, "Text"],
+Cell[23085, 781, 106, 2, 62, "Input"],
+Cell[23194, 785, 428, 7, 141, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[23659, 797, 110, 4, 57, "Section"],
+Cell[23772, 803, 822, 22, 298, "Text",
+  Evaluatable->False],
+Cell[24597, 827, 101, 2, 39, "Input"],
+Cell[24701, 831, 406, 11, 93, "Text",
+  Evaluatable->False],
+Cell[25110, 844, 77, 0, 58, "Input"],
+Cell[25190, 846, 280, 9, 57, "Text"],
+Cell[25473, 857, 77, 0, 58, "Input"],
+Cell[25553, 859, 460, 8, 141, "Text",
+  Evaluatable->False],
+Cell[26016, 869, 322, 6, 154, "Input"],
+Cell[26341, 877, 2324, 61, 529, "Text",
+  Evaluatable->False],
+Cell[28668, 940, 641, 10, 223, "Input"],
+Cell[29312, 952, 157, 5, 45, "Text",
+  Evaluatable->False],
+Cell[29472, 959, 198, 3, 85, "Input"],
+Cell[29673, 964, 3246, 61, 746, "Text",
+  Evaluatable->False]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[32956, 1030, 194, 7, 57, "Section",
+  Evaluatable->False],
+Cell[33153, 1039, 590, 13, 146, "Text",
+  Evaluatable->False],
+Cell[33746, 1054, 82, 1, 39, "Input"],
+Cell[33831, 1057, 155, 5, 45, "Text",
+  Evaluatable->False],
+Cell[33989, 1064, 48, 0, 38, "Input"],
+Cell[34040, 1066, 40, 0, 45, "Text"],
+Cell[34083, 1068, 50, 0, 38, "Input"],
+Cell[34136, 1070, 60, 0, 45, "Text"],
+Cell[34199, 1072, 392, 7, 131, "Input"],
+Cell[34594, 1081, 350, 11, 81, "Text",
+  Evaluatable->False],
+Cell[34947, 1094, 111, 2, 39, "Input"],
+Cell[35061, 1098, 115, 2, 45, "Text",
+  Evaluatable->False],
+Cell[35179, 1102, 71, 1, 38, "Input"],
+Cell[35253, 1105, 136, 5, 45, "Text",
+  Evaluatable->False],
+Cell[35392, 1112, 142, 5, 58, "Input"],
+Cell[35537, 1119, 121, 2, 45, "Text",
+  Evaluatable->False],
+Cell[35661, 1123, 142, 2, 62, "Input"],
+Cell[35806, 1127, 50, 1, 39, "Input"],
+Cell[35859, 1130, 475, 10, 141, "Text",
+  Evaluatable->False],
+Cell[36337, 1142, 262, 5, 108, "Input"],
+Cell[36602, 1149, 93, 2, 45, "Text",
+  Evaluatable->False],
+Cell[36698, 1153, 195, 7, 118, "Input"],
+Cell[36896, 1162, 1418, 24, 370, "Text",
+  Evaluatable->False],
+Cell[38317, 1188, 146, 4, 78, "Input"],
+Cell[38466, 1194, 385, 9, 141, "Text",
+  Evaluatable->False],
+Cell[38854, 1205, 121, 3, 58, "Input"],
+Cell[38978, 1210, 190, 5, 69, "Text",
+  Evaluatable->False]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[39205, 1220, 120, 4, 57, "Section"],
+Cell[39328, 1226, 146, 5, 45, "Text",
+  Evaluatable->False],
+Cell[39477, 1233, 164, 3, 62, "Input"],
+Cell[39644, 1238, 93, 3, 45, "Text"],
+Cell[39740, 1243, 99, 3, 58, "Input"],
+Cell[39842, 1248, 495, 12, 136, "Text"],
+Cell[40340, 1262, 144, 4, 78, "Input"],
+Cell[40487, 1268, 108, 3, 45, "Text"],
+Cell[40598, 1273, 209, 7, 138, "Input"],
+Cell[40810, 1282, 122, 3, 69, "Text"],
+Cell[40935, 1287, 184, 7, 138, "Input"],
+Cell[41122, 1296, 44, 0, 45, "Text"],
+Cell[41169, 1298, 69, 0, 38, "Input"],
+Cell[41241, 1300, 480, 8, 141, "Text"],
+Cell[41724, 1310, 202, 6, 118, "Input"],
+Cell[41929, 1318, 68, 0, 45, "Text"],
+Cell[42000, 1320, 166, 5, 98, "Input"],
+Cell[42169, 1327, 59, 0, 45, "Text"],
+Cell[42231, 1329, 92, 1, 39, "Input"],
+Cell[42326, 1332, 215, 4, 69, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[42578, 1341, 104, 4, 57, "Section"],
+
+Cell[CellGroupData[{
+Cell[42707, 1349, 79, 0, 61, "Subsubsection"],
+Cell[42789, 1351, 238, 7, 73, "Text"],
+
+Cell[CellGroupData[{
+Cell[43052, 1362, 55, 1, 61, "Subsubsection",
+  Evaluatable->False],
+Cell[43110, 1365, 69, 0, 47, "Text"],
+Cell[43182, 1367, 78, 1, 42, "Input"],
+Cell[43263, 1370, 135, 3, 68, "Input"],
+Cell[43401, 1375, 70, 0, 47, "Text"],
+Cell[43474, 1377, 190, 3, 68, "Input"],
+Cell[43667, 1382, 191, 6, 49, "Text"],
+Cell[43861, 1390, 83, 1, 42, "Input"],
+Cell[43947, 1393, 188, 6, 47, "Text"],
+
+Cell[CellGroupData[{
+Cell[44160, 1403, 839, 16, 120, "Input"],
+Cell[45002, 1421, 153, 2, 154, "Input"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[45216, 1430, 52, 0, 39, "Subsubsection"],
+Cell[45271, 1432, 302, 7, 141, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[45610, 1444, 54, 0, 39, "Subsubsection"],
+Cell[45667, 1446, 292, 6, 117, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[45996, 1457, 49, 0, 39, "Subsubsection"],
+Cell[46048, 1459, 256, 6, 117, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[46341, 1470, 116, 2, 39, "Subsubsection",
+  Evaluatable->False],
+Cell[46460, 1474, 765, 21, 296, "Text"],
+Cell[47228, 1497, 416, 9, 110, "Text"],
+
+Cell[CellGroupData[{
+Cell[47669, 1510, 33, 0, 62, "Subsubsection"],
+
+Cell[CellGroupData[{
+Cell[47727, 1514, 32, 0, 62, "Subsubsection"],
+Cell[47762, 1516, 171, 4, 69, "Text"],
+
+Cell[CellGroupData[{
+Cell[47958, 1524, 120, 5, 45, "Text"],
+Cell[48081, 1531, 127, 4, 78, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[48245, 1540, 128, 4, 45, "Text"],
+Cell[48376, 1546, 599, 17, 338, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[49012, 1568, 267, 9, 45, "Text",
+  Evaluatable->False],
+Cell[49282, 1579, 370, 9, 258, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[49689, 1593, 119, 5, 38, "Text"],
+Cell[49811, 1600, 214, 7, 138, "Input"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[50074, 1613, 54, 1, 62, "Subsubsection",
+  Evaluatable->False],
+Cell[50131, 1616, 44, 0, 45, "Text"],
+Cell[50178, 1618, 402, 8, 131, "Input"],
+Cell[50583, 1628, 319, 10, 47, "Text"],
+Cell[50905, 1640, 141, 2, 62, "Input"],
+Cell[51049, 1644, 74, 0, 45, "Text"],
+Cell[51126, 1646, 137, 2, 39, "Input"]
+}, Open  ]],
+Cell[51278, 1651, 55, 0, 45, "Text"],
+Cell[51336, 1653, 137, 2, 39, "Input"],
+
+Cell[CellGroupData[{
+Cell[51498, 1659, 55, 1, 62, "Subsubsection",
+  Evaluatable->False],
+Cell[51556, 1662, 79, 2, 45, "Text"],
+Cell[51638, 1666, 79, 1, 39, "Input"],
+Cell[51720, 1669, 88, 3, 45, "Text"],
+Cell[51811, 1674, 120, 2, 39, "Input"],
+Cell[51934, 1678, 107, 3, 45, "Text"],
+Cell[52044, 1683, 236, 4, 108, "Input"],
+Cell[52283, 1689, 110, 3, 45, "Text"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[52454, 1699, 68, 0, 39, "Subsubsection"],
+Cell[52525, 1701, 825, 32, 69, "Text"],
+Cell[53353, 1735, 250, 4, 108, "Input"],
+Cell[53606, 1741, 22, 0, 45, "Text"],
+Cell[53631, 1743, 122, 2, 39, "Input"],
+Cell[53756, 1747, 6256, 244, 319, "Text"],
+Cell[60015, 1993, 2598, 106, 146, "Text"],
+Cell[62616, 2101, 33, 0, 62, "Subsubsection"],
+
+Cell[CellGroupData[{
+Cell[62674, 2105, 31, 0, 62, "Subsubsection"],
+Cell[62708, 2107, 115, 3, 45, "Text"],
+
+Cell[CellGroupData[{
+Cell[62848, 2114, 119, 4, 45, "Text"],
+Cell[62970, 2120, 233, 4, 85, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[63240, 2129, 120, 5, 38, "Text"],
+Cell[63363, 2136, 127, 4, 78, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[63527, 2145, 128, 4, 45, "Text"],
+Cell[63658, 2151, 599, 17, 338, "Input"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[64306, 2174, 32, 0, 62, "Subsubsection"],
+Cell[64341, 2176, 872, 35, 45, "Text"],
+Cell[65216, 2213, 325, 5, 85, "Input"],
+Cell[65544, 2220, 149, 5, 45, "Text"],
+Cell[65696, 2227, 122, 2, 62, "Input"],
+Cell[65821, 2231, 102, 3, 45, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[65960, 2239, 32, 0, 62, "Subsubsection"],
+Cell[65995, 2241, 170, 5, 45, "Text"],
+Cell[66168, 2248, 109, 2, 39, "Input"],
+Cell[66280, 2252, 56, 0, 45, "Text"],
+Cell[66339, 2254, 275, 4, 85, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[66651, 2263, 33, 0, 62, "Subsubsection"],
+Cell[66687, 2265, 104, 3, 45, "Text"],
+Cell[66794, 2270, 91, 1, 39, "Input"],
+Cell[66888, 2273, 39, 0, 45, "Text"],
+Cell[66930, 2275, 170, 3, 39, "Input"],
+Cell[67103, 2280, 986, 41, 69, "Text"],
+Cell[68092, 2323, 224, 3, 85, "Input"],
+Cell[68319, 2328, 1402, 53, 69, "Text"],
+Cell[69724, 2383, 270, 4, 108, "Input"],
+Cell[69997, 2389, 2783, 115, 175, "Text"],
+Cell[72783, 2506, 596, 10, 154, "Input"],
+Cell[73382, 2518, 47, 0, 45, "Text"],
+Cell[73432, 2520, 118, 2, 62, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[73587, 2527, 32, 0, 62, "Subsubsection"],
+Cell[73622, 2529, 2753, 110, 100, "Text"],
+Cell[76378, 2641, 63, 1, 39, "Input"],
+Cell[76444, 2644, 144, 4, 45, "Text"],
+Cell[76591, 2650, 87, 1, 39, "Input"],
+Cell[76681, 2653, 35, 0, 45, "Text"],
+Cell[76719, 2655, 182, 4, 62, "Input"],
+Cell[76904, 2661, 49, 0, 45, "Text"],
+Cell[76956, 2663, 510, 8, 154, "Input"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[77515, 2677, 69, 0, 39, "Subsubsection"],
+Cell[77587, 2679, 184, 4, 93, "Text"],
+Cell[77774, 2685, 78, 1, 39, "Input"],
+Cell[77855, 2688, 103, 3, 58, "Input"],
+Cell[77961, 2693, 41, 0, 45, "Text"],
+Cell[78005, 2695, 140, 3, 78, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[78182, 2703, 130, 4, 39, "Subsubsection",
+  Evaluatable->False],
+Cell[78315, 2709, 539, 16, 208, "Text"],
+Cell[78857, 2727, 311, 7, 105, "Text"],
+
+Cell[CellGroupData[{
+Cell[79193, 2738, 33, 0, 62, "Subsubsection"],
+
+Cell[CellGroupData[{
+Cell[79251, 2742, 31, 0, 62, "Subsubsection"],
+Cell[79285, 2744, 56, 0, 45, "Text"],
+Cell[79344, 2746, 176, 3, 85, "Input"],
+Cell[79523, 2751, 102, 3, 45, "Text"],
+Cell[79628, 2756, 82, 3, 38, "Input"],
+Cell[79713, 2761, 174, 7, 50, "Text",
+  Evaluatable->False],
+Cell[79890, 2770, 89, 1, 39, "Input"],
+Cell[79982, 2773, 311, 10, 69, "Text",
+  Evaluatable->False],
+Cell[80296, 2785, 130, 2, 62, "Input"],
+Cell[80429, 2789, 61, 0, 38, "Text"],
+Cell[80493, 2791, 203, 3, 85, "Input"],
+Cell[80699, 2796, 125, 3, 62, "Text"],
+Cell[80827, 2801, 274, 4, 108, "Input"],
+Cell[81104, 2807, 363, 10, 86, "Text"],
+Cell[81470, 2819, 200, 3, 85, "Input"],
+Cell[81673, 2824, 230, 8, 38, "Text"],
+Cell[81906, 2834, 874, 20, 108, "Input"],
+Cell[82783, 2856, 217, 6, 62, "Text",
+  Evaluatable->False],
+Cell[83003, 2864, 148, 2, 62, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[83188, 2871, 32, 0, 62, "Subsubsection"],
+Cell[83223, 2873, 496, 13, 102, "Text",
+  Evaluatable->False],
+Cell[83722, 2888, 144, 3, 39, "Input"],
+Cell[83869, 2893, 148, 5, 38, "Text",
+  Evaluatable->False],
+Cell[84020, 2900, 120, 2, 39, "Input"],
+Cell[84143, 2904, 469, 15, 50, "Text",
+  Evaluatable->False],
+Cell[84615, 2921, 164, 2, 62, "Input"],
+Cell[84782, 2925, 113, 2, 38, "Text",
+  Evaluatable->False],
+Cell[84898, 2929, 110, 2, 39, "Input"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[85069, 2938, 277, 9, 39, "Subsubsection",
+  Evaluatable->False],
+Cell[85349, 2949, 2432, 65, 642, "Text"],
+
+Cell[CellGroupData[{
+Cell[87806, 3018, 31, 0, 62, "Subsubsection"],
+Cell[87840, 3020, 572, 17, 126, "Text"],
+Cell[88415, 3039, 165, 3, 62, "Input"],
+Cell[88583, 3044, 114, 2, 62, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[88734, 3051, 31, 0, 62, "Subsubsection"],
+Cell[88768, 3053, 42, 0, 45, "Text"],
+Cell[88813, 3055, 78, 1, 39, "Input"],
+Cell[88894, 3058, 101, 3, 58, "Input"],
+Cell[88998, 3063, 63, 0, 45, "Text"],
+Cell[89064, 3065, 92, 1, 39, "Input"],
+Cell[89159, 3068, 67, 0, 45, "Text"],
+Cell[89229, 3070, 103, 2, 39, "Input"],
+Cell[89335, 3074, 46, 0, 38, "Text"],
+Cell[89384, 3076, 140, 2, 39, "Input"],
+Cell[89527, 3080, 47, 0, 45, "Text"],
+Cell[89577, 3082, 34, 0, 38, "Input"],
+Cell[89614, 3084, 417, 15, 78, "Text"],
+Cell[90034, 3101, 167, 3, 62, "Input"],
+Cell[90204, 3106, 289, 6, 110, "Text"],
+Cell[90496, 3114, 283, 4, 62, "Input"],
+Cell[90782, 3120, 101, 3, 38, "Text"],
+Cell[90886, 3125, 141, 2, 39, "Input"],
+Cell[91030, 3129, 234, 5, 86, "Text"],
+Cell[91267, 3136, 307, 6, 108, "Input"],
+Cell[91577, 3144, 124, 3, 62, "Text"],
+Cell[91704, 3149, 409, 7, 108, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[92150, 3161, 32, 0, 62, "Subsubsection"],
+Cell[92185, 3163, 87, 3, 45, "Text"],
+Cell[92275, 3168, 77, 1, 39, "Input"],
+Cell[92355, 3171, 45, 0, 45, "Text"],
+Cell[92403, 3173, 107, 2, 39, "Input"],
+Cell[92513, 3177, 63, 2, 38, "Text"],
+Cell[92579, 3181, 240, 4, 62, "Input"],
+Cell[92822, 3187, 417, 15, 78, "Text"],
+Cell[93242, 3204, 211, 3, 85, "Input"],
+Cell[93456, 3209, 44, 0, 38, "Text"],
+Cell[93503, 3211, 171, 3, 62, "Input"],
+Cell[93677, 3216, 183, 4, 86, "Text"],
+Cell[93863, 3222, 181, 3, 62, "Input"],
+Cell[94047, 3227, 57, 0, 38, "Text"],
+Cell[94107, 3229, 137, 2, 39, "Input"],
+Cell[94247, 3233, 52, 0, 38, "Text"],
+Cell[94302, 3235, 108, 2, 62, "Input"],
+Cell[94413, 3239, 90, 3, 38, "Text"],
+Cell[94506, 3244, 109, 2, 62, "Input"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[94664, 3252, 71, 0, 39, "Subsubsection"],
+Cell[94738, 3254, 325, 7, 165, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[95100, 3266, 70, 0, 39, "Subsubsection"],
+Cell[95173, 3268, 121, 3, 69, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[95331, 3276, 78, 0, 39, "Subsubsection"],
+Cell[95412, 3278, 30, 0, 45, "Text"],
+Cell[95445, 3280, 316, 6, 85, "Input"],
+Cell[95764, 3288, 620, 22, 158, "Text"],
+Cell[96387, 3312, 1831, 62, 207, "Text",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[98243, 3378, 35, 0, 62, "Subsubsection"],
+
+Cell[CellGroupData[{
+Cell[98303, 3382, 32, 0, 62, "Subsubsection"],
+Cell[98338, 3384, 136, 3, 69, "Text"],
+
+Cell[CellGroupData[{
+Cell[98499, 3391, 120, 5, 45, "Text"],
+Cell[98622, 3398, 127, 4, 78, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[98786, 3407, 128, 4, 45, "Text"],
+Cell[98917, 3413, 599, 17, 338, "Input"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[99565, 3436, 34, 0, 62, "Subsubsection"],
+Cell[99602, 3438, 844, 34, 51, "Text",
+  Evaluatable->False],
+Cell[100449, 3474, 147, 2, 62, "Input"],
+Cell[100599, 3478, 135, 5, 45, "Text"],
+Cell[100737, 3485, 74, 0, 78, "Input"],
+Cell[100814, 3487, 215, 8, 47, "Text",
+  Evaluatable->False],
+Cell[101032, 3497, 245, 5, 108, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[101314, 3507, 35, 0, 62, "Subsubsection"],
+Cell[101352, 3509, 436, 10, 95, "Text",
+  Evaluatable->False],
+Cell[101791, 3521, 89, 1, 62, "Input"],
+Cell[101883, 3524, 171, 6, 47, "Text"],
+Cell[102057, 3532, 119, 4, 58, "Input"],
+Cell[102179, 3538, 280, 8, 57, "Text"],
+Cell[102462, 3548, 233, 3, 108, "Input"],
+Cell[102698, 3553, 32, 0, 45, "Text"],
+Cell[102733, 3555, 168, 3, 62, "Input"],
+Cell[102904, 3560, 268, 8, 50, "Text",
+  Evaluatable->False],
+Cell[103175, 3570, 250, 5, 85, "Input"],
+Cell[103428, 3577, 533, 19, 69, "Text",
+  Evaluatable->False],
+Cell[103964, 3598, 75, 1, 39, "Input"],
+Cell[104042, 3601, 441, 16, 69, "Text",
+  Evaluatable->False],
+Cell[104486, 3619, 192, 3, 85, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[104715, 3627, 36, 0, 62, "Subsubsection"],
+Cell[104754, 3629, 60, 0, 45, "Text"],
+Cell[104817, 3631, 121, 2, 62, "Input"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[104999, 3640, 108, 3, 39, "Subsubsection"],
+Cell[105110, 3645, 48, 0, 45, "Text"],
+Cell[105161, 3647, 78, 1, 39, "Input"],
+Cell[105242, 3650, 30, 0, 45, "Text"],
+Cell[105275, 3652, 385, 7, 131, "Input"],
+Cell[105663, 3661, 700, 21, 182, "Text"],
+Cell[106366, 3684, 523, 15, 57, "Text",
+  Evaluatable->False],
+Cell[106892, 3701, 448, 15, 50, "Text"],
+
+Cell[CellGroupData[{
+Cell[107365, 3720, 35, 0, 62, "Subsubsection"],
+
+Cell[CellGroupData[{
+Cell[107425, 3724, 34, 0, 62, "Subsubsection"],
+Cell[107462, 3726, 837, 33, 51, "Text",
+  Evaluatable->False],
+Cell[108302, 3761, 172, 3, 62, "Input"],
+Cell[108477, 3766, 162, 5, 45, "Text"],
+Cell[108642, 3773, 108, 2, 62, "Input"],
+Cell[108753, 3777, 215, 8, 47, "Text",
+  Evaluatable->False],
+Cell[108971, 3787, 245, 5, 108, "Input"],
+Cell[109219, 3794, 427, 11, 97, "Text",
+  Evaluatable->False],
+Cell[109649, 3807, 89, 1, 62, "Input"],
+Cell[109741, 3810, 170, 6, 47, "Text"],
+Cell[109914, 3818, 119, 4, 58, "Input"],
+Cell[110036, 3824, 50, 0, 45, "Text"],
+Cell[110089, 3826, 315, 5, 131, "Input"],
+Cell[110407, 3833, 56, 0, 45, "Text"],
+Cell[110466, 3835, 66, 1, 39, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[110569, 3841, 32, 0, 62, "Subsubsection"],
+Cell[110604, 3843, 533, 17, 79, "Text",
+  Evaluatable->False],
+Cell[111140, 3862, 262, 5, 85, "Input"],
+Cell[111405, 3869, 514, 20, 69, "Text",
+  Evaluatable->False],
+Cell[111922, 3891, 106, 2, 39, "Input"],
+Cell[112031, 3895, 394, 16, 45, "Text",
+  Evaluatable->False],
+Cell[112428, 3913, 192, 3, 85, "Input"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[112681, 3923, 99, 3, 39, "Subsubsection"],
+Cell[112783, 3928, 48, 0, 45, "Text"],
+Cell[112834, 3930, 78, 1, 39, "Input"],
+Cell[112915, 3933, 33, 0, 45, "Text"],
+Cell[112951, 3935, 146, 2, 39, "Input"],
+Cell[113100, 3939, 388, 7, 108, "Input"],
+Cell[113491, 3948, 88, 3, 45, "Text"],
+Cell[113582, 3953, 141, 2, 39, "Input"],
+Cell[113726, 3957, 923, 21, 220, "Text"],
+Cell[114652, 3980, 1017, 32, 129, "Text",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[115694, 4016, 35, 0, 62, "Subsubsection"],
+
+Cell[CellGroupData[{
+Cell[115754, 4020, 34, 0, 62, "Subsubsection"],
+Cell[115791, 4022, 838, 33, 51, "Text",
+  Evaluatable->False],
+Cell[116632, 4057, 364, 5, 131, "Input"],
+Cell[116999, 4064, 140, 5, 45, "Text"],
+Cell[117142, 4071, 73, 0, 58, "Input"],
+Cell[117218, 4073, 214, 8, 47, "Text",
+  Evaluatable->False],
+Cell[117435, 4083, 292, 7, 108, "Input"]
+}, Open  ]],
+Cell[117742, 4093, 401, 10, 73, "Text",
+  Evaluatable->False],
+Cell[118146, 4105, 91, 1, 39, "Input"],
+Cell[118240, 4108, 119, 2, 39, "Input"],
+Cell[118362, 4112, 199, 6, 47, "Text"],
+Cell[118564, 4120, 131, 4, 58, "Input"],
+Cell[118698, 4126, 49, 0, 45, "Text"],
+Cell[118750, 4128, 284, 4, 108, "Input"],
+Cell[119037, 4134, 150, 3, 69, "Text"],
+Cell[119190, 4139, 251, 4, 108, "Input"],
+Cell[119444, 4145, 170, 4, 69, "Text"],
+Cell[119617, 4151, 122, 2, 39, "Input"],
+Cell[119742, 4155, 32, 0, 62, "Subsubsection"],
+Cell[119777, 4157, 387, 12, 74, "Text",
+  Evaluatable->False],
+Cell[120167, 4171, 281, 5, 85, "Input"],
+Cell[120451, 4178, 516, 20, 69, "Text",
+  Evaluatable->False],
+Cell[120970, 4200, 108, 2, 39, "Input"],
+Cell[121081, 4204, 380, 16, 45, "Text",
+  Evaluatable->False],
+Cell[121464, 4222, 192, 3, 85, "Input"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+
