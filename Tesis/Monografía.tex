@@ -1,19 +1,14 @@
-\documentclass[prb,aps,preprintnumbers,amsmath,amssymb]{article}
+\documentclass{article}
 
-\usepackage{graphicx}
-\usepackage{amsmath}
+\usepackage{amssymb,amsmath}
 \numberwithin{equation}{section}
 \usepackage{dcolumn}% Align table columns on decimal point
 \usepackage{bm}% bold math
 \usepackage[utf8]{inputenc}
 \usepackage[spanish,es-tabla]{babel}
-\usepackage{epstopdf}
 \usepackage{hyperref}
 \usepackage[left=2.5cm,top=2.5cm,right=2cm,bottom =3cm,nohead,nofoot]{geometry}
-\usepackage{braket}
-\usepackage{datenumber}
-%\newdate{date}{10}{05}{2013}
-%\date{\displaydate{date}}
+
 
 \begin{document}
 
@@ -53,7 +48,7 @@ R_{\mu \nu} - \frac{1}{2} R g_{\mu \nu} + \Lambda g_{\mu \nu} = 8 \pi T_{\mu \nu
 
 donde $R_{\mu \nu}$ es el tensor de Ricci, $R$ es la curvatura escalar, $T_{\mu \nu}$ es el tensor energía-momento y $\Lambda$ es la constante cosmológica.\\
 
-Muchas de las soluciones de \eqref{campo} no están bien definidas en todo el espacio-tiempo, tal y como ocurre, por ejemplo, con la métrica de Schwarzschild \eqref{sch}  en $r = 0$.
+Muchas de las soluciones de \eqref{field equations} no están bien definidas en todo el espacio-tiempo, tal y como ocurre, por ejemplo, con la métrica de Schwarzschild \eqref{sch}  en $r = 0$.
 
 \begin{equation}
 \label{sch}
@@ -62,7 +57,7 @@ ds^2 = -\left( 1 - \frac{2M}{r} \right) dt^2 + \left( 1 - \frac{2M}{r} \right)^{
 
 Una posible forma de solucionar estos problemas podría ser considerar correcciones cuánticas a la teoría gravitacional. Además, el hecho de que todos los campos no gravitacionales estén bien descritos por la teoría cuántica de campos, hace pensar que existe una teoría cuántica subyacente para la gravedad.\\ 
 
-Una forma de implementar de forma efectiva correcciones cuánticas en la métrica de Schwarzschild es mediante la denominada métrica de Hayward modificada \cite{hayward,effective}, que viene dada por \eqref{reg-sch} 
+Una forma de implementar de forma efectiva correcciones cuánticas en la métrica de Schwarzschild es mediante la denominada métrica de Hayward modificada \cite{hayward,lorenzo}, que viene dada por \eqref{reg-sch} 
 
 \begin{equation}
 \label{reg-sch}
@@ -81,7 +76,7 @@ F(r) = 1 - \frac{Mr^2}{r^3 + 2ML^2}
 G(r) = 1 - \frac{\beta M \alpha}{\alpha r^3 + \beta M}
 \end{equation}
 
-con $\alpha$ y $\beta$ parámetros del sistema. Esta métrica (basada en los argumentos dados en \cite{hayward,bardeen}) representa lo que usualmente es referido en la literatura como \emph{Estrellas de Planck} \cite{planck stars} y  satisface las siguientes propiedades:
+con $\alpha$ y $\beta$ parámetros del sistema. Esta métrica (basada en los argumentos dados en \cite{hayward,bardeen}) representa lo que usualmente es referido en la literatura como \emph{Estrellas de Planck} \cite{rovelli} y  satisface las siguientes propiedades:
 
 \begin{itemize}
 \item $g_{00} = 1 - \frac{2M}{r}$ para $r \rightarrow \infty$, es decir, la m\'etrica es asint\'oticamente Schwarzschild.
@@ -127,7 +122,7 @@ es decir, que la derivada covvariante de este campo vectorial es antisimétrica 
 
 \subsection{Condiciones de energía}
 
-De vital importancia para el estudio de las métricas a lo largo de todo este documento son las denominadas condiciones de energía. Si bien en la mayoría de los casos resulta útil estudiar las ecuaciones de campo sin especificar la fuente de materia $T_{\mu \nu}$ en el espacio-tiempo descrito, en algunas ocasiones resulta interesante estudiar las propiedades de dichas ecuaciones que son válidas para diversas fuentes de materia. En esta última situación es fundamental imponer condiciones de energía que limiten la arbitrariedad de $T_{\mu \nu}$ con el fin de que sean fuentes razonables de energía y momento \cite{carroll book}.\\
+De vital importancia para el estudio de las métricas a lo largo de todo este documento son las denominadas condiciones de energía. Si bien en la mayoría de los casos resulta útil estudiar las ecuaciones de campo sin especificar la fuente de materia $T_{\mu \nu}$ en el espacio-tiempo descrito, en algunas ocasiones resulta interesante estudiar las propiedades de dichas ecuaciones que son válidas para diversas fuentes de materia. En esta última situación es fundamental imponer condiciones de energía que limiten la arbitrariedad de $T_{\mu \nu}$ con el fin de que sean fuentes razonables de energía y momento \cite{carroll}.\\
 
 Las formulaciones matemáticas de las múltiples  condiciones de energía se establecen a continuación:
 
@@ -149,7 +144,7 @@ A lo largo de este documento, las condiciones estudiadas en las diversas métric
 
 \subsection{Métrica de Bardeen}
 
-La métrica de Bardeen \cite{bardeen,borde-1994,borde-1996} fue una de las primeras en describir un agujero negro regular. En coordenadas esféricas $(t,r,\theta,\phi)$, la métrica de Bardeen se expresa como
+La métrica de Bardeen \cite{bardeen,borde1994,borde1996} fue una de las primeras en describir un agujero negro regular. En coordenadas esféricas $(t,r,\theta,\phi)$, la métrica de Bardeen se expresa como
 
 \begin{equation}
 \label{bardeen metric}
@@ -266,7 +261,7 @@ Es claro que este EMT corresponde, de manera semejante que en la métrica de Bar
 La corrección efectiva de teoría cuántica de campos al potencial Newtoniano es
 
 \begin{equation}
-\label{new}
+\label{newF}
 \Phi (r) = -\frac{M}{r} \left( 1 + \beta \frac{l_{p}^2}{r^2} \right) + \mathcal{O}(r^{-4}),
 \end{equation}
 
@@ -290,7 +285,7 @@ Y teniendo en cuenta lo anterior, es posible definir una constante cosmológica 
 
 La métrica de Hayward modificada está dada por 
 \begin{equation}
-\label{reg-sch}
+\label{reg-schF}
 ds^2 = -G(r)F(r) dt^2 + \frac{1}{F(r)} dr^2 + r^2d\Omega ^2
 \end{equation}
 
@@ -342,11 +337,9 @@ G(r) = 1 - \frac{\beta M \alpha}{\alpha r^3 + \beta M}
 %
 %\end{thebibliography}
 
-
+\nocite{*}
 \bibliographystyle{unsrt}
-\bibliography{Bibliografía}
-
-
+\bibliography{Biblio}
 
 
 \end{document} 
