@@ -5,6 +5,43 @@ A.~{Einstein}.
 \newblock Die grundlage der allgemeinen relativitätstheorie.
 \newblock {\em Annalen der Physik}, 354(7):769--822, 1916.
 
+\bibitem{bardeen}
+J.~M. {Bardeen}.
+\newblock Non-singular general-relativistic gravitational collapse.
+\newblock In {\em Procceedings of International Conference GR5}, page 174,
+  Tbilisi, 1968.
+
+\bibitem{borde1994}
+A.~{Borde}.
+\newblock {Open and closed universes, initial singularities, and inflation}.
+\newblock {\em Phys. Rev. D}, 50:3692--3702, September 1994.
+
+\bibitem{ayon-beato2000}
+{{Ayón-Beato}, E. and {García}, A.}
+\newblock {The Bardeen model as a nonlinear magnetic monopole}.
+\newblock {\em Physics Letters B}, 493:149--152, November 2000.
+
+\bibitem{ayon-beato2005}
+{{Ayón-Beato}, E. and {García}, A.}
+\newblock {Four-parametric regular black hole solution}.
+\newblock {\em General Relativity and Gravitation}, 37:635--641, April 2005.
+
+\bibitem{ayon-beato1999-1}
+{{Ayón-Beato}, E. and {García}, A.}
+\newblock {Regular Black Hole in General Relativity Coupled to Nonlinear
+  Electrodynamics}.
+\newblock {\em Physical Review Letters}, 80:5056--5059, June 1998.
+
+\bibitem{ayon-beato1999-2}
+{{Ayón-Beato}, E. and {García}, A.}
+\newblock {Non-Singular Charged Black Hole Solution for Non-Linear Source}.
+\newblock {\em General Relativity and Gravitation}, 31:629, May 1999.
+
+\bibitem{ayon-beato1999-3}
+{{Ayón-Beato}, E. and {García}, A.}
+\newblock {New regular black hole solution from nonlinear electrodynamics}.
+\newblock {\em Physics Letters B}, 464:25--29, October 1999.
+
 \bibitem{hayward}
 S.~A. {Hayward}.
 \newblock {Formation and Evaporation of Nonsingular Black Holes}.
@@ -15,17 +52,16 @@ T.~{De Lorenzo}, C.~{Pacilio}, C.~{Rovelli}, and S.~{Speziale}.
 \newblock {On the effective metric of a Planck star}.
 \newblock {\em General Relativity and Gravitation}, 47:41, April 2015.
 
-\bibitem{bardeen}
-J.~M. {Bardeen}.
-\newblock Non-singular general-relativistic gravitational collapse.
-\newblock In {\em Procceedings of International Conference GR5}, page 174,
-  Tbilisi, 1968.
-
 \bibitem{rovelli}
 C.~{Rovelli} and F.~{Vidotto}.
 \newblock {Planck stars}.
 \newblock {\em International Journal of Modern Physics D}, 23:1442026, December
   2014.
+
+\bibitem{blau}
+Matthias {Blau}.
+\newblock {\em Lecture Notes on General Relativity}.
+\newblock Albert Einstein Center for Fundamental Physics, 2015.
 
 \bibitem{carroll}
 Sean~M {Carroll}.
@@ -33,10 +69,21 @@ Sean~M {Carroll}.
   volume~1.
 \newblock Addison Wesley, 1st edition, 2004.
 
-\bibitem{borde1994}
-A.~{Borde}.
-\newblock {Open and closed universes, initial singularities, and inflation}.
-\newblock {\em Phys. Rev. D}, 50:3692--3702, September 1994.
+\bibitem{carroll-lecture-notes}
+S.~M. {Carroll}.
+\newblock {\em {Lecture Notes on General Relativity}}.
+\newblock December 1997.
+
+\bibitem{zaslavskii}
+O.~B. {Zaslavskii}.
+\newblock {Regular black holes and energy conditions}.
+\newblock {\em Physics Letters B}, 688:278--280, May 2010.
+
+\bibitem{dymnikova2004}
+I.~{Dymnikova}.
+\newblock {Regular electrically charged vacuum structures with de Sitter centre
+  in nonlinear electrodynamics coupled to general relativity}.
+\newblock {\em Classical and Quantum Gravity}, 21:4417--4428, September 2004.
 
 \bibitem{borde1996}
 A.~{Borde}.
@@ -62,11 +109,6 @@ Ray {D’Inverno}.
 Kip~S. {Thorne}, John~Archibald {Wheeler}, and Charles~W. {Misner}.
 \newblock {\em Gravitation}.
 \newblock W. H. Freeman, 1st. edition, 1973.
-
-\bibitem{ayon-beato2000}
-{{Ayón-Beato}, E. and {García}, A.}
-\newblock {The Bardeen model as a nonlinear magnetic monopole}.
-\newblock {\em Physics Letters B}, 493:149--152, November 2000.
 
 \bibitem{vanegas-nonlinear}
 L.~{Balart} and E.~C. {Vagenas}.
