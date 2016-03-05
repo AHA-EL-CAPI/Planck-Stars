@@ -11,6 +11,7 @@
 \usepackage[left=3cm,top=2.5cm,right=3cm,bottom =2.5cm,nohead,nofoot]{geometry}
 \newtheorem{theorem}{Teorema}[section]
 \usepackage{enumerate}
+\usepackage{graphicx}
 
 \begin{document}
 
@@ -257,7 +258,34 @@ entonces dicho espacio tiempo posee geodésicas incompletas de tipo nulo futuro.
 
 En otras palabras, un espaciotiempo dado tiene una singularidad si las tres condiciones del teorema anterior se satisfacen. En relación con lo anterior, y basado en las consideraciones hechas en \cite{borde1994,borde1996}, la métrica de Bardeen es frecuentemente aludida como contraejemplo a la posibilidad de poder probar la existencia de singularidades en el interior de agujeros negros sin asumir alguna de las dos primeras hipótesis.\\
 
-En tanto que la métrica de Bardeen está inspirada en la métrica RN, la pregunta evidente en este caso es: ¿cómo logra la métrica de Bardeen evitar la singularidad física en $r = 0$ de la métrica RN?. La respuesta a esta pregunta fue establecida desde una perspectiva netamente matemática por Arvind Borde en \cite{borde1994,borde1996}. En este documento se presenta un resumen de los planteamientos en ambos artículos de Borde. 
+En tanto que la métrica de Bardeen está inspirada en la métrica RN, la pregunta evidente en este caso es: ¿cómo logra la métrica de Bardeen evitar la singularidad física en $r = 0$ de la métrica RN?. La respuesta a esta pregunta fue establecida desde una perspectiva netamente matemática por Arvind Borde en \cite{borde1994,borde1996}. Con el fin de entender los planteamientos de Borde, es preciso considerar la extensión maximal de la métrica de Bardeen. En la fig. \ref{fig: bardeen diagram} está representada una parte de la extensión maximal del mencionado espaciotiempo.\\
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.35\textwidth]{bardeenDiagram}
+	\caption{Estructura global de una porción del agujero negro de Bardeen. Imagen tomada de \cite{borde1994}.}
+	\label{fig: bardeen diagram}
+\end{figure}
+
+Como se ha mencionado previamente, las propiedades globales, y en particular, la estructura causal de la métrica de Bardeen es similar a la de la métrica de Reissner Nordström, de ahí la similitud entre los diagramas de Penrose-Carter correspondientes a ambas métricas. Cada punto en el interior del espaciotiempo representado en la fig. \ref{fig: bardeen diagram} es una 2-esfera, las líneas sólidas y los círculos respresentan regiones en el infinito, y las líneas punteadas representan el origen ($r = 0$) del sistema de coordenadas esféricas (Las dos líneas eituqetadas con $r = 0$ representan dos "patches" diferentes de coordenadas). La región sombreada representa parte del interior del agujero negro, de tal forma que señales enviadas desde esa región no pueden escapar al infinito futuro tipo nulo $i^{+}$. Dado a que esa región, en particular, está dentro del horizonte de enventos del agujero, hay superficies atrapadas $\mathcal{T}$ en la misma. De acuerdo a Borde, el caráter regular de la métrica de Bardeen se debe a que, en la región señalada, es posible que los rayos de luz se ``envuelvan'' alrededor del universo universo, en otras palabras, aunque los sistemas de geodésicas nulas salientes o entrantes de $\mathcal{T}$ convergen, estas geodésicas convergen a puntos $r = 0$ de ``patches'' distintos. De hecho, la superficie atrapada $\mathcal{T}$ y su cono de luz futuro $E^{+}(\mathcal{T})$ yacen en el desarrolo de Cauchy futuro (OJO) de la superficie $\mathcal{S}_{2}$ y la singularidad en $r = 0$ se evita única y exclusivamente (OJO) debido a que $\mathcal{S}_{2}$ es compacta.\\
+
+En otras palabras, las secciones espaciales de un agujero negro de Bardeen evolucionan (OJO) desde una región en la que no son compactas (por ejemplo, la superficie $\mathcal{S}_{1}$ de la fig. \ref{fig: bardeen diagram}), hacia una región donde son compactas, y por ende, el unvierso cambia su topología de abierto a cerrado. Estos razonamientos son formalizados por Bardeen mediante el siguiente teorema, en el cual se establece que dicho cambio de topología es necesario para la existencia de agujeros negros regulares que obedecen la condición de energía débil.
+
+\begin{theorem}[Borde, 194]
+	\label{penrose sing thm}
+	Si un espaciotiempo satisface que
+	
+	\begin{enumerate}[i]
+		\item contiene una hipersuperficie de Cauchy $\Sigma$ no-compacta,
+		
+		\item contiene una superficie cerrada futuramente atrapada (future-trapped surface),
+		
+		\item cumple con la condición de convergencia $R_{\mu \nu}u^{\mu}u^{\nu} \geq 0$ para cualquier vector nulo $u^{\mu}$ (o equivalentemente, cumple la SEC),
+	\end{enumerate}
+	
+	entonces dicho espacio tiempo posee geodésicas incompletas de tipo nulo futuro.
+\end{theorem}
+
 
 \subsection{Métrica de Vaidya}
 
