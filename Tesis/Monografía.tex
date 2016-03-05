@@ -1,3 +1,4 @@
+% !TeX spellcheck = en_US
 \documentclass{article}
 
 \usepackage{amssymb,amsmath}
@@ -8,7 +9,8 @@
 \usepackage[spanish,es-tabla]{babel}
 \usepackage{hyperref}
 \usepackage[left=3cm,top=2.5cm,right=3cm,bottom =2.5cm,nohead,nofoot]{geometry}
-
+\newtheorem{theorem}{Teorema}[section]
+\usepackage{enumerate}
 
 \begin{document}
 
@@ -37,7 +39,7 @@ Director: Pedro Bargueño de Retes
 \normalsize
 \section{Introducción}
 
-Desde la publicación del famoso artículo \textit{The Foundation of the General Theory of Relativity} \cite{einstein} por Albert Einstein en el año de 1916, la búsqueda de soluciones exactas a sus ecuaciones de campo ha sido uno de los principales motores de investigación en relatividad general (GR). La primera solución matemática exacta de dichas ecuaciones fue la métrica de Schwarzschild, que describe la geometría generada en el exterior de un cuerpo esféricamente simétrico, sin carga y sin momento angular. Además de la anterior, otra métrica que presenta simetría esférica es la de Reissner Nordström, la cual describe un cuerpo cargado sin rotación. Estas métricas comparten una característica particular, a saber, ambas poseen una singularidad física en $r = 0$. Esto dificulta el tratamiento de ese punto tanto en el espaciotiempo de Schwarzschild como en el de Reissner Norström, puesto que la teoría no es aplicable en el susodicho punto singular.\\
+Desde la publicación del famoso artículo \textit{The Foundation of the General Theory of Relativity} \cite{einstein} por Albert Einstein en el año de 1916, la búsqueda de soluciones exactas a sus ecuaciones de campo ha sido uno de los principales motores de investigación en relatividad general (GR). La primera solución matemática exacta de dichas ecuaciones fue la métrica de Schwarzschild, que describe la geometría generada en el exterior de un cuerpo esféricamente simétrico, sin carga y sin momento angular. Además de la anterior, otra métrica que presenta simetría esférica es la de Reissner Nordström (métrica RN), la cual describe un cuerpo cargado sin rotación. Estas métricas comparten una característica particular, a saber, ambas poseen una singularidad física en $r = 0$. Esto dificulta el tratamiento de ese punto tanto en el espaciotiempo de Schwarzschild como en el de Reissner Norström, puesto que la teoría no es aplicable en el susodicho punto singular.\\
 
 Teniendo en cuenta lo anterior, los puntos singulares de un espaciotiempo dado dejan entrever fallas de la teoría general de la relatividad puesto que no permite describir las propiedades físicas de los mismos. Con el fin de evadir estas dificultades, se dice que un agujero es regular, o sin puntos singulares, cuando los invariantes de curvatura $R$, $R^{\mu \nu}R_{\mu \nu}$, $R^{\mu \nu \rho \sigma}R_{\mu \nu \rho \sigma}$ son finitos en todos los puntos del espaciotiempo en cuestion. Dado esto, desde hace más de cincuenta años el estudio de espaciotiempos (agujeros negros) regulares ha sido de gran interés para múltiples físicos y matemáticos, entre ellos, James M. Bardeen. \\
 
@@ -87,16 +89,18 @@ Las formulaciones matemáticas de las múltiples  condiciones de energía se est
 
 \item \textbf{Condición de energía débil (NEC):} Como caso expecial de WEC, se exige que para cualquier vector nulo $l^\mu$ se tenga $T_{\mu \nu}l^{\mu}l^{\nu} \geq 0$. En el caso de un fluido perfecto, esta condición exige $\rho + p \geq 0$.
 
-\item \textbf{Condición de energía dominante (DEC):} Esta condición incluye a WEC y se puede dividir en dos partes: la primera es exactamente igual a lo requerido por WEC; y la segunda exige que $T_{\mu \nu}T^{\nu}_{\lambda}t^{\mu}t^{\lambda} \geq 0$ para todo $t^{\mu}$ timelike. Para fluidos perfectos esta condición se traduce en $\rho \geq |p|$.
+\item \textbf{Condición de energía dominante (DEC):} Esta condición incluye a WEC y se puede dividir en dos partes: la primera es exactamente igual a lo requerido por WEC; y la segunda exige que $T_{\mu \nu}T^{\nu}_{\ \lambda}t^{\mu}t^{\lambda} \geq 0$ para todo $t^{\mu}$ timelike. Para fluidos perfectos esta condición se traduce en $\rho \geq |p|$.
 
-\item \textbf{Condición de energía fuerte (SEC):} Esta última condición exige que $T_{\mu \nu}t^{\mu}t^{\nu} \geq \frac{1}{2}T^{\lambda}_{\lambda}t^{\sigma}t_{\sigma}$ para todo vector $t^\mu$ timelike. Equivalentemente, se demanda que $\rho + p \geq 0$ y que $\rho + 3p \geq 0$ en el caso de un fluido perfecto. Cabe mencionar que la SEC no implica a WEC pero sí implica a NEC.
+\item \textbf{Condición de energía fuerte (SEC):} Esta última condición exige que $T_{\mu \nu}t^{\mu}t^{\nu} \geq \frac{1}{2}T^{\lambda}_{\ \lambda}t^{\sigma}t_{\sigma}$ para todo vector $t^\mu$ timelike. Equivalentemente, se demanda que $\rho + p \geq 0$ y que $\rho + 3p \geq 0$ en el caso de un fluido perfecto. Cabe mencionar que la SEC no implica a WEC pero sí implica a NEC.
 \end{itemize}
+
+Como se verá más adelante, las únicas dos condiciones de energía que realmente interesan para el estudio de agujeros negros regulares son la WEC y la SEC, esto por el significado físico que hay destrás de estas condiciones, a saber, la WEC establece la no-negatividad de la densidad de energía para cualquier observador, mientras que la SEC alude al carácter atractivo de la fuerza gravitatoria.\\
 
 ¡OJO! Hawking y Ellis - Tipos de fluidos
 
 \subsection{Procedimiento General}
 
-Teniendo en cuenta el Teorema de Birkhoff y la derivación de \cite[Cap. 7]{carroll-lecture-notes}, la forma más general de una métrica estática y esféricamente simétrica es
+Teniendo en cuenta el Teorema de Birkhoff \cite{gravitation} y la derivación hecha en \cite[Cap. 7]{carroll-lecture-notes} de la métrica de Schwarzschild, la forma más general de una métrica estática y esféricamente simétrica es
 
 \begin{equation}
 \label{general static spherical}
@@ -110,11 +114,11 @@ donde la función $f(r)$ puede ser escrita como
 f(r) = 1 - \frac{2m(r)}{r}.
 \end{equation}
 
-Ahora bien, dado que nos interesa estudiar agujeros negros regulares, es preciso aclarar que la SEC se debe violar en algún lugar dentro del horizonte \cite{zaslavskii}, a la vez que la WEC o la DEC pueden ser satisfechas en todo el espaciotiempo generado \cite{dymnikova2004}. Al considerar el elemento de línea \eqref{general static spherical} junto con \eqref{general f}, es posbile escribir los componente de SET como \cite{vanegas-weak}
+Ahora bien, dado que nos interesa estudiar agujeros negros regulares, es preciso aclarar que la SEC se debe violar en algún lugar dentro del horizonte \cite{zaslavskii}, a la vez que la WEC o la DEC pueden ser satisfechas en todo el espaciotiempo generado \cite{dymnikova2004}. Al considerar el elemento de línea \eqref{general static spherical} junto con \eqref{general f}, es posbile escribir los componente de SET como \cite{vanegas-weak} OJO signatura y métrica ortogonal
 
 \begin{equation}
 \label{wec set comp}
-T^{t}_{t} = T^{r}_{r} = \frac{2}{8 \pi r^2} \frac{dm(r)}{dr}\ ,\ T^{\theta}_{\theta} = T^{\phi}_{\phi} = \frac{1}{8 \pi r} \frac{d^2m(r)}{dr^2},
+T^{t}_{\ t} = T^{r}_{\ r} = \frac{2}{8 \pi r^2} \frac{dm(r)}{dr}\ ,\ T{^\theta}_{\theta} = T^{\phi}_{\ \phi} = \frac{1}{8 \pi r} \frac{d^2m(r)}{dr^2},
 \end{equation}
 
 y por ende, se concluye que la WEC puede expresarse de manera equivalente en términos de la función de masa $m(r)$ mediante las siguientes desigualdades
@@ -131,7 +135,7 @@ Como se mencionó previamente, la DEC incluye por continuidad a la WEC. Esto per
 
 \subsection{\label{bardeen section} Métrica de Bardeen}
 
-Como se mencionó en la introducción, la métrica de Bardeen \cite{bardeen,borde1994,borde1996} fue la primera en describir un espaciotiempo regular. En coordenadas esféricas $(t,r,\theta,\phi)$, la métrica de Bardeen se expresa como
+Como se mencionó en la introducción, la métrica de Bardeen \cite{bardeen} fue la primera en describir un espaciotiempo regular. En coordenadas esféricas $(t,r,\theta,\phi)$, la métrica de Bardeen se expresa como
 
 \begin{equation}
 \label{bardeen metric}
@@ -183,7 +187,7 @@ Ahora bien, debido a que el elemento de línea \eqref{bardeen metric} es diagona
 g_{tt} = 1 - \frac{2mr^2}{(r^2 + q^2)^{3/2}} = 0.
 \end{equation}
 
-Y analizar las condiciones para la existencia de soluciones reales se concluye que la métrica \eqref{bardeen metric} describe un agujero negro (es decir, posee horizontes de eventos) para $q^2 < (16/27)m^2$:cuando $q^2 < (16/27)m^2$ existen dos horizontes de eventos $r_{+},r_{-}$ y cuando $q^2 = (16/27)m^2$ solo hay un horizonte de eventos degenerado $r_{+} = r_{-}$. En este último caso se dice que el agujero negro es extremal, tal y como en la métrica de Reissner Norström, en tanto que posee un único horizonte de eventos. Es importante recalcar que en cualquier caso, los horizontes de eventos para el agujero negro de Bardeen tan solo constituyen singularidades debidas al sistema de coordenadas puesto que ya se mencionó que los invariantes de curvatura (\ref{bardeen scalar}-\ref{bardeen riemann scalar}) son finitos en todo el espaciotiempo. La extensión de la métrica de Bardeen más allá de los horizontes de eventos se puede hacer al cambiar a las coordenadas de Eddington-Finkelstein, en términos de las cuales la métrica es bien comportada incluso en el caso del agujero negro extremal. \\
+Y analizar las condiciones para la existencia de soluciones reales se concluye que la métrica \eqref{bardeen metric} describe un agujero negro (es decir, posee horizontes de eventos) para $q^2 < (16/27)m^2$:cuando $q^2 < (16/27)m^2$ existen dos horizontes de eventos $r_{+},r_{-}$ y cuando $q^2 = (16/27)m^2$ solo hay un horizonte de eventos degenerado $r_{+} = r_{-}$. En este último caso se dice que el agujero negro es extremal, tal y como en la métrica RN, en tanto que posee un único horizonte de eventos. Es importante recalcar que en cualquier caso, los horizontes de eventos para el agujero negro de Bardeen tan solo constituyen singularidades debidas al sistema de coordenadas puesto que ya se mencionó que los invariantes de curvatura (\ref{bardeen scalar}-\ref{bardeen riemann scalar}) son finitos en todo el espaciotiempo. La extensión de la métrica de Bardeen más allá de los horizontes de eventos se puede hacer al cambiar a las coordenadas de Eddington-Finkelstein, en términos de las cuales la métrica es bien comportada incluso en el caso del agujero negro extremal. \\
 
 Considere nuevamente la componente temporal $g_{tt}$ de la métrica \eqref{bardeen metric}. Note que
 
@@ -191,7 +195,7 @@ Considere nuevamente la componente temporal $g_{tt}$ de la métrica \eqref{barde
 g_{tt} \underset{r \to \infty}{\sim} 1 - \frac{2m}{r} + \frac{3mg^2}{r^3} + \mathcal{O}\left( \frac{1}{r^5} \right).
 \end{equation}
 
-Los dos primeros términos de la expansión corresponden, como es de esperarse, al comportamiento asintóticamente plano de la métrica de Bardeen, y por tanto, es posible identificar al parámetro $m$ como la masa de la configuración descrita por esta métrica. No obstante, el término $1/r^3$ impide asociar el parámetro  de regularización $g$ con algún tipo de carga de Coulomb, a diferencia de la métrica de Reisner Norström, en la que el parámetro $q$ es automáticamente asociado a una carga eléctrica al comparar el SET de esta métrica con el del campo eléctrico para una carga puntual. Este hecho fue el principal obstáculo para la interpretación física del parámetro $g$ en la métrica de Bardeen hasta que Ayón-Beato y García propusieron su interpretación en términos de electrodinámica no-lineal \cite{ayon-beato2000}.\\
+Los dos primeros términos de la expansión corresponden, como es de esperarse, al comportamiento asintóticamente plano de la métrica de Bardeen, y por tanto, es posible identificar al parámetro $m$ como la masa de la configuración descrita por esta métrica. No obstante, el término $1/r^3$ impide asociar el parámetro  de regularización $g$ con algún tipo de carga de Coulomb, a diferencia de la métrica de Reisner Norström, en la que el parámetro $q$ es automáticamente asociado a una carga eléctrica al comparar el SET de esta métrica con el del campo eléctrico para una carga puntual. Este hecho fue el principal obstáculo para la interpretación física del parámetro $g$ en la métrica de Bardeen hasta que Ayón-Beato y García propusieron una interpretación en términos de electrodinámica no-lineal \cite{ayon-beato2000}.\\
 
 El modelo de Ayón-Beato y García parte la suposición de que la dinámica de la métrica de Bardeen está regida por
 
@@ -199,19 +203,61 @@ El modelo de Ayón-Beato y García parte la suposición de que la dinámica de l
 \mathcal{S} = \int dv \left( \frac{1}{16 \pi}R - \frac{1}{4 \pi}\mathcal{L}(F) \right),
 \end{equation}
 
-donde $R$ es el escalar de curvatura; $\mathcal{L}$ es una función de $F = \frac{1}{4}F_{\mu \nu}F^{\mu \nu}$, con $F_{\mu \nu} = 2\nabla_{[\mu}A_{\nu]}$ el tensor electromagnético; y $v = $ es la coordenada avanzada de Eddington-Finkelstein. Las ecuaciones de Eisntein resultantes del acople con electrodinámica no-lineal resultantes de la acción $\mathcal{S}$ son\\
+donde $R$ es el escalar de curvatura; $\mathcal{L}$ es una función de $F = \frac{1}{4}F_{\mu \nu}F^{\mu \nu}$, con $F_{\mu \nu} = 2\nabla_{[\mu}A_{\nu]}$ el tensor electromagnético; y $v$ es la coordenada avanzada de Eddington-Finkelstein. Las ecuaciones de Eisntein acopladas con electrodinámica no-lineal resultantes de la acción $\mathcal{S}$ son (¡OJO!)\\
 
-Este aspecto de la métrica de Bardeen también hace eco de una de las características fundamentales de la métrica de Reissner-Nordström en tanto que las propiedades globales del espacio-tiempo descrito tanto por la métrica de Reissner-Nordström como por la métrica de Bardeen dependen fuertemente de las magnitudes relativas entre $q$ y $m$.\\
+\begin{equation}
+\label{euler lagrange eqns 1}
+G_{\mu}^{\ \nu} = 2(\mathcal{L}_{F} F_{\mu \lambda} F^{\nu \lambda} - \delta_{\mu}^{\ \nu} \mathcal{L}),
+\end{equation}
 
+\begin{equation}
+\label{euler lagrange eqns 2}
+\nabla_{\mu}(\mathcal{L}_{F} F^{\alpha \mu}) = 0,
+\end{equation}
 
+donde $\mathcal{L}_{F} \equiv \partial \mathcal{L}/\partial F$. La fuente electrodinámica no-lineal usada por los autores para derivar la métrica de Bardeen es (¡OJO! Formalismo P)
 
+\begin{equation}
+\label{nonlinear bardeen}
+\mathcal{L} = \frac{3}{2sg^2}\left( \frac{\sqrt{2g^2F}}{1 + \sqrt{2g^2F}} \right)^{5/2},
+\end{equation}
 
-¡OJO! Explicar brevemente lo del cambio de topología para evitar la singularidad.\\
+donde $s \equiv |g|/2m$; m la masa de la configuración descrita; y $g$ un parámetro de integración. Además, los autores consideran el ansatz para el campo electromagnético 
 
-\textbf{¡OJO! La forma en la que se evita la singularidad en este y otros modelos que son considerados como Bardeen-like involucra una explicación que no he logrado entnder. Discutir con Pedro.}\\
+\begin{equation}
+F_{\mu \nu} = 2 \delta^{\theta}_{\ \lbrack\mu} \delta^{\varphi}_{\ \nu\rbrack} B(r, \theta),
+\end{equation}
 
-¡OJO! Borde 1994 habla de global Cauchy surface condition. Tengo que leer un poco más para entenderlo.
+y al tener en cuenta todas las consideraciones previamente mencionadas, Ayón-Beato y García concluyen que el parámetro $g$ corresponde a la carga de un monopolo magnético, esto es (¡OJO!)
 
+\begin{equation}
+\frac{1}{4 \pi} \int_{S^{\infty}}\mathbf{F} = \frac{g}{4 \pi} \int_{0}^{\pi}\int_{0}^{2\pi}\sin (\theta) d\theta d\varphi = g.
+\end{equation}
+
+Todo lo anterior permite entender la métrica \eqref{bardeen metric} como un acople de electrodinámica no-lineal a la relatividad general, que físicamente corresponde a un monopolo magnético autogravitante de carga $g$. Esta interpretación de la métrica de Bardeen hace eco de una de las características fundamentales de la métrica RN en tanto que las propiedades globales del espacio-tiempo descrito tanto por la métrica de Reissner-Nordström como por la métrica de Bardeen dependen fuertemente de las magnitudes relativas entre el parámetro de carga y el parámetro de masa.\\
+
+Ahora bien, hasta el momento solo se ha lidiado con la interpretación física de la métrica de Bardeen \eqref{bardeen metric}, y se ha establecido el carácter regular de la misma en términos de la finitud de los invariantes de curvatura. No obstante, es preciso ahondar un poco más en el último aspecto mencionado dado que es el principal motivo para estudiar dicha métrica en este trabajo.\\
+
+En el año 1965, Roger Penrose publicó un famoso artículo \cite{penrose} acerca de singularidades en el espaciotiempo. Una revisión más reciente del mismo puede ser consultada en \cite{senovilla2015}, en la cual la formulación precisa del teorema de singularidad de Penrose se establecen como se muestra a continuación. OJO definiciones de todo
+
+\begin{theorem}[Penrose, 1965]
+\label{penrose sing thm}
+Si un espaciotiempo satisface que
+
+\begin{enumerate}[i]
+\item contiene una hipersuperficie de Cauchy $\Sigma$ no-compacta,
+
+\item contiene una superficie cerrada futuramente atrapada (future-trapped surface),
+
+\item cumple con la condición de convergencia $R_{\mu \nu}u^{\mu}u^{\nu} \geq 0$ para cualquier vector nulo $u^{\mu}$ (o equivalentemente, cumple la SEC),
+\end{enumerate}
+
+entonces dicho espacio tiempo posee geodésicas incompletas de tipo nulo futuro.
+\end{theorem}
+
+En otras palabras, un espaciotiempo dado tiene una singularidad si las tres condiciones del teorema anterior se satisfacen. En relación con lo anterior, y basado en las consideraciones hechas en \cite{borde1994,borde1996}, la métrica de Bardeen es frecuentemente aludida como contraejemplo a la posibilidad de poder probar la existencia de singularidades en el interior de agujeros negros sin asumir alguna de las dos primeras hipótesis.\\
+
+En tanto que la métrica de Bardeen está inspirada en la métrica RN, la pregunta evidente en este caso es: ¿cómo logra la métrica de Bardeen evitar la singularidad física en $r = 0$ de la métrica RN?. La respuesta a esta pregunta fue establecida desde una perspectiva netamente matemática por Arvind Borde en \cite{borde1994,borde1996}. En este documento se presenta un resumen de los planteamientos en ambos artículos de Borde. 
 
 \subsection{Métrica de Vaidya}
 
@@ -244,6 +290,9 @@ Con respecto a las condiciones de energía, es claro que por la forma del EMT pa
 
 \section{\label{metric planck stars} Métrica de las Estrellas de Planck}
 
+porque l corresponde a la longitud de planck
+
+al final de la sección debe ser claro la necesidad de pasar a la sección de la siguiente sección
 \subsection{Métrica de Hayward}
 
 Teniendo todas las herramientas estudiadas en la sección anterior, es posible comenzar a estudiar el tema de interés para este trabajo.\\
