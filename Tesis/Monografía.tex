@@ -271,27 +271,34 @@ Como se ha mencionado previamente, las propiedades globales, y en particular, la
 
 En otras palabras, las secciones espaciales de un agujero negro de Bardeen evolucionan (OJO) desde una región en la que no son compactas (por ejemplo, la superficie $\mathcal{S}_{1}$ de la fig. \ref{fig: bardeen diagram}), hacia una región donde son compactas, y por ende, el unvierso cambia su topología de abierto a cerrado. Estos razonamientos son formalizados por Bardeen mediante el siguiente teorema, en el cual se establece que dicho cambio de topología es necesario para la existencia de agujeros negros regulares que obedecen la condición de energía débil.
 
-\begin{theorem}[Borde, 194]
-	\label{penrose sing thm}
-	Si un espaciotiempo satisface que
+\begin{theorem}[Borde, 1996]
+	\label{borde reg thm}
+	Suponga que una espaciotiempo $\mathcal{M}$ satisface que
 	
 	\begin{enumerate}[i]
-		\item contiene una hipersuperficie de Cauchy $\Sigma$ no-compacta,
+		\item contiene una superficie eventualmente futuramente atrapada $\mathcal{T}$,
 		
-		\item contiene una superficie cerrada futuramente atrapada (future-trapped surface),
+		\item obedece la condición de convergendia nula ($R_{ab}N^{a}N^{b} \geq 0$ para cualquier vector nulo $N^{a}$),
 		
-		\item cumple con la condición de convergencia $R_{\mu \nu}u^{\mu}u^{\nu} \geq 0$ para cualquier vector nulo $u^{\mu}$ (o equivalentemente, cumple la SEC),
+		\item el cojunto de geodésicas nulas futuras es completo (OJO),
+		
+		\item su futuro causal es simple (OJO), con $E^{+}(X) \neq \emptyset,\ \forall X \subset \mathcal{M}$.
 	\end{enumerate}
 	
-	entonces dicho espacio tiempo posee geodésicas incompletas de tipo nulo futuro.
+	Entonces hay una sección espacial compacta en el futuro de $\mathcal{T}$.
 \end{theorem}
 
+Una prueba (a simple vista, sencilla) de este teorema puede ser consultada en \cite{borde1996}.\\
+
+Es importante mencionar que, si bien no hay ninguna alución a un cambio de topología en el teorema, es usual que un espaciotiempo de agujero negro contenga una regiión en infinito (OJO) y, por ende, es de esperar que ``comience'' con una sección espacial no compacta $\mathcal{S}$ y por lo menos una superficie eventualmente futuramente atrapada en el futuro de la misma (OJO). En estos términos, el teorema de Borde muestra que, bajo condiciones muy generales, para que un agujero negro pueda ser regular se requiere que el espaciotiempo del cual hace parte desarrolle una sección espacial compacta en el futuro de $\mathcal{S}$, es decir, que la topología debe cambiar de abierta a cerrada. Una consecuencia inmediata de este cambio es que dicho espacio no puede ser globalmente hiperbólico.\\
+
+Para finalizar esta sección sobre la métrica de Bardeen es preciso mencionar que, si bien lo que hemos hecho hasta el momento es el primer paso para estudiar las estrellas de Planck, dichas estrellas son descritas por espaciotiempos que no son estáticos en absoluto. Por ende, es necesario desarrollar herramientas que permitan estudiar la evolución dinámica inminente de las susodichas estrellas. La forma en que se abordará espaciotiempos que varían con el tiempo será a través de la famosa métrica de Vaidya.
 
 \subsection{Métrica de Vaidya}
 
-La métrica de Vaidya \cite{padmanabhan} es una generalización de la métrica de Schwarzschild que puede ser interpretada como un espacio-tiempo con una radiación saliente y esféricamente simétrica de partículas sin masa.\\
+La métrica de Vaidya \cite{padmanabhan} es una generalización de la métrica de Schwarzschild que puede ser interpretada como un espaciotiempo con una radiación saliente y esféricamente simétrica de partículas sin masa.\\
 
-Para hallar esta métrica a partir de la de Schwarzschild es necesario pasar a coordenadas de Eddington-Finkelstein (¡OJO! Sería bueno ponerlo en un apéndice, junto con los ćalculos mencionados en otros OJO, poner lo de tortoise en el Gravitation), en las que la coordenada temporal $t$ es reemplazada por una nueva coordenada $u$ que satisface
+Esta métrica puede ser hallada a partir de la de Schwarzschild y para ello es necesario pasar a coordenadas de Eddington-Finkelstein, en las que la coordenada temporal $t$ es reemplazada por una nueva coordenada $u$ que satisface
 
 \begin{equation}
 dt = du + \frac{dr}{(1 - 2M/r)}
