@@ -110,6 +110,22 @@ Thanu Padmanabhan.
 \newblock {\em Gravitation: foundations and frontiers}.
 \newblock Cambridge University Press, 2010.
 
+\bibitem{blau}
+Matthias {Blau}.
+\newblock {\em Lecture Notes on General Relativity}.
+\newblock Albert Einstein Center for Fundamental Physics, 2015.
+
+\bibitem{griffiths2009}
+J.B. Griffiths and J.~Podolsk{\`y}.
+\newblock {\em Exact Space-Times in Einstein's General Relativity}.
+\newblock Cambridge Monographs on Mathematical Physics. Cambridge University
+  Press, 2009.
+
+\bibitem{wald2010}
+R.M. Wald.
+\newblock {\em General Relativity}.
+\newblock University of Chicago Press, 2010.
+
 \bibitem{inverno}
 Ray {D’Inverno}.
 \newblock {\em Introducing Einstein’s relativity}.
@@ -125,15 +141,15 @@ L.~{Balart} and E.~C. {Vagenas}.
 \newblock {Regular black holes with a nonlinear electrodynamics source}.
 \newblock {\em Phys. Rev. D}, 90(12):124045, December 2014.
 
-\bibitem{blau}
-Matthias {Blau}.
-\newblock {\em Lecture Notes on General Relativity}.
-\newblock Albert Einstein Center for Fundamental Physics, 2015.
-
 \bibitem{ansoldi2008}
 S.~{Ansoldi}.
 \newblock {Spherical black holes with regular center: a review of existing
   models including a recent realization with Gaussian sources}.
 \newblock {\em ArXiv e-prints}, February 2008.
+
+\bibitem{lindquist1965}
+R.~W. Lindquist, R.~A. Schwartz, and C.~W. Misner.
+\newblock Vaidya's radiating schwarzschild metric.
+\newblock {\em Phys. Rev.}, 137:B1364--B1368, Mar 1965.
 
 \end{thebibliography}
