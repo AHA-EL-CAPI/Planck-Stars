@@ -48,13 +48,14 @@ Director: Pedro Bargueño de Retes
 \normalsize
 \section{Introducción}
 
-Desde la publicación del famoso artículo \textit{The Foundation of the General Theory of Relativity} \cite{einstein} por Albert Einstein en el año de 1916, la búsqueda de soluciones exactas a sus ecuaciones de campo ha sido uno de los principales motores de investigación en relatividad general (GR). La primera solución matemática exacta de dichas ecuaciones fue la métrica de Schwarzschild, que describe la geometría generada en el exterior de un cuerpo esféricamente simétrico, sin carga y sin momento angular. Además de la anterior, otra métrica que presenta simetría esférica es la de Reissner Nordström (métrica RN), la cual describe un cuerpo cargado sin rotación. Estas métricas comparten una característica particular, a saber, ambas poseen una singularidad física en $r = 0$. Esto dificulta el tratamiento de ese punto tanto en el espaciotiempo de Schwarzschild como en el de Reissner Norström, puesto que la teoría no es aplicable en el susodicho punto singular.\\
+Desde la publicación del famoso artículo \textit{The Foundation of the General Theory of Relativity} %\cite{einstein} 
+por Albert Einstein en el año de 1916, la búsqueda de soluciones exactas a sus ecuaciones de campo ha sido uno de los principales motores de investigación en relatividad general (GR). La primera solución matemática exacta de dichas ecuaciones fue la métrica de Schwarzschild, que describe la geometría generada en el exterior de un cuerpo esféricamente simétrico, sin carga y sin momento angular. Además de la anterior, otra métrica que presenta simetría esférica es la de Reissner Nordström (métrica RN), la cual describe un cuerpo cargado sin rotación. Estas métricas comparten una característica particular, a saber, ambas poseen una singularidad física en $r = 0$. Esto dificulta el tratamiento de ese punto tanto en el espaciotiempo de Schwarzschild como en el de Reissner Norström, puesto que la teoría no es aplicable en el susodicho punto singular.\\
 
 Teniendo en cuenta lo anterior, los puntos singulares de un espaciotiempo dado dejan entrever fallas de la teoría general de la relatividad puesto que no permite describir las propiedades físicas de los mismos. Con el fin de evadir estas dificultades, se dice que un agujero es regular, o sin puntos singulares, cuando los invariantes de curvatura $R$, $R^{\mu \nu}R_{\mu \nu}$, $R^{\mu \nu \rho \sigma}R_{\mu \nu \rho \sigma}$ son finitos en todos los puntos del espaciotiempo en cuestion. Dado esto, desde hace más de cincuenta años el estudio de espaciotiempos (agujeros negros) regulares ha sido de gran interés para múltiples físicos y matemáticos, entre ellos, James M. Bardeen. \\
 
 En el año de 1968, Bardeen fue el primero en proponer una solución regular de las ecuaciones de campo de Einstein. Si bien el documento \cite{bardeen} en el que se propuso el modelo no está disponible, una revisión detallada de la métrica de Bardeen puede ser consultada en \cite{borde1994}. La importancia de esta métrica no solo se debe a que fue la primera de su estilo sino también a que fue crucial para orientar las futuras investigaciones sobre agujeros negros regulares. Al respecto, Ayón-Beato y García propusieron una interpretación física del modelo de Bardeen en términos de electrodinámica no lineal  \cite{ayon-beato2000} y construyeron muchos otras métricas correspondientes a agujeros negros regulares \cite{ayon-beato2005,ayon-beato1999-1,ayon-beato1999-2,ayon-beato1999-3}.\\
 
-Ayende de lo anterior, trabajos más recientes \cite{hayward,lorenzo,rovelli} tratan de generalizar el modelo que propuso Bardeen de regularización de agujeros negros, de tal forma que se incluyan correcciones efectivas de teoría cuántica de campos en relatividad general. En estos modelos se definen el concepto de Estrella de Planck, que corresponde a un métrica regular, esféricamente simétrica, asintóticamente plana, que satisface la condición de energía débil y que no posee horizontes de Cauchy (¡OJO!).\\
+Ayende de lo anterior, trabajos más recientes \cite{hayward2006,lorenzo,rovelli} tratan de generalizar el modelo que propuso Bardeen de regularización de agujeros negros, de tal forma que se incluyan correcciones efectivas de teoría cuántica de campos en relatividad general. En estos modelos se definen el concepto de Estrella de Planck, que corresponde a un métrica regular, esféricamente simétrica, asintóticamente plana, que satisface la condición de energía débil y que no posee horizontes de Cauchy (¡OJO!).\\
 
 Precisamente, el objetivo de este trabajo es entender el proceso mediante el cual se formulan las métricas correspondientes a estrellas de Planck, entender el mecanismo mediante el cual dichas métrica evaden la singularidad en $r = 0$ (¡OJO!), además de tratar de interpretar físicamente el tensor de energía-momento (SET) asociado a las mismas. Teniendo en cuenta lo previamente mencionado, la organización de este documento se da a continuación. En la Sec. \ref{preliminaries section} se establecen las condiciones de energía de forma usual en términos de SET y se establece la metodología general que se empleará para estudiar todas las métricas presentadas. En la Sec. \ref{previous metrics section} se estudian en detalle las métricas de Bardeen y de Vaidya, las cuales constituyen la base sobre la cual se definen las estrellas de Planck. Posteriormente, en la Sec. \ref{planck stars section} se estudia a fondo la métrica que define las aludidas estrellas de Planck y se da la interpretación física de las mismas. Finalmente, en la sección \ref{conclusions} se resumen los resultados del trabajo y en la sección \ref{annex} se habla sobre las correcciones cuánticas que introducen las estrellas de Planck en relatividad general.\\
 
@@ -170,19 +171,19 @@ por tanto, la WEC se satisface automáticamente en cualquier punto del espacio t
 El carácter regular de la métrica de Bardeen es evidente a partir del hecho de que, por un lado
 
 \begin{equation}
-g_{tt} \underset{r \to 0}{\sim} 1 - \frac{2mr^2}{g^3} + \mathcal{O}(r^4),
+f_{bardeen}(r) \underset{r \to 0}{\sim} 1 - \frac{2mr^2}{g^3} + \mathcal{O}(r^4),
 \end{equation}
 
 es decir, posee un comportamiento de de Sitter en la vecindad de $r = 0$, y por otro, los escalares de curvatura
 
 \begin{equation}
 \label{bardeen scalar}
-R = \frac{6 g^2 m \left(4 g^2-r^2\right)}{\left(g^2+r^2\right)^{7/2}}
+R = \frac{6 g^2 m \left(4 g^2-r^2\right)}{\left(g^2+r^2\right)^{7/2}},
 \end{equation}
 
 \begin{equation}
 \label{bardeen ricci scalar}
-R_{\mu \nu}R^{\mu \nu} = \frac{18 g^4 m^2 \left(8 g^4-4 g^2 r^2+13 r^4\right)}{\left(g^2+r^2\right)^7}
+R_{\mu \nu}R^{\mu \nu} = \frac{18 g^4 m^2 \left(8 g^4-4 g^2 r^2+13 r^4\right)}{\left(g^2+r^2\right)^7},
 \end{equation}
 
 \begin{equation}
@@ -195,7 +196,7 @@ son finitos en todo punto  del espaciotiempo.\\
 Ahora bien, debido a que el elemento de línea \eqref{bardeen metric} es diagonal, es posbile obtener los horizontes de eventos de esta métrica al solucionar
 
 \begin{equation}
-g_{tt} = 1 - \frac{2mr^2}{(r^2 + g^2)^{3/2}} = 0.
+f_{bardeen}(r) = 1 - \frac{2mr^2}{(r^2 + g^2)^{3/2}} = 0.
 \end{equation}
 
 Y analizar las condiciones para la existencia de soluciones reales se concluye que la métrica \eqref{bardeen metric} describe un agujero negro (es decir, posee horizontes de eventos) para $g^2 \leq (16/27)m^2$: cuando $g^2 < (16/27)m^2$ existen dos horizontes de eventos $r_{+},r_{-}$ y cuando $g^2 = (16/27)m^2$ solo hay un horizonte de eventos degenerado $r_{+} = r_{-}$. En este último caso se dice que el agujero negro es extremal, tal y como en la métrica RN, en tanto que posee un único horizonte de eventos. Es importante recalcar que en cualquier caso, los horizontes de eventos para el agujero negro de Bardeen tan solo constituyen singularidades debidas al sistema de coordenadas puesto que ya se mencionó que los invariantes de curvatura (\ref{bardeen scalar}-\ref{bardeen riemann scalar}) son finitos en todo el espaciotiempo. La extensión de la métrica de Bardeen más allá de los horizontes de eventos se puede hacer al cambiar a las coordenadas de Eddington-Finkelstein, en términos de las cuales la métrica es bien comportada incluso en el caso del agujero negro extremal. \\
@@ -203,7 +204,7 @@ Y analizar las condiciones para la existencia de soluciones reales se concluye q
 Considere nuevamente la componente temporal $g_{tt}$ de la métrica \eqref{bardeen metric}. Note que
 
 \begin{equation}
-g_{tt} \underset{r \to \infty}{\sim} 1 - \frac{2m}{r} + \frac{3mg^2}{r^3} + \mathcal{O}\left( \frac{1}{r^5} \right).
+f_{bardeen}(r) \underset{r \to \infty}{\sim} 1 - \frac{2m}{r} + \frac{3mg^2}{r^3} + \mathcal{O}\left( \frac{1}{r^5} \right).
 \end{equation}
 
 Los dos primeros términos de la expansión corresponden, como es de esperarse, al comportamiento asintóticamente plano de la métrica de Bardeen, y por tanto, es posible identificar al parámetro $m$ como la masa de la configuración descrita por esta métrica. No obstante, el término $1/r^3$ impide asociar el parámetro  de regularización $g$ con algún tipo de carga de Coulomb, a diferencia de la métrica de Reisner Norström, en la que el parámetro $q$ es automáticamente asociado a una carga eléctrica al comparar el SET de esta métrica con el del campo eléctrico para una carga puntual. Este hecho fue el principal obstáculo para la interpretación física del parámetro $g$ en la métrica de Bardeen hasta que Ayón-Beato y García propusieron una interpretación en términos de electrodinámica no-lineal \cite{ayon-beato2000}.\\
@@ -326,13 +327,13 @@ La métrica de Vaidya \cite{padmanabhan} es una generalización de la métrica d
 Esta métrica puede ser hallada a partir de la de Schwarzschild 
 
 \begin{equation}
-ds^2 = -\left( 1 - \frac{2m}{r} \right) + \left( 1 - \frac{2m}{r} \right)^{-1}dr^2 + r^2d\Omega^2
+ds^2 = -\left( 1 - \frac{2m}{r} \right) + \left( 1 - \frac{2m}{r} \right)^{-1}dr^2 + r^2d\Omega^2,
 \end{equation}
 y para ello es necesario pasar a coordenadas de Eddington-Finkelstein, en las que la coordenada temporal $t$ es reemplazada por una nueva coordenada $u$ que satisface
 
 \begin{equation}
 \label{tortoise}
-dt = du + \frac{dr}{(1 - 2m/r)}
+dt = du + \frac{dr}{(1 - 2m/r)}.
 \end{equation}
 
 Para la interpretación física de esta nueva coordenada, note que $u = cte$ corresponde a curvas que satisfacen la ecuación $dr/dt = +\left( 1 -2m/r \right)$. Las líneas radiales nulas en el espaciotiempo de Schwarzschild corresponden a curvas con $d\theta = d\phi = ds = 0$ y en términos de $r$ y $t$ satisfacen $(dr/dt)^2 = \left( 1 -2m/r \right)^2$. La raíz positiva de esta ecuación representa líneas de tipo nulo dirigidas radialmente hacia afuera (la raíz negativa, a rayos dirigidos radialmente hacia adentro).\\
@@ -341,7 +342,7 @@ Con dicha transformación, el elemento de línea se convierte en
 
 \begin{equation}
 \label{schw-tortoise}
-ds^2 = - \left(1- \frac{2m}{r}\right)du^2 - 2dudr + r^2d\Omega^2
+ds^2 = - \left(1- \frac{2m}{r}\right)du^2 - 2dudr + r^2d\Omega^2.
 \end{equation}
 
 Dado que nos interesa llegar a una métrica debida a fotones dirigidos radialmente hacia afuera, podemos considerar una generalización de \eqref{schw-tortoise} a una métrica dinámica en la que m varía respecto a la nueva coordenada temporal $u$, esto es, $m = m(u)$. Por ende Teniendo en cuenta lo anterior, el tensor energía-momento que genera la métrica \eqref{schw-tortoise} tiene como única componente distinta de cero $T_{uu} = -(m'/4 \pi r^2)$, con $m' = dm(u)/du$. Esto es exactamente igual al tensor que se obtendría para un rayo de fotones moviéndose radialmente hacia afuera con cuadrimomento $k_{a} = \nabla_{a}u$. El EMT en este caso es $T^{ab} = -(m'/4 \pi r^2)k^{a}k^{b}$. Dado lo anterior, podemos interpretar la métrica de Vaidya como debida a una fuente esféricamente simétrica que pierde masa al emitir fotones en la dirección radial.\\
@@ -357,11 +358,8 @@ Un horizonte aparente se define técnicamente como una hipersuperficie que separ
 
 \section{\label{planck stars section} Métrica de las Estrellas de Planck}
 
-Teniendo todas las herramientas estudiadas en la sección anterior, es posible comenzar a estudiar el tema de interés para este trabajo.\\
+Teniendo todas las herramientas estudiadas en la sección anterior, es posible comenzar a estudiar el tema de interés para este trabajo.
 
-¡OJO! Por qué l corresponde a la longitud de planck
-
-!OJOal final de la sección debe ser claro la necesidad de pasar a la sección de la siguiente sección
 \subsection{Métrica de Hayward}
 
 Si bien es posible encontrar métricas como la de Bardeen, es decir, esféricamente simétricas, estáticas, asintóticamente planas, con centros regulares, cuyos EMT es físicamente razonable, en particular que satisface la WEC. No obstante, dichos espaciotiempos típicamente soy considerados como no-físicos en tanto que poseen horizontes de Cauchy (OJO). No obstante, si consideramos la evaporación de uno de esos agujeros negros, el horizonte de cauchy pasa a user tan real como el horizonte de eventos.  Precisamente, las estrellas de Planck son descritas por métricas regulares dno estáticas (dinámicas) que satisfacen todas las propiedades anteriormente mencionadas, y que además poseen la característica adicional de incluir correcciones de teoría cuántica de campos en relatividad general.\\
@@ -370,14 +368,14 @@ Con el fin de entender paulatinamente el concepto de estrella de Planck, es prec
 
 \begin{equation}
 \label{hayward metric}
-ds^2 = \left( 1 - \frac{mr^2}{r^3 + 2ml^2} \right) dt^2 + \left( 1 - \frac{mr^2}{r^3 + 2ml^2} \right)^{-1} dr^2 + r^2d\Omega ^2
+ds^2 = \left( 1 - \frac{mr^2}{r^3 + 2ml^2} \right) dt^2 + \left( 1 - \frac{mr^2}{r^3 + 2ml^2} \right)^{-1} dr^2 + r^2d\Omega ^2,
 \end{equation}
 
-Donde $m$ y $l$ son parámetros cuya interpretación física se explicará más adelante. Claramente, para esta métrica tenemos que
+donde $m$ y $l$ son parámetros cuya interpretación física se explicará más adelante. Claramente, para esta métrica tenemos que
 
 \begin{equation}
 \label{hayward mass}
-m(r) =  \frac{mr^3}{r^3 + 2ml^2}
+m(r) =  \frac{mr^3}{r^3 + 2ml^2}.
 \end{equation}
 
 Por ende, la métrica de Hayward satisface inmediatamente la WEC en tanto que 
@@ -391,9 +389,10 @@ Por ende, la métrica de Hayward satisface inmediatamente la WEC en tanto que
 Como en el caso de Bardeen, la métrica de Hayward describe un espaciotiempo regular puesto que, por un lado, 
 
 \begin{equation}
-g_{tt} \underset{r \to 0}{\sim} 1 - \frac{r^2}{l^2} + \mathcal{O}(r^5)
+f_{hayward}(r) \underset{r \to 0}{\sim} 1 - \frac{r^2}{l^2} + \mathcal{O}(r^5),
 \end{equation}
-y por otro, sus invariantes de curvatura
+
+es decir, es de Sitter en la vecindad de $r =0$, y por otro, sus invariantes de curvatura
 
 \begin{equation}
 \label{hayward scalar}
@@ -410,32 +409,39 @@ R_{\mu \nu}R^{\mu \nu} = \frac{288 m^4 \left(8 l^8 m^2-4 l^6 m r^3+5 l^4 r^6\rig
 R_{\mu \nu \sigma \rho}R^{\mu \nu \sigma \rho} = \frac{48 m^2 \left(32 l^8 m^4-16 l^6 m^3 r^3+72 l^4 m^2 r^6-8 l^2 m r^9+r^{12}\right)}{\left(2 l^2 m+r^3\right)^6},
 \end{equation}
 
-permanecen finitos en todo el espaciotiempo. 
+permanecen finitos en todo el espaciotiempo.\\
+
+Ahora bien, al analizar los ceros de $g_{tt}$ revela una masa crítica de $m_{*} = (3\sqrt{3}/4)l$ y un radio crítico de $r = \sqrt{3}l$. Dado lo anterior, si $m < m_{*}$, la métrica \ref{hayward metric} describe un espaciotiempo regular con la misma estructura causal que cualquier espaciotiempo plano; si $m = m_{*}$ tenemos un agujero negro regular con un único horizonte de eventos degenerado; y si $m > m_{*}$ tenemos un agujero negro con dos horizontes de eventos. Esto se ve reflejado en la fig. \ref{fig: fhayward analysis}. 
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.4\textwidth]{fhaywardAnalysis}
-	\caption{Posibles casos de agujeros negros para la métrica de Hayward con para un valor fijo del parámetro $l$ y diferentes valores del parámetro $m$.}
+	\includegraphics[width=0.6\textwidth]{fhaywardAnalysis}
+	\caption{Posibles casos de agujeros negros para la métrica de Hayward con para un valor fijo del parámetro $l$ y diferentes valores del parámetro $m$. La estructura causal de este espaciotiempo es similar a la de Reissner Norström.}
 	\label{fig: fhayward analysis}
 \end{figure}
 
-Al analizar los ceros de $g_{tt}$ revela una masa crítica de $m = $
-El EMT asociado a esta métrica es
+%El EMT asociado a esta métrica es
+%
+%\begin{equation}
+%\begin{aligned}
+%T_{t}^{\ t} &= T_{r}^{\ r} = -\frac{12 l^2 m^2}{\left(2 l^2 m+r^3\right)^2} \\
+%T_{\theta}^{\ \theta} &= T_{\phi}^{\ \phi} = -\frac{24 l^2 m^2 \left(l^2 m-r^3\right)}{\left(2 l^2 m+r^3\right)^3}
+%\end{aligned}
+%\end{equation}
+
+Evidentemente, la pregunta natural con respecto a las anteriores consideraciónes es cuál es la fuente física que da origen a esta métrica. Para contestarla, note que 
 
 \begin{equation}
-\begin{split}
-T_{tt} &= \frac{12 L^2 m^2 \left(2 L^2 m+r^2 (r-2 m)\right)}{\left(2 L^2 m+r^3\right)^3}\\
-T_{rr} &= -\frac{12 L^2 m^2}{\left(2 L^2 m+r^3\right) \left(2 L^2 m+r^2 (r-2 m)\right)}\\
-T_{\theta \theta} &= -\frac{24 L^2 m^2 r^2 \left(L^2 m-r^3\right)}{\left(2 L^2 m+r^3\right)^3}\\
-T_{\phi \phi} &= -\frac{24 L^2 m^2 r^2 \sin ^2(\theta ) \left(L^2 m-r^3\right)}{\left(2 L^2 m+r^3\right)^3}
-\end{split}
+f_{hayward}(r) \underset{r \to \infty}{\sim} 1 - \frac{2m}{r} + \frac{4l^2m^2}{r^4} + \mathcal{O}(r^{-5}),
 \end{equation}
 
-Es claro que este EMT corresponde, de manera semejante que en la métrica de Bardeen, a un fluido tipo I y por tanto las condiciones de energía pueden ser inicialmente formuladas en los mismos términos.\\
+luego, al igual que en el caso de Bardeen, podemos interpretar el parámetro $m$ como la masa de la distribución que genera el elemento de línea \eqref{hayward metric}. No obstante, dada la presencia del término $r^{-4}$, es imposible interpretar el parámetro $l$ en términos de una carga coulombiana. De hecho, Hayward plantea que $l$ da aproximadamente la escala de longitud debajo de la cual los efectos de cuánticos en gravedad comienzan a ser dominantes, razón por la cual es de esperar que $l$ sea la longitud de Planck o del mismo orden de magnitud, aunque longitudes mayores no son excluídas.\\
 
+Con respecto a lo último mencionado, estudios posteriores al artículo de Hayward (véase \cite{lorenzo}) han hecho explícito el hecho de que la presencia del paŕametro de longitud $l$ en la métrica de Hayward necesariamente refleja la inclusión de correcciones efectivas de teoría cuántica de campos en relatividad general. Al respecto, De Lorenzo \emph{et al.} plantean que, para que las métricas que describen espaciotiempos regulares a partir de modificaciones de la métrica de Schwarzschild sean físicamente plausibles, se requieren dos condiciones: que dichas métricas incorporen las correcciones efectivas de teoría cuántica  de campos al potencial Newtoniano, y una dilatación temporal no trivial entre un observador en $r \to \infty$ y un observador en $r = 0$. Precisamente, la siguiente sección se encarga de estudiar con más detalle estos aspectos.
 
-¡OJO! Hacer conexión lógica con lo que sigue\\
+\section{Métrica de Hayward modificada}
 
+De acuerdo a De lorenzo \emph{et al.}, la mayoría de las métricas correspondientes a modelos de agujeros negros estáticamente
 La corrección efectiva de teoría cuántica de campos al potencial Newtoniano es
 
 \begin{equation}
@@ -444,22 +450,6 @@ La corrección efectiva de teoría cuántica de campos al potencial Newtoniano e
 \end{equation}
 
 donde $l_{p}$ en la longitud de Planck.\\
-
-¡OJO! Elaborar un poco más\\
-
-Para remover la singularidad en el origen, la métrica de Hayward satisface 
-
-\begin{equation}
-g_{tt}(r) \sim_{r \to 0} 1 - \frac{r^2}{l^2}
-\end{equation}
-
-Y teniendo en cuenta lo anterior, es posible definir una constante cosmológica para la métrica de Hayward, a saber
-
-\begin{equation}
-\Lambda = \frac{3}{l^2}
-\end{equation}
-
-\section{Métrica de Hayward modificada}
 
 La métrica de Hayward modificada está dada por 
 \begin{equation}
@@ -486,7 +476,7 @@ G(r) = 1 - \frac{\beta M \alpha}{\alpha r^3 + \beta M}
 ¡OJO! Correcciones cuánticas\\
 
 
-\nocite{*}
+
 \bibliographystyle{unsrt}
 \bibliography{Biblio}
 

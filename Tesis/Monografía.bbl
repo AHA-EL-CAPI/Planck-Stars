@@ -1,10 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{einstein}
-A.~{Einstein}.
-\newblock Die grundlage der allgemeinen relativitätstheorie.
-\newblock {\em Annalen der Physik}, 354(7):769--822, 1916.
-
 \bibitem{bardeen}
 J.~M. {Bardeen}.
 \newblock Non-singular general-relativistic gravitational collapse.
@@ -42,7 +37,7 @@ A.~{Borde}.
 \newblock {New regular black hole solution from nonlinear electrodynamics}.
 \newblock {\em Physics Letters B}, 464:25--29, October 1999.
 
-\bibitem{hayward}
+\bibitem{hayward2006}
 S.~A. {Hayward}.
 \newblock {Formation and Evaporation of Nonsingular Black Holes}.
 \newblock {\em Physical Review Letters}, 96(3):031103, January 2006.
@@ -125,31 +120,5 @@ J.B. Griffiths and J.~Podolsk{\`y}.
 R.M. Wald.
 \newblock {\em General Relativity}.
 \newblock University of Chicago Press, 2010.
-
-\bibitem{inverno}
-Ray {D’Inverno}.
-\newblock {\em Introducing Einstein’s relativity}.
-\newblock Clarendon press, 1992.
-
-\bibitem{hawking}
-S.W. {Hawking} and G.F.R. {Ellis}.
-\newblock {\em The Large Scale Structure of Space-time}, volume~1.
-\newblock Cambridge University Press, 20th edition, 1973.
-
-\bibitem{vanegas-nonlinear}
-L.~{Balart} and E.~C. {Vagenas}.
-\newblock {Regular black holes with a nonlinear electrodynamics source}.
-\newblock {\em Phys. Rev. D}, 90(12):124045, December 2014.
-
-\bibitem{ansoldi2008}
-S.~{Ansoldi}.
-\newblock {Spherical black holes with regular center: a review of existing
-  models including a recent realization with Gaussian sources}.
-\newblock {\em ArXiv e-prints}, February 2008.
-
-\bibitem{lindquist1965}
-R.~W. Lindquist, R.~A. Schwartz, and C.~W. Misner.
-\newblock Vaidya's radiating schwarzschild metric.
-\newblock {\em Phys. Rev.}, 137:B1364--B1368, Mar 1965.
 
 \end{thebibliography}
