@@ -121,4 +121,40 @@ R.M. Wald.
 \newblock {\em General Relativity}.
 \newblock University of Chicago Press, 2010.
 
+\bibitem{inverno}
+Ray {D’Inverno}.
+\newblock {\em Introducing Einstein’s relativity}.
+\newblock Clarendon press, 1992.
+
+\bibitem{hawking}
+S.W. {Hawking} and G.F.R. {Ellis}.
+\newblock {\em The Large Scale Structure of Space-time}, volume~1.
+\newblock Cambridge University Press, 20th edition, 1973.
+
+\bibitem{vanegas-nonlinear}
+L.~{Balart} and E.~C. {Vagenas}.
+\newblock {Regular black holes with a nonlinear electrodynamics source}.
+\newblock {\em Phys. Rev. D}, 90(12):124045, December 2014.
+
+\bibitem{einstein}
+A.~{Einstein}.
+\newblock Die grundlage der allgemeinen relativitätstheorie.
+\newblock {\em Annalen der Physik}, 354(7):769--822, 1916.
+
+\bibitem{ansoldi2008}
+S.~{Ansoldi}.
+\newblock {Spherical black holes with regular center: a review of existing
+  models including a recent realization with Gaussian sources}.
+\newblock {\em ArXiv e-prints}, February 2008.
+
+\bibitem{lindquist1965}
+R.~W. Lindquist, R.~A. Schwartz, and C.~W. Misner.
+\newblock Vaidya's radiating schwarzschild metric.
+\newblock {\em Phys. Rev.}, 137:B1364--B1368, Mar 1965.
+
+\bibitem{hayward1994}
+Sean~A. Hayward.
+\newblock General laws of black-hole dynamics.
+\newblock {\em Phys. Rev. D}, 49:6467--6474, Jun 1994.
+
 \end{thebibliography}

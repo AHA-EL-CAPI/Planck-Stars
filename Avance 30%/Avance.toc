@@ -1,0 +1,16 @@
+\beamer@endinputifotherversion {3.24pt}
+\select@language {spanish}
+\beamer@sectionintoc {1}{Introducci\IeC {\'o}n y motivaci\IeC {\'o}n}{3}{0}{1}
+\beamer@sectionintoc {2}{ Preliminares}{5}{0}{2}
+\beamer@subsectionintoc {2}{1}{Condiciones de energ\IeC {\'\i }a}{5}{0}{2}
+\beamer@subsectionintoc {2}{2}{Procedimiento General}{6}{0}{2}
+\beamer@sectionintoc {3}{ M\IeC {\'e}tricas relevantes}{7}{0}{3}
+\beamer@subsectionintoc {3}{1}{ M\IeC {\'e}trica de Bardeen}{7}{0}{3}
+\beamer@subsectionintoc {3}{2}{M\IeC {\'e}trica de Vaidya}{11}{0}{3}
+\beamer@sectionintoc {4}{ M\IeC {\'e}trica de Hayward}{12}{0}{4}
+\beamer@subsectionintoc {4}{1}{M\IeC {\'e}trica de Hayward est\IeC {\'a}tica}{12}{0}{4}
+\beamer@subsectionintoc {4}{2}{M\IeC {\'e}trica de Hayward din\IeC {\'a}mica}{13}{0}{4}
+\beamer@sectionintoc {5}{M\IeC {\'e}trica de Hayward modificada}{13}{0}{5}
+\beamer@sectionintoc {6}{ Conclusiones}{13}{0}{6}
+\beamer@sectionintoc {7}{ Anexos}{13}{0}{7}
+\beamer@sectionintoc {8}{Referencias}{14}{0}{8}

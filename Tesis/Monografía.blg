@@ -4,45 +4,45 @@ The top-level auxiliary file: Monografía.aux
 The style file: unsrt.bst
 Database file #1: Biblio.bib
 Warning--empty publisher in carroll-lecture-notes
-You've used 23 entries,
+You've used 30 entries,
             1791 wiz_defined-function locations,
-            577 strings with 6097 characters,
-and the built_in function-call counts, 4536 in all, are:
-= -- 411
-> -- 125
-< -- 2
-+ -- 55
-- -- 32
-* -- 286
-:= -- 723
-add.period$ -- 70
-call.type$ -- 23
-change.case$ -- 18
+            617 strings with 6847 characters,
+and the built_in function-call counts, 5961 in all, are:
+= -- 545
+> -- 168
+< -- 3
++ -- 73
+- -- 43
+* -- 383
+:= -- 947
+add.period$ -- 91
+call.type$ -- 30
+change.case$ -- 24
 chr.to.int$ -- 0
-cite$ -- 24
-duplicate$ -- 224
-empty$ -- 499
-format.name$ -- 32
-if$ -- 1028
+cite$ -- 31
+duplicate$ -- 288
+empty$ -- 650
+format.name$ -- 43
+if$ -- 1342
 int.to.chr$ -- 0
-int.to.str$ -- 23
-missing$ -- 30
-newline$ -- 118
-num.names$ -- 23
-pop$ -- 67
+int.to.str$ -- 30
+missing$ -- 39
+newline$ -- 153
+num.names$ -- 30
+pop$ -- 86
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 73
+skip$ -- 95
 stack$ -- 0
-substring$ -- 298
-swap$ -- 31
-text.length$ -- 2
+substring$ -- 409
+swap$ -- 39
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 40
-width$ -- 25
-write$ -- 252
+while$ -- 54
+width$ -- 32
+write$ -- 328
 (There was 1 warning)
