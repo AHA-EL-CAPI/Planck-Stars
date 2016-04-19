@@ -1,0 +1,1490 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     63312,       1481]
+NotebookOptionsPosition[     59331,       1358]
+NotebookOutlinePosition[     60931,       1408]
+CellTagsIndexPosition[     60603,       1396]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Penrose Diagram", "DemoTitle",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4386861223125*^9, 3.43868612503125*^9}}],
+
+Cell["", "InitializationSection"],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateSection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"theta0", "=", 
+     RowBox[{
+      RowBox[{"ArcTan", "[", 
+       RowBox[{"t0", "+", "x0"}], "]"}], "-", 
+      RowBox[{"ArcTan", "[", 
+       RowBox[{"t0", "-", "x0"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"tau0", "=", 
+     RowBox[{
+      RowBox[{"ArcTan", "[", 
+       RowBox[{"t0", "+", "x0"}], "]"}], "+", 
+      RowBox[{"ArcTan", "[", 
+       RowBox[{"t0", "-", "x0"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"pt1", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"1", "/", "2"}], "*", 
+        RowBox[{"(", 
+         RowBox[{"theta0", "-", "tau0", "+", "\[Pi]"}], ")"}]}], ",", 
+       RowBox[{"\[Pi]", "-", 
+        RowBox[{
+         RowBox[{"1", "/", "2"}], "*", 
+         RowBox[{"(", 
+          RowBox[{"theta0", "-", "tau0", "+", "\[Pi]"}], ")"}]}]}]}], "}"}]}],
+     ";", "\[IndentingNewLine]", 
+    RowBox[{"pt2", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"1", "/", "2"}], "*", 
+         RowBox[{"(", 
+          RowBox[{"theta0", "-", "tau0", "+", "\[Pi]"}], ")"}]}], "-", 
+        "\[Pi]"}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "1"}], "/", "2"}], "*", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "tau0"}], "+", "theta0", "+", "\[Pi]"}], ")"}]}]}], 
+      "}"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"pt3", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"1", "/", "2"}], "*", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"+", "theta0"}], "+", "tau0", "+", "\[Pi]"}], ")"}]}], ",", 
+       RowBox[{
+        RowBox[{"1", "/", "2"}], "*", 
+        RowBox[{"(", 
+         RowBox[{"theta0", "+", "tau0", "-", "\[Pi]"}], ")"}]}]}], "}"}]}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"pt4", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"1", "/", "2"}], "*", 
+        RowBox[{"(", 
+         RowBox[{"theta0", "+", "tau0", "-", "\[Pi]"}], ")"}]}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"1", "/", "2"}], "*", 
+         RowBox[{"(", 
+          RowBox[{"theta0", "+", "tau0", "-", "\[Pi]"}], ")"}]}], "+", 
+        "\[Pi]"}]}], "}"}]}], ";", "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Show", "[", "\[IndentingNewLine]", 
+     RowBox[{"l", ",", "\[IndentingNewLine]", "k", ",", "\[IndentingNewLine]", 
+      RowBox[{"Graphics", "[", 
+       RowBox[{"{", 
+        RowBox[{"Thick", ",", 
+         RowBox[{"Text", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<spacelike\\ninfinity\>\"", ",", "15"}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"\[Pi]", "-", ".05"}], ",", 
+             RowBox[{"-", "1.1"}]}], "}"}]}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Text", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<timelike\\ninfinity\>\"", ",", "15"}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"1", ",", "\[Pi]"}], "}"}]}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "\[Pi]"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\[Pi]", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", 
+              RowBox[{"-", "\[Pi]"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "\[Pi]"}], ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "\[Pi]"}], "}"}]}], "}"}], "]"}], ",", 
+         "\[IndentingNewLine]", "Thick", ",", 
+         RowBox[{"Point", "[", 
+          RowBox[{"{", 
+           RowBox[{"theta0", ",", "tau0"}], "}"}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{"pt1", ",", "pt2"}], "}"}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{"pt3", ",", "pt4"}], "}"}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{"tlf", ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Opacity", "[", 
+              RowBox[{"0.5", ",", "Green"}], "]"}], ",", 
+             "\[IndentingNewLine]", " ", 
+             RowBox[{"Polygon", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"theta0", ",", "tau0"}], "}"}], ",", "pt4", ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "\[Pi]"}], "}"}], ",", "pt1"}], "}"}], 
+              "]"}]}], "}"}], ",", 
+           RowBox[{"Opacity", "[", "0", "]"}]}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{"tlp", ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Opacity", "[", 
+              RowBox[{"0.5", ",", "Green"}], "]"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"Polygon", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"theta0", ",", "tau0"}], "}"}], ",", "pt3", ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", 
+                  RowBox[{"-", "\[Pi]"}]}], "}"}], ",", "pt2"}], "}"}], 
+              "]"}]}], "}"}], ",", 
+           RowBox[{"Opacity", "[", "0", "]"}]}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{"sl", ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Opacity", "[", 
+              RowBox[{"0.5", ",", "Red"}], "]"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"Polygon", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"theta0", ",", "tau0"}], "}"}], ",", "pt1", ",", 
+                RowBox[{"{", 
+                 RowBox[{"\[Pi]", ",", "0"}], "}"}], ",", "pt3"}], "}"}], 
+              "]"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"Polygon", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"theta0", ",", "tau0"}], "}"}], ",", "pt2", ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"-", "\[Pi]"}], ",", "0"}], "}"}], ",", "pt4"}], 
+               "}"}], "]"}]}], "}"}], ",", 
+           RowBox[{"Opacity", "[", "0", "]"}]}], "]"}]}], 
+        "\[IndentingNewLine]", "}"}], "]"}], ",", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{"ParametricPlot", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"ArcTan", "[", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"t", "+", "t0"}], ")"}], "+", 
+             RowBox[{"v", "*", 
+              RowBox[{"(", "t", ")"}]}], "+", "x0"}], "]"}], "-", 
+           RowBox[{"ArcTan", "[", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"t", "+", "t0"}], ")"}], "-", 
+             RowBox[{"v", "*", 
+              RowBox[{"(", "t", ")"}]}], "-", "x0"}], "]"}]}], ",", 
+          RowBox[{
+           RowBox[{"ArcTan", "[", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"t", "+", "t0"}], ")"}], "+", 
+             RowBox[{"v", "*", 
+              RowBox[{"(", "t", ")"}]}], "+", "x0"}], "]"}], "+", 
+           RowBox[{"ArcTan", "[", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"t", "+", "t0"}], ")"}], "-", 
+             RowBox[{"v", "*", 
+              RowBox[{"(", "t", ")"}]}], "-", "x0"}], "]"}]}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"t", ",", 
+          RowBox[{"-", "10000"}], ",", "10000"}], "}"}], ",", 
+        RowBox[{"PlotRange", "\[Rule]", "\[Pi]"}], ",", 
+        RowBox[{"PlotPoints", "\[Rule]", "1000"}], ",", 
+        RowBox[{"Axes", "\[Rule]", "True"}], ",", 
+        RowBox[{"PlotStyle", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"Blue", ",", "Thick"}], "}"}]}]}], "]"}]}], 
+     "\[IndentingNewLine]", "\[IndentingNewLine]", "]"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"v", ",", "0.5", ",", "\"\<velocity/c\>\""}], "}"}], ",", 
+     RowBox[{"-", "5"}], ",", "5", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x0", ",", "0", ",", "\"\<initial value for x\>\""}], "}"}], 
+     ",", 
+     RowBox[{"-", "5"}], ",", "5", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"t0", ",", "0", ",", "\"\<initial value for t\>\""}], "}"}], 
+     ",", 
+     RowBox[{"-", "5"}], ",", "5", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "Delimiter", ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"sl", ",", "False", ",", "\"\<spacelike section\>\""}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"True", ",", "False"}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"tlf", ",", "False", ",", "\"\<timelike future\>\""}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"True", ",", "False"}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"tlp", ",", "False", ",", "\"\<timelike past\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"True", ",", "False"}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"SynchronousInitialization", "\[Rule]", "False"}], ",", 
+   RowBox[{"TrackedSymbols", "\[Rule]", "Manipulate"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Initialization", "\[RuleDelayed]", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"l", "=", 
+       RowBox[{"ParametricPlot", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"ArcTan", "[", 
+                RowBox[{"t", "+", "x"}], "]"}], "-", 
+               RowBox[{"ArcTan", "[", 
+                RowBox[{"t", "-", "x"}], "]"}]}], ",", 
+              RowBox[{
+               RowBox[{"ArcTan", "[", 
+                RowBox[{"t", "+", "x"}], "]"}], "+", 
+               RowBox[{"ArcTan", "[", 
+                RowBox[{"t", "-", "x"}], "]"}]}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", 
+              RowBox[{"-", "10"}], ",", "10", ",", ".5"}], "}"}]}], "]"}], 
+          "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"t", ",", 
+           RowBox[{"-", "1000"}], ",", "1000"}], "}"}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"\[Pi]", "+", ".5"}]}], ",", 
+         RowBox[{"Ticks", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "Pi"}], ",", "0", ",", "Pi"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "Pi"}], ",", "0", ",", "Pi"}], "}"}]}], "}"}]}], 
+         ",", 
+         RowBox[{"PlotStyle", "\[Rule]", "Orange"}], ",", 
+         RowBox[{"PlotPoints", "\[Rule]", "800"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"k", "=", 
+       RowBox[{"ParametricPlot", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"ArcTan", "[", 
+                RowBox[{"t", "+", "x"}], "]"}], "-", 
+               RowBox[{"ArcTan", "[", 
+                RowBox[{"t", "-", "x"}], "]"}]}], ",", 
+              RowBox[{
+               RowBox[{"ArcTan", "[", 
+                RowBox[{"t", "+", "x"}], "]"}], "+", 
+               RowBox[{"ArcTan", "[", 
+                RowBox[{"t", "-", "x"}], "]"}]}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"t", ",", 
+              RowBox[{"-", "10"}], ",", "10", ",", ".5"}], "}"}]}], "]"}], 
+          "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", 
+           RowBox[{"-", "1000"}], ",", "1000"}], "}"}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"\[Pi]", "+", ".5"}]}], ",", 
+         RowBox[{"Ticks", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "Pi"}], ",", "0", ",", "Pi"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "Pi"}], ",", "0", ",", "Pi"}], "}"}]}], "}"}]}], 
+         ",", 
+         RowBox[{"PlotStyle", "\[Rule]", "Orange"}], ",", 
+         RowBox[{"PlotPoints", "\[Rule]", "800"}]}], "]"}]}], ";"}], 
+     "\[IndentingNewLine]", ")"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.35696210375764*^9, 3.438685323296875*^9, {3.438705133552395*^9, 
+   3.4387052011321526`*^9}, {3.4387052417622147`*^9, 3.438705269376976*^9}, {
+   3.4387067628178253`*^9, 3.438706766270773*^9}, {3.439310957403002*^9, 
+   3.4393109585748696`*^9}, {3.439311103323943*^9, 3.4393111694953947`*^9}, {
+   3.443961376707571*^9, 3.4439614222261224`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`sl$$ = False, $CellContext`t0$$ = 
+    0, $CellContext`tlf$$ = False, $CellContext`tlp$$ = 
+    False, $CellContext`v$$ = 0.5, $CellContext`x0$$ = 0, Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`v$$], 0.5, "velocity/c"}, -5, 5}, {{
+       Hold[$CellContext`x0$$], 0, "initial value for x"}, -5, 5}, {{
+       Hold[$CellContext`t0$$], 0, "initial value for t"}, -5, 5}, {{
+       Hold[$CellContext`sl$$], False, "spacelike section"}, {True, False}}, {{
+       Hold[$CellContext`tlf$$], False, "timelike future"}, {True, False}}, {{
+       Hold[$CellContext`tlp$$], False, "timelike past"}, {True, False}}}, 
+    Typeset`size$$ = Automatic, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`v$24642$$ = 
+    0, $CellContext`x0$24643$$ = 0, $CellContext`t0$24644$$ = 
+    0, $CellContext`sl$24645$$ = False, $CellContext`tlf$24646$$ = 
+    False, $CellContext`tlp$24647$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`sl$$ = False, $CellContext`t0$$ = 
+        0, $CellContext`tlf$$ = False, $CellContext`tlp$$ = 
+        False, $CellContext`v$$ = 0.5, $CellContext`x0$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`v$$, $CellContext`v$24642$$, 0], 
+        Hold[$CellContext`x0$$, $CellContext`x0$24643$$, 0], 
+        Hold[$CellContext`t0$$, $CellContext`t0$24644$$, 0], 
+        Hold[$CellContext`sl$$, $CellContext`sl$24645$$, False], 
+        Hold[$CellContext`tlf$$, $CellContext`tlf$24646$$, False], 
+        Hold[$CellContext`tlp$$, $CellContext`tlp$24647$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`theta0 = 
+        ArcTan[$CellContext`t0$$ + $CellContext`x0$$] - 
+         ArcTan[$CellContext`t0$$ - $CellContext`x0$$]; $CellContext`tau0 = 
+        ArcTan[$CellContext`t0$$ + $CellContext`x0$$] + 
+         ArcTan[$CellContext`t0$$ - $CellContext`x0$$]; $CellContext`pt1 = {(
+           1/2) ($CellContext`theta0 - $CellContext`tau0 + Pi), 
+          Pi - (1/2) ($CellContext`theta0 - $CellContext`tau0 + 
+           Pi)}; $CellContext`pt2 = {(1/
+            2) ($CellContext`theta0 - $CellContext`tau0 + Pi) - 
+          Pi, ((-1)/2) (-$CellContext`tau0 + $CellContext`theta0 + 
+           Pi)}; $CellContext`pt3 = {(1/2) (
+           Plus[$CellContext`theta0] + $CellContext`tau0 + Pi), (1/
+           2) ($CellContext`theta0 + $CellContext`tau0 - 
+           Pi)}; $CellContext`pt4 = {(1/
+           2) ($CellContext`theta0 + $CellContext`tau0 - 
+           Pi), (1/2) ($CellContext`theta0 + $CellContext`tau0 - Pi) + Pi}; 
+       Show[$CellContext`l, $CellContext`k, 
+         Graphics[{Thick, 
+           Text[
+            Style["spacelike\ninfinity", 15], {Pi - 0.05, -1.1}], 
+           Text[
+            Style["timelike\ninfinity", 15], {1, Pi}], 
+           Line[{{0, Pi}, {Pi, 0}, {0, -Pi}, {-Pi, 0}, {0, Pi}}], Thick, 
+           Point[{$CellContext`theta0, $CellContext`tau0}], 
+           Line[{$CellContext`pt1, $CellContext`pt2}], 
+           Line[{$CellContext`pt3, $CellContext`pt4}], 
+           If[$CellContext`tlf$$, {
+             Opacity[0.5, Green], 
+             
+             Polygon[{{$CellContext`theta0, $CellContext`tau0}, \
+$CellContext`pt4, {0, Pi}, $CellContext`pt1}]}, 
+            Opacity[0]], 
+           If[$CellContext`tlp$$, {
+             Opacity[0.5, Green], 
+             
+             Polygon[{{$CellContext`theta0, $CellContext`tau0}, \
+$CellContext`pt3, {0, -Pi}, $CellContext`pt2}]}, 
+            Opacity[0]], 
+           If[$CellContext`sl$$, {
+             Opacity[0.5, Red], 
+             
+             Polygon[{{$CellContext`theta0, $CellContext`tau0}, \
+$CellContext`pt1, {Pi, 0}, $CellContext`pt3}], 
+             
+             Polygon[{{$CellContext`theta0, $CellContext`tau0}, \
+$CellContext`pt2, {-Pi, 0}, $CellContext`pt4}]}, 
+            Opacity[0]]}], 
+         ParametricPlot[{
+          ArcTan[($CellContext`t + $CellContext`t0$$) + $CellContext`v$$ \
+$CellContext`t + $CellContext`x0$$] - 
+           ArcTan[($CellContext`t + $CellContext`t0$$) - $CellContext`v$$ \
+$CellContext`t - $CellContext`x0$$], 
+           ArcTan[($CellContext`t + $CellContext`t0$$) + $CellContext`v$$ \
+$CellContext`t + $CellContext`x0$$] + 
+           ArcTan[($CellContext`t + $CellContext`t0$$) - $CellContext`v$$ \
+$CellContext`t - $CellContext`x0$$]}, {$CellContext`t, -10000, 10000}, 
+          PlotRange -> Pi, PlotPoints -> 1000, Axes -> True, 
+          PlotStyle -> {Blue, Thick}]]), 
+      "Specifications" :> {{{$CellContext`v$$, 0.5, "velocity/c"}, -5, 5, 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`x0$$, 0, "initial value for x"}, -5, 5, 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`t0$$, 0, "initial value for t"}, -5, 5, 
+         Appearance -> "Labeled"}, 
+        Delimiter, {{$CellContext`sl$$, False, "spacelike section"}, {
+         True, False}}, {{$CellContext`tlf$$, False, "timelike future"}, {
+         True, False}}, {{$CellContext`tlp$$, False, "timelike past"}, {
+         True, False}}}, 
+      "Options" :> {
+       SynchronousInitialization -> False, TrackedSymbols -> Manipulate}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{409., {286., 291.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>(($CellContext`l = ParametricPlot[{
+          
+          Table[{ArcTan[$CellContext`t + $CellContext`x] - 
+            ArcTan[$CellContext`t - $CellContext`x], 
+            ArcTan[$CellContext`t + $CellContext`x] + 
+            ArcTan[$CellContext`t - $CellContext`x]}, {$CellContext`x, -10, 
+            10, 0.5}]}, {$CellContext`t, -1000, 1000}, PlotRange -> Pi + 0.5, 
+         Ticks -> {{-Pi, 0, Pi}, {-Pi, 0, Pi}}, PlotStyle -> Orange, 
+         PlotPoints -> 800]; $CellContext`k = ParametricPlot[{
+          
+          Table[{ArcTan[$CellContext`t + $CellContext`x] - 
+            ArcTan[$CellContext`t - $CellContext`x], 
+            ArcTan[$CellContext`t + $CellContext`x] + 
+            ArcTan[$CellContext`t - $CellContext`x]}, {$CellContext`t, -10, 
+            10, 0.5}]}, {$CellContext`x, -1000, 1000}, PlotRange -> Pi + 0.5, 
+         Ticks -> {{-Pi, 0, Pi}, {-Pi, 0, Pi}}, PlotStyle -> Orange, 
+         PlotPoints -> 800]; Null); Typeset`initDone$$ = True),
+    SynchronousInitialization->False,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->8697862]
+}, {2}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateCaptionSection"],
+
+Cell["\<\
+This shows a Penrose diagram, which is a conformal compactification of 2D \
+Minkowski space. The blue line is a geodetic line starting from the initial \
+point with the chosen velocity. \
+\>", "ManipulateCaption",
+ CellChangeTimes->{
+  3.35696210375764*^9, 3.438685643625*^9, {3.4387053798800254`*^9, 
+   3.4387053809211297`*^9}, {3.439310907372072*^9, 3.439310911168923*^9}, {
+   3.439311211948248*^9, 3.4393112129482417`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ThumbnailSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`sl$$ = 
+    True, $CellContext`t0$$ = -0.6399999999999997, $CellContext`tlf$$ = 
+    True, $CellContext`tlp$$ = True, $CellContext`v$$ = 
+    1.2599999999999998`, $CellContext`x0$$ = 0.5800000000000001, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`v$$], 1.2599999999999998`, "velocity/c"}, -5, 5}, {{
+       Hold[$CellContext`x0$$], 0.5800000000000001, 
+       "initial value for x"}, -5, 5}, {{
+       Hold[$CellContext`t0$$], -0.6399999999999997, 
+       "initial value for t"}, -5, 5}, {{
+       Hold[$CellContext`sl$$], True, "spacelike section"}, {True, False}}, {{
+       Hold[$CellContext`tlf$$], True, "timelike future"}, {True, False}}, {{
+       Hold[$CellContext`tlp$$], True, "timelike past"}, {True, False}}}, 
+    Typeset`size$$ = Automatic, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`v$24725$$ = 
+    0, $CellContext`x0$24726$$ = 0, $CellContext`t0$24727$$ = 
+    0, $CellContext`sl$24728$$ = False, $CellContext`tlf$24729$$ = 
+    False, $CellContext`tlp$24730$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`sl$$ = 
+        True, $CellContext`t0$$ = -0.6399999999999997, $CellContext`tlf$$ = 
+        True, $CellContext`tlp$$ = True, $CellContext`v$$ = 
+        1.2599999999999998`, $CellContext`x0$$ = 0.5800000000000001}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`v$$, $CellContext`v$24725$$, 0], 
+        Hold[$CellContext`x0$$, $CellContext`x0$24726$$, 0], 
+        Hold[$CellContext`t0$$, $CellContext`t0$24727$$, 0], 
+        Hold[$CellContext`sl$$, $CellContext`sl$24728$$, False], 
+        Hold[$CellContext`tlf$$, $CellContext`tlf$24729$$, False], 
+        Hold[$CellContext`tlp$$, $CellContext`tlp$24730$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`theta0 = 
+        ArcTan[$CellContext`t0$$ + $CellContext`x0$$] - 
+         ArcTan[$CellContext`t0$$ - $CellContext`x0$$]; $CellContext`tau0 = 
+        ArcTan[$CellContext`t0$$ + $CellContext`x0$$] + 
+         ArcTan[$CellContext`t0$$ - $CellContext`x0$$]; $CellContext`pt1 = {(
+           1/2) ($CellContext`theta0 - $CellContext`tau0 + Pi), 
+          Pi - (1/2) ($CellContext`theta0 - $CellContext`tau0 + 
+           Pi)}; $CellContext`pt2 = {(1/
+            2) ($CellContext`theta0 - $CellContext`tau0 + Pi) - 
+          Pi, ((-1)/2) (-$CellContext`tau0 + $CellContext`theta0 + 
+           Pi)}; $CellContext`pt3 = {(1/2) (
+           Plus[$CellContext`theta0] + $CellContext`tau0 + Pi), (1/
+           2) ($CellContext`theta0 + $CellContext`tau0 - 
+           Pi)}; $CellContext`pt4 = {(1/
+           2) ($CellContext`theta0 + $CellContext`tau0 - 
+           Pi), (1/2) ($CellContext`theta0 + $CellContext`tau0 - Pi) + Pi}; 
+       Show[$CellContext`l, $CellContext`k, 
+         Graphics[{Thick, 
+           Text[
+            Style["spacelike\ninfinity", 15], {Pi - 0.05, -1.1}], 
+           Text[
+            Style["timelike\ninfinity", 15], {1, Pi}], 
+           Line[{{0, Pi}, {Pi, 0}, {0, -Pi}, {-Pi, 0}, {0, Pi}}], Thick, 
+           Point[{$CellContext`theta0, $CellContext`tau0}], 
+           Line[{$CellContext`pt1, $CellContext`pt2}], 
+           Line[{$CellContext`pt3, $CellContext`pt4}], 
+           If[$CellContext`tlf$$, {
+             Opacity[0.5, Green], 
+             
+             Polygon[{{$CellContext`theta0, $CellContext`tau0}, \
+$CellContext`pt4, {0, Pi}, $CellContext`pt1}]}, 
+            Opacity[0]], 
+           If[$CellContext`tlp$$, {
+             Opacity[0.5, Green], 
+             
+             Polygon[{{$CellContext`theta0, $CellContext`tau0}, \
+$CellContext`pt3, {0, -Pi}, $CellContext`pt2}]}, 
+            Opacity[0]], 
+           If[$CellContext`sl$$, {
+             Opacity[0.5, Red], 
+             
+             Polygon[{{$CellContext`theta0, $CellContext`tau0}, \
+$CellContext`pt1, {Pi, 0}, $CellContext`pt3}], 
+             
+             Polygon[{{$CellContext`theta0, $CellContext`tau0}, \
+$CellContext`pt2, {-Pi, 0}, $CellContext`pt4}]}, 
+            Opacity[0]]}], 
+         ParametricPlot[{
+          ArcTan[($CellContext`t + $CellContext`t0$$) + $CellContext`v$$ \
+$CellContext`t + $CellContext`x0$$] - 
+           ArcTan[($CellContext`t + $CellContext`t0$$) - $CellContext`v$$ \
+$CellContext`t - $CellContext`x0$$], 
+           ArcTan[($CellContext`t + $CellContext`t0$$) + $CellContext`v$$ \
+$CellContext`t + $CellContext`x0$$] + 
+           ArcTan[($CellContext`t + $CellContext`t0$$) - $CellContext`v$$ \
+$CellContext`t - $CellContext`x0$$]}, {$CellContext`t, -10000, 10000}, 
+          PlotRange -> Pi, PlotPoints -> 1000, Axes -> True, 
+          PlotStyle -> {Blue, Thick}]]), 
+      "Specifications" :> {{{$CellContext`v$$, 1.2599999999999998`, 
+          "velocity/c"}, -5, 5, Appearance -> 
+         "Labeled"}, {{$CellContext`x0$$, 0.5800000000000001, 
+          "initial value for x"}, -5, 5, Appearance -> 
+         "Labeled"}, {{$CellContext`t0$$, -0.6399999999999997, 
+          "initial value for t"}, -5, 5, Appearance -> "Labeled"}, 
+        Delimiter, {{$CellContext`sl$$, True, "spacelike section"}, {
+         True, False}}, {{$CellContext`tlf$$, True, "timelike future"}, {
+         True, False}}, {{$CellContext`tlp$$, True, "timelike past"}, {
+         True, False}}}, 
+      "Options" :> {
+       SynchronousInitialization -> False, TrackedSymbols -> Manipulate}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{383., {114., 119.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>(($CellContext`l = ParametricPlot[{
+          
+          Table[{ArcTan[$CellContext`t + $CellContext`x] - 
+            ArcTan[$CellContext`t - $CellContext`x], 
+            ArcTan[$CellContext`t + $CellContext`x] + 
+            ArcTan[$CellContext`t - $CellContext`x]}, {$CellContext`x, -10, 
+            10, 0.5}]}, {$CellContext`t, -1000, 1000}, PlotRange -> Pi + 0.5, 
+         Ticks -> {{-Pi, 0, Pi}, {-Pi, 0, Pi}}, PlotStyle -> Orange, 
+         PlotPoints -> 800]; $CellContext`k = ParametricPlot[{
+          
+          Table[{ArcTan[$CellContext`t + $CellContext`x] - 
+            ArcTan[$CellContext`t - $CellContext`x], 
+            ArcTan[$CellContext`t + $CellContext`x] + 
+            ArcTan[$CellContext`t - $CellContext`x]}, {$CellContext`t, -10, 
+            10, 0.5}]}, {$CellContext`x, -1000, 1000}, PlotRange -> Pi + 0.5, 
+         Ticks -> {{-Pi, 0, Pi}, {-Pi, 0, Pi}}, PlotStyle -> Orange, 
+         PlotPoints -> 800]; Null); Typeset`initDone$$ = True),
+    SynchronousInitialization->False,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->396988523]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SnapshotsSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`sl$$ = True, $CellContext`t0$$ = 
+    0, $CellContext`tlf$$ = False, $CellContext`tlp$$ = 
+    False, $CellContext`v$$ = 1.3600000000000003`, $CellContext`x0$$ = 
+    1.3600000000000003`, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`v$$], 1.3600000000000003`, "velocity/c"}, -5, 5}, {{
+       Hold[$CellContext`x0$$], 1.3600000000000003`, 
+       "initial value for x"}, -5, 5}, {{
+       Hold[$CellContext`t0$$], 0, "initial value for t"}, -5, 5}, {{
+       Hold[$CellContext`sl$$], True, "spacelike section"}, {True, False}}, {{
+       Hold[$CellContext`tlf$$], False, "timelike future"}, {True, False}}, {{
+       Hold[$CellContext`tlp$$], False, "timelike past"}, {True, False}}}, 
+    Typeset`size$$ = Automatic, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`v$24808$$ = 
+    0, $CellContext`x0$24809$$ = 0, $CellContext`t0$24810$$ = 
+    0, $CellContext`sl$24811$$ = False, $CellContext`tlf$24812$$ = 
+    False, $CellContext`tlp$24813$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`sl$$ = True, $CellContext`t0$$ = 
+        0, $CellContext`tlf$$ = False, $CellContext`tlp$$ = 
+        False, $CellContext`v$$ = 1.3600000000000003`, $CellContext`x0$$ = 
+        1.3600000000000003`}, "ControllerVariables" :> {
+        Hold[$CellContext`v$$, $CellContext`v$24808$$, 0], 
+        Hold[$CellContext`x0$$, $CellContext`x0$24809$$, 0], 
+        Hold[$CellContext`t0$$, $CellContext`t0$24810$$, 0], 
+        Hold[$CellContext`sl$$, $CellContext`sl$24811$$, False], 
+        Hold[$CellContext`tlf$$, $CellContext`tlf$24812$$, False], 
+        Hold[$CellContext`tlp$$, $CellContext`tlp$24813$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`theta0 = 
+        ArcTan[$CellContext`t0$$ + $CellContext`x0$$] - 
+         ArcTan[$CellContext`t0$$ - $CellContext`x0$$]; $CellContext`tau0 = 
+        ArcTan[$CellContext`t0$$ + $CellContext`x0$$] + 
+         ArcTan[$CellContext`t0$$ - $CellContext`x0$$]; $CellContext`pt1 = {(
+           1/2) ($CellContext`theta0 - $CellContext`tau0 + Pi), 
+          Pi - (1/2) ($CellContext`theta0 - $CellContext`tau0 + 
+           Pi)}; $CellContext`pt2 = {(1/
+            2) ($CellContext`theta0 - $CellContext`tau0 + Pi) - 
+          Pi, ((-1)/2) (-$CellContext`tau0 + $CellContext`theta0 + 
+           Pi)}; $CellContext`pt3 = {(1/2) (
+           Plus[$CellContext`theta0] + $CellContext`tau0 + Pi), (1/
+           2) ($CellContext`theta0 + $CellContext`tau0 - 
+           Pi)}; $CellContext`pt4 = {(1/
+           2) ($CellContext`theta0 + $CellContext`tau0 - 
+           Pi), (1/2) ($CellContext`theta0 + $CellContext`tau0 - Pi) + Pi}; 
+       Show[$CellContext`l, $CellContext`k, 
+         Graphics[{Thick, 
+           Text[
+            Style["spacelike\ninfinity", 15], {Pi - 0.05, -1.1}], 
+           Text[
+            Style["timelike\ninfinity", 15], {1, Pi}], 
+           Line[{{0, Pi}, {Pi, 0}, {0, -Pi}, {-Pi, 0}, {0, Pi}}], Thick, 
+           Point[{$CellContext`theta0, $CellContext`tau0}], 
+           Line[{$CellContext`pt1, $CellContext`pt2}], 
+           Line[{$CellContext`pt3, $CellContext`pt4}], 
+           If[$CellContext`tlf$$, {
+             Opacity[0.5, Green], 
+             
+             Polygon[{{$CellContext`theta0, $CellContext`tau0}, \
+$CellContext`pt4, {0, Pi}, $CellContext`pt1}]}, 
+            Opacity[0]], 
+           If[$CellContext`tlp$$, {
+             Opacity[0.5, Green], 
+             
+             Polygon[{{$CellContext`theta0, $CellContext`tau0}, \
+$CellContext`pt3, {0, -Pi}, $CellContext`pt2}]}, 
+            Opacity[0]], 
+           If[$CellContext`sl$$, {
+             Opacity[0.5, Red], 
+             
+             Polygon[{{$CellContext`theta0, $CellContext`tau0}, \
+$CellContext`pt1, {Pi, 0}, $CellContext`pt3}], 
+             
+             Polygon[{{$CellContext`theta0, $CellContext`tau0}, \
+$CellContext`pt2, {-Pi, 0}, $CellContext`pt4}]}, 
+            Opacity[0]]}], 
+         ParametricPlot[{
+          ArcTan[($CellContext`t + $CellContext`t0$$) + $CellContext`v$$ \
+$CellContext`t + $CellContext`x0$$] - 
+           ArcTan[($CellContext`t + $CellContext`t0$$) - $CellContext`v$$ \
+$CellContext`t - $CellContext`x0$$], 
+           ArcTan[($CellContext`t + $CellContext`t0$$) + $CellContext`v$$ \
+$CellContext`t + $CellContext`x0$$] + 
+           ArcTan[($CellContext`t + $CellContext`t0$$) - $CellContext`v$$ \
+$CellContext`t - $CellContext`x0$$]}, {$CellContext`t, -10000, 10000}, 
+          PlotRange -> Pi, PlotPoints -> 1000, Axes -> True, 
+          PlotStyle -> {Blue, Thick}]]), 
+      "Specifications" :> {{{$CellContext`v$$, 1.3600000000000003`, 
+          "velocity/c"}, -5, 5, Appearance -> 
+         "Labeled"}, {{$CellContext`x0$$, 1.3600000000000003`, 
+          "initial value for x"}, -5, 5, Appearance -> 
+         "Labeled"}, {{$CellContext`t0$$, 0, "initial value for t"}, -5, 5, 
+         Appearance -> "Labeled"}, 
+        Delimiter, {{$CellContext`sl$$, True, "spacelike section"}, {
+         True, False}}, {{$CellContext`tlf$$, False, "timelike future"}, {
+         True, False}}, {{$CellContext`tlp$$, False, "timelike past"}, {
+         True, False}}}, 
+      "Options" :> {
+       SynchronousInitialization -> False, TrackedSymbols -> Manipulate}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{383., {114., 119.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>(($CellContext`l = ParametricPlot[{
+          
+          Table[{ArcTan[$CellContext`t + $CellContext`x] - 
+            ArcTan[$CellContext`t - $CellContext`x], 
+            ArcTan[$CellContext`t + $CellContext`x] + 
+            ArcTan[$CellContext`t - $CellContext`x]}, {$CellContext`x, -10, 
+            10, 0.5}]}, {$CellContext`t, -1000, 1000}, PlotRange -> Pi + 0.5, 
+         Ticks -> {{-Pi, 0, Pi}, {-Pi, 0, Pi}}, PlotStyle -> Orange, 
+         PlotPoints -> 800]; $CellContext`k = ParametricPlot[{
+          
+          Table[{ArcTan[$CellContext`t + $CellContext`x] - 
+            ArcTan[$CellContext`t - $CellContext`x], 
+            ArcTan[$CellContext`t + $CellContext`x] + 
+            ArcTan[$CellContext`t - $CellContext`x]}, {$CellContext`t, -10, 
+            10, 0.5}]}, {$CellContext`x, -1000, 1000}, PlotRange -> Pi + 0.5, 
+         Ticks -> {{-Pi, 0, Pi}, {-Pi, 0, Pi}}, PlotStyle -> Orange, 
+         PlotPoints -> 800]; Null); Typeset`initDone$$ = True),
+    SynchronousInitialization->False,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->91378282],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`sl$$ = False, $CellContext`t0$$ = 
+    0, $CellContext`tlf$$ = True, $CellContext`tlp$$ = 
+    False, $CellContext`v$$ = -0.6399999999999997, $CellContext`x0$$ = \
+-0.4399999999999995, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`v$$], -0.6399999999999997, "velocity/c"}, -5, 5}, {{
+       Hold[$CellContext`x0$$], -0.4399999999999995, 
+       "initial value for x"}, -5, 5}, {{
+       Hold[$CellContext`t0$$], 0, "initial value for t"}, -5, 5}, {{
+       Hold[$CellContext`sl$$], False, "spacelike section"}, {True, False}}, {{
+       Hold[$CellContext`tlf$$], True, "timelike future"}, {True, False}}, {{
+       Hold[$CellContext`tlp$$], False, "timelike past"}, {True, False}}}, 
+    Typeset`size$$ = Automatic, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`v$24891$$ = 
+    0, $CellContext`x0$24892$$ = 0, $CellContext`t0$24893$$ = 
+    0, $CellContext`sl$24894$$ = False, $CellContext`tlf$24895$$ = 
+    False, $CellContext`tlp$24896$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`sl$$ = False, $CellContext`t0$$ = 
+        0, $CellContext`tlf$$ = True, $CellContext`tlp$$ = 
+        False, $CellContext`v$$ = -0.6399999999999997, $CellContext`x0$$ = \
+-0.4399999999999995}, "ControllerVariables" :> {
+        Hold[$CellContext`v$$, $CellContext`v$24891$$, 0], 
+        Hold[$CellContext`x0$$, $CellContext`x0$24892$$, 0], 
+        Hold[$CellContext`t0$$, $CellContext`t0$24893$$, 0], 
+        Hold[$CellContext`sl$$, $CellContext`sl$24894$$, False], 
+        Hold[$CellContext`tlf$$, $CellContext`tlf$24895$$, False], 
+        Hold[$CellContext`tlp$$, $CellContext`tlp$24896$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`theta0 = 
+        ArcTan[$CellContext`t0$$ + $CellContext`x0$$] - 
+         ArcTan[$CellContext`t0$$ - $CellContext`x0$$]; $CellContext`tau0 = 
+        ArcTan[$CellContext`t0$$ + $CellContext`x0$$] + 
+         ArcTan[$CellContext`t0$$ - $CellContext`x0$$]; $CellContext`pt1 = {(
+           1/2) ($CellContext`theta0 - $CellContext`tau0 + Pi), 
+          Pi - (1/2) ($CellContext`theta0 - $CellContext`tau0 + 
+           Pi)}; $CellContext`pt2 = {(1/
+            2) ($CellContext`theta0 - $CellContext`tau0 + Pi) - 
+          Pi, ((-1)/2) (-$CellContext`tau0 + $CellContext`theta0 + 
+           Pi)}; $CellContext`pt3 = {(1/2) (
+           Plus[$CellContext`theta0] + $CellContext`tau0 + Pi), (1/
+           2) ($CellContext`theta0 + $CellContext`tau0 - 
+           Pi)}; $CellContext`pt4 = {(1/
+           2) ($CellContext`theta0 + $CellContext`tau0 - 
+           Pi), (1/2) ($CellContext`theta0 + $CellContext`tau0 - Pi) + Pi}; 
+       Show[$CellContext`l, $CellContext`k, 
+         Graphics[{Thick, 
+           Text[
+            Style["spacelike\ninfinity", 15], {Pi - 0.05, -1.1}], 
+           Text[
+            Style["timelike\ninfinity", 15], {1, Pi}], 
+           Line[{{0, Pi}, {Pi, 0}, {0, -Pi}, {-Pi, 0}, {0, Pi}}], Thick, 
+           Point[{$CellContext`theta0, $CellContext`tau0}], 
+           Line[{$CellContext`pt1, $CellContext`pt2}], 
+           Line[{$CellContext`pt3, $CellContext`pt4}], 
+           If[$CellContext`tlf$$, {
+             Opacity[0.5, Green], 
+             
+             Polygon[{{$CellContext`theta0, $CellContext`tau0}, \
+$CellContext`pt4, {0, Pi}, $CellContext`pt1}]}, 
+            Opacity[0]], 
+           If[$CellContext`tlp$$, {
+             Opacity[0.5, Green], 
+             
+             Polygon[{{$CellContext`theta0, $CellContext`tau0}, \
+$CellContext`pt3, {0, -Pi}, $CellContext`pt2}]}, 
+            Opacity[0]], 
+           If[$CellContext`sl$$, {
+             Opacity[0.5, Red], 
+             
+             Polygon[{{$CellContext`theta0, $CellContext`tau0}, \
+$CellContext`pt1, {Pi, 0}, $CellContext`pt3}], 
+             
+             Polygon[{{$CellContext`theta0, $CellContext`tau0}, \
+$CellContext`pt2, {-Pi, 0}, $CellContext`pt4}]}, 
+            Opacity[0]]}], 
+         ParametricPlot[{
+          ArcTan[($CellContext`t + $CellContext`t0$$) + $CellContext`v$$ \
+$CellContext`t + $CellContext`x0$$] - 
+           ArcTan[($CellContext`t + $CellContext`t0$$) - $CellContext`v$$ \
+$CellContext`t - $CellContext`x0$$], 
+           ArcTan[($CellContext`t + $CellContext`t0$$) + $CellContext`v$$ \
+$CellContext`t + $CellContext`x0$$] + 
+           ArcTan[($CellContext`t + $CellContext`t0$$) - $CellContext`v$$ \
+$CellContext`t - $CellContext`x0$$]}, {$CellContext`t, -10000, 10000}, 
+          PlotRange -> Pi, PlotPoints -> 1000, Axes -> True, 
+          PlotStyle -> {Blue, Thick}]]), 
+      "Specifications" :> {{{$CellContext`v$$, -0.6399999999999997, 
+          "velocity/c"}, -5, 5, Appearance -> 
+         "Labeled"}, {{$CellContext`x0$$, -0.4399999999999995, 
+          "initial value for x"}, -5, 5, Appearance -> 
+         "Labeled"}, {{$CellContext`t0$$, 0, "initial value for t"}, -5, 5, 
+         Appearance -> "Labeled"}, 
+        Delimiter, {{$CellContext`sl$$, False, "spacelike section"}, {
+         True, False}}, {{$CellContext`tlf$$, True, "timelike future"}, {
+         True, False}}, {{$CellContext`tlp$$, False, "timelike past"}, {
+         True, False}}}, 
+      "Options" :> {
+       SynchronousInitialization -> False, TrackedSymbols -> Manipulate}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>(($CellContext`l = ParametricPlot[{
+          
+          Table[{ArcTan[$CellContext`t + $CellContext`x] - 
+            ArcTan[$CellContext`t - $CellContext`x], 
+            ArcTan[$CellContext`t + $CellContext`x] + 
+            ArcTan[$CellContext`t - $CellContext`x]}, {$CellContext`x, -10, 
+            10, 0.5}]}, {$CellContext`t, -1000, 1000}, PlotRange -> Pi + 0.5, 
+         Ticks -> {{-Pi, 0, Pi}, {-Pi, 0, Pi}}, PlotStyle -> Orange, 
+         PlotPoints -> 800]; $CellContext`k = ParametricPlot[{
+          
+          Table[{ArcTan[$CellContext`t + $CellContext`x] - 
+            ArcTan[$CellContext`t - $CellContext`x], 
+            ArcTan[$CellContext`t + $CellContext`x] + 
+            ArcTan[$CellContext`t - $CellContext`x]}, {$CellContext`t, -10, 
+            10, 0.5}]}, {$CellContext`x, -1000, 1000}, PlotRange -> Pi + 0.5, 
+         Ticks -> {{-Pi, 0, Pi}, {-Pi, 0, Pi}}, PlotStyle -> Orange, 
+         PlotPoints -> 800]; Null); Typeset`initDone$$ = True),
+    SynchronousInitialization->False,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->134177725],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`sl$$ = 
+    True, $CellContext`t0$$ = -0.47999999999999954`, $CellContext`tlf$$ = 
+    True, $CellContext`tlp$$ = True, $CellContext`v$$ = 
+    1.2599999999999998`, $CellContext`x0$$ = 0.5800000000000001, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`v$$], 1.2599999999999998`, "velocity/c"}, -5, 5}, {{
+       Hold[$CellContext`x0$$], 0.5800000000000001, 
+       "initial value for x"}, -5, 5}, {{
+       Hold[$CellContext`t0$$], -0.47999999999999954`, 
+       "initial value for t"}, -5, 5}, {{
+       Hold[$CellContext`sl$$], True, "spacelike section"}, {True, False}}, {{
+       Hold[$CellContext`tlf$$], True, "timelike future"}, {True, False}}, {{
+       Hold[$CellContext`tlp$$], True, "timelike past"}, {True, False}}}, 
+    Typeset`size$$ = Automatic, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`v$24974$$ = 
+    0, $CellContext`x0$24975$$ = 0, $CellContext`t0$24976$$ = 
+    0, $CellContext`sl$24977$$ = False, $CellContext`tlf$24978$$ = 
+    False, $CellContext`tlp$24979$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`sl$$ = 
+        True, $CellContext`t0$$ = -0.47999999999999954`, $CellContext`tlf$$ = 
+        True, $CellContext`tlp$$ = True, $CellContext`v$$ = 
+        1.2599999999999998`, $CellContext`x0$$ = 0.5800000000000001}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`v$$, $CellContext`v$24974$$, 0], 
+        Hold[$CellContext`x0$$, $CellContext`x0$24975$$, 0], 
+        Hold[$CellContext`t0$$, $CellContext`t0$24976$$, 0], 
+        Hold[$CellContext`sl$$, $CellContext`sl$24977$$, False], 
+        Hold[$CellContext`tlf$$, $CellContext`tlf$24978$$, False], 
+        Hold[$CellContext`tlp$$, $CellContext`tlp$24979$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`theta0 = 
+        ArcTan[$CellContext`t0$$ + $CellContext`x0$$] - 
+         ArcTan[$CellContext`t0$$ - $CellContext`x0$$]; $CellContext`tau0 = 
+        ArcTan[$CellContext`t0$$ + $CellContext`x0$$] + 
+         ArcTan[$CellContext`t0$$ - $CellContext`x0$$]; $CellContext`pt1 = {(
+           1/2) ($CellContext`theta0 - $CellContext`tau0 + Pi), 
+          Pi - (1/2) ($CellContext`theta0 - $CellContext`tau0 + 
+           Pi)}; $CellContext`pt2 = {(1/
+            2) ($CellContext`theta0 - $CellContext`tau0 + Pi) - 
+          Pi, ((-1)/2) (-$CellContext`tau0 + $CellContext`theta0 + 
+           Pi)}; $CellContext`pt3 = {(1/2) (
+           Plus[$CellContext`theta0] + $CellContext`tau0 + Pi), (1/
+           2) ($CellContext`theta0 + $CellContext`tau0 - 
+           Pi)}; $CellContext`pt4 = {(1/
+           2) ($CellContext`theta0 + $CellContext`tau0 - 
+           Pi), (1/2) ($CellContext`theta0 + $CellContext`tau0 - Pi) + Pi}; 
+       Show[$CellContext`l, $CellContext`k, 
+         Graphics[{Thick, 
+           Text[
+            Style["spacelike\ninfinity", 15], {Pi - 0.05, -1.1}], 
+           Text[
+            Style["timelike\ninfinity", 15], {1, Pi}], 
+           Line[{{0, Pi}, {Pi, 0}, {0, -Pi}, {-Pi, 0}, {0, Pi}}], Thick, 
+           Point[{$CellContext`theta0, $CellContext`tau0}], 
+           Line[{$CellContext`pt1, $CellContext`pt2}], 
+           Line[{$CellContext`pt3, $CellContext`pt4}], 
+           If[$CellContext`tlf$$, {
+             Opacity[0.5, Green], 
+             
+             Polygon[{{$CellContext`theta0, $CellContext`tau0}, \
+$CellContext`pt4, {0, Pi}, $CellContext`pt1}]}, 
+            Opacity[0]], 
+           If[$CellContext`tlp$$, {
+             Opacity[0.5, Green], 
+             
+             Polygon[{{$CellContext`theta0, $CellContext`tau0}, \
+$CellContext`pt3, {0, -Pi}, $CellContext`pt2}]}, 
+            Opacity[0]], 
+           If[$CellContext`sl$$, {
+             Opacity[0.5, Red], 
+             
+             Polygon[{{$CellContext`theta0, $CellContext`tau0}, \
+$CellContext`pt1, {Pi, 0}, $CellContext`pt3}], 
+             
+             Polygon[{{$CellContext`theta0, $CellContext`tau0}, \
+$CellContext`pt2, {-Pi, 0}, $CellContext`pt4}]}, 
+            Opacity[0]]}], 
+         ParametricPlot[{
+          ArcTan[($CellContext`t + $CellContext`t0$$) + $CellContext`v$$ \
+$CellContext`t + $CellContext`x0$$] - 
+           ArcTan[($CellContext`t + $CellContext`t0$$) - $CellContext`v$$ \
+$CellContext`t - $CellContext`x0$$], 
+           ArcTan[($CellContext`t + $CellContext`t0$$) + $CellContext`v$$ \
+$CellContext`t + $CellContext`x0$$] + 
+           ArcTan[($CellContext`t + $CellContext`t0$$) - $CellContext`v$$ \
+$CellContext`t - $CellContext`x0$$]}, {$CellContext`t, -10000, 10000}, 
+          PlotRange -> Pi, PlotPoints -> 1000, Axes -> True, 
+          PlotStyle -> {Blue, Thick}]]), 
+      "Specifications" :> {{{$CellContext`v$$, 1.2599999999999998`, 
+          "velocity/c"}, -5, 5, Appearance -> 
+         "Labeled"}, {{$CellContext`x0$$, 0.5800000000000001, 
+          "initial value for x"}, -5, 5, Appearance -> 
+         "Labeled"}, {{$CellContext`t0$$, -0.47999999999999954`, 
+          "initial value for t"}, -5, 5, Appearance -> "Labeled"}, 
+        Delimiter, {{$CellContext`sl$$, True, "spacelike section"}, {
+         True, False}}, {{$CellContext`tlf$$, True, "timelike future"}, {
+         True, False}}, {{$CellContext`tlp$$, True, "timelike past"}, {
+         True, False}}}, 
+      "Options" :> {
+       SynchronousInitialization -> False, TrackedSymbols -> Manipulate}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>(($CellContext`l = ParametricPlot[{
+          
+          Table[{ArcTan[$CellContext`t + $CellContext`x] - 
+            ArcTan[$CellContext`t - $CellContext`x], 
+            ArcTan[$CellContext`t + $CellContext`x] + 
+            ArcTan[$CellContext`t - $CellContext`x]}, {$CellContext`x, -10, 
+            10, 0.5}]}, {$CellContext`t, -1000, 1000}, PlotRange -> Pi + 0.5, 
+         Ticks -> {{-Pi, 0, Pi}, {-Pi, 0, Pi}}, PlotStyle -> Orange, 
+         PlotPoints -> 800]; $CellContext`k = ParametricPlot[{
+          
+          Table[{ArcTan[$CellContext`t + $CellContext`x] - 
+            ArcTan[$CellContext`t - $CellContext`x], 
+            ArcTan[$CellContext`t + $CellContext`x] + 
+            ArcTan[$CellContext`t - $CellContext`x]}, {$CellContext`t, -10, 
+            10, 0.5}]}, {$CellContext`x, -1000, 1000}, PlotRange -> Pi + 0.5, 
+         Ticks -> {{-Pi, 0, Pi}, {-Pi, 0, Pi}}, PlotStyle -> Orange, 
+         PlotPoints -> 800]; Null); Typeset`initDone$$ = True),
+    SynchronousInitialization->False,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->226857965]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "DetailsSection"],
+
+Cell["\<\
+The coordinate lines are the equally distant Cartesian coordinate lines from \
+Minkowski space; the distance between them is 0.5 units. Note that the shape \
+of the lightlike geodetics is not affected by the conformal map. \
+\>", "DetailNotes",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.438685880453125*^9, 3.438685998171875*^9}, {
+   3.438686038875*^9, 3.438686105*^9}, {3.438686748359375*^9, 
+   3.438686767390625*^9}, {3.4387068122066174`*^9, 3.4387068247533317`*^9}, {
+   3.4387068835182047`*^9, 3.438706883705702*^9}},
+ CellID->27794174]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ControlSuggestionsSection"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Resize Images"]}],
+  "\"Click inside an image to reveal its orange resize frame.\\nDrag any of \
+the orange resize handles to resize the image.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.4387053010931473`*^9},
+ FontFamily->"Verdana",
+ CellTags->"ResizeImages"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Rotate and Zoom in 3D"]}],
+  RowBox[{
+   "\"Drag a 3D graphic to rotate it. Starting the drag near the center \
+tumbles\\nthe graphic; starting near a corner turns it parallel to the plane \
+of the screen.\\nHold down \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" (or \"", 
+    FrameBox[
+    "Cmd", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" on Mac) and drag up and down to zoom.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"RotateAndZoomIn3D"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Drag Locators"]}],
+  RowBox[{"\"Drag any locator (\"", 
+    GraphicsBox[
+     LocatorBox[
+      Scaled[{0.5, 0.5}]], ImageSize -> 20], 
+    "\", etc.) to move it around.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"DragLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Create and Delete Locators"]}],
+  RowBox[{"\"Insert a new locator in the graphic by holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key\\nand clicking where you want it to be. Delete a locator by \
+clicking it\\nwhile holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" key.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"CreateAndDeleteLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Slider Zoom"]}],
+  RowBox[{"\"Hold down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key while moving a slider to make fine adjustments in the slider \
+value.\\nHold \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" and/or \"", 
+    FrameBox[
+    "Shift", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" at the same time as \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" to make ever finer adjustments.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"SliderZoom"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Gamepad Controls"]}],
+  "\"Control this Demonstration with a gamepad or other\\nhuman interface \
+device connected to your computer.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.3895522232313623`*^9},
+ FontFamily->"Verdana",
+ CellTags->"GamepadControls"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Automatic Animation"]}],
+  RowBox[{"\"Animate a slider in this Demonstration by clicking the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJzzTSzJSM1NLMlMTlRwL0osyMhMLlZwyy8CCjEzMjAwcIKwAgOI/R/IhBKc\n\
+/4EAyGAG0f+nTZsGwgysIJIRKsWKLAXGIHFmEpUgLADxWUAkI24jZs+eTaEt\n\
+IG+wQKRmzJgBlYf5lhEA30OqWA=="], "Graphics", ImageSize -> {9, 9}, ImageMargins -> 
+      0, CellBaseline -> Baseline], BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"button\\nnext to the slider, and then clicking the play button that \
+appears.\\nAnimate all controls by selecting \"", 
+    StyleBox["Autorun", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"AutomaticAnimation"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Bookmark Animation"]}],
+  RowBox[{
+   "\"See a prepared animation of this Demonstration by selecting\\n\"", 
+    StyleBox["Animate Bookmarks", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SearchTermsSection"],
+
+Cell["Penrose diagram", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.43868552459375*^9, 3.438685532046875*^9}},
+ CellID->82404833],
+
+Cell["compactification", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.438685533109375*^9, 3.4386855379375*^9}},
+ CellID->556593184],
+
+Cell["conformal map", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.438685539671875*^9, 3.438685550265625*^9}},
+ CellID->452678634]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "RelatedLinksSection"],
+
+Cell[TextData[ButtonBox["Compactification",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://mathworld.wolfram.com/Compactification.html"], 
+   None}]], "RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4387053602720647`*^9, 3.438705367677805*^9}},
+ CellID->33618180],
+
+Cell[TextData[ButtonBox["Conformal Mapping",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://mathworld.wolfram.com/ConformalMapping.html"], 
+   None}]], "RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4387053376528034`*^9, 3.438705348150853*^9}},
+ CellID->717768359],
+
+Cell[TextData[ButtonBox["Minkowski Space",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://mathworld.wolfram.com/MinkowskiSpace.html"], 
+   None}]], "RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.438705396434681*^9, 3.4387054041574526`*^9}},
+ CellID->54506902]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "AuthorSection"],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Christoph Meyer",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Christoph+\
+Meyer"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Christoph+Meyer"]
+}], "Author",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.43868555603125*^9, 3.438685557734375*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{700, Automatic},
+WindowMargins->{{10, Automatic}, {0, 0}},
+FrontEndVersion->"7.0 for Microsoft Windows (64-bit) (November 10, 2008)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Demonstration.nb", 
+  CharacterEncoding -> "WindowsANSI"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ResizeImages"->{
+  Cell[51764, 1137, 376, 9, 22, "ControlSuggestions",
+   CellTags->"ResizeImages"]},
+ "RotateAndZoomIn3D"->{
+  Cell[52143, 1148, 678, 16, 22, "ControlSuggestions",
+   CellTags->"RotateAndZoomIn3D"]},
+ "DragLocators"->{
+  Cell[52824, 1166, 340, 11, 22, "ControlSuggestions",
+   CellTags->"DragLocators"]},
+ "CreateAndDeleteLocators"->{
+  Cell[53167, 1179, 637, 15, 22, "ControlSuggestions",
+   CellTags->"CreateAndDeleteLocators"]},
+ "SliderZoom"->{
+  Cell[53807, 1196, 844, 21, 22, "ControlSuggestions",
+   CellTags->"SliderZoom"]},
+ "GamepadControls"->{
+  Cell[54654, 1219, 369, 9, 22, "ControlSuggestions",
+   CellTags->"GamepadControls"]},
+ "AutomaticAnimation"->{
+  Cell[55026, 1230, 1464, 31, 22, "ControlSuggestions",
+   CellTags->"AutomaticAnimation"]},
+ "BookmarkAnimation"->{
+  Cell[56493, 1263, 908, 21, 22, "ControlSuggestions",
+   CellTags->"BookmarkAnimation"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ResizeImages", 59704, 1369},
+ {"RotateAndZoomIn3D", 59813, 1372},
+ {"DragLocators", 59923, 1375},
+ {"CreateAndDeleteLocators", 60039, 1378},
+ {"SliderZoom", 60153, 1381},
+ {"GamepadControls", 60259, 1384},
+ {"AutomaticAnimation", 60372, 1387},
+ {"BookmarkAnimation", 60489, 1390}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 123, 2, 74, "DemoTitle"],
+Cell[693, 26, 33, 0, 266, "InitializationSection"],
+Cell[CellGroupData[{
+Cell[751, 30, 29, 0, 188, "ManipulateSection"],
+Cell[CellGroupData[{
+Cell[805, 34, 13555, 360, 1008, "Input"],
+Cell[14363, 396, 7076, 135, 589, "Output",
+ CellID->8697862]
+}, {2}]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21485, 537, 36, 0, 166, "ManipulateCaptionSection"],
+Cell[21524, 539, 438, 8, 52, "ManipulateCaption"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21999, 552, 28, 0, 168, "ThumbnailSection"],
+Cell[22030, 554, 7303, 139, 245, "Output",
+ CellID->396988523]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29370, 698, 28, 0, 138, "SnapshotsSection"],
+Cell[29401, 700, 7221, 136, 245, "Output",
+ CellID->91378282],
+Cell[36625, 838, 7169, 135, 37, "Output",
+ CellID->134177725],
+Cell[43797, 975, 7268, 138, 37, "Output",
+ CellID->226857965]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[51102, 1118, 26, 0, 332, "DetailsSection"],
+Cell[51131, 1120, 556, 10, 52, "DetailNotes",
+ CellID->27794174]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[51724, 1135, 37, 0, 120, "ControlSuggestionsSection"],
+Cell[51764, 1137, 376, 9, 22, "ControlSuggestions",
+ CellTags->"ResizeImages"],
+Cell[52143, 1148, 678, 16, 22, "ControlSuggestions",
+ CellTags->"RotateAndZoomIn3D"],
+Cell[52824, 1166, 340, 11, 22, "ControlSuggestions",
+ CellTags->"DragLocators"],
+Cell[53167, 1179, 637, 15, 22, "ControlSuggestions",
+ CellTags->"CreateAndDeleteLocators"],
+Cell[53807, 1196, 844, 21, 22, "ControlSuggestions",
+ CellTags->"SliderZoom"],
+Cell[54654, 1219, 369, 9, 22, "ControlSuggestions",
+ CellTags->"GamepadControls"],
+Cell[55026, 1230, 1464, 31, 22, "ControlSuggestions",
+ CellTags->"AutomaticAnimation"],
+Cell[56493, 1263, 908, 21, 22, "ControlSuggestions",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[57438, 1289, 30, 0, 152, "SearchTermsSection"],
+Cell[57471, 1291, 146, 3, 22, "SearchTerms",
+ CellID->82404833],
+Cell[57620, 1296, 147, 3, 22, "SearchTerms",
+ CellID->556593184],
+Cell[57770, 1301, 146, 3, 22, "SearchTerms",
+ CellID->452678634]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[57953, 1309, 31, 0, 138, "RelatedLinksSection"],
+Cell[57987, 1311, 285, 7, 22, "RelatedLinks",
+ CellID->33618180],
+Cell[58275, 1320, 287, 7, 22, "RelatedLinks",
+ CellID->717768359],
+Cell[58565, 1329, 282, 7, 22, "RelatedLinks",
+ CellID->54506902]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[58884, 1341, 25, 0, 136, "AuthorSection"],
+Cell[58912, 1343, 391, 11, 22, "Author"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

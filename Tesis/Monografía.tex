@@ -451,11 +451,135 @@ ds^2|_{\substack{\Sigma}} = s_{km}dy^k dy^m = g_{\alpha \beta} E^{\alpha}_{k} E^
 Es importante notar que esta forma de la métrica es independiente de si el parámetro $\lambda$ es o no el parámetro afín de las geodésicas nulas, puesto que la escogencia de este parámetro puede ser tenida en cuenta al cambiar $l^\alpha \to \xi^\alpha = fl^\alpha$ para alguna ellección apropiada de $f$, de tal forma que siempre se tiene $h_{vv} = h_{vk} = 0$.
 
 Con la finalidad de acercarnos a la definción de divergencia de un campo vectorial, la última herramienta requerida para la diferenciación entre horizontes de eventos y horizontes aparentes es el vector auxiliar $n$ que satisface las siguientes propiedades
+\begin{equation}
+\label{prop div}
+n_\alpha n^\alpha = l_\alpha l^\alpha = 0 \hspace{.5cm},\hspace{.5cm} n_\alpha E^{\alpha}_{k} =  n_\alpha E^{\alpha}_{k} = 0 \hspace{.5cm},\hspace{.5cm} n_\alpha l^\alpha = -1,
+\end{equation}
+
+que corresponde a un vector normal en $\Sigma$ pero no tangente, que es linealmente independiente tanto a $E^{\alpha}_{k}$ como a $l^\alpha$.\\
+
+Como último preludio para definir la divergencia de campos vectoriales, es preciso mencionar la conocida ecuación de Raychaudhuri para congruencias geodésicas tipo tiempo, a saber,
 \begin{equation*}
-n_\alpha n^\alpha = n_\alpha n^\alpha \hspace{.5cm},\hspace{.5cm} n_\alpha E^{\alpha}_{k} =  n_\alpha E^{\alpha}_{k} = 0 \hspace{.5cm},\hspace{.5cm} n_\alpha l^\alpha = -1,
+\frac{d}{d\tau}\theta = -\frac{1}{3}\theta^2 - \sigma^{\alpha \beta}\sigma_{\alpha \beta} + \omega^{\alpha \beta}\omega_{\alpha \beta}-R_{\alpha \beta}u^\alpha u^\beta,
 \end{equation*}
 
-que corresponde a un vector normal en $\Sigma$ pero no tangente, que es linealmente independiente tanto a $E^{\alpha}_{k}$ como a $l^\alpha$.
+donde $\tau$ es el parámetro de las geodésicas tipo tiempo $u^\alpha$, y $\omega_{\alpha \beta}$, $\sigma_{\alpha \beta}$ y $\theta$ son conocidos como el tensor de rotación, el tensor de cizalla y la expansión de la congruencia de las geodésicas $u^\alpha$.\\
+
+Centrando la atención en la expansión $\theta$, esta cantidad puede ser expresada como
+\begin{equation*}
+\theta = \frac{1}{2}h^{\alpha \beta}L_ug_{\alpha \beta},
+\end{equation*}
+
+donde $L_u$ denota la derivada de Lie a lo largo del campo vectorial $u$. Y en términos del elemento de volumen $\sqrt{h}$ se tiene que \cite{blau}
+\begin{equation*}
+\theta = \frac{1}{\sqrt{h}}\frac{d}{d\tau}\sqrt{h},
+\end{equation*}
+
+de tal forma que $\theta$ mide el cambio de volumen transversal de la congruencia con elemento de volumen $\sqrt{h}$. lA importancia de lo mencionado previamente radica en que al estudiar la ecuación de Raychadhuri para congruencias de geodésicas nulas afínmente parametrizadas, la expanción $\theta$ se generaliza a un tensor $\theta_l$ denominado expansión o divergencia del campo vectorial $l$, relacionado con el campo vectorial tangencial $l$ a las geodésicas. Matméticamente se define la divergencia como 
+\begin{equation*}
+\theta_l = \nabla^\alpha l_\alpha,
+\end{equation*}
+
+y en términos de la derivada de Lie tenemos que
+\begin{equation*}
+\theta_l = \frac{1}{\sqrt{s}}L_l\sqrt{s},
+\end{equation*}
+
+lo cual permite la interpretación análoga de la divergencia $\theta_l$ como la medida del cambio del elemento de área transversal $\sqrt{s}$ de la congruencia. Por su puesto, la definición de divergencia no está limitada al campo vectorial $l^\alpha$ sino que también se define análogamente para el campo auxiliar $n^\alpha$, esto es
+\begin{equation*}
+\theta_l = \frac{1}{\sqrt{s}}L_n\sqrt{s}.
+\end{equation*}
+
+Al trabajar con simetría esférica, la expresión matemática de las divergencias se simplifican, y al tener en cuenta el elemento de área transversal $\sqrt{s} = r^2 \sin \theta$, se tiene que 
+\begin{equation}
+\label{divergences}
+\theta_l = \frac{2}{r}l^r \hspace{.5cm},\hspace{.5cm} \theta_l = \frac{2}{r}n^r.
+\end{equation}
+
+\newpage
+La utilidad de toda la maquinaria desarrollada para la definición de las divergencias de campos vectoriales \eqref{divergences} es evidente a partir de la siguiente discusión.\\
+
+En aras de estudiar la geometría del espacio-tiempo correspondiente a la métrica de Vaidya es preciso ubicar los horizontes entre la región donde los denominados rayos de luz salientes y orientados hacia el futuro son realmente salientes en el sentido en que se mueven a valores de $r$ más grandes, $dr/d\tau >0$; y la región donde los rayos "salientes'' en realidad se mueven hacia valores más pequeños de $r$, $dr/d\tau <0$. Esto se puede ver directamente desde la condición
+\begin{equation*}
+-f(v,r)dv + 2dr = 0 \hspace{.5cm} \Leftrightarrow \hspace{.5cm} 2\frac{dr}{dv} = f(v,r),
+\end{equation*}
+
+donde $f(v,r) = 1 - 2m(v)/r$. De esta manera, dependiendo del valor de $r$ se tiene que
+\begin{align*}
+2\frac{dr}{dv} = f(v,r)\ 
+\begin{cases}
+\ > 0\ para\ r > 2m(v): rayos\  salientes\\  
+\ < 0\ para\ r > 2m(v): rayos\  entrantes.\\
+\end{cases}
+\end{align*}
+
+La discusión anterior puede ser puesta en términos más geométricos al introducir los campos vectoriales radiales nulos para esa geometría, los cuales son
+\begin{equation*}
+n = -\partial_r \hspace{.5cm},\hspace{.5cm} l = \partial_v + \frac{1}{2}f(v,r)\partial_r,
+\end{equation*}
+
+los cuales satisfacen las condiciones \eqref{prop div}. Para determinar sus divergenias, se pueden considerar las 2-esferas $S = S_{v,r}$ de $r$ y $v$ constantes. La geometría intrínseca está caracterizada por la métrica inducida, en particular, por el elemento de volumen inducido
+\begin{equation*}
+\sqrt{s} = r^2 \sin \theta.
+\end{equation*}
+
+Dada la simetría esférica, la geometría extrínseca de las 2-esferas puede ser caracterizada en términos del cambio fraccional del elemento de área a lo largo de $l$ y $n$, es decir, por las expresiones en \eqref{divergences}.\\
+
+Ahora bien, la no trivialidad de la superficie $r = 2m(v)$ para la métrica de Vaidya está codificada en $\theta_l$, y en este caso se tiene que
+\begin{equation*}
+\theta_l = \frac{r - 2m(v)}{r^2}.
+\end{equation*} 
+
+Por tanto
+\begin{align*}
+\theta_l\ 
+\begin{cases}
+\ >0\ para\ r>2m(v),\\
+\ =0\ para\ r=2m(v),\\
+\ <0\ para\ r<2m(v).
+\end{cases}
+\end{align*}
+
+Dado que en general para una 2-superficie S con $\theta_n < 0$ tenemos que 
+\begin{align*}
+S\ es\ 
+\begin{cases}
+\ no-atrapada\ & para\ \theta_l>0,\\
+\ marginalmente\ atrapada\ & para\ \theta_l=0,\\
+\ atrapada\ & para\ \theta_l<0,
+\end{cases}
+\end{align*}
+
+se concluye que para la métrica de Vaidya tenemos que 
+\begin{align*}
+S_{v,r}\ es\ 
+\begin{cases}
+\ no-atrapada\ & para\ r>2m(v),\\
+\ marginalmente\ atrapada\ & para\ r=2m(v),\\
+\ atrapada\ & para\ r<2m(v).
+\end{cases}
+\end{align*}
+
+\newpage
+Considerando lo previamente mencionado, el horizonte de eventos del agujero negro de Schwarzschild puede ser caracterizado, con las nuevas herramientas, como la hipersuperficie nula que consiste de las esferas marginalmente atrapadas con $r = 2m$, esto es
+\begin{equation*}
+\mathcal{T} = \cup_{\substack{v}}S_{v,r = 2m}.
+\end{equation*}
+
+Una definición análoga puede ser hecha en el caso de Vaidya  
+\begin{equation*}
+\mathcal{T} = \cup_{\substack{v}}S_{v,r = 2m(v)}.
+\end{equation*}
+
+Sin embargo, la sutil diferencia en la dependencia del radio en la coordenada $v$ hace dudar sobre el carácter de dicha hipersuperficie. La pregunta automática en este caso es ¿qué tipo de hipersuficie representa $\mathcal{T}$ en el espacio-tiempo de Vaidya? Para responder a esta pregunta, es útil conciderar la métrica inducida en esta hipersuperficie, la cual, a partir de \eqref{schw-tortoise}, está dada por\\
+\begin{equation}
+\label{ind vaiya}
+ds^2|_{\substack{f(v,r)=0}} = 4m'(v)dv^2 + (2m(v))^2d\Omega^2,
+\end{equation}
+
+por ende, si la condición de energía nula $m'(v) \geq 0$ se satisface (como lo hace en la métrica de Hayward estudiada posteriormente), $\mathcal{T}$ es tipo espacio a menos que $m'(v) = 0$, caso en el cual la superficie es tipo nulo. Esto pone en evidencia la radical diferencia que ya se había referido entre la métrica de Schwarzschild y la métrica de Vaidya, a saber, que la hipersuperficie $r = 2m(v)$ deja de ser un horizonte de eventos puesto que ya no correponde a una hipersuperficie tipo nulo, sino una tipo espacio.\\
+
+Finalmente, este tipo de superficies constituyen los afamados horizontes aparentes, los cuales corresponden a un tubo marginalmente atrapado de acuerdo a \cite{blau}. Los tubos marginalmente atrapados son simplemente 3-superficies foliadas por superficies marginalmente atrapadas, esto es, superficies con $\theta_n <0$ y $\theta_l = 0$. He aquí la utlidad de la divergencia de campos vectoriales, particularmente, de los campos vectoriales tangentes y normales a la hipersuperficie de interés, pues en terminos de sus signos se caracteriza completamente el tipo de dicha superficie, y por ende, la existencia o no de horizontes de eventos para un espacio-tiempo dado.	
 
 \section{\label{planck stars section} Métrica de Hayward}
 
@@ -553,6 +677,8 @@ T_{v}^{\ r} &= \frac{2r^4m'}{(r^3 + 2l^2m)^2},
 
 donde $m' = dm/dv$. Las componentes $T_{t}^{\ t}$, $T_{r}^{\ r}$, $T_{\theta}^{\ \theta}$, $T_{\phi}^{\ \phi}$ son iguales a los de la métrica de Hayward estática, la única novedad es la componente $T_{v}^{\ r}$, la cual describe puramente la radiación entrante que fue incorporada al modelo al considerar $m = m(v)$.\\
 
+En analogía con la métrica de Vaidya, es posible que los horizontes de eventos de la métrica de Hayward estática se ``convierten'' en horizontes aparentes en el caso dinámico. 
+
 ¡OJO! 1/8$\pi$ en los EMT
 
 \section{Métrica de Hayward modificada}
@@ -570,29 +696,155 @@ La corrección efectiva de teoría cuántica de campos al potencial Newtoniano e
 
 donde $l_{p}$ en la longitud de Planck.\\
 
-La métrica de Hayward modificada está dada por 
+Antes de establecer la modificiación hecha por lor mencionados autores, es preciso deducir la expresión que relaciona el potencial Newtoniano con la métrica del espacio-tiempo en cuestión. La relación se realizará por medio del cálculo del límite newtoniano.\\
+
+Queremos determinar las condiciones bajo las cuales las ecuaciones relativistas de movimiento, es decir, las ecuaciones de campo de Einstein, se reducen a la ecuación lineal de movimiento de la mecánica newtoniana
+\begin{equation*}
+\frac{d^2}{dt^2}\vec{x} = - \vec{\nabla}\phi,
+\end{equation*}
+
+con $\phi$ el potencial gravitacional
+\begin{equation*}
+\phi = - \frac{m}{r}.
+\end{equation*}
+
+Por ende, queremos determinar las circunstancias bajo las cuales son válidas las ecuaciones de Newton. Para ello, hay dos condiciones que son evidentemente necesarias para ello, a saber,
+\begin{itemize}
+\item la condición de campo débil, esto es, que el campo gravitacional en la región de interés es lo suficientemente débil.
+\item la condición de movimiento lento, es decir, que el movimiento de las partículas en la zona de interés es lento en comparación con la velocidad de la luz.
+\end{itemize}
+
+La tercera condición no es tan evidente, pero se justifica a partir de hecho de que los campos gravitacionales con los que usualmente lidiamos varían muy poco con respecto al tiempo, de ahí que la tercer condición que se impondrá en la deducción es
+\begin{itemize}
+\item la condición de campos estacionarios, a saber, que el campo gravitacional no varía significativamente con el tiempo.
+\end{itemize}
+
+Teniendo en cuenta que la herramienta principal de trabajo será la ecuación de las geodésicas, es preciso traducir las condiciones anteriormente establecidas en términos de ecuaciones que podamos agrupar junto con la susodicha ecuación geodésica.\\
+\begin{itemize}
+\item La condición de campo débil se traduce en que aproximaremos la métrica del espacio-tiempo en cuentión $g_{\alpha \beta}$ por 
+\begin{equation}
+\label{weak field}
+g_{\alpha \beta} = \eta_{\alpha \beta} + h_{\alpha \beta},
+\end{equation}
+donde $\eta_{\alpha \beta}$ representa la métrica de Schwarzschild y $h_{\alpha \beta}$ una pequeña perturbación, cuyo carácter pequeño se traduce en que cualquier término de orden cuadrático en $h_{\alpha \beta}$ en la deducción posterior será ignorado.
+\item La condición de movimiento lento, según la cual
+\begin{equation*}
+\frac{dx^i}{d\tau} \ll \frac{dt}{d\tau}.
+\end{equation*}
+\item Finalmente, la condición de campos estacionarios, de acuerdo a la cual impondremos campos gravitacionales que no dependen del tiempo
+\begin{equation*}
+g_{\alpha \beta,0} =0 \hspace{.5cm}\Rightarrow\hspace{.5cm} h_{\alpha \beta,0} =0.
+\end{equation*}
+\end{itemize}
+
+Considere ahora la ecuación geodésica 
+\begin{equation}
+\label{geodesic eqn}
+\ddot{x}^\mu + \Gamma^{\mu}_{\nu \lambda}\dot{x}^\nu\dot{x}^\lambda = 0.
+\end{equation}
+
+Por la descomposición \eqref{weak field}, $\Gamma^{\mu}_{\nu \lambda}$ es por lo menos lineal en $h_{\mu \nu}$, y al imponer la condición de movimiento lento tenemos que \eqref{geodesic eqn} puede ser aproximada por
+\begin{equation*}
+\ddot{x}^\mu + \Gamma^{\mu}_{00}\dot{t}^2 = 0.
+\end{equation*}
+
+El carácter estacionario del campo indica que los coefcientes de Christoffel están dados por 
+\begin{equation*}
+\Gamma^{\mu}_{00} = -\frac{1}{2}g^{\mu \nu}\partial_\nu g_{00} = -\frac{1}{2}g^{\mu i}\partial_i g_{00}.
+\end{equation*}
+
+La condición de campo débil permite escribir
+\begin{equation*}
+g_{\alpha \beta} = \eta_{\alpha \beta} + h_{\alpha \beta} \hspace{.5cm} \Rightarrow \hspace{.5cm} g^{\alpha \beta} = \eta^{\alpha \beta} - h^{\alpha \beta},
+\end{equation*}
+
+donde 
+\begin{equation*}
+h^{\alpha \beta} = \eta^{\alpha \lambda}\eta^{\beta \rho}h_{\lambda \rho}.
+\end{equation*}
+
+Con lo anterior tenemos que 
+\begin{equation*}
+\Gamma^{\mu}_{00} = \eta^{\mu i}\partial_ih_{00},
+\end{equation*}
+
+de tal forma que los Christoffel de interés son
+\begin{equation*}
+\Gamma^{0}_{00} = 0 \hspace{.5cm},\hspace{.5cm} \Gamma^{i}_{00} = -\frac{1}{2}\eta^ih_{00}.
+\end{equation*}
+
+De esta manera, la ecuación geodésica \eqref{geodesic eqn} se divide en
+\begin{equation*}
+\ddot{t} = 0 \hspace{.5cm},\hspace{.5cm} \ddot{x} = \frac{1}{2}\partial_ih_{00}\dot{t}^2.
+\end{equation*}
+
+La primera ecuación indica que 
+\begin{equation*}
+t(\tau) = a\tau + b,
+\end{equation*}
+
+y al usar esta ecuación para convertir las derivadas con respecto a $\tau$ en derivadas con respect a $t$ tenemos que 	
+\begin{equation*}
+\ddot{t} = 0 \hspace{.5cm} \Rightarrow \frac{1}{\dot{t}^2}\frac{d^2}{d\tau^2} = \frac{1}{\dot{t}}\frac{d}{d\tau}\frac{1}{\dot{t}}\frac{d}{d\tau} = \frac{d^2}{dt^2}.
+\end{equation*}
+
+Por tanto se obtiene que 
+\begin{equation*}
+\frac{d^2x^i}{dt^2} = \frac{1}{2}h_{00,i}.
+\end{equation*}
+
+Finalmente, al comparar con la ecuación Newtoniana 
+\begin{equation*}
+\frac{d^2x^i}{dt^2} = -\phi_{,i}
+\end{equation*}
+
+podemos identificar 
+\begin{equation*}
+h_{00} = -2\phi,
+\end{equation*}
+
+entre el potencial gravitacional newtoniano y la componente tiempo-tiempo de la desviación del espacio-tiempo de la métrica de Minkowski. Al relacionar nuevamente con $g_{\alpha \beta}$ tenemos que 
+\begin{equation}
+\label{newton - metric}
+g_{00} = - (1 + 2\phi),
+\end{equation}
+
+lo cual nos da finalmente la relación deseada entre el potencial newtoniano y la componente temporal de la métrica.\\
+
+Teniendo en cuenta el límite newtoniano, la métrica de Hayward modificada está dada por 
 \begin{equation}
 \label{reg-schF}
-ds^2 = -G(r)F(r) dt^2 + \frac{1}{F(r)} dr^2 + r^2d\Omega ^2
+ds^2 = -G(r)F(r) dt^2 + \frac{1}{F(r)} dr^2 + r^2d\Omega^2,
 \end{equation}
 
 donde
 
 \begin{equation}
 \label{mod-hay-f}
-F(r) = 1 - \frac{Mr^2}{r^3 + 2ML^2}
+F(r) = 1 - \frac{Mr^2}{r^3 + 2ML^2},
 \end{equation}
+
+y $G(r)$ es un función que se explica a continuación.\\
+
+Es evidente que solo se modifique la componente tiempo-tiempo de la métrica en tanto que la corrección efectiva de teoría cuántica de campos es única y exclusivamente al  potencial newtoniano, y dada la relación \eqref{newton - metric}, es claro que solo dicha componente deba ser modificada. Por su puesto, hay ciertas condiciones que deben imponerse sobre la función $G(r)$ de tal manera que la métrica mmodificada siga teniendo sentido físico y no se pierda el carácter regular previamente incorporado en la misma. Por tanto, las condiciones físicas que se le exigen a $G(r)$ son
+\begin{itemize}
+\item Preservar el comportamiento de Schwarzschild para $r \to \infty$.
+\item Incluir la corrección cuántica del potencial newtoniano \eqref{newF}.
+\item Permitir dilataciones de tiempo finitas entre $r \to 0$ y $r \to \infty$.
+\end{itemize}
+
+La forma más general de satisfacer las condiciones anteriormente impuestas es considerar $G(r)$ dada por
 
 \begin{equation}
 \label{mod-hay-g}
-G(r) = 1 - \frac{\beta M \alpha}{\alpha r^3 + \beta M}
+G(r) = 1 - \frac{\beta M \alpha}{\alpha r^3 + \beta M},
 \end{equation}
+
+con $\alpha$ y $\beta$ parámetros variables, sobre los cuales se imponen ciertas cotas numéricas.
+
 
 \section{\label{conclusions} Conclusiones}
 
-\section{\label{annex} Anexos}
-
-¡OJO! Correcciones cuánticas\\
 
 \newpage
 \nocite{*}

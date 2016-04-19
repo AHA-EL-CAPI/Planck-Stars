@@ -6,9 +6,8 @@
 \contentsline {section}{\numberline {3} M\IeC {\'e}tricas relevantes}{4}{section.3}
 \contentsline {subsection}{\numberline {3.1} M\IeC {\'e}trica de Bardeen}{4}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}M\IeC {\'e}trica de Vaidya}{8}{subsection.3.2}
-\contentsline {section}{\numberline {4} M\IeC {\'e}trica de Hayward}{11}{section.4}
-\contentsline {subsection}{\numberline {4.1}M\IeC {\'e}trica de Hayward est\IeC {\'a}tica}{11}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}M\IeC {\'e}trica de Hayward din\IeC {\'a}mica}{13}{subsection.4.2}
-\contentsline {section}{\numberline {5}M\IeC {\'e}trica de Hayward modificada}{13}{section.5}
-\contentsline {section}{\numberline {6} Conclusiones}{14}{section.6}
-\contentsline {section}{\numberline {7} Anexos}{14}{section.7}
+\contentsline {section}{\numberline {4} M\IeC {\'e}trica de Hayward}{13}{section.4}
+\contentsline {subsection}{\numberline {4.1}M\IeC {\'e}trica de Hayward est\IeC {\'a}tica}{13}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}M\IeC {\'e}trica de Hayward din\IeC {\'a}mica}{15}{subsection.4.2}
+\contentsline {section}{\numberline {5}M\IeC {\'e}trica de Hayward modificada}{15}{section.5}
+\contentsline {section}{\numberline {6} Conclusiones}{18}{section.6}
