@@ -256,9 +256,9 @@ y al tener en cuenta todas las consideraciones previamente mencionadas, Ayón-Be
 
 Todo lo anterior permite entender la métrica \eqref{bardeen metric} como un acople de electrodinámica no-lineal a la relatividad general, que físicamente corresponde a un monopolo magnético autogravitante de carga $g$. Esta interpretación de la métrica de Bardeen hace eco de una de las características fundamentales de la métrica RN en tanto que las propiedades globales del espacio-tiempo descrito tanto por la métrica de Reissner-Nordström como por la métrica de Bardeen dependen fuertemente de las magnitudes relativas entre el parámetro de carga y el parámetro de masa.\\
 
-Ahora bien, hasta el momento solo se ha lidiado con la interpretación física de la métrica de Bardeen \eqref{bardeen metric}, y se ha establecido el carácter regular de la misma en términos de la finitud de los invariantes de curvatura. No obstante, es preciso ahondar un poco más en el último aspecto mencionado dado que es el principal motivo para estudiar dicha métrica en este trabajo.\\
+Ahora bien, hasta el momento solo se ha lidiado con la interpretación física de la métrica de Bardeen \eqref{bardeen metric} y se ha establecido el carácter regular de la misma en términos de la finitud de los invariantes de curvatura. No obstante, es preciso ahondar un poco más en el último aspecto mencionado, dado que es el principal motivo para estudiar dicha métrica en este trabajo.\\
 
-En el año 1965, Roger Penrose publicó un famoso artículo \cite{penrose} acerca de singularidades en el espaciotiempo. Una revisión más reciente del mismo puede ser consultada en \cite{senovilla2015}.La formulación precisa del teorema de singularidad de Penrose, junto con algunas definiciones preliminares al mismo, se establecen a continuación. 
+En el año 1965, Roger Penrose publicó un famoso artículo \cite{penrose} acerca de singularidades en el espaciotiempo. Una revisión más reciente del mismo puede ser consultada en \cite{senovilla2015}. La formulación precisa del teorema de singularidad de Penrose, junto con algunas definiciones preliminares al mismo, se establecen a continuación. 
 
 \theoremstyle{definition}
 \begin{definition}
@@ -290,7 +290,7 @@ entonces dicho espacio tiempo posee geodésicas incompletas de tipo nulo futuro.
 
 En otras palabras, el teorema anterior establece que un espaciotiempo dado tiene una singularidad si las tres condiciones enunciadas previamente se satisfacen. En relación con lo anterior, y basado en las consideraciones hechas en \cite{borde1994,borde1996}, la métrica de Bardeen es frecuentemente aludida como contraejemplo a la posibilidad de poder probar la existencia de singularidades en el interior de agujeros negros sin asumir la contenencia de una hipersuperficie de Cauchy o la condición de energía fuerte (condiciones I y III del teorema).\\
 
-En tanto que la métrica de Bardeen está inspirada en la métrica RN, la pregunta evidente en este caso es: ¿cómo logra la métrica de Bardeen evitar la singularidad física en $r = 0$ de la métrica RN?. La respuesta a esta pregunta fue establecida desde una perspectiva netamente matemática por Arvind Borde en \cite{borde1994,borde1996}. Con el fin de entender los planteamientos de Borde, es preciso considerar la extensión maximal de la métrica de Bardeen. En la fig. \ref{fig: bardeen diagram} está representada una parte de la extensión maximal del mencionado espaciotiempo.\\
+En tanto que la métrica de Bardeen está inspirada en la métrica RN, la pregunta evidente en este caso es: ¿cómo logra la métrica de Bardeen evitar la singularidad física en $r = 0$ de la métrica RN? La respuesta a esta pregunta fue establecida desde una perspectiva netamente matemática por Arvind Borde en \cite{borde1994,borde1996}. Con el fin de entender los planteamientos de Borde, es preciso considerar la extensión maximal de la métrica de Bardeen. En la fig. \ref{fig: bardeen diagram} está representada una parte de la extensión maximal del mencionado espaciotiempo.\\
 
 \begin{figure}[h!]
 	\centering
@@ -354,11 +354,108 @@ Dado que nos interesa llegar a una métrica debida a fotones dirigidos radialmen
 
 Con respecto a las condiciones de energía, es claro que por la forma del EMT para la métrica de Vaidya, la única condición que vale la pena estudiar es WEC, la cual requiere $T_{uu} \geq 0$ y en términos de r requiere que $m'(u)\leq 0 $. Esta última condición coincide precisamente con la interpretación previamente mencionada sobre que la métrica de Vaidya describe una estrella pierde masa conforme pasa el tiempo mediante la emisión de radiación en forma de fotones.\\
 
-Ahora bien, a parte de la presencia de radiación, la métrica de Vaidya posee una característica fundamental que la diferencia radicalmente de la métrica de Schwarzschild, y esto es el tipo de superficie (horizonte) en $r = 2m(u)$. En el espacioteimpo de Schwarzschild, $r = 2m$ representa una superficie de tipo nulo que denota el conocido horizonte de eventos. Por su parte, en el espaciotiempo de Vaidya la superficie $r = 2m(u)$ es de tipo espacio y por ende no puede ser asociada a un horizonte de eventos. De hecho, esta superficie conforma lo que usualmente es denominado en la literatura \cite{blau,griffiths2009,wald2010} como horizonte aparente.\\
-
-Un horizonte aparente se define técnicamente como una hipersuperficie que separa las regiones que poseen superficies atrapadas de las regiones que no contienen este tipo de superficies. No obstante, en aras de dar una definción matmáticamente más concreta de horizontes aparentes es necesario definir el concepto de divergencia de campos vectoriales.\\
+Ahora bien, a parte de la presencia de radiación, la métrica de Vaidya posee una característica fundamental que la diferencia radicalmente de la métrica de Schwarzschild, y esto es el tipo de superficie (horizonte) en $r = 2m(u)$. En el espacioteimpo de Schwarzschild, $r = 2m$ representa una superficie de tipo nulo que denota el conocido horizonte de eventos. Por su parte, a continuación se verá que en el espaciotiempo de Vaidya la superficie $r = 2m(u)$ es de tipo espacio y por ende no puede ser asociada a un horizonte de eventos. De hecho, esta superficie conforma lo que usualmente es denominado en la literatura \cite{blau,griffiths2009,wald2010} como horizonte aparente.\\
 
 
+Un horizonte aparente se define técnicamente como una hipersuperficie que separa las regiones que poseen superficies atrapadas de las regiones que no contienen este tipo de superficies. No obstante, en aras de dar una definción matemáticamente más concreta de horizontes aparentes es necesario formalizar matmáticamente la definición de hipersuperficies nulas y definir el concepto de divergencia de campos vectoriales.\\
+
+Como es sabido, una hipersuperficie es una subvariedad $\Sigma$ n-dimensional de una variedad $M$ n+1-dimensional \cite{blau}. Una descripción particularmente útil para estudiar la geometría de estas subvariedades se da a través de los embebimientos $\Phi: \Sigma \to M$. Si $\Sigma$ es equipado con coordenadas $y^\alpha$ y $M$ con coordenadas $x^\alpha$, un embebimiento $\Phi$ está dado explícitamente al especificar el punto en $M$ con coordenadas $x^\alpha$ que corresponde a un punto en $\Sigma$ con coordenadas $y^\alpha$, en otras palabras, un embebimiento está dado por las ecuaciones paramétricas 
+\begin{equation*}
+x^\alpha = x^\alpha(y^\alpha).
+\end{equation*}
+
+Hay dos condiciones que deben ser satisfechas para que un mapa $\Phi$ sea un embebimiento, a saber
+\begin{itemize}
+	\item $\Phi$ debe ser inyectivo.
+	\item El jacobiano de $\Phi$, es decir, la matriz $(n+1)\times n$
+	\begin{equation*}
+	E^{\alpha}_{a} = \frac{\partial x^\alpha}{\partial y^\alpha},
+	\end{equation*}
+	
+	tiene rango maximal n.
+\end{itemize}
+
+Dado que los vectores $E^{\alpha}_{a}$ son linealmente independientes y tangentes a la imagen de $\Sigma$ en $M$, los vectores normales a $\Sigma$ (es decir, orthonormales a $\Sigma$) están caracterizados por 
+\begin{equation*}
+g_{\alpha \beta}E^{\alpha}_{a}\xi^{\alpha} = E^{\alpha}_{a}\xi_{\beta} = 0,
+\end{equation*}
+
+con $g_{\alpha \beta}$ la métrica de $M$. Es importante notar que si $\xi^{\alpha}$ es un vector normal, entonces $f\xi^{\alpha}$ también es normal a $\Sigma$ para cualquier función escalar $f$ que es distinta de cero en $\Sigma$.\\
+
+Teniendo en cuenta lo anterior, los vectores normales a $\Sigma$ permiten establecer la siguiente caracterización de hipersuperficies
+\begin{align*}
+\Sigma\ es\ tipo\  
+\begin{cases}
+\ espacio\ & si\ \xi^{\alpha}\xi_{\alpha}<0,\\
+\ tiempo\ & si\ \xi^{\alpha}\xi_{\alpha}>0,\\
+\ nulo\ & si\ \xi^{\alpha}\xi_{\alpha}=0.\\
+\end{cases}
+\end{align*}
+
+Cuando $\Sigma$ no es nula, la libertad en la elección de $f$ puede ser usada para normalizar el vector normal a un vector normal de longitud unitaria $\pm 1$. Esta codición de normalización determina el vector normal unitario $N^{\alpha}$ de forma única salvo una elección de signo, esto es
+\begin{align*}
+N^{\alpha} = \frac{\xi^{\alpha}}{|\xi^{\alpha}\xi_{\alpha}|^{1/2}} \Rightarrow N^{\alpha}N_{\alpha} =\ 
+\begin{cases}
+\ -1 & \ si\ \Sigma\ es\ tipo\ espacio,\\
+\ +1 & \ si\ \Sigma\ es\ tipo\ tiempo.\\
+\end{cases}
+\end{align*}
+
+Evidentemente, esta normalización es imposible para las hipersuperficies tipo nulo. No obstante, una elección natural y conveniente de un vector normal a la hipersuperficie es 
+\begin{equation*}
+l_\alpha = -\partial_\alpha S,
+\end{equation*}
+
+donde el signo ha sido escogido de tal forma que $l^\alpha$ está orientado hacia el futuro para una fución real-valuada $S$ que aumenta hacia el futuro y en términos de la cual la hipersuperficie $\Sigma$ se define como
+\begin{equation*}
+\Sigma = \lbrace x \in M:\ S(x) = 0 \rbrace.
+\end{equation*}
+
+De esta forma, los demás vectores normales a $\Sigma$ son de la forma
+\begin{equation*}
+\xi^\alpha = fl^\alpha,
+\end{equation*}
+
+para alguna función $f$ que no se anula sobre $\Sigma$.\\
+
+Ahora bien, con las herramientas anteriores es posible definir la métrica inducida $h_{ab}$ en una hipersuperficie (nula), y la utilidad de $h_{ab}$ recae en que a partir de la misma, la identificación del tipo al cual pertenece una hipersuperfcie dada es automático, permitiéndonos diferenciar fácilmente entre horizontes ade eventos y horizontes aparentes.\\
+
+Dado que en general las geodésicas nulas que son los generadores de una hipersuperficie nula están naturalmente asociados a dicha hipersuperficie, es conveniente adaptar las coordenadas $y^\alpha$ en $\Sigma$ a $l^\alpha$ al escoger las coordenadas de tal forma que 
+\begin{equation*}
+y^\alpha = (v = \lambda, y^k),
+\end{equation*}
+
+donde $\lambda$ es el parámetro (no necesariamente afín) a lo largo de las geodésicas y $y^k$ coresponde a las coordenadas espaciales que denotan las geodésicas nulas individuales. En estas coordenadas, los vectores tangentes $E_\alpha$ a la hipersuperficie nula están dados por
+\begin{equation*}
+E^{\alpha}_{v} = \frac{\partial x^\alpha}{\partial \lambda} = l^\alpha \hspace{.5cm}, \hspace{.5cm} E^{\alpha}_{k} =\frac{\partial x^\alpha}{\partial y^k},
+\end{equation*}
+
+y por ende la métrica inducida
+\begin{equation*}
+h_{ab} = g_{\alpha \beta} E^{\alpha}_{a} E^{\alpha}_{b},
+\end{equation*}
+
+tiene los componentes 
+
+\begin{equation*}
+h_{vv} = g_{\alpha \beta} l^\alpha l^\beta = 0 \hspace{.5cm},\hspace{.5cm} h_{vk} = g_{\alpha \beta} l^\alpha E^{\beta}_{k} = 0, \hspace{.5cm},\hspace{.5cm} h_{km} \equiv s_{km} = g_{\alpha \beta} E^{\alpha}_{k} E^{\beta}_{m},
+\end{equation*}
+
+donde $h_{vk} = 0$ se sigue puesto que por construcción los vectores $E^{\alpha}_{k}$ son tangentes a la superficie mientras que por definición $l^\alpha$ es normal a la hipersuperficie y en particular normal a los vectores tangentes a la misma. \\
+
+Dado lo anterior, la métrica es degenerada (lo cual es característico para las hipersuperficies nulas) y el elemento de línea toma la forma
+\begin{equation*}
+ds^2|_{\substack{\Sigma}} = s_{km}dy^k dy^m = g_{\alpha \beta} E^{\alpha}_{k} E^{\beta}_{m} dy^k dy^m.
+\end{equation*}
+
+Es importante notar que esta forma de la métrica es independiente de si el parámetro $\lambda$ es o no el parámetro afín de las geodésicas nulas, puesto que la escogencia de este parámetro puede ser tenida en cuenta al cambiar $l^\alpha \to \xi^\alpha = fl^\alpha$ para alguna ellección apropiada de $f$, de tal forma que siempre se tiene $h_{vv} = h_{vk} = 0$.
+
+Con la finalidad de acercarnos a la definción de divergencia de un campo vectorial, la última herramienta requerida para la diferenciación entre horizontes de eventos y horizontes aparentes es el vector auxiliar $n$ que satisface las siguientes propiedades
+\begin{equation*}
+n_\alpha n^\alpha = n_\alpha n^\alpha \hspace{.5cm},\hspace{.5cm} n_\alpha E^{\alpha}_{k} =  n_\alpha E^{\alpha}_{k} = 0 \hspace{.5cm},\hspace{.5cm} n_\alpha l^\alpha = -1,
+\end{equation*}
+
+que corresponde a un vector normal en $\Sigma$ pero no tangente, que es linealmente independiente tanto a $E^{\alpha}_{k}$ como a $l^\alpha$.
 
 \section{\label{planck stars section} Métrica de Hayward}
 
