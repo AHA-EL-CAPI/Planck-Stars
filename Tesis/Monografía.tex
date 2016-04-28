@@ -52,6 +52,14 @@
 	{\large 9 de Marzo de 2016\par}
 \end{titlepage}
 
+
+\newpage
+\
+\\
+\huge{Abstract:}\\\\\\\\\\\\\\\\\\\\
+\huge{Resumen:}
+\newpage
+
 \newpage
 \large
 \tableofcontents
@@ -681,7 +689,7 @@ En analogía con la métrica de Vaidya, es posible que los horizontes de eventos
 
 ¡OJO! 1/8$\pi$ en los EMT
 
-\section{Métrica de Hayward modificada}
+\subsection{Métrica de Hayward modificada}
 
 Con respecto a lo mencionado sobre la escala de Planck, estudios posteriores al artículo de Hayward (véase \cite{lorenzo}) han hecho explícito el hecho de que la presencia del paŕametro de longitud $l$ en la métrica de Hayward necesariamente refleja la inclusión de correcciones efectivas de teoría cuántica de campos en relatividad general. Al respecto, De Lorenzo \emph{et al.} plantean que, para que las métricas que describen espaciotiempos regulares a partir de modificaciones de la métrica de Schwarzschild sean físicamente plausibles, se requieren dos condiciones: que dichas métricas incorporen las correcciones efectivas de teoría cuántica  de campos al potencial Newtoniano, y una dilatación temporal no trivial entre un observador en $r \to \infty$ y un observador en $r = 0$. Precisamente, esta sección se encarga de estudiar con más detalle estos aspectos.\\
 
@@ -840,14 +848,96 @@ La forma más general de satisfacer las condiciones anteriormente impuestas es c
 G(r) = 1 - \frac{\beta M \alpha}{\alpha r^3 + \beta M},
 \end{equation}
 
-con $\alpha$ y $\beta$ parámetros variables, sobre los cuales se imponen ciertas cotas numéricas.
+con $\alpha$ y $\beta$ parámetros variables, sobre los cuales se imponen ciertas cotas numéricas. Un estudio más detallado de esta métrica requeriría un conocimiento más profundo acerca de la deducción de la corrección \eqref{newF}, pero adquirir ese conocimiento implicaría desviarse mucho del tema central de este trabajo, el cual es el estudio de agujeros negros regulares, por ende, se deja planteado como trabajo futuro.
+
+\section{Interpretación física de la métrica de Hayward}
+
+Hasta esta instancia, solo se ha trabajado con la parte calculística inatamente asociada al estudio de agujeros negros en relatividad general y poco se ha dicho sobre la interpretación física de los modelos estudiados previamente. Dado que los cálculos teóricos son vacíos si no hay un transfondo físico detrás de los mismos, esta sección presenta una interpretación exhaustiva del modelo de interés en este documento, a saber, la métrica de Hayward.\\
+
+Lo primero que hay que decir sobre esta métrica está relacionado con el carácter regular de la misma. Si consideramos el destino de la materia que cae dentro de un agujero negro, la relatividad general clásica indica dicha materia desaparece dentro de la singularidad espacio-temporal. No obstante, esto no es una predicción de dicha teoría, de hecho, deja entrever una falla de la misma, una incompletitud de la teoría clásica en tanto que no tiene en cuanta a la teoría cuántica. Esto da pie para pensar que correcciones cuánticas de la relatividad general clásica podrían ser un posible camino para entender de forma más feaciente lo que ocurre dentro de un agujero negro.\\
+
+Las susodichas correcciones cuánticas que vamos a considerar en este caso provienen de cosmología cuántica \cite{rovelli}. Dos hechos fundamentales provenientes de esta teoría son:
+\begin{itemize}
+	\item Los efectos cuánticos en gravedad comienzan a ser dominantes cuando la densidad de energía alcanza la escala de Planck. Esta densidad está dada por 
+	\begin{equation*}
+	\rho_P = \frac{m_P}{l_P^3} \approx 5,155 \cdot 10^{96}\ \ kg/m^3,
+	\end{equation*}
+	
+	donde $m_P$ y $l_P$ son la masa de Planck y la longitud de Planck, respectivamente.
+	\item El efecto cuántico dominante a altas presioneses una fuerte presión, suficiente para balancear el peso de un objeto estelar y reversar su colapso.
+\end{itemize}
+
+Lo mencinado previamente sugiere qeu dicha presión gravitacional cuántica puede detener el colapso gravitacional tan pronto como la densidad de energía alcanza la escala de Planck, dando así origen a una nueva fase en la vida de un objeto que colapsa. Esta instancia es lo que se denomina estrella de Planck, y posterior a la misma el objeto que colapsa puede ``rebotar''. Una forma explícita que describe el proceso de rebote se da explícitamente en \cite{rovelliquantum}, y en este artículo se muestra que dicha métrica en efecto es una solución exacta de las ecuaciones de campo de Einstein excepto en una región cuántica compacta, limitada en espacio y tiempo, donde la teoría cuántica correige a la relatividad general clásica. No obstante, el aspecto clave es la estrella de Planck como tal, es decir, la métrica que describe la parte estacionaria de esta nueva instancia en la vida de un objeto celeste que colpsa, mas no la parte dinámica que la sigue. Esto pues toda la información realmente importante sobre el espacio-tiempo como tal está contenida en esta métrica estática y no en la parte dinámica posterior a la misma.\\
+
+De acuerdo a \cite{ashtekar2006}, las ecuaciones de Friedman que gobiernan la dinámica del factor de escala $a(t)$ del universo es modificada por los efectos cuánticos gravitacionales de la siguiente manera
+\begin{equation*}
+\left(\frac{\dot{a}}{a}\right) = \frac{8\pi}{3}\rho\left(1-\frac{\rho}{\rho_P}\right)
+\end{equation*}
+
+Como se ha mencionado previamente, los efectos cuánticos en gravedad comienzan a ser dominantes cuando la densidad de energía alcanza la densidad de Planck. En relación con lo anterior, el punto es que este régimen puede ser alcanzado mucho antes de que las longitudes reñevantes en el espacio-tiempo que estemos estudiando alcancen la escala de Planck. El rebote es producido a una repulsión gravitacional-cuántica que básicamente se origina debido al principio de incertidumbre de Heissenberg, y es análoga a la ``fuerza'' que evita que el electrón colapse al interior del núcleo. Es de esperarse que este reboe ocurra cuando el universo alcanza un tamañp planckiano, pero la caracterización previamente dada solo requiere que la densidad alcance la escala de Planck y esto puede ocurrir mucho antes que lo primeramente mencionado. En un universo dominado por la materia, la densidad de Planck es alcanzada cuando el volumen del universo es
+\begin{equation*}
+V \approx \frac{m}{m_P}l_P^3,
+\end{equation*}
+
+donde $m$ es la masa total del universo. Por ende, el rebote puede ocurrir cuando el espacio-tiempo en cuestión es relativamente grande.\\
+
+La relación de todo lo mencionado previamente con el estudio de agujeros negros regulares es que al entender los efectos cuánticos como correcciones de teoría cuántica de campos efectiva en relatividad general se puede resolver el problema de la singularidad física en el origen de coordenadas que presentan las métricas que describen agujeros negros. Para ver esto de forma más clara, consideremos la posibilidad de que la energía de una estrella que colapsa y cualquier energía extra que cae dentro de agujero pueda condensarse en un núcleo altamente comprimido con una densidad del orden de la densidad de Planck. Si este es el caso, el colapso gravitacional de una estrella no conlleva a una singularidad sino a la mencionada fase extra en la vida de la estrella: una fase que podríamos denominar como cuántica en la que la atracción gravitacional es balanceada por una fuerte presión gravitacional, la cual llamamos estrella de Planck. Una estrella de Planck puede tener un radio del orden de 
+\begin{equation*}
+r \approx \left(\frac{m}{m_P}\right)^n l_P,
+\end{equation*}
+
+donde $m$ es ahora la masa de la estrella y $n$ es un real positivo. Posteriormente se dará un estimativo para $n$, pero la pregunta impostante en este momento es si dicho modelo de las estrellas de Planck puede ser lo suficientemente estable como para dar cuenta de la larga vida de lo agujeros negros comunes. La respuesta es afirmativa pero depende radicalmente del observador que mide su tiempo de existencia, es decir, de la relatividad de los observadores en relatividad general. El periodo de vida de una estrella de Planck es muy largo si se mide desde una distancia muy grande a la estrella, esto porque dicho tiempo depende del tiempo de evaporación de Hawking del agujero negro en el cual se encuentra la estrella. Dicho tiempo es del orden de $m^3$ en unidades naturales y para un agujero negro con una masa estelar típica (muy superior a la masa del sol) este tiempo es más largo que el tiempo cosológico. Por otro lado, ese tiempo de vida es muy corto (de orden $m$, que es el tiempo que tarda la luz en atravesar la estrella) desde el punto de vista de un observador ubicado en la estrella misma.\\
+
+Dadolo anterior, hay una gran diferencia dependiendo de la posición relativa del observador con respecto a la estrella misma, y la razón para esto es la dilatación temporal gravitacional. Es sabido que el tiempo corre más despacio en las vecidades de un fuerte campo gravitacional. En el caso hipotético de que un observador pudiera estar en la superficie de la estrella de Planck, ese se encontraría casi que inmediatamente en el futuro distante, después de que ha pasado suficiente tiempo para que el agujero haya terminado el proceso de evaporación. De esta forma es posible afirmar que el tiempo de vida propio de una estrella de Planck es corto desde su propia perspectiva, y la estrella es esencialmente un rebote. Por ende, un agujero negro sería, de acuerdo a estos razonamientos, un atajo hacia el futuro distante.\\
+
+Ahora bien, si esto es lo que realmente pasa en la naturaleza, el interior de un agujero negro formado por una estrella que ha colapsado gravitacionalmente puede ser modelado por euna métrica efectiva que es solución exacta de las ecuaciones de campo de Einstein en el exterior de la región planckiana, pero no en el interior de la misma, debido a los efectos cúánticos previamente aludidos. Las propiedades de una métrica así se pueden visualizar de la siguiente manera. En las coordenadas de Eddington-Finkelstein, los conos de luz, los cuales se doblan hacia adentro en el horizonte externo del agujero, vuelven a apuntar hacia arriba de forma continua cuando entran en la región planckiana. De esta manera, hay un segundo horizonte atrapado dentro del horizonte de Schwarzschild, a una escala $r_{in}$ relacionda con la escaloa de Planck. Esto puede verse gráficamente en la fig. \ref{fig: light cones}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.35\textwidth]{lightcones}
+	\caption{Ilustración del doblamiento hacia adentro y hacia arriba en los dos radios mencionados, para una estrella de Planck en coordenadas de Eddigton-Finkelstein. Imagen tomada de \cite{rovelli}.}
+	\label{fig: light cones}
+\end{figure}
+
+Daremos ahora una aproximación del parámetro $n$ mencionado unas líneas más ariiba. En términos dimensionales, la curvatura (escalar) se comporta como
+\begin{equation}
+\label{curvature1}
+R \approx \frac{m}{r^3},
+\end{equation}
+
+donde $r$ es la corrdenada radial de Schwarzchild. Aquí $m$ es la masa de la estrella colapsada, que coincidecon la masa total del agujero negro medida desde el infinito. A partir de las ecuaciones de Einstein, la curvatura es proporcional a la densidad de energía y la hipótesis realizada por Rovelli y Vidotto en \cite{rovelli} es que cuando la curvatura alcanza la escala de Planck comienza el régimen de los efectos cuánticos graviacionesles, y matemáticamente esta hipótesis se traduce en que
+\begin{equation}
+\label{curvature2}
+R \approx 8\pi\rho_P.
+\end{equation}
+
+A partir de las ecuaciones \eqref{curvature1},\eqref{curvature2} tenemos que el borde de la región no-clásica está dado por
+\begin{equation*}
+r_{in} \approx \left(\frac{m}{m_P}\right)^{\frac{1}{3}}l_P.
+\end{equation*}
+
+Esto nos permite dar el aproximado $n \sim 1/3$. Un ejemplo particular de una méttrica que describe, precisamente, las estrellas de Planck al interior de una agujero negro es la métrica de Hayward, la cual mimetiza la fuerza gravitacional-cuántica repulsiva que en última permite que se evite la singularidad, en este caso, en la métrica RN. Esto se puede ver con claridad al recordar que la expansión de $f(r)$ cuando $r \to \infty$ es
+\begin{equation*}
+f(r) \underset{r \to \infty}{\sim} 1 - \frac{2m}{r} + \frac{4l^2m^2}{r^4} + \mathcal{O}(r^{-5}).
+\end{equation*}
+
+Los dos primeros términos son los usuales de cualquier métrica asintóticamente plana, por ende, corresponden a los términos usuales del potencial gravitacional newtoniano (ley de la gravitación universal de Newton); el último término mostrado representa una fuerte fuerza repulsiva de corto alcance debida a las correcciones de teoría cuántica de campos efectiva en relatividad general.\\
+
+Ayende de lo anterior, es preciso explicar el carácter regular de la métrica de Hayward a la luz de l teorema de Borde. Como esta métrica está inspirada en la métrica RN, su diagrama de Carter-Penrose es muy similar, pero dado el carácter regular de $r = 0$, dicho punto en el diagrama deja de ser singular y pasa a ser un punto oridinario de este espacio-tiempo. En la fig. \ref{fig: carter penrose diagram hayward} se puede apreciar una porción de este diagrama.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.25\textwidth,height=0.34\textheight]{CPDhayward}
+	\caption{Diagrama de Carter-Penrose para la métrica de Hayward estática. Imagen tomada de \url{https://www.physicsforums.com/threads/penrose-diagram-for-the-kerr-black-hole.789730/}.}
+	\label{fig: carter penrose diagram hayward}
+\end{figure}
+
+\newpage
+
 
 
 \section{\label{conclusions} Conclusiones}
 
-
 \newpage
-\nocite{*}
+%\nocite{*}
 \bibliographystyle{unsrt}
 \bibliography{Biblio}
 
