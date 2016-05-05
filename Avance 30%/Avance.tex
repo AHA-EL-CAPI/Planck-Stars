@@ -17,12 +17,12 @@
 
 \title[Estrellas de Planck]{Estudio de Estrellas de Planck}
 
-\author[Hernández A.]{Alejandro Hernández A. \\ {\ \\ \footnotesize Asesor: Pedro Bargueño.} } 
+\author[Alejandro Hernández A.]{Alejandro Hernández A. \\ {\ \\ \footnotesize Asesor: Pedro Bargueño.} } 
 \institute[Uniandes]  
 {\normalsize
 Universidad de los Andes, Bogotá, Colombia \\ 
 }
-\date{Abril 7, 2015} 
+\date{Abril 29, 2016} 
 
 \begin{document}
 
@@ -42,10 +42,11 @@ Universidad de los Andes, Bogotá, Colombia \\
 \vspace{\fill}
 \begin{itemize}
 \item Soluciones estáticas y esféricamente simétricas de las ecuaciones de campo de Einstein (Agujeros negros).
-
+\vspace*{\fill}
 %Decir lo de los horizontes de eventos
 
 \item Problemas de las singularidades en el espaciotiempo $\leftrightarrow$ Fallas de la relatividad general.
+\vspace{\fill}
 
 \item Agujeros negros regulares.
 \end{itemize}
@@ -54,13 +55,17 @@ Universidad de los Andes, Bogotá, Colombia \\
 \begin{frame}{Motivación}
 \vspace{\fill}
 \begin{itemize}
-\item Obtener un comocimiento más profundo de la relatividad general.
+\item Obtener un conocimiento más profundo de la relatividad general.
+\vspace*{\fill}
 
 \item Conocer las limitaciones y fallas de la teoría general de relatividad.
+\vspace*{\fill}
 
 \item Entender la regularización de agujeros negros y los conceptos físicos detrás de esto.
+\vspace*{\fill}
 
 \item Conocer un poco acerca de teoría cuántica de campos efectiva en relatividad general.
+\vspace*{\fill}
 
 %En la medida de lo posible
 \end{itemize}
@@ -77,6 +82,7 @@ Universidad de los Andes, Bogotá, Colombia \\
 \begin{frame}{Condiciones de energía}
 \vspace{\fill}
 Las condiciones de energía son \cite{carroll}
+
 \begin{itemize}
 \item \textbf{NEC:} $\rho \geq 0$
 
@@ -145,6 +151,36 @@ f_{bardeen}(r) \underset{r \to \infty}{\sim} 1 - \frac{2m}{r} + \frac{3mg^2}{r^3
 \end{frame}
 
 \begin{frame}{Métrica de Bardeen}
+Los invariantes de curvatura de esta métrica están dados por
+
+\begin{equation}
+\label{bardeen scalars}
+\begin{gathered}
+R = \frac{6 g^2 m \left(4 g^2-r^2\right)}{\left(g^2+r^2\right)^{7/2}},\\
+R_{\mu \nu}R^{\mu \nu} = \frac{18 g^4 m^2 \left(8 g^4-4 g^2 r^2+13 r^4\right)}{\left(g^2+r^2\right)^7},\\
+R_{\mu \nu \sigma \rho}R^{\mu \nu \sigma \rho} = \frac{12 m^2 \left(8 g^8-4 g^6 r^2+47 g^4 r^4-12 g^2 r^6+4 r^8\right)}{\left(g^2+r^2\right)^7}.
+\end{gathered}
+\end{equation}
+\end{frame}
+
+\begin{frame}{Métrica de Bardeen}
+La condición de energía deil se satisface automáticamente puesto que al usar la función de masa
+\begin{equation}
+m(r) = \frac{mr^3}{(r^2 + g^2)^{3/2}},
+\end{equation}
+
+se tiene que
+
+\begin{align}
+\begin{aligned}
+\frac{1}{r^2}\frac{dm(r)}{dr} &= \frac{6 m g^2}{\left(g^2+r^2\right)^{5/2}},\\
+\frac{2}{r}\frac{dm(r)}{dr} &= \frac{12 m g^2 r}{\left(g^2+r^2\right)^{5/2}},\\
+\frac{d^2m(r)}{dr^2} &= \frac{6 m \left(2 g^4 r-3 g^2 r^3\right)}{\left(g^2+r^2\right)^{7/2}}.
+\end{aligned}
+\end{align}
+\end{frame}
+
+\begin{frame}{Métrica de Bardeen}
 Para la interpretación física de la métrica de Bardeen, se requiere acoplar RG con electrodinámic no-lineal \cite{ayon-beato2000}
 
 \begin{equation}
@@ -190,12 +226,31 @@ Para la interpretación del carácter regular de la métrica de Bardeen
 		
 		\item el cojunto de geodésicas nulas futuras es completo,
 		
-		\item su futuro causal es simple, con $E^{+}(X) \neq \emptyset,\ \forall X \subset \mathcal{M}$.
+		\item su futuro causal es simple, con $E^{+}(X) \neq \emptyset,\ \forall X \subset \mathcal{M} \text{\ acronal}$.
 	\end{enumerate}
 	
 	Entonces hay una sección espacial compacta en el futuro de $\mathcal{T}$.
 \end{theorem}
 \vspace{\fill}
+\end{frame}
+
+\begin{frame}{Métrica de Bardeen}
+\begin{theorem}[Penrose, 1965]
+\label{penrose sing thm}
+Si un espaciotiempo satisface que
+
+\begin{enumerate}[i]
+\item contiene una hipersuperficie de Cauchy $\Sigma$ no-compacta y conexa,
+
+\item contiene una superficie cerrada futuramente atrapada (future-trapped surface),
+
+\item cumple con la condición de convergencia nula $R_{\mu \nu}u^{\mu}u^{\nu} \geq 0$ para cualquier vector nulo $u^{\mu}$ (o equivalentemente, cumple la NEC),
+\end{enumerate}
+
+entonces dicho espacio tiempo posee geodésicas incompletas de tipo nulo futuro.
+\end{theorem}
+
+Un \textbf{horizonte de Cauchy} básicamente es una superficie que separa dos regiones del espacio: una que contiene geodésicas cerradas tipo espacio y otra que contiene curvas cerradas tipo tiempo.
 \end{frame}
 
 \subsection{Métrica de Vaidya}
@@ -241,7 +296,7 @@ La métrica de Hayward está dada por
 
 \begin{equation}
 \label{hayward metric}
-ds^2 = -\left( 1 - \frac{mr^2}{r^3 + 2ml^2} \right) dt^2 + \left( 1 - \frac{mr^2}{r^3 + 2ml^2} \right)^{-1} dr^2 + r^2d\Omega ^2,
+ds^2 = -\left( 1 - \frac{2mr^2}{r^3 + 2ml^2} \right) dt^2 + \left( 1 - \frac{2mr^2}{r^3 + 2ml^2} \right)^{-1} dr^2 + r^2d\Omega ^2,
 \end{equation}
 
 \begin{equation}
@@ -260,36 +315,152 @@ f_{hayward}(r) \underset{r \to \infty}{\sim} 1 - \frac{2m}{r} + \frac{4l^2m^2}{r
 ¿Cómo aplica el teorema de Borde en este caso?
 \end{frame}
 
+\begin{frame}{Métrica de Hayward estática}
+\vspace{\fill}
+Los invariantes de curvatura de esta métrica son
+
+\begin{equation}
+\label{hayward scalars}
+\begin{gathered}
+R = \frac{24 l^2 m^2 \left(4 l^2 m-r^3\right)}{\left(2 l^2 m+r^3\right)^3},\\
+R_{\mu \nu}R^{\mu \nu} = \frac{288 m^4 \left(8 l^8 m^2-4 l^6 m r^3+5 l^4 r^6\right)}{\left(2 l^2 m+r^3\right)^6},\\
+R_{\mu \nu \sigma \rho}R^{\mu \nu \sigma \rho} = \frac{48 m^2 \left(32 l^8 m^4-16 l^6 m^3 r^3+72 l^4 m^2 r^6-8 l^2 m r^9+r^{12}\right)}{\left(2 l^2 m+r^3\right)^6},
+\end{gathered}
+\end{equation}
+\end{frame}
+
+\begin{frame}{Métrica de hayward estática}
+\vspace*{\fill}
+Nuevamente se satisface la condición de energía débil puesto que dada la función de masa
+\begin{equation}
+\label{hayward mass}
+m(r) =  \frac{mr^3}{r^3 + 2ml^2}.
+\end{equation}
+
+tenemos que
+\begin{equation}
+\begin{aligned}
+\frac{1}{r^2}\frac{dm(r)}{dr} &= \frac{12 l^2 m^2}{\left(2 l^2 m+r^3\right)^2},\\
+\frac{2}{r}\frac{dm(r)}{dr} &= \frac{24 l^2 m^2 r}{\left(2 l^2 m+r^3\right)^2},\\
+\frac{d^2m(r)}{dr^2} &= \frac{48 m^2 \left(l^4 m r-l^2 r^4\right)}{\left(2 l^2 m+r^3\right)^3}.
+\end{aligned}
+\end{equation}
+\end{frame}
+
 
 \subsection{Métrica de Hayward dinámica}
 
+\begin{frame}{Métrica de Hayard dinámica}
+\vspace*{\fill}
+Al considerar 
+\begin{equation}
+dt = du + \frac{dr}{(1 - 2m(r)/r)}.
+\end{equation}
 
-\section{Métrica de Hayward modificada}
+y generalizar $m = m(u)$ tenemos que 
+\begin{equation}
+\label{hayward-tortoise}
+ds^2 = -\left( 1 - \frac{2m(u)r^2}{r^3 + 2m(v)l^2} \right) du^2 - 2dudr + r^2d\Omega ^2,
+\end{equation}
+
+\end{frame}
+
+
+\subsection{Métrica de Hayward modificada}
+
+\begin{frame}{Métrica de Hayward modificada}
+\vspace*{\fill}
+Las métricas de las estrellas de Planck deberían incluir
+
+\begin{itemize}
+\item La corrección de loop quantum gravity al potencial Newtoniano, dada por
+
+\begin{equation}
+\label{newF}
+\Phi (r) = -\frac{m}{r} \left( 1 + \beta \frac{l_{p}^2}{r^2} \right) + \mathcal{O}(r^{-4}).
+\end{equation}
+
+\item Dilatación de tiempo finita entre $r$ = 0 y $r \to \infty$.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Métrica de Hayward Modificada}
+Dado que 
+\begin{equation}
+\label{newton - metric}
+g_{00} = - (1 + 2\phi),
+\end{equation}
+
+para incluir las correcciones previamente mencionadas se da la métrica
+\begin{equation}
+\label{reg-schF}
+ds^2 = -G(r)F(r) dt^2 + \frac{1}{F(r)} dr^2 + r^2d\Omega^2,
+\end{equation}
+
+donde
+
+\begin{equation}
+\label{mod-hay-f}
+F(r) = 1 - \frac{mr^2}{r^3 + 2ml^2},
+\end{equation}
+
+y la función $G(r)$ se explica a continuación.
+
+\end{frame}
+
+\begin{frame}{Métrica de Hayward Modificada}
+las condiciones físicas que se le exigen a $G(r)$ son
+\begin{itemize}
+\item Preservar el comportamiento de Schwarzschild para $r \to \infty$.
+\item Incluir la corrección cuántica del potencial newtoniano \eqref{newF}.
+\item Permitir dilataciones de tiempo finitas entre $r \to 0$ y $r \to \infty$.
+\end{itemize}
+
+La forma más general de satisfacer las condiciones anteriormente impuestas es considerar $G(r)$ dada por
+
+\begin{equation}
+\label{mod-hay-g}
+G(r) = 1 - \frac{\beta M \alpha}{\alpha r^3 + \beta M},
+\end{equation}
+
+donde $\alpha$ está dado por
+
+\begin{equation}
+-g_{00}(r = 0) = 1 - \alpha,\ 0 \leq \alpha < 1.
+\end{equation}
+\end{frame}
 
 
 \section{\label{conclusions} Conclusiones}
 
-\section{\label{annex} Anexos}
+\begin{frame}{Conclusiones}
+\begin{itemize}
+\item La teoría de la relatividad general clásica presenta fallas potencialmente debidas a la no cosideración de la teoría cuántica.
+\vspace*{\fill}
+\item El proceso de regularización de agujeros negros puede ser esclarecido mediante la inclusión de la teoría cuántica en gravedad.
+\vspace{\fill}
+\item Las estrellas de Planck son una alternativa de regularización de agujeros negros, que plantea una nueva instancia el la vida de un agujero negro.
+\vspace*{\fill}
+\item Loop quantum gravity es una alternativa relativamente sencilla de incluir en relatividad general clásica.
+\end{itemize}
+\end{frame}
+
 
 \begin{frame}
-\frametitle{Trabajo por realizar}
+\frametitle{Trabajo Futuro}
 \vspace{\fill}
 \begin{itemize}
 \item Entender profundamente el teorema de Borde y sus múltiples aplicaciones en este trabajo.
 
-\item Completar el estudio de la métrica de Hayward estática y dinámica.
 
-%Interpretación física estilo AyónBeato y García.
 
-\item Estudiar en detalle la métrica de Hayward modificada.
+\item Entender, en la medida de lo posible, el carácter regular de la métrica de Bardeen en términos del teorema de Borde.
 
-\item Interpretar físicamente la métrica de Hayward modificada.
 
-\item Entender, en la medida de lo posible, el carácter regular de la métrica de Bardeen en términos del teorema de Borde (Anexos).
+\item Entender la derivación de las correcciones de teoría cuántica de campos efectiva del potencial Newtoniano.
 
-%Interpretación física del teorema
-
-\item Entender, en la medida de lo posible, la derivación de las correcciones de teoría cuántica de campos efectiva del potencial Newtoniano (Anexos).
+\item Entender la solución de la paradoja de la pérdida de información en agujeros negros.
 \end{itemize}
 \vspace{\fill}
 \end{frame}

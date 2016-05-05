@@ -1,14 +1,14 @@
 \select@language {spanish}
 \contentsline {section}{\numberline {1}Introducci\IeC {\'o}n}{3}{section.1}
-\contentsline {section}{\numberline {2} Preliminares}{4}{section.2}
-\contentsline {subsection}{\numberline {2.1}Condiciones de energ\IeC {\'\i }a}{4}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Procedimiento General}{4}{subsection.2.2}
-\contentsline {section}{\numberline {3} M\IeC {\'e}tricas relevantes}{5}{section.3}
-\contentsline {subsection}{\numberline {3.1} M\IeC {\'e}trica de Bardeen}{5}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}M\IeC {\'e}trica de Vaidya}{9}{subsection.3.2}
-\contentsline {section}{\numberline {4} M\IeC {\'e}trica de Hayward}{14}{section.4}
-\contentsline {subsection}{\numberline {4.1}M\IeC {\'e}trica de Hayward est\IeC {\'a}tica}{14}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}M\IeC {\'e}trica de Hayward din\IeC {\'a}mica}{16}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}M\IeC {\'e}trica de Hayward modificada}{16}{subsection.4.3}
-\contentsline {section}{\numberline {5}Interpretaci\IeC {\'o}n f\IeC {\'\i }sica de la m\IeC {\'e}trica de Hayward}{19}{section.5}
-\contentsline {section}{\numberline {6} Conclusiones}{23}{section.6}
+\contentsline {section}{\numberline {2} Preliminares}{5}{section.2}
+\contentsline {subsection}{\numberline {2.1}Condiciones de energ\IeC {\'\i }a}{5}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Procedimiento General}{6}{subsection.2.2}
+\contentsline {section}{\numberline {3} M\IeC {\'e}tricas relevantes}{7}{section.3}
+\contentsline {subsection}{\numberline {3.1} M\IeC {\'e}trica de Bardeen}{7}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}M\IeC {\'e}trica de Vaidya}{15}{subsection.3.2}
+\contentsline {section}{\numberline {4} M\IeC {\'e}trica de Hayward}{24}{section.4}
+\contentsline {subsection}{\numberline {4.1}M\IeC {\'e}trica de Hayward est\IeC {\'a}tica}{24}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}M\IeC {\'e}trica de Hayward din\IeC {\'a}mica}{26}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}M\IeC {\'e}trica de Hayward modificada}{27}{subsection.4.3}
+\contentsline {section}{\numberline {5}Interpretaci\IeC {\'o}n f\IeC {\'\i }sica de la m\IeC {\'e}trica de Hayward}{32}{section.5}
+\contentsline {section}{\numberline {6} Conclusiones}{38}{section.6}

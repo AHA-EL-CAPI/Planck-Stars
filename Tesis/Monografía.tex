@@ -1,4 +1,5 @@
-\documentclass{article}
+\documentclass[16pt,a4paper]{article}
+%\documentclass{article}
 
 \usepackage{amssymb,amsmath}
 \numberwithin{equation}{section}
@@ -13,12 +14,14 @@
     urlcolor=red,
     linktoc=all
 }
-\usepackage[left=3cm,top=2.5cm,right=3cm,bottom =2.5cm,nohead,nofoot]{geometry}
+\usepackage[left=3cm,top=3cm,right=3cm,bottom =3cm,nohead,nofoot]{geometry}
 
 \usepackage{enumerate}
 \usepackage{graphicx}
 
 \usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{setspace}
 
 \newtheorem{theorem}{Teorema}[section]
 
@@ -27,6 +30,7 @@
 
 
 \begin{document}
+
 
 \begin{titlepage}
 	\centering
@@ -49,16 +53,24 @@
 	\vfill
 
 % Bottom of the page
-	{\large 9 de Marzo de 2016\par}
+%	{\large 9 de Marzo de 2016\par}
 \end{titlepage}
 
-
+\doublespacing
 \newpage
-\
-\\
-\huge{Abstract:}\\\\\\\\\\\\\\\\\\\\
+\vspace*{\fill}
+\noindent
+\huge{Abstract:}
+\newline\newline
+\normalsize
+In the last decades there has been efforts to include quantum theory in general relativity in order to remove the black hole singularities. Loop quantum gravity provides an alternative to do this by considering the possibility that the energy of collapsing star can condensate into a highly compressed core with a density of the order of the Planck scale. In this case, the gravitational collapse do not lead to a singularity but to a new phase in the life of a star called a Planck star, in which the gravitational attraction is balanced by a strong quantum pressure. In this work, the metric describing the Planck stars is studied in detail, emphasizing the multiple calculations behind such a metric. To do so, the relevant energy conditions for regular space-times are established, important metrics such as the Bardeen metric and the Vaidya metric are studied, and finally the so called Hayward metric is studied as the metric that describes the aforementioned Planck stars. In the end of this work, a physical interpretation for this metric is given and some predictions of this model are analyzed.
+\vspace*{2cm}
+\newline\newline
 \huge{Resumen:}
-\newpage
+\newline\newline
+\normalsize
+En las últimas décadas se ha intentado incluir la teoría cuántica en relatividad general con el fin de remover las singularidades de los agujeros negros. Una alternativa para esto, proveniente de loop quantum gravity, considera la posibilidad de que la energía de una estrella que colapsa puede condensarse en un núcleo altamente comprimido con una densidad del orden de la escala de Planck. En este caso, el collapso gravitacional no conlleva a una singularidad sino a una nueva fase en la vida de la estrella, denominada estrella de Planck, en la que la atracción gravitacional es balanceada por una fuerte presión cuántica. En este trabajo se estudia detalladamente la métrica que describe las estrellas de Planck, haciendo particular énfasis en los múltiples cálculos innatamente asociados a dicha métrica. Para ello, se establecen las condiciones de energía de interés para métricas regulares, se estudian métricas previas importantes, tales como la métrica de Bardeen y la de Vaidya, para posteriormente estudiar la métrica de Hayward, la cual describe las susodichas estrellas de Planck. Finalmente, se realiza una interpretación física de la métrica y se analizan algunas predicciones de este modelo.
+\vspace*{\fill}
 
 \newpage
 \large
@@ -75,12 +87,12 @@ Teniendo en cuenta lo anterior, los puntos singulares de un espaciotiempo dado d
 
 En el año de 1968, Bardeen fue el primero en proponer una solución regular de las ecuaciones de campo de Einstein. Si bien el documento \cite{bardeen} en el que se propuso el modelo no está disponible, una revisión detallada de la métrica de Bardeen puede ser consultada en \cite{borde1994}. La importancia de esta métrica no solo se debe a que fue la primera de su estilo sino también a que fue crucial para orientar las futuras investigaciones sobre agujeros negros regulares. Al respecto, Ayón-Beato y García propusieron una interpretación física del modelo de Bardeen en términos de electrodinámica no lineal  \cite{ayon-beato2000} y construyeron muchos otras métricas correspondientes a agujeros negros regulares \cite{ayon-beato2005,ayon-beato1999-1,ayon-beato1999-2,ayon-beato1999-3}.\\
 
-Ayende de lo anterior, trabajos más recientes \cite{hayward2006,lorenzo,rovelli} tratan de generalizar el modelo que propuso Bardeen de regularización de agujeros negros, de tal forma que se incluyan correcciones efectivas de teoría cuántica de campos en relatividad general. En estos modelos se definen el concepto de Estrella de Planck, que corresponde a un métrica regular, esféricamente simétrica, asintóticamente plana, que satisface la condición de energía débil y que no posee horizontes de Cauchy (¡OJO!).\\
+Ayende de lo anterior, trabajos más recientes \cite{hayward2006,lorenzo,rovelli} tratan de generalizar el modelo que propuso Bardeen de regularización de agujeros negros, de tal forma que se incluyan correcciones efectivas de teoría cuántica de campos en relatividad general. En estos modelos se definen el concepto de Estrella de Planck, que corresponde a un métrica regular, esféricamente simétrica, asintóticamente plana, que satisface la condición de energía débil y que no posee horizontes de Cauchy.\\
 
-Precisamente, el objetivo de este trabajo es entender el proceso mediante el cual se formulan las métricas correspondientes a estrellas de Planck, entender el mecanismo mediante el cual dichas métrica evaden la singularidad en $r = 0$ (¡OJO!), además de tratar de interpretar físicamente el tensor de energía-momento (SET) asociado a las mismas. Teniendo en cuenta lo previamente mencionado, la organización de este documento se da a continuación. En la Sec. \ref{preliminaries section} se establecen las condiciones de energía de forma usual en términos de SET y se establece la metodología general que se empleará para estudiar todas las métricas presentadas. En la Sec. \ref{previous metrics section} se estudian en detalle las métricas de Bardeen y de Vaidya, las cuales constituyen la base sobre la cual se definen las estrellas de Planck. Posteriormente, en la Sec. \ref{planck stars section} se estudia a fondo la métrica que define las aludidas estrellas de Planck y se da la interpretación física de las mismas. Finalmente, en la sección \ref{conclusions} se resumen los resultados del trabajo y en la sección \ref{annex} se habla sobre las correcciones cuánticas que introducen las estrellas de Planck en relatividad general.\\
+Precisamente, el objetivo de este trabajo es entender el proceso mediante el cual se formulan las métricas correspondientes a estrellas de Planck, entender el mecanismo mediante el cual dichas métrica evaden la singularidad en $r = 0$, además de tratar de interpretar físicamente el tensor de energía-momento (SET) asociado a las mismas. Teniendo en cuenta lo previamente mencionado, la organización de este documento se da a continuación. En la Sec. \ref{preliminaries section} se establecen las condiciones de energía de forma usual en términos de SET y se establece la metodología general que se empleará para estudiar todas las métricas presentadas. En la Sec. \ref{previous metrics section} se estudian en detalle las métricas de Bardeen y de Vaidya, las cuales constituyen la base sobre la cual se definen las estrellas de Planck. Posteriormente, en la Sec. \ref{planck stars section} se estudia a fondo la métrica que define las aludidas estrellas de Planck y se da la interpretación física de las mismas. Finalmente, en la sección \ref{conclusions} se resumen los resultados del trabajo y se habla sobre las correcciones cuánticas que introducen las estrellas de Planck en relatividad general.\\
 
-¡OJO! Teoremas de singularidad.
 
+\newpage
 \section{\label{preliminaries section} Preliminares}
 
 %¡OJO! Ejemplos cuando se hable de cada métrica.\\
@@ -142,7 +154,7 @@ donde la función $f(r)$ puede ser escrita como
 f(r) = 1 - \frac{2m(r)}{r}.
 \end{equation}
 
-Ahora bien, dado que nos interesa estudiar agujeros negros regulares, es preciso aclarar que la SEC se debe violar en algún lugar dentro del horizonte \cite{zaslavskii}, a la vez que la WEC o la DEC pueden ser satisfechas en todo el espaciotiempo generado \cite{dymnikova2004}. Al considerar el elemento de línea \eqref{general static spherical} junto con \eqref{general f}, es posbile escribir los componente de SET como \cite{vanegas-weak} OJO signatura y métrica ortogonal
+Ahora bien, dado que nos interesa estudiar agujeros negros regulares, es preciso aclarar que la SEC se debe violar en algún lugar dentro del horizonte \cite{zaslavskii}, a la vez que la WEC o la DEC pueden ser satisfechas en todo el espaciotiempo generado \cite{dymnikova2004}. Al considerar el elemento de línea \eqref{general static spherical} junto con \eqref{general f}, es posbile escribir los componente de SET como \cite{vanegas-weak} signatura y métrica ortogonal
 
 \begin{equation}
 \label{wec set comp}
@@ -163,6 +175,7 @@ y por ende, se concluye que la WEC puede expresarse de manera equivalente en té
 
 Como se mencionó previamente, la DEC incluye por continuidad a la WEC. Esto permite argumentar que, por simplicidad, la única condición de energía que se va a exigir para los agujeros negros regulares presentados en secciones poseriores será la WEC.
 
+\newpage
 \section{\label{previous metrics section} Métricas relevantes}
 
 A continuación se realiza un estudio detallado de las métricas de Bardeen y de Vaidya, las cuales son cruciales para el estudio posterior de la métrica que describe el espaciotiempo generado por las estrellas de Planck.
@@ -233,7 +246,7 @@ El modelo de Ayón-Beato y García parte la suposición de que la dinámica de l
 \mathcal{S} = \int dv \left( \frac{1}{16 \pi}R - \frac{1}{4 \pi}\mathcal{L}(F) \right),
 \end{equation}
 
-donde $R$ es el escalar de curvatura; $\mathcal{L}$ es una función de $F = \frac{1}{4}F_{\mu \nu}F^{\mu \nu}$, con $F_{\mu \nu} = 2\nabla_{[\mu}A_{\nu]}$ el tensor electromagnético; y $v$ es la coordenada avanzada de Eddington-Finkelstein. Las ecuaciones de Eisntein acopladas con electrodinámica no-lineal resultantes de la acción $\mathcal{S}$ son (¡OJO!)\\
+donde $R$ es el escalar de curvatura; $\mathcal{L}$ es una función de $F = \frac{1}{4}F_{\mu \nu}F^{\mu \nu}$, con $F_{\mu \nu} = 2\nabla_{[\mu}A_{\nu]}$ el tensor electromagnético; y $v$ es la coordenada avanzada de Eddington-Finkelstein. Las ecuaciones de Eisntein acopladas con electrodinámica no-lineal resultantes de la acción $\mathcal{S}$ son\\
 
 \begin{equation}
 \label{euler lagrange eqns}
@@ -243,7 +256,7 @@ G_{\mu}^{\ \nu} = 2(\mathcal{L}_{F} F_{\mu \lambda} F^{\nu \lambda} - \delta_{\m
 \end{aligned}
 \end{equation}
 
-donde $\mathcal{L}_{F} \equiv \partial \mathcal{L}/\partial F$. La fuente electrodinámica no-lineal usada por los autores para derivar la métrica de Bardeen es (¡OJO! Formalismo P)
+donde $\mathcal{L}_{F} \equiv \partial \mathcal{L}/\partial F$. La fuente electrodinámica no-lineal usada por los autores para derivar la métrica de Bardeen es 
 
 \begin{equation}
 \label{nonlinear bardeen}
@@ -256,7 +269,7 @@ donde $s \equiv |g|/2m$; m la masa de la configuración descrita; y $g$ un pará
 F_{\mu \nu} = 2 \delta^{\theta}_{\ \lbrack\mu} \delta^{\varphi}_{\ \nu\rbrack} B(r, \theta),
 \end{equation}
 
-y al tener en cuenta todas las consideraciones previamente mencionadas, Ayón-Beato y García concluyen que el parámetro $g$ corresponde a la carga de un monopolo magnético, esto es (¡OJO!)
+y al tener en cuenta todas las consideraciones previamente mencionadas, Ayón-Beato y García concluyen que el parámetro $g$ corresponde a la carga de un monopolo magnético, esto es 
 
 \begin{equation}
 \frac{1}{4 \pi} \int_{S^{\infty}}\mathbf{F} = \frac{g}{4 \pi} \int_{0}^{\pi}\int_{0}^{2\pi}\sin (\theta) d\theta d\varphi = g.
@@ -270,6 +283,7 @@ En el año 1965, Roger Penrose publicó un famoso artículo \cite{penrose} acerc
 
 \theoremstyle{definition}
 \begin{definition}
+\label{trapped surfaces}
 	Sea $\mathcal{M}$ un espaciotiempo. Sea $\mathcal{S} \subset \mathcal{M}$ una hipersuperficie de $\mathcal{M}$.
 	\begin{enumerate}[i]
 		\item $\mathcal{S}$ se llama hipersuperficie de Cauchy si es intersecada exactamente una vez por cualquier curva inextendible tipo tiempo. En otras palabras, $\mathcal{S}$ representa todo el espacio en un instante de tiempo. 
@@ -285,7 +299,7 @@ En el año 1965, Roger Penrose publicó un famoso artículo \cite{penrose} acerc
 Si un espaciotiempo satisface que
 
 \begin{enumerate}[i]
-\item contiene una hipersuperficie de Cauchy $\Sigma$ no-compacta y conexa (OJO),
+\item contiene una hipersuperficie de Cauchy $\Sigma$ no-compacta y conexa,
 
 \item contiene una superficie cerrada futuramente atrapada (future-trapped surface),
 
@@ -307,9 +321,9 @@ En tanto que la métrica de Bardeen está inspirada en la métrica RN, la pregun
 	\label{fig: bardeen diagram}
 \end{figure}
 
-Como se ha mencionado previamente, las propiedades globales, y en particular, la estructura causal de la métrica de Bardeen es similar a la de la métrica de Reissner Nordström, de ahí la similitud entre los diagramas de Penrose-Carter correspondientes a ambas métricas. Cada punto en el interior del espaciotiempo representado en la fig. \ref{fig: bardeen diagram} es una 2-esfera, las líneas sólidas y los círculos respresentan regiones en el infinito, y las líneas punteadas representan el origen ($r = 0$) del sistema de coordenadas esféricas (Las dos líneas eituqetadas con $r = 0$ representan dos "patches" diferentes de coordenadas). La región sombreada representa parte del interior del agujero negro, de tal forma que señales enviadas desde esa región no pueden escapar al infinito futuro tipo nulo $i^{+}$. Dado a que esa región, en particular, está dentro del horizonte de enventos del agujero, hay superficies atrapadas $\mathcal{T}$ en la misma. De acuerdo a Borde, el caráter regular de la métrica de Bardeen se debe a que, en la región señalada, es posible que los rayos de luz se ``envuelvan'' alrededor del universo universo, en otras palabras, aunque los sistemas de geodésicas nulas salientes o entrantes de $\mathcal{T}$ convergen, estas geodésicas convergen a puntos $r = 0$ de ``patches'' distintos. De hecho, la superficie atrapada $\mathcal{T}$ y su cono de luz futuro $E^{+}(\mathcal{T})$ yacen en el desarrolo de Cauchy futuro (OJO) de la superficie $\mathcal{S}_{2}$ y la singularidad en $r = 0$ se evita única y exclusivamente (OJO) debido a que $\mathcal{S}_{2}$ es compacta.\\
+Como se ha mencionado previamente, las propiedades globales, y en particular, la estructura causal de la métrica de Bardeen es similar a la de la métrica de Reissner Nordström, de ahí la similitud entre los diagramas de Penrose-Carter correspondientes a ambas métricas. Cada punto en el interior del espaciotiempo representado en la fig. \ref{fig: bardeen diagram} es una 2-esfera, las líneas sólidas y los círculos respresentan regiones en el infinito, y las líneas punteadas representan el origen ($r = 0$) del sistema de coordenadas esféricas (Las dos líneas eituqetadas con $r = 0$ representan dos "patches" diferentes de coordenadas). La región sombreada representa parte del interior del agujero negro, de tal forma que señales enviadas desde esa región no pueden escapar al infinito futuro tipo nulo $i^{+}$. Dado a que esa región, en particular, está dentro del horizonte de enventos del agujero, hay superficies atrapadas $\mathcal{T}$ en la misma. De acuerdo a Borde, el caráter regular de la métrica de Bardeen se debe a que, en la región señalada, es posible que los rayos de luz se ``envuelvan'' alrededor del universo universo, en otras palabras, aunque los sistemas de geodésicas nulas salientes o entrantes de $\mathcal{T}$ convergen, estas geodésicas convergen a puntos $r = 0$ de ``patches'' distintos. De hecho, la superficie atrapada $\mathcal{T}$ y su cono de luz futuro $E^{+}(\mathcal{T})$ yacen en el desarrolo de Cauchy futuro de la superficie $\mathcal{S}_{2}$ y la singularidad en $r = 0$ se evita única y exclusivamente debido a que $\mathcal{S}_{2}$ es compacta.\\
 
-En otras palabras, las secciones espaciales de un agujero negro de Bardeen evolucionan (OJO) desde una región en la que no son compactas (por ejemplo, la superficie $\mathcal{S}_{1}$ de la fig. \ref{fig: bardeen diagram}), hacia una región donde son compactas, y por ende, el unvierso cambia su topología de abierto a cerrado. Estos razonamientos son formalizados por Bardeen mediante el siguiente teorema, en el cual se establece que dicho cambio de topología es necesario para la existencia de agujeros negros regulares que obedecen la condición de energía débil.\\
+En otras palabras, las secciones espaciales de un agujero negro de Bardeen evolucionan desde una región en la que no son compactas (por ejemplo, la superficie $\mathcal{S}_{1}$ de la fig. \ref{fig: bardeen diagram}), hacia una región donde son compactas, y por ende, el unvierso cambia su topología de abierto a cerrado. Estos razonamientos son formalizados por Bardeen mediante el siguiente teorema, en el cual se establece que dicho cambio de topología es necesario para la existencia de agujeros negros regulares que obedecen la condición de energía débil.\\
 
 \begin{theorem}[Borde, 1996]
 	\label{borde reg thm}
@@ -320,17 +334,75 @@ En otras palabras, las secciones espaciales de un agujero negro de Bardeen evolu
 		
 		\item obedece la condición de convergencia nula,
 		
-		\item el cojunto de geodésicas nulas futuras es completo (OJO),
+		\item el cojunto de geodésicas nulas futuras es completo,
 		
-		\item su futuro causal es simple (OJO), con $E^{+}(X) \neq \emptyset,\ \forall X \subset \mathcal{M}$.
+		\item su futuro causal es simple, con $E^{+}(X) \neq \emptyset,\ \forall X \subset \mathcal{M}$.
 	\end{enumerate}
 	
 	Entonces hay una sección espacial compacta en el futuro de $\mathcal{T}$.
 \end{theorem}
 
-Una prueba (a simple vista, sencilla) de este teorema puede ser consultada en \cite{borde1996}. Es importante mencionar que, si bien no hay ninguna alución a un cambio de topología en el teorema, es usual que un espaciotiempo de agujero negro contenga una regiión en infinito (OJO) y, por ende, es de esperar que ``comience'' con una sección espacial no compacta $\mathcal{S}$ y por lo menos una superficie eventualmente futuramente atrapada en el futuro de la misma (OJO). En estos términos, el teorema de Borde muestra que, bajo condiciones muy generales, para que un agujero negro pueda ser regular se requiere que el espaciotiempo del cual hace parte desarrolle una sección espacial compacta en el futuro de $\mathcal{S}$, es decir, que la topología debe cambiar de abierta a cerrada. Una consecuencia inmediata de este cambio es que dicho espacio no puede ser globalmente hiperbólico.\\
+Una prueba (a simple vista, sencilla) de este teorema puede ser consultada en \cite{borde1996}. Es importante mencionar que, si bien no hay ninguna alución a un cambio de topología en el teorema, es usual que un espaciotiempo de agujero negro contenga una regiión en infinito y, por ende, es de esperar que ``comience'' con una sección espacial no compacta $\mathcal{S}$ y por lo menos una superficie eventualmente futuramente atrapada en el futuro de la misma. En estos términos, el teorema de Borde muestra que, bajo condiciones muy generales, para que un agujero negro pueda ser regular se requiere que el espaciotiempo del cual hace parte desarrolle una sección espacial compacta en el futuro de $\mathcal{S}$, es decir, que la topología debe cambiar de abierta a cerrada. Una consecuencia inmediata de este cambio es que dicho espacio no puede ser globalmente hiperbólico.\\
 
-¡OJO! Explicar cómo aplica el teorema para el caso de la métrica de Bardeen.\\
+Para tratar de entender un poco más el teorema en sí, es preciso explicar con más detalle cada una de las hipótesis del mismo.\\
+
+La primera hipótesis es de esperar que sea satisfecha en el interior de cualquier agujero negro. Como ya se mencionó, una superficie futuramente atrapada es una en la cual todas geodésicas nulas futuramente dirigidas que emanan ortogonalmente de dicha superficie tienen divergencia negativa en la misma. La diferencia fundamental con las superficies enventualmente futuramente atrapadas es que solo se requiere que la divergencia se vuelva negativa en el futuro de la superficie a lo largo de cualquier geodésica. La intención de este debilitamiento de la noción de una superficie atrapada, como Borde mismo lo afirma, se hace con el fin de incluir situaciones en las que el agujero negro esté creciendo dado a materia que cae en el mismo. Dentro de un agujero negro es de esperar que hayan2-superficies cerradas tipo espacio que son eventualmente  futuramente atrapadas. Esto puesto que de no ser así, habría congruencias de geodésicas con divergencia no negativa a lo largo de la susodicha superficie, las cuales perfectamente podrían escapar hacia el futuro. Esto es lo que ocurre por ejemplo para $e^2 = m^2$ en la métrica RN.\\
+
+La segunda hiótesis se sigue automáticamente de la condición de energía débil, la cual es la única que exigimos que cumplan los modelos discutidos en este trabajo. Es importante notar que sin algún tipo de condición de convergencia, se pueden tener agujeros negros regulares sin ningún cambio de topología.\\
+
+La tercera hipótesis es satisfecha automáticamente en cualquier métrica que describa un espacio-tiempo-regular, que son precisamente las métricas que estamos estudianto en este documento.\\
+
+Finalmente, para explicar la última hipótesis se requiere de algunas definciones relacionadas con la estructura causal del espacio tiempo, las cuales están inspiradas en el espacio-tiempo de Schwarszchild. Sean $x$, $y$ dos puntos en una variedad $M$.
+\begin{itemize}
+\item $x$ precede cronolóogicamente a $y$, denotado $x \ll y$, si existe una curva tipo tiempo dirigida hacia el futuro desde $x$ hasta $y$.
+
+\item $x$ estrictamente precede causalmtne a $y$, denotado $x \leq y$, si existe una curva tipo tiempo o tipo nula dirigida hacia el futuro desde $x$ hasta $y$.
+
+\item $x$ precede causalmente a $y$, denotado $x \prec y$, si $x$ estrictamente precede causalmente a $y$ o si $x = y$.
+\end{itemize}
+
+Teniendo en cuenta lo anterior, para $x \in M$ se define
+\begin{itemize}
+\item El futuro cronológico de $x$, denotado $I^+(x)$, como el conjunto de todos los puntos $y \in M$ tales que $x$ precede cronológicamente a $y$, esto es
+\begin{equation*}
+I^+(x) \coloneqq \left\lbrace y \in M | x \ll y \right\rbrace
+\end{equation*}
+\item El pasado cronológico de $x$, denotado $I^-(x)$, como el conjunto de todos los puntos $y \in M$ tales que $y$ precede cronológicamente a $x$, a saber
+\begin{equation*}
+I^-(x) \coloneqq \left\lbrace y \in M | y \ll x \right\rbrace
+\end{equation*}
+\end{itemize}
+
+Análogamente se define
+\begin{itemize}
+\item El futuro causal de $x$, denotado $J^+(x)$, como el conjunto de todos los puntos $y \in M$ tales que $x$ precede causalmente a $y$. De forma compacta
+\begin{equation*}
+J^+(x) \coloneqq \left\lbrace y \in M | x \prec y \right\rbrace
+\end{equation*}
+\item El pasado causal de $x$, denotado $J^+(x)$, como el conjunto de todos los puntos $y \in M$ tales que $y$ precede causalmente a $x$. Con la simbología anterior, esto significa
+\begin{equation*}
+J^-(x) \coloneqq \left\lbrace y \in M | y \prec x \right\rbrace
+\end{equation*}
+\end{itemize}
+
+También es preciso recordar la definición del cono de luz. Considerando el evento $p$ como un pulso de luz en un tiempo $t_0$, todos los eventos que pueden ser alcanzados por este pulso desde $p$ conforman el cono de luz futuro de $p$, mientras que los eventos que pueden enviar un pulso de luz a $p$ forman el cono de luz pasado de $p$. El cono de luz de algún evento $p$ divide todos los eventos del espacio-tiempo en 5 categorías, las cuales son
+\begin{itemize}
+\item Los eventos en el cono de luz futuro de $p$.
+
+\item Los eventos en el cono de luz pasado de $p$.
+
+\item Los eventos dentro del cono de luz futuro de $p$, que corresponden a los eventos que pueden ser afectados por partículas emitidas desde $p$.
+
+\item Los eventos dentro del cono de luz pasado de $p$, los cuales pueden emitir partículas y afectar a $p$.
+
+\item Los eventos que no pueden afectar causalemente a $p$.
+\end{itemize}
+
+Con lo anterior, si definimos a $E^+(x)$ como el cono de luz futuro de un punto $x \in M$, es posible demostrar que $E^+(x) \subset \dot{I}^+(x)$, donde $\dot{I}^+(x)$ denota la frontera del futuro cronológico de $x$. No obstante, en general estos dos conjuntos no son iguales. Espacio-tiempos para los cuales $E^+(x) = \dot{I}^+(x)$ se llaman causalemente simples y físicamente esto significa básicamente que su estructura causal es semejante a la del espacio-tiempo de Schwarszchild.\\
+
+Basado en las definiciones anteriores, el espacio-tiempo generado por la métrica de Bardeen (y por métricas inspiradas en la de Bardeen) satisfacen la condición de ser causalmente simples. Además, es necesario hacer alguna suposición sonre causalidad para que se tenga el argumento de cambio de topología, puesto que de no hacerlo, existen ejemplos basados en el universo de Gödel, en los que no se tiene ni singularidad ni cambio de topología.\\
+
+Habiendo explicado cada una de las hipótesis del teorema de Borde es preciso mencionar que no se tiene una comprensión completa del mismo, es decir, que no se logró comprender exactamente la necesidad de cada una de sus hipótesis para establecer ese resultado, ni su conexión directa entre el cambio de topología que plantea este teorema y el carácter regular de un espacio-tiempo dado. No obstante, que este teorema básicamente provee un converso para el teorema de Penrose, se tratará de desmenuzar el significado específico del teorema de Borde en un trabajo futuro.\\
 
 Para finalizar esta sección sobre la métrica de Bardeen es preciso mencionar que, si bien lo que hemos hecho hasta el momento es el primer paso para estudiar las estrellas de Planck, dichas estrellas son descritas por espaciotiempos que no son estáticos en absoluto. Por ende, es necesario desarrollar herramientas que permitan estudiar la evolución dinámica inminente de las susodichas estrellas. La forma en que se abordará espaciotiempos que varían con el tiempo será a través de la famosa métrica de Vaidya.
 
@@ -504,7 +576,6 @@ Al trabajar con simetría esférica, la expresión matemática de las divergenci
 \theta_l = \frac{2}{r}l^r \hspace{.5cm},\hspace{.5cm} \theta_l = \frac{2}{r}n^r.
 \end{equation}
 
-\newpage
 La utilidad de toda la maquinaria desarrollada para la definición de las divergencias de campos vectoriales \eqref{divergences} es evidente a partir de la siguiente discusión.\\
 
 En aras de estudiar la geometría del espacio-tiempo correspondiente a la métrica de Vaidya es preciso ubicar los horizontes entre la región donde los denominados rayos de luz salientes y orientados hacia el futuro son realmente salientes en el sentido en que se mueven a valores de $r$ más grandes, $dr/d\tau >0$; y la región donde los rayos "salientes'' en realidad se mueven hacia valores más pequeños de $r$, $dr/d\tau <0$. Esto se puede ver directamente desde la condición
@@ -568,7 +639,6 @@ S_{v,r}\ es\
 \end{cases}
 \end{align*}
 
-\newpage
 Considerando lo previamente mencionado, el horizonte de eventos del agujero negro de Schwarzschild puede ser caracterizado, con las nuevas herramientas, como la hipersuperficie nula que consiste de las esferas marginalmente atrapadas con $r = 2m$, esto es
 \begin{equation*}
 \mathcal{T} = \cup_{\substack{v}}S_{v,r = 2m}.
@@ -589,13 +659,14 @@ por ende, si la condición de energía nula $m'(v) \geq 0$ se satisface (como lo
 
 Finalmente, este tipo de superficies constituyen los afamados horizontes aparentes, los cuales corresponden a un tubo marginalmente atrapado de acuerdo a \cite{blau}. Los tubos marginalmente atrapados son simplemente 3-superficies foliadas por superficies marginalmente atrapadas, esto es, superficies con $\theta_n <0$ y $\theta_l = 0$. He aquí la utlidad de la divergencia de campos vectoriales, particularmente, de los campos vectoriales tangentes y normales a la hipersuperficie de interés, pues en terminos de sus signos se caracteriza completamente el tipo de dicha superficie, y por ende, la existencia o no de horizontes de eventos para un espacio-tiempo dado.	
 
+\newpage
 \section{\label{planck stars section} Métrica de Hayward}
 
 Teniendo todas las herramientas estudiadas en las seccioes anteriores, es posible comenzar a estudiar el tema de interés para este trabajo, a saber, la métrica correspondiente a las estrellas de Planck.
 
 \subsection{Métrica de Hayward estática}
 
-Si bien es posible encontrar métricas como la de Bardeen, es decir, esféricamente simétricas, estáticas, asintóticamente planas, con centros regulares, cuyos EMT es físicamente razonable, en particular que satisface la WEC. No obstante, dichos espaciotiempos típicamente soy considerados como no-físicos en tanto que poseen horizontes de Cauchy (OJO). No obstante, si consideramos la evaporación de uno de esos agujeros negros, el horizonte de cauchy pasa a user tan real como el horizonte de eventos.  Precisamente, las estrellas de Planck son descritas por métricas regulares dno estáticas (dinámicas) que satisfacen todas las propiedades anteriormente mencionadas, y que además poseen la característica adicional de incluir correcciones de teoría cuántica de campos en relatividad general.\\
+Si bien es posible encontrar métricas como la de Bardeen, es decir, esféricamente simétricas, estáticas, asintóticamente planas, con centros regulares, cuyos EMT es físicamente razonable, en particular que satisface la WEC. No obstante, dichos espaciotiempos típicamente soy considerados como no-físicos en tanto que poseen horizontes de Cauchy. No obstante, si consideramos la evaporación de uno de esos agujeros negros, el horizonte de cauchy pasa a user tan real como el horizonte de eventos.  Precisamente, las estrellas de Planck son descritas por métricas regulares dno estáticas (dinámicas) que satisfacen todas las propiedades anteriormente mencionadas, y que además poseen la característica adicional de incluir correcciones de teoría cuántica de campos en relatividad general.\\
 
 Con el fin de entender paulatinamente el concepto de estrella de Planck, es preciso dividir su estudio entre la parte estática y la parte dinámica. La parte estática es descrita por la métrica de Hayward, la cual está dada por 
 
@@ -850,6 +921,7 @@ G(r) = 1 - \frac{\beta M \alpha}{\alpha r^3 + \beta M},
 
 con $\alpha$ y $\beta$ parámetros variables, sobre los cuales se imponen ciertas cotas numéricas. Un estudio más detallado de esta métrica requeriría un conocimiento más profundo acerca de la deducción de la corrección \eqref{newF}, pero adquirir ese conocimiento implicaría desviarse mucho del tema central de este trabajo, el cual es el estudio de agujeros negros regulares, por ende, se deja planteado como trabajo futuro.
 
+\newpage
 \section{Interpretación física de la métrica de Hayward}
 
 Hasta esta instancia, solo se ha trabajado con la parte calculística inatamente asociada al estudio de agujeros negros en relatividad general y poco se ha dicho sobre la interpretación física de los modelos estudiados previamente. Dado que los cálculos teóricos son vacíos si no hay un transfondo físico detrás de los mismos, esta sección presenta una interpretación exhaustiva del modelo de interés en este documento, a saber, la métrica de Hayward.\\
@@ -922,7 +994,7 @@ f(r) \underset{r \to \infty}{\sim} 1 - \frac{2m}{r} + \frac{4l^2m^2}{r^4} + \mat
 
 Los dos primeros términos son los usuales de cualquier métrica asintóticamente plana, por ende, corresponden a los términos usuales del potencial gravitacional newtoniano (ley de la gravitación universal de Newton); el último término mostrado representa una fuerte fuerza repulsiva de corto alcance debida a las correcciones de teoría cuántica de campos efectiva en relatividad general.\\
 
-Ayende de lo anterior, es preciso explicar el carácter regular de la métrica de Hayward a la luz de l teorema de Borde. Como esta métrica está inspirada en la métrica RN, su diagrama de Carter-Penrose es muy similar, pero dado el carácter regular de $r = 0$, dicho punto en el diagrama deja de ser singular y pasa a ser un punto oridinario de este espacio-tiempo. En la fig. \ref{fig: carter penrose diagram hayward} se puede apreciar una porción de este diagrama.
+Ayende de lo anterior, es preciso explicar el carácter regular de la métrica de Hayward a la luz de l teorema de Borde. Como esta métrica está inspirada en la métrica RN, su diagrama de Carter-Penrose es muy similar, pero dado el carácter regular de $r = 0$, dicho punto en el diagrama deja de ser singular y pasa a ser un punto oridinario de este espacio-tiempo. En la fig. \ref{fig: carter penrose diagram hayward} se puede apreciar una porción de este diagrama.\\
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.25\textwidth,height=0.34\textheight]{CPDhayward}
@@ -930,10 +1002,22 @@ Ayende de lo anterior, es preciso explicar el carácter regular de la métrica d
 	\label{fig: carter penrose diagram hayward}
 \end{figure}
 
+Lo primero que se debe hacer s verificar que se satisfacen las cuatro hipótesis necesarias para que se satisfaga el teorema de Borde. La primera hipótesis es que el espacio-tiempo contuviera una superficie eventualmente futuramente atrapada (véase la def. \ref*{trapped surfaces}). Como se mencionó previamente, esta condición es satisfecha casi que automáticamente en cualquier espacio-tiempo y en este caso la superficie eventualmente futuramente atrapada corresponde con el horizonte externo de la métrica de Hayward. La segunda hipótesis es la condición de convergencia nula, la cual también se satisface en este caso puesto que ya se vió que el espacio-tiempo descrito por la métrica de Hayward satisface la condición de energía débil. La tercera hipótesis es que sea geodésicamente-nulo completo hacia el futuro, que básicamente significa que el espacio-tiempo no contenga singularidades, y como se vió previamente la métrica de Hayward es regular en todos los puntos del espacio-tiempo. Solo resta verificar la última hipótesis, pero dada la importancia de la misma, se tratará con un mayor cuidado.\\
+
+La última hipótesis del teorema de Borde establece que el universo sea causalmente simple, y como la métrica de Hayward está inspirada en la métrica de Bardeen, esta condición se satisface dado que la estructura causal del espacio-tiempo que general es semejante a la de Schwarszchild.\\
+
+Más allá de esto, el carácter regular de la métrica de Hayward indica que cualquier geodésica proveniente del interior del horizonte de este agujero negro regular debe alcanzar la región $r \to \infty$. Esto puede realizarse de multiples formas, entre ellas destacan
+
+\begin{itemize}
+\item Identificando las dos ramificaciones correspondientes a $r = 0$.
+
+\item Identificando la ramificiación $r = 0$ de la derecha con $r = r_+$ en la parte superior derecha de la figura \ref{fig: carter penrose diagram hayward}.
+
+\item Identificando la ramificiación $r = 0$ de la derecha con $r = r_+$ en la parte superior izquierda de la figura \ref{fig: carter penrose diagram hayward}.
+\end{itemize}
+
+Con las primeras dos identificaciones, el espacio-tiempo en cuestión sigue siendo orientable, mientas que con la tercera identificación, esto no es posible dado a que las geodésicas  futuramente orientadas cambian su dirección. Además, con la segunda identificación estaríamos excluyendo toda una parte del espacio-tiempo, que es la que contiene el punto que anteriormente era una singularidad, y no hay ninguna justificación física para excluir esta región. Por ende, es conveniente trabajar con la primera identificación.
 \newpage
-
-
-
 \section{\label{conclusions} Conclusiones}
 
 \newpage
