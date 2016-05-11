@@ -13,4 +13,4 @@
 \contentsline {subsection}{\numberline {4.2}M\IeC {\'e}trica de Hayward din\IeC {\'a}mica}{29}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}M\IeC {\'e}trica de Hayward modificada}{30}{subsection.4.3}
 \contentsline {section}{\numberline {5} Interpretaci\IeC {\'o}n f\IeC {\'\i }sica de la m\IeC {\'e}trica de Hayward}{35}{section.5}
-\contentsline {section}{\numberline {6} Conclusiones}{41}{section.6}
+\contentsline {section}{\numberline {6} Conclusiones}{42}{section.6}

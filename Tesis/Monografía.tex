@@ -328,7 +328,6 @@ h_{ab} = g_{\alpha \beta} E^{\alpha}_{a} E^{\alpha}_{b},
 \end{equation*}
 
 tiene los componentes 
-
 \begin{equation*}
 h_{vv} = g_{\alpha \beta} l^\alpha l^\beta = 0 \hspace{.5cm},\hspace{.5cm} h_{vk} = g_{\alpha \beta} l^\alpha E^{\beta}_{k} = 0, \hspace{.5cm},\hspace{.5cm} h_{km} \equiv s_{km} = g_{\alpha \beta} E^{\alpha}_{k} E^{\beta}_{m},
 \end{equation*}
@@ -450,6 +449,10 @@ S_{v,r}\ es\
 \ atrapada\ & para\ r<2m(v).
 \end{cases}
 \end{align*}
+\
+\\
+
+Con todas las herramientas desarrolladas en este capítulo, es posible estudiar las métricas de interés para este trabajo, a saber, la métrica de Bardeen, la de Vaidya y la de Hayward.
 
 \newpage
 \section{\label{previous metrics section} Métricas relevantes}
@@ -612,23 +615,21 @@ La segunda hiótesis se sigue automáticamente de la condición de energía déb
 
 La tercera hipótesis es satisfecha automáticamente en cualquier métrica que describa un espacio-tiempo-regular, que son precisamente las métricas que estamos estudianto en este documento.\\
 
-Finalmente, para explicar la última hipótesis se requiere es necesario recordar las definciones relacionadas con la estructura causal del espacio tiempo, las cuales están inspiradas en el espacio-tiempo de Schwarszchild.  El espacio-tiempo generado por la métrica de Bardeen (y por métricas inspiradas en la de Bardeen) satisfacen la condición de ser causalmente simples. Además, es necesario hacer alguna suposición sonre causalidad para que se tenga el argumento de cambio de topología, puesto que de no hacerlo, existen ejemplos basados en el universo de Gödel, en los que no se tiene ni singularidad ni cambio de topología.\\
+Finalmente, para explicar la última hipótesis se requiere es necesario usar las definciones relacionadas con la estructura causal del espacio tiempo, pero dada la complejidad de la misma, será explicada al final de este trabajo. Por ahora, solo es posible decir que el espacio-tiempo generado por la métrica de Bardeen (y por métricas inspiradas en la de Bardeen) satisfacen la condición de ser causalmente simples. Además, es necesario hacer alguna suposición sobre causalidad para que se tenga el argumento de cambio de topología, puesto que de no hacerlo, existen ejemplos basados en el universo de Gödel, en los que no se tiene ni singularidad ni cambio de topología.\\
 
-Habiendo explicado cada una de las hipótesis del teorema de Borde es preciso mencionar que no se tiene una comprensión completa del mismo, es decir, que no se logró comprender exactamente la necesidad de cada una de sus hipótesis para establecer ese resultado, ni su conexión directa entre el cambio de topología que plantea este teorema y el carácter regular de un espacio-tiempo dado. No obstante, que este teorema básicamente provee un converso para el teorema de Penrose, se tratará de desmenuzar el significado específico del teorema de Borde en un trabajo futuro.\\
+Habiendo explicado, en la meidida de lo posible, cada una de las hipótesis del teorema de Borde es preciso mencionar que no se tiene una comprensión completa del mismo, es decir, que no se logró entender exactamente la necesidad de cada una de sus hipótesis para establecer ese resultado, ni su conexión directa entre el cambio de topología que plantea este teorema y el carácter regular de un espacio-tiempo dado. No obstante, es posible afirmar que este teorema básicamente provee un converso para el teorema de Penrose, y sería interesante tratar de desmenuzar el significado específico del teorema de Borde en un trabajo futuro.\\
 
-Para finalizar esta sección sobre la métrica de Bardeen es preciso mencionar que, si bien lo que hemos hecho hasta el momento es el primer paso para estudiar las estrellas de Planck, dichas estrellas son descritas por espaciotiempos que no son estáticos en absoluto. Por ende, es necesario desarrollar herramientas que permitan estudiar la evolución dinámica inminente de las susodichas estrellas. La forma en que se abordará espaciotiempos que varían con el tiempo será a través de la famosa métrica de Vaidya.
+Para finalizar esta sección sobre la métrica de Bardeen es preciso mencionar que, si bien lo que hemos hecho hasta el momento es el primer paso para estudiar las estrellas de Planck, un aspecto muy interesante de dichas estrellas es su evolución dinámica, la cual es descrita en detalle en \cite{rovelliquantum}. Por ende, es necesario desarrollar herramientas que permitan estudiar la evolución dinámica inminente de las susodichas estrellas. La forma en que se abordará espaciotiempos que varían con el tiempo será a través de la famosa métrica de Vaidya.
 
 \subsection{Métrica de Vaidya}
 
 La métrica de Vaidya \cite{padmanabhan} es una generalización de la métrica de Schwarzschild que puede ser interpretada como un espaciotiempo con una radiación saliente y esféricamente simétrica de partículas sin masa.\\
 
 Esta métrica puede ser hallada a partir de la de Schwarzschild 
-
 \begin{equation}
 ds^2 = -\left( 1 - \frac{2m}{r} \right) + \left( 1 - \frac{2m}{r} \right)^{-1}dr^2 + r^2d\Omega^2,
 \end{equation}
 y para ello es necesario pasar a coordenadas de Eddington-Finkelstein, en las que la coordenada temporal $t$ es reemplazada por una nueva coordenada $u$ que satisface
-
 \begin{equation}
 dt = du + \frac{dr}{(1 - 2m/r)}.
 \end{equation}
@@ -636,7 +637,6 @@ dt = du + \frac{dr}{(1 - 2m/r)}.
 Para la interpretación física de esta nueva coordenada, note que $u = cte$ corresponde a curvas que satisfacen la ecuación $dr/dt = +\left( 1 -2m/r \right)$. Las líneas radiales nulas en el espaciotiempo de Schwarzschild corresponden a curvas con $d\theta = d\phi = ds = 0$ y en términos de $r$ y $t$ satisfacen $(dr/dt)^2 = \left( 1 -2m/r \right)^2$. La raíz positiva de esta ecuación representa líneas de tipo nulo dirigidas radialmente hacia afuera (la raíz negativa, a rayos dirigidos radialmente hacia adentro).\\
 
 Con dicha transformación, el elemento de línea se convierte en 
-
 \begin{equation}
 \label{schw-tortoise}
 ds^2 = - \left(1- \frac{2m}{r}\right)du^2 - 2dudr + r^2d\Omega^2.
@@ -649,11 +649,9 @@ Con respecto a las condiciones de energía, es claro que por la forma del EMT pa
 Ahora bien, a parte de la presencia de radiación, la métrica de Vaidya posee una característica fundamental que la diferencia radicalmente de la métrica de Schwarzschild, y esto es el tipo de superficie (horizonte) en $r = 2m(u)$. En el espacioteimpo de Schwarzschild, $r = 2m$ representa una superficie de tipo nulo que denota el conocido horizonte de eventos. Por su parte, a continuación se verá que en el espaciotiempo de Vaidya la superficie $r = 2m(u)$ es de tipo espacio y por ende no puede ser asociada a un horizonte de eventos. De hecho, esta superficie conforma lo que usualmente es denominado en la literatura \cite{blau,griffiths2009,wald2010} como horizonte aparente.\\
 
 
-Un horizonte aparente se define técnicamente como una hipersuperficie que separa las regiones que poseen superficies atrapadas de las regiones que no contienen este tipo de superficies. No obstante, en aras de dar una definción matemáticamente más concreta de horizontes aparentes es necesario formalizar matmáticamente la definición de hipersuperficies nulas y definir el concepto de divergencia de campos vectoriales.\\
+Un horizonte aparente se define técnicamente como una hipersuperficie que separa las regiones que poseen superficies atrapadas de las regiones que no contienen este tipo de superficies. No obstante, en aras de dar una definción matemáticamente más concreta de horizontes aparentes es necesario recordar la formalización matmática de las de hipersuperficies nulas y el concepto de divergencia de campos vectoriales, mencionados en la Sec. \ref{preliminaries section}.\\
 
-
-
-Considerando lo previamente mencionado, el horizonte de eventos del agujero negro de Schwarzschild puede ser caracterizado, con las nuevas herramientas, como la hipersuperficie nula que consiste de las esferas marginalmente atrapadas con $r = 2m$, esto es
+Considerando dichas definiciones, el horizonte de eventos del agujero negro de Schwarzschild puede ser caracterizado, en términos de esas herramientas, como la hipersuperficie nula que consiste de las esferas marginalmente atrapadas con $r = 2m$, esto es
 \begin{equation*}
 \mathcal{T} = \cup_{\substack{v}}S_{v,r = 2m}.
 \end{equation*}
@@ -671,7 +669,7 @@ ds^2|_{\substack{f(v,r)=0}} = 4m'(v)dv^2 + (2m(v))^2d\Omega^2,
 
 por ende, si la condición de energía nula $m'(v) \geq 0$ se satisface (como lo hace en la métrica de Hayward estudiada posteriormente), $\mathcal{T}$ es tipo espacio a menos que $m'(v) = 0$, caso en el cual la superficie es tipo nulo. Esto pone en evidencia la radical diferencia que ya se había referido entre la métrica de Schwarzschild y la métrica de Vaidya, a saber, que la hipersuperficie $r = 2m(v)$ deja de ser un horizonte de eventos puesto que ya no correponde a una hipersuperficie tipo nulo, sino una tipo espacio.\\
 
-Finalmente, este tipo de superficies constituyen los afamados horizontes aparentes, los cuales corresponden a un tubo marginalmente atrapado de acuerdo a \cite{blau}. Los tubos marginalmente atrapados son simplemente 3-superficies foliadas por superficies marginalmente atrapadas, esto es, superficies con $\theta_n <0$ y $\theta_l = 0$. He aquí la utlidad de la divergencia de campos vectoriales, particularmente, de los campos vectoriales tangentes y normales a la hipersuperficie de interés, pues en terminos de sus signos se caracteriza completamente el tipo de dicha superficie, y por ende, la existencia o no de horizontes de eventos para un espacio-tiempo dado.	
+Finalmente, este tipo de superficies constituyen los afamados horizontes aparentes, los cuales corresponden a un tubo marginalmente atrapado de acuerdo a \cite{blau}. Los tubos marginalmente atrapados son simplemente 3-superficies foliadas por superficies marginalmente atrapadas, esto es, superficies con $\theta_n <0$ y $\theta_l = 0$. He aquí la utlidad de la divergencia de campos vectoriales, particularmente, de los campos vectoriales tangentes y normales a la hipersuperficie de interés, pues en terminos de sus signos se caracteriza completamente el tipo de dicha superficie, y por ende, la existencia o no de horizontes de eventos para un espacio-tiempo dado.
 
 \newpage
 \section{\label{planck stars section} Métrica de Hayward}
@@ -683,14 +681,12 @@ Teniendo todas las herramientas estudiadas en las seccioes anteriores, es posibl
 Si bien es posible encontrar métricas como la de Bardeen, es decir, esféricamente simétricas, estáticas, asintóticamente planas, con centros regulares, cuyos EMT es físicamente razonable, en particular que satisface la WEC. No obstante, dichos espaciotiempos típicamente soy considerados como no-físicos en tanto que poseen horizontes de Cauchy. No obstante, si consideramos la evaporación de uno de esos agujeros negros, el horizonte de cauchy pasa a user tan real como el horizonte de eventos.  Precisamente, las estrellas de Planck son descritas por métricas regulares dno estáticas (dinámicas) que satisfacen todas las propiedades anteriormente mencionadas, y que además poseen la característica adicional de incluir correcciones de teoría cuántica de campos en relatividad general.\\
 
 Con el fin de entender paulatinamente el concepto de estrella de Planck, es preciso dividir su estudio entre la parte estática y la parte dinámica. La parte estática es descrita por la métrica de Hayward, la cual está dada por 
-
 \begin{equation}
 \label{hayward metric}
 ds^2 = -\left( 1 - \frac{2mr^2}{r^3 + 2ml^2} \right) dt^2 + \left( 1 - \frac{2mr^2}{r^3 + 2ml^2} \right)^{-1} dr^2 + r^2d\Omega ^2,
 \end{equation}
 
 donde $m$ y $l$ son parámetros cuya interpretación física se explicará más adelante. Claramente, para esta métrica tenemos que
-
 \begin{equation}
 \label{hayward mass}
 m(r) =  \frac{mr^3}{r^3 + 2ml^2}.
@@ -707,13 +703,11 @@ Por ende, la métrica de Hayward satisface inmediatamente la WEC en tanto que
 \end{equation}
 
 Como en el caso de Bardeen, la métrica de Hayward describe un espaciotiempo regular puesto que, por un lado, 
-
 \begin{equation}
 f_{hayward}(r) \underset{r \to 0}{\sim} 1 - \frac{r^2}{l^2} + \mathcal{O}(r^5),
 \end{equation}
 
 es decir, es de Sitter en la vecindad de $r =0$, y por otro, sus invariantes de curvatura
-
 \begin{equation}
 \label{hayward scalars}
 \begin{gathered}
@@ -726,45 +720,40 @@ R_{\mu \nu \sigma \rho}R^{\mu \nu \sigma \rho} = \frac{48 m^2 \left(32 l^8 m^4-1
 permanecen finitos en todo el espaciotiempo.\\
 
 Ahora bien, al analizar los ceros de $f_{hayward}(r)$ revela una masa crítica de $m_{*} = (3\sqrt{3}/4)l$ y un radio crítico de $r = \sqrt{3}l$. Dado lo anterior, si $m < m_{*}$, la métrica \ref{hayward metric} describe un espaciotiempo regular con la misma estructura causal que cualquier espaciotiempo plano; si $m = m_{*}$ tenemos un agujero negro regular con un único horizonte de eventos degenerado; y si $m > m_{*}$ tenemos un agujero negro con dos horizontes de eventos. Esto se ve reflejado en la fig. \ref{fig: fhayward analysis}. 
-
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.75\textwidth]{fhaywardAnalysis}
-	\caption{Posibles casos de agujeros negros para la métrica de Hayward con para un valor fijo del parámetro $l$ y diferentes valores del parámetro $m$. La estructura causal de este espaciotiempo es similar a la de Reissner Norström.}
+	\caption{Posibles casos de agujeros negros para la métrica de Hayward con para $l=1$ en unidades naturales y diferentes valores del parámetro $m$. La estructura causal de este espaciotiempo es similar a la de Reissner Norström.}
 	\label{fig: fhayward analysis}
 \end{figure}
 
 Evidentemente, la pregunta natural con respecto a las anteriores consideraciónes es cuál es la fuente física que da origen a esta métrica. Para contestarla, note que 
-
 \begin{equation}
 f_{hayward}(r) \underset{r \to \infty}{\sim} 1 - \frac{2m}{r} + \frac{4l^2m^2}{r^4} + \mathcal{O}(r^{-5}),
 \end{equation}
 
-luego, al igual que en el caso de Bardeen, podemos interpretar el parámetro $m$ como la masa de la distribución que genera el elemento de línea \eqref{hayward metric}. No obstante, dada la presencia del término $r^{-4}$, es imposible interpretar el parámetro $l$ en términos de una carga coulombiana. De hecho, Hayward plantea que $l$ da aproximadamente la escala de longitud debajo de la cual los efectos de cuánticos en gravedad comienzan a ser dominantes, razón por la cual es de esperar que $l$ sea la longitud de Planck o del mismo orden de magnitud, aunque longitudes mayores no son excluídas. Cabe mencionar que sería interesante hallar una interpretación física para el parámetro $l$ tal como se mostró para el parámetro $g$ en el caso de Bardeen, es decir, hallando una fuente de electrodinámica no-lineal para la función de masa \eqref{hayward mass}, y por ende, para el elemento de línea \eqref{hayward metric}. Si hay suficiente tiempo, dicha interpretación se colocará en la sección de anexos.\\
+luego, al igual que en el caso de Bardeen, podemos interpretar el parámetro $m$ como la masa de la distribución que genera el elemento de línea \eqref{hayward metric}. No obstante, dada la presencia del término $r^{-4}$, es imposible interpretar el parámetro $l$ en términos de una carga coulombiana. De hecho, Hayward plantea que $l$ da aproximadamente la escala de longitud debajo de la cual los efectos de cuánticos en gravedad comienzan a ser dominantes, razón por la cual es de esperar que $l$ sea la longitud de Planck o del mismo orden de magnitud, aunque longitudes mayores no son excluídas. Cabe mencionar que sería interesante hallar una interpretación física para el parámetro $l$ tal como se mostró para el parámetro $g$ en el caso de Bardeen, es decir, hallando una fuente de electrodinámica no-lineal para la función de masa \eqref{hayward mass}, y por ende, para el elemento de línea \eqref{hayward metric}. 
 
 
 \subsection{Métrica de Hayward dinámica}
 
 Para la parte dinámica de las estrellas de Planck es preciso considerar la coordenada avanzada de Eddignton-Finkelstein entrantes, las cuales se obtienen a partir de
-
 \begin{equation}
 dt = dv - \frac{dr}{(1 - 2m(r)/r)}.
 \end{equation}
 
 En términos de la nueva coordenada, el elemento de línea \eqref{hayward metric} se transforma en 
-
 \begin{equation}
 \label{hayward-tortoise}
 ds^2 = -\left( 1 - \frac{2mr^2}{r^3 + 2ml^2} \right) dv^2 + 2dvdr + r^2d\Omega ^2,
 \end{equation}
 
 y al generalizar la función de masa a $m = m(v)$ tenemos que el EMT asociado a \eqref{hayward-tortoise} es
-
 \begin{equation}
 \begin{aligned}
-T_{t}^{\ t} &= T_{r}^{\ r} = -\frac{12 l^2 m^2}{\left(2 l^2 m+r^3\right)^2}, \\
-T_{\theta}^{\ \theta} &= T_{\phi}^{\ \phi} = -\frac{24 l^2 m^2 \left(l^2 m-r^3\right)}{\left(2 l^2 m+r^3\right)^3},\\
-T_{v}^{\ r} &= \frac{2r^4m'}{(r^3 + 2l^2m)^2},
+T_{t}^{\ t} &= T_{r}^{\ r} = -\frac{12 l^2 m^2}{8\pi\left(2 l^2 m+r^3\right)^2}, \\
+T_{\theta}^{\ \theta} &= T_{\phi}^{\ \phi} = -\frac{24 l^2 m^2 \left(l^2 m-r^3\right)}{8\pi\left(2 l^2 m+r^3\right)^3},\\
+T_{v}^{\ r} &= \frac{2r^4m'}{8\pi(r^3 + 2l^2m)^2},
 \end{aligned}
 \end{equation}
 
@@ -772,7 +761,6 @@ donde $m' = dm/dv$. Las componentes $T_{t}^{\ t}$, $T_{r}^{\ r}$, $T_{\theta}^{\
 
 En analogía con la métrica de Vaidya, es posible que los horizontes de eventos de la métrica de Hayward estática se ``convierten'' en horizontes aparentes en el caso dinámico. 
 
-¡OJO! 1/8$\pi$ en los EMT
 
 \subsection{Métrica de Hayward modificada}
 
@@ -781,7 +769,6 @@ Con respecto a lo mencionado sobre la escala de Planck, estudios posteriores al 
 De acuerdo a De lorenzo \emph{et al.}, la mayoría de las métricas correspondientes a modelos de agujeros negros regulares poseen dos características que carecen de sentido físico, a saber, que un reloj en el centro regular no presenta ningún retraso con respecto a un reloj en el infinito, y que no reroducen las correcciones efectivas de toería cuańtica de campos al potencial Newtoniano \cite{lorenzo}. Por estos motivos, los autores proponen una modificación a la métrica de interés, en este caso la de Hayward, que corrige estos ``defectos'' de dicha métrica.\\
 
 La corrección efectiva de teoría cuántica de campos al potencial Newtoniano es
-
 \begin{equation}
 \label{newF}
 \Phi (r) = -\frac{M}{r} \left( 1 + \beta \frac{l_{p}^2}{r^2} \right) + \mathcal{O}(r^{-4}),
@@ -979,7 +966,7 @@ Dadolo anterior, hay una gran diferencia dependiendo de la posición relativa de
 Ahora bien, si esto es lo que realmente pasa en la naturaleza, el interior de un agujero negro formado por una estrella que ha colapsado gravitacionalmente puede ser modelado por euna métrica efectiva que es solución exacta de las ecuaciones de campo de Einstein en el exterior de la región planckiana, pero no en el interior de la misma, debido a los efectos cúánticos previamente aludidos. Las propiedades de una métrica así se pueden visualizar de la siguiente manera. En las coordenadas de Eddington-Finkelstein, los conos de luz, los cuales se doblan hacia adentro en el horizonte externo del agujero, vuelven a apuntar hacia arriba de forma continua cuando entran en la región planckiana. De esta manera, hay un segundo horizonte atrapado dentro del horizonte de Schwarzschild, a una escala $r_{in}$ relacionda con la escaloa de Planck. Esto puede verse gráficamente en la fig. \ref{fig: light cones}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.35\textwidth]{lightcones}
+	\includegraphics[width=0.55\textwidth]{lightcones}
 	\caption{Ilustración del doblamiento hacia adentro y hacia arriba en los dos radios mencionados, para una estrella de Planck en coordenadas de Eddigton-Finkelstein. Imagen tomada de \cite{rovelli}.}
 	\label{fig: light cones}
 \end{figure}

@@ -118,6 +118,12 @@ A.~{Borde}.
 \newblock {Regular black holes and topology change}.
 \newblock {\em Phys. Rev. D}, 55:7615--7617, June 1997.
 
+\bibitem{rovelliquantum}
+H.~M. {Haggard} and C.~{Rovelli}.
+\newblock {Quantum-gravity effects outside the horizon spark black to white
+  hole tunneling}.
+\newblock {\em Phys. Rev. D}, 92(10):104020, November 2015.
+
 \bibitem{padmanabhan}
 Thanu Padmanabhan.
 \newblock {\em Gravitation: foundations and frontiers}.
@@ -133,12 +139,6 @@ J.B. Griffiths and J.~Podolsk{\`y}.
 R.M. Wald.
 \newblock {\em General Relativity}.
 \newblock University of Chicago Press, 2010.
-
-\bibitem{rovelliquantum}
-H.~M. {Haggard} and C.~{Rovelli}.
-\newblock {Quantum-gravity effects outside the horizon spark black to white
-  hole tunneling}.
-\newblock {\em Phys. Rev. D}, 92(10):104020, November 2015.
 
 \bibitem{ashtekar2006}
 A.~{Ashtekar}, T.~{Pawlowski}, and P.~{Singh}.
