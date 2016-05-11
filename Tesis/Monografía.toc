@@ -8,9 +8,9 @@
 \contentsline {section}{\numberline {3} M\IeC {\'e}tricas relevantes}{16}{section.3}
 \contentsline {subsection}{\numberline {3.1} M\IeC {\'e}trica de Bardeen}{16}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}M\IeC {\'e}trica de Vaidya}{23}{subsection.3.2}
-\contentsline {section}{\numberline {4} M\IeC {\'e}trica de Hayward}{27}{section.4}
-\contentsline {subsection}{\numberline {4.1}M\IeC {\'e}trica de Hayward est\IeC {\'a}tica}{27}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}M\IeC {\'e}trica de Hayward din\IeC {\'a}mica}{29}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}M\IeC {\'e}trica de Hayward modificada}{30}{subsection.4.3}
-\contentsline {section}{\numberline {5} Interpretaci\IeC {\'o}n f\IeC {\'\i }sica de la m\IeC {\'e}trica de Hayward}{35}{section.5}
-\contentsline {section}{\numberline {6} Conclusiones}{42}{section.6}
+\contentsline {section}{\numberline {4} M\IeC {\'e}trica de Hayward}{26}{section.4}
+\contentsline {subsection}{\numberline {4.1}M\IeC {\'e}trica de Hayward est\IeC {\'a}tica}{26}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}M\IeC {\'e}trica de Hayward din\IeC {\'a}mica}{28}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}M\IeC {\'e}trica de Hayward modificada}{29}{subsection.4.3}
+\contentsline {section}{\numberline {5} Interpretaci\IeC {\'o}n f\IeC {\'\i }sica de la m\IeC {\'e}trica de Hayward}{34}{section.5}
+\contentsline {section}{\numberline {6} Conclusiones}{40}{section.6}
