@@ -11,8 +11,8 @@
 \setbeamertemplate{bibliography item}{\insertbiblabel}
 \numberwithin{equation}{section}
 \usepackage{amsthm}
-
-
+\newtheorem{definicion}{Definición}
+\newtheorem{teorem}{Teorema}
 
 
 \title[Estrellas de Planck]{Estudio de Estrellas de Planck}
@@ -22,7 +22,7 @@
 {\normalsize
 Universidad de los Andes, Bogotá, Colombia \\ 
 }
-\date{Abril 29, 2016} 
+\date{Mayo 24, 2016} 
 
 \begin{document}
 
@@ -58,10 +58,10 @@ Universidad de los Andes, Bogotá, Colombia \\
 \item Obtener un conocimiento más profundo de la relatividad general.
 \vspace*{\fill}
 
-\item Conocer las limitaciones y fallas de la teoría general de relatividad.
+\item Conocer algunas limitaciones y fallas de dicha teoría.
 \vspace*{\fill}
 
-\item Entender la regularización de agujeros negros y los conceptos físicos detrás de esto.
+\item Entender la regularización de agujeros negros y los conceptos físicos detrás de este proceso.
 \vspace*{\fill}
 
 \item Conocer un poco acerca de teoría cuántica de campos efectiva en relatividad general.
@@ -81,15 +81,15 @@ Universidad de los Andes, Bogotá, Colombia \\
 %Ojo con las implicaciones
 \begin{frame}{Condiciones de energía}
 \vspace{\fill}
-Las condiciones de energía son \cite{carroll}
+Las condiciones de energía son \cite{carroll,hawking}
 
 \begin{itemize}
 \item \textbf{NEC:} $\rho \geq 0$
-
+\vspace*{\fill}
 \item \textbf{WEC:} $\rho \geq 0$,  $\rho + p_{i} \geq 0$ para $i \in \{1,2,3\}$.
-
+\vspace*{\fill}
 \item \textbf{DEC:} $\rho \geq 0$,  $\rho + p_{i} \geq 0$, $\rho \geq |p_{i}|$ para $i \in \{1,2,3\}$.
-
+\vspace*{\fill}
 \item \textbf{SEC:} $\rho + p_{i} \geq 0$ y $\rho + 3p_{i} \geq 0$.
 \end{itemize}
 
@@ -102,7 +102,7 @@ Para el estudio de agujeros negros regulares, la única condición de energía q
 \subsection{Procedimiento General}
 
 \begin{frame}{Procedimiento general}
-Forma general del elemento de línea esféricamente siméetrico y estático:
+Forma general del elemento de línea esféricamente simétrico y estático:
 
 \begin{equation}
 \label{general static spherical}
@@ -164,13 +164,12 @@ R_{\mu \nu \sigma \rho}R^{\mu \nu \sigma \rho} = \frac{12 m^2 \left(8 g^8-4 g^6 
 \end{frame}
 
 \begin{frame}{Métrica de Bardeen}
-La condición de energía deil se satisface automáticamente puesto que al usar la función de masa
+La condición de energía débil se satisface automáticamente puesto que al considerar la función de masa
 \begin{equation}
 m(r) = \frac{mr^3}{(r^2 + g^2)^{3/2}},
 \end{equation}
 
 se tiene que
-
 \begin{align}
 \begin{aligned}
 \frac{1}{r^2}\frac{dm(r)}{dr} &= \frac{6 m g^2}{\left(g^2+r^2\right)^{5/2}},\\
@@ -181,7 +180,7 @@ se tiene que
 \end{frame}
 
 \begin{frame}{Métrica de Bardeen}
-Para la interpretación física de la métrica de Bardeen, se requiere acoplar RG con electrodinámic no-lineal \cite{ayon-beato2000}
+Para la interpretación física de la métrica de Bardeen, se requiere acoplar RG con electrodinámica no-lineal \cite{ayon-beato2000}
 
 \begin{equation}
 \mathcal{S} = \int dv \left( \frac{1}{16 \pi}R - \frac{1}{4 \pi}\mathcal{L}(F) \right),
@@ -192,7 +191,7 @@ Para la interpretación física de la métrica de Bardeen, se requiere acoplar R
 \mathcal{L}(F) = \frac{3}{2sg^2}\left( \frac{\sqrt{2g^2F}}{1 + \sqrt{2g^2F}} \right)^{5/2},\ s = \frac{|g|}{2m}
 \end{equation}
 
-Con el ansatzs $F_{\mu \nu} = 2 \delta^{\theta}_{\ \lbrack\mu} \delta^{\varphi}_{\ \nu\rbrack} B(r, \theta)
+Con el ansatz $F_{\mu \nu} = 2 \delta^{\theta}_{\ \lbrack\mu} \delta^{\varphi}_{\ \nu\rbrack} B(r, \theta)
 $,
 
 \begin{equation*}
@@ -215,7 +214,7 @@ Para la interpretación del carácter regular de la métrica de Bardeen
 
 \begin{frame}{Métrica de Bardeen}
 \vspace{\fill}
-\begin{theorem}[Borde, 1996]
+\begin{teorem}[Borde, 1996]
 	\label{borde reg thm}
 	Suponga que una espaciotiempo $\mathcal{M}$ satisface que
 	
@@ -224,18 +223,18 @@ Para la interpretación del carácter regular de la métrica de Bardeen
 		
 		\item obedece la condición de convergencia nula,
 		
-		\item el cojunto de geodésicas nulas futuras es completo,
+		\item el conjunto de geodésicas nulas futuras es completo,
 		
 		\item su futuro causal es simple, con $E^{+}(X) \neq \emptyset,\ \forall X \subset \mathcal{M} \text{\ acronal}$.
 	\end{enumerate}
 	
 	Entonces hay una sección espacial compacta en el futuro de $\mathcal{T}$.
-\end{theorem}
+\end{teorem}
 \vspace{\fill}
 \end{frame}
 
 \begin{frame}{Métrica de Bardeen}
-\begin{theorem}[Penrose, 1965]
+\begin{teorem}[Penrose, 1965]
 \label{penrose sing thm}
 Si un espaciotiempo satisface que
 
@@ -248,7 +247,7 @@ Si un espaciotiempo satisface que
 \end{enumerate}
 
 entonces dicho espacio tiempo posee geodésicas incompletas de tipo nulo futuro.
-\end{theorem}
+\end{teorem}
 
 Un \textbf{horizonte de Cauchy} básicamente es una superficie que separa dos regiones del espacio: una que contiene geodésicas cerradas tipo espacio y otra que contiene curvas cerradas tipo tiempo.
 \end{frame}
@@ -279,9 +278,9 @@ ds^2 = - \left(1- \frac{2m(u)}{r}\right)du^2 - 2dudr + r^2d\Omega^2.
 
 Diferencia crucial con Schwarzschild: $r = 2m(u)$ deja de ser un horizonte de eventos y se convierte en un horizonte aparente.
 
-\begin{definition}[Horizonte aparente]
+\begin{definicion}[Horizonte aparente]
 Un horizonte aparente es una hipersuperficie que separa las regiones que poseen superficies atrapadas de las regiones que no contienen este tipo de superficies.
-\end{definition}
+\end{definicion}
 
 \end{frame}
 
@@ -370,7 +369,7 @@ ds^2 = -\left( 1 - \frac{2m(u)r^2}{r^3 + 2m(v)l^2} \right) du^2 - 2dudr + r^2d\O
 
 \begin{frame}{Métrica de Hayward modificada}
 \vspace*{\fill}
-Las métricas de las estrellas de Planck deberían incluir
+Las métricas de las estrellas de Planck deberían incluir \cite{lorenzo}
 
 \begin{itemize}
 \item La corrección de loop quantum gravity al potencial Newtoniano, dada por
@@ -402,7 +401,7 @@ donde
 
 \begin{equation}
 \label{mod-hay-f}
-F(r) = 1 - \frac{mr^2}{r^3 + 2ml^2},
+F(r) = 1 - \frac{2mr^2}{r^3 + 2ml^2},
 \end{equation}
 
 y la función $G(r)$ se explica a continuación.
@@ -410,7 +409,7 @@ y la función $G(r)$ se explica a continuación.
 \end{frame}
 
 \begin{frame}{Métrica de Hayward Modificada}
-las condiciones físicas que se le exigen a $G(r)$ son
+Las condiciones físicas que se le exigen a $G(r)$ son
 \begin{itemize}
 \item Preservar el comportamiento de Schwarzschild para $r \to \infty$.
 \item Incluir la corrección cuántica del potencial newtoniano \eqref{newF}.
@@ -442,32 +441,31 @@ donde $\alpha$ está dado por
 \vspace{\fill}
 \item Las estrellas de Planck son una alternativa de regularización de agujeros negros, que plantea una nueva instancia el la vida de un agujero negro.
 \vspace*{\fill}
-\item Loop quantum gravity es una alternativa relativamente sencilla de incluir en relatividad general clásica.
+\item Las estrellas de Planck pueden alcanzar una densidad del orden de la densidad de Planck a escalas de longitud mucho mayores que la longitud de Planck.
 \end{itemize}
 \end{frame}
 
 
 \begin{frame}
 \frametitle{Trabajo Futuro}
-\vspace{\fill}
+\vspace*{\fill}
 \begin{itemize}
 \item Entender profundamente el teorema de Borde y sus múltiples aplicaciones en este trabajo.
 
+\vspace*{\fill}
+\item Entender el carácter regular de la métrica de Bardeen en términos del teorema de Borde.
 
-
-\item Entender, en la medida de lo posible, el carácter regular de la métrica de Bardeen en términos del teorema de Borde.
-
-
+\vspace*{\fill}
 \item Entender la derivación de las correcciones de teoría cuántica de campos efectiva del potencial Newtoniano.
 
-\item Entender la solución de la paradoja de la pérdida de información en agujeros negros.
+\vspace*{\fill}
+\item Entender la solución de la paradoja de la pérdida de información en agujeros negros \cite{rovelliquantum}.
 \end{itemize}
 \vspace{\fill}
 \end{frame}
 
 \section{Referencias}
-\begin{frame}{Referencias}
-%[t, allowframebreaks]
+\begin{frame}[t, allowframebreaks]{Referencias}
 \footnotesize
 \bibliographystyle{unsrt}
 \bibliography{Biblio}
@@ -476,11 +474,13 @@ donde $\alpha$ está dado por
 
 \begin{frame}
 \Huge{
-\vspace{\fill}
+\
+\\
+\vspace*{\fill}
 \centerline{
-Gracias por su atención!}
+¡Gracias por su atención!}
 }
-\vspace{\fill}
+\vspace*{\fill}
 \end{frame}
 
 

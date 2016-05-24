@@ -6,6 +6,11 @@ Sean~M {Carroll}.
   volume~1.
 \newblock Addison Wesley, 1st edition, 2004.
 
+\bibitem{hawking}
+S.W. {Hawking} and G.F.R. {Ellis}.
+\newblock {\em The Large Scale Structure of Space-time}, volume~1.
+\newblock Cambridge University Press, 20th edition, 1973.
+
 \bibitem{vanegas-weak}
 L.~{Balart} and E.~C. {Vagenas}.
 \newblock {Regular black hole metrics and the weak energy condition}.
@@ -26,5 +31,16 @@ J.~M. {Bardeen}.
 A.~{Borde}.
 \newblock {Open and closed universes, initial singularities, and inflation}.
 \newblock {\em Phys. Rev. D}, 50:3692--3702, September 1994.
+
+\bibitem{lorenzo}
+T.~{De Lorenzo}, C.~{Pacilio}, C.~{Rovelli}, and S.~{Speziale}.
+\newblock {On the effective metric of a Planck star}.
+\newblock {\em General Relativity and Gravitation}, 47:41, April 2015.
+
+\bibitem{rovelliquantum}
+H.~M. {Haggard} and C.~{Rovelli}.
+\newblock {Quantum-gravity effects outside the horizon spark black to white
+  hole tunneling}.
+\newblock {\em Phys. Rev. D}, 92(10):104020, November 2015.
 
 \end{thebibliography}
